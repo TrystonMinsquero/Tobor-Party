@@ -326,8 +326,20 @@ MonoBehaviour:
     m_ActionName: Gameplay/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 3a12a008-7538-4755-9df0-a574b97fa155
-    m_ActionName: Gameplay/Shoot[/XInputControllerWindows/rightTrigger,/Keyboard/space,/Mouse/leftButton,/Keyboard/e]
+    m_ActionId: 45479a6d-94a7-471d-91f4-5c337fe68bb8
+    m_ActionName: Racing/New action
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0b219f1d-2692-4ae0-afb5-30924ecc7af6
+    m_ActionName: Racing/Accelerate[/XInputControllerWindows/rightTrigger,/Mouse/leftButton,/Keyboard/upArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9ad87dab-b716-44f5-ae72-898bcd578e4e
+    m_ActionName: Racing/Reverse[/Keyboard/downArrow,/XInputControllerWindows/leftTrigger,/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f91ce767-0c6e-45b1-8161-345c4fccc558
+    m_ActionName: Racing/Turn[/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
