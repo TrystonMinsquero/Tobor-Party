@@ -2,22 +2,22 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInput))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : Player
 {
     private Vector2 movementInput;
     private Controls controls;
 
+    private PlayerInput _playerInput;
+
     private void Awake()
     {
         controls = new Controls();
-    }
+        transform.tag = "Player";
+        DontDestroyOnLoad(this.gameObject);
 
-    private void FixedUpdate()
-    {
-        transform.Translate(movementInput);
+        _playerInput = GetComponent<PlayerInput>();
+        
     }
-
-    public void OnMove(InputAction.CallbackContext ctx) { movementInput = ctx.ReadValue<Vector2>(); }
 
     private void OnEnable()
     {

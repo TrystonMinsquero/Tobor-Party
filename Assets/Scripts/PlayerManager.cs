@@ -21,7 +21,6 @@ public class PlayerManager : MonoBehaviour
             instance = this;
 
         players = new Player[maxPlayers];
-        DontDestroyOnLoad(this);
     }
 
     private void Update()
@@ -111,7 +110,7 @@ public class PlayerManager : MonoBehaviour
         playerCount++;
 
         player.name = "Player " + (playerIndex + 1);
-        player.transform.parent = instance.transform;
+        //player.transform.parent = instance.transform;
 
         if (inGame)
         {
