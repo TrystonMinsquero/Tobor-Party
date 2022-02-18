@@ -7,7 +7,8 @@ using Vector3 = UnityEngine.Vector3;
 
 struct FrameInputs
 {
-    public Vector3 direction;
+    public float turn;
+    public float accel;
 }
 
 [RequireComponent(typeof(CarController))]
@@ -19,11 +20,16 @@ public class Car : MonoBehaviour
     public Transform tobor;
 
     public AnimationCurve accelCurve;
+    public AnimationCurve turnCurve;
     public float maxSpeed = 15, acceleration = 5;
-    public float rotSpeed = 5;
+    public float turnSpeed = 10;
+    public float visualRotSpeed = 5;
     public float bumpForce = 50;
     public float friction = 0.1f;
     public float gravity = -10;
+    public AnimationCurve turnVelocityCurve;
+
+    public float turnAngle = 0;
 
     public Vector3 normal;
 
@@ -46,11 +52,25 @@ public class Car : MonoBehaviour
 
     void FixedUpdate()
     {
-        var add = Quaternion.Euler(0, rotation.y, 0) * inputs.direction;
-        rb.velocity = Vector3.MoveTowards(rb.velocity, 
-            Vector3.ClampMagnitude(
-                rb.velocity + add * Time.fixedDeltaTime * acceleration, maxSpeed), 
-            acceleration * Time.fixedDeltaTime * accelCurve.Evaluate(rb.velocity.magnitude / maxSpeed));
+        var change = inputs.turn * Time.fixedDeltaTime * turnCurve.Evaluate(rb.velocity.magnitude / maxSpeed) * turnSpeed * Mathf.Sign(Vector3.Dot(rb.velocity, Quaternion.Euler(0, turnAngle, 0) * Vector3.forward));
+        turnAngle += change;
+        turnAngle %= 360;
+        rb.velocity = Quaternion.Euler(0, change * turnVelocityCurve.Evaluate(rb.velocity.magnitude / maxSpeed), 0) * rb.velocity;
+
+        var addedVelocity = Quaternion.Euler(0, turnAngle, 0) * Vector3.forward * inputs.accel * Time.fixedDeltaTime * acceleration;
+        var s = rb.velocity + addedVelocity;
+        var y = s.y;
+        s.y = 0;
+        var targetVelocity = Vector3.ClampMagnitude(s, maxSpeed);
+        var maxChange = acceleration * Time.fixedDeltaTime * accelCurve.Evaluate(rb.velocity.magnitude / maxSpeed);
+
+        var vel = rb.velocity;
+        vel.y = 0;
+        vel = Vector3.MoveTowards(vel, targetVelocity, maxChange);
+        vel.y = y;
+        rb.velocity = vel;
+
+        // Gravity
         rb.AddForce(gravity * Vector3.down * Time.fixedDeltaTime);
         rb.velocity = Vector3.MoveTowards(rb.velocity, Vector3.zero,
             rb.velocity.magnitude * friction * Time.fixedDeltaTime);
@@ -65,9 +85,8 @@ public class Car : MonoBehaviour
     void Update()
     {
         var d = _controller.MoveInput;
-        var dir = new Vector3(d.x, 0, d.y);
-        dir.Normalize();
-        inputs.direction = dir;
+        inputs.turn = d.x;
+        inputs.accel = d.y;
     }
     #endregion
 
@@ -103,7 +122,7 @@ public class Car : MonoBehaviour
         if (dir.sqrMagnitude < 0.4f)
             dir = tobor.rotation * Vector3.forward;
         var tar = Quaternion.LookRotation(dir, normal);
-        tobor.rotation = Quaternion.Slerp(rot, tar, Time.deltaTime * rotSpeed);
+        tobor.rotation = Quaternion.Euler(0, turnAngle, 0);  //Quaternion.Slerp(rot, tar, Time.deltaTime * visualRotSpeed));
     } 
     #endregion
 }
