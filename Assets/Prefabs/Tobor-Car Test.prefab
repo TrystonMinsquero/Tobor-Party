@@ -231,9 +231,41 @@ MonoBehaviour:
   rb: {fileID: 4540808129453799083}
   cam: {fileID: 4540808127819702265}
   tobor: {fileID: 4540808129410557935}
-  rotSpeed: 100
+  toborRotSpeed: 20
+  normal: {x: 0, y: 0, z: 0}
+  fovCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 70
+      inSlope: 0.10482788
+      outSlope: 0.10482788
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.45
+    - serializedVersion: 3
+      time: 1
+      value: 80
+      inSlope: 0.47834367
+      outSlope: 0.47834367
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.29583335
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  fovSpeed: 5
+  camSpeed: 9
+  camPosSpeed: 25
+  camOffset: {x: 3, y: 1}
+  xRotation: 15
   inputMoveSpeed: 4
   inputRotSpeed: 270
+  currentInputSpeed: 0
+  currentInputDirection: {x: 0, y: 0, z: 1}
   accelCurve:
     serializedVersion: 2
     m_Curve:
@@ -264,34 +296,6 @@ MonoBehaviour:
   gravity: 10
   turnVelocityPersistence: 0.95
   bumpForce: 350
-  fovCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 70
-      inSlope: 0.10482788
-      outSlope: 0.10482788
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.45
-    - serializedVersion: 3
-      time: 1
-      value: 90
-      inSlope: 0.47834367
-      outSlope: 0.47834367
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.29583335
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  normal: {x: 0, y: 0, z: 0}
-  inputSpeed: 0
-  inputDirection: {x: 0, y: 0, z: 1}
-  rotation: {x: 0, y: 0}
   speedText: {fileID: 0}
   _controller: {fileID: 6250376665478019991}
 --- !u!114 &4540808129453799086

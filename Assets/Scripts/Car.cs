@@ -20,16 +20,29 @@ public class Car : PlayerObject
     public Transform tobor;
 
     [Header("Transform Movement")]
-    public float rotSpeed = 5;
-    public float camSpeed = 5;
+    public float toborRotSpeed = 5;
+    public Vector3 normal;
+
+    [Header("FOV")]
+    public AnimationCurve fovCurve;
     public float fovSpeed = 5;
-    public Quaternion camRotation;
-    public float currentFOV = 70f;
+    private float currentFOV = 70f;
+
+    [Header("Camera Movement")]
+    public float camSpeed = 5;
+    public float camPosSpeed = 6;
+    public Vector2 camOffset;
+    public float xRotation = 15;
+
+    private Quaternion camRotation;
 
 
     [Header("Input Movement")] 
     public float inputMoveSpeed = 4f;
     public float inputRotSpeed = 270f;
+
+    public float currentInputSpeed = 0;
+    public Vector3 currentInputDirection = Vector3.forward;
 
     [Header("Physics Movements")]
     public AnimationCurve accelCurve;
@@ -40,25 +53,23 @@ public class Car : PlayerObject
     
     [Header("Extra Movement")]
     public float bumpForce = 50;
-    public AnimationCurve fovCurve;
 
-    public Vector3 normal;
-    
-    public float inputSpeed = 0;
-    public Vector3 inputDirection = Vector3.forward;
-
-    public Vector2 rotation;
-
+    [Header("Other")]
     public Text speedText;
-
     public CarController _controller;
 
-  
+    #region Smooth Damp Variables
+    private Vector3 toborDir = Vector3.forward, toborVel = Vector3.zero;
+    private Vector3 camDir = Vector3.zero, camDirVel = Vector3.zero;
+    private Vector3 carPos = Vector3.zero, camPosVel = Vector3.zero;
+    private float rbSpeed = 0, speedVel = 0;
+    #endregion
 
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        carPos = transform.position;
     }
 
     private float turnVelocity = 0;
@@ -73,19 +84,19 @@ public class Car : PlayerObject
         //var dir = inputVelocity.normalized;
         //var mag = inputVelocity.magnitude;
 
-        // TODO: make tilt, based off angle difference between inputDirection and velocity?
+        // TODO: make tilt, based off angle difference between currentInputDirection and velocity?
 
         var velocity = rb.velocity;
         velocity.y = 0;
 
-        turnVelocity = Mathf.Lerp(turnVelocity, turnDir * Mathf.Sign(Vector3.Dot(inputDirection, rb.velocity)), Time.fixedDeltaTime * 6);
+        turnVelocity = Mathf.Lerp(turnVelocity, turnDir * Mathf.Sign(rb.velocity.sqrMagnitude < 0.1 ? 1 : Vector3.Dot(currentInputDirection, rb.velocity)), Time.fixedDeltaTime * 6);
         var turn = turnVelocity * (0.5f * rb.velocity.magnitude / maxSpeed + 0.5f);
         var turnAmount = Vector3.up * turn * inputRotSpeed * Time.fixedDeltaTime;
-        inputDirection = Quaternion.Euler(turnAmount) * inputDirection;
-        inputSpeed = Mathf.MoveTowards(inputSpeed, accel, inputMoveSpeed * Time.fixedDeltaTime);
+        currentInputDirection = Quaternion.Euler(turnAmount) * currentInputDirection;
+        currentInputSpeed = Mathf.MoveTowards(currentInputSpeed, accel, inputMoveSpeed * Time.fixedDeltaTime);
 
-        inputDirection.Normalize();
-        var inputVelocity = Vector3.ClampMagnitude(inputDirection * inputSpeed, 1);
+        currentInputDirection.Normalize();
+        var inputVelocity = Vector3.ClampMagnitude(currentInputDirection * currentInputSpeed, 1);
 
         var add = inputVelocity;
 
@@ -98,7 +109,7 @@ public class Car : PlayerObject
         var finalVelocity = Vector3.ClampMagnitude(velocity + add * Time.fixedDeltaTime * acceleration, maxSpeed);
 
         // Drifting?
-        //finalVelocity = Vector3.MoveTowards(finalVelocity, inputDirection * finalVelocity.magnitude, Time.fixedDeltaTime * 10);
+        //finalVelocity = Vector3.MoveTowards(finalVelocity, currentInputDirection * finalVelocity.magnitude, Time.fixedDeltaTime * 10);
         
         
         // Acceleration
@@ -129,7 +140,7 @@ public class Car : PlayerObject
         }
         var d = _controller.MoveInput;
         var dir = new Vector3(d.x, 0, d.y);
-        dir.Normalize();
+        //dir.Normalize();
         inputs.direction = dir;
     }
     #endregion
@@ -161,20 +172,33 @@ public class Car : PlayerObject
     #region Camera
     void LateUpdate()
     {
+        var d = currentInputDirection;
+        d.y = rb.velocity.normalized.y;
+        toborDir = Vector3.SmoothDamp(toborDir, d, ref toborVel, 1 / toborRotSpeed);
+
+        rbSpeed = Mathf.SmoothDamp(rbSpeed, rb.velocity.magnitude, ref speedVel, 1 / fovSpeed);
+
         // Tobor rotation
         //var rot = tobor.rotation;
-        //var dir = rb.velocity;
-        //if (dir.sqrMagnitude < 0.4f)
-        //    dir = tobor.rotation * Vector3.forward;
-        var tar = Quaternion.LookRotation(inputDirection, normal);
-        tobor.rotation = Quaternion.Slerp(tobor.rotation, tar, Time.deltaTime * rotSpeed);
+        var dir = toborDir; //rb.velocity;
+        if (dir.sqrMagnitude < 0.4f)
+            dir = tobor.rotation * Vector3.forward;
+        var tar = Quaternion.LookRotation(toborDir, normal);
 
-        var rot = Quaternion.FromToRotation(Vector3.forward, inputDirection);
-        camRotation = Quaternion.Slerp(camRotation, rot, 1 - Mathf.Exp(Time.deltaTime * -camSpeed));
-        cam.transform.rotation = camRotation * Quaternion.Euler(15, 0, 0);
-        cam.transform.position = transform.position + camRotation * Vector3.back * (5) + Vector3.up * 2;
+        camDir = Vector3.SmoothDamp(camDir, currentInputDirection, ref camDirVel, 1 / camSpeed);
+        carPos = Vector3.SmoothDamp(carPos, transform.position, ref camPosVel, 1 / camPosSpeed);
+        //camY = Mathf.SmoothDampAngle(camY, Vector3.Angle(Vector3.forward, currentInputDirection), ref yVel, 1 / camSpeed);
+        //camRotation = Quaternion.Euler(0, camY, 0) * Quaternion.Euler(xRotation, 0, 0);
+        var rot = Quaternion.LookRotation(camDir, Vector3.up);
+        camRotation = Quaternion.Slerp(camRotation, rot * Quaternion.Euler(xRotation, 0, 0), 1 - Mathf.Exp(Time.deltaTime * -camSpeed));
 
-        currentFOV = Mathf.Lerp(currentFOV, fovCurve.Evaluate(rb.velocity.magnitude / maxSpeed),
+        tobor.position = carPos;
+        tobor.rotation = Quaternion.Slerp(tobor.rotation, tar, Time.deltaTime * toborRotSpeed);
+
+        cam.transform.rotation = camRotation;
+        cam.transform.position = carPos + camRotation * Vector3.back * (camOffset.x) + Vector3.up * camOffset.y;
+
+        currentFOV = Mathf.Lerp(currentFOV, fovCurve.Evaluate(rbSpeed / maxSpeed),
             1 - Mathf.Exp(Time.deltaTime * -fovSpeed));
         cam.fieldOfView = currentFOV;
     } 
