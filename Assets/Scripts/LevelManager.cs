@@ -1,16 +1,39 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerInputManager))]
 public class LevelManager : MonoBehaviour
 {
+    public List<PlayerSpawner> playerSpawners;
 
     private void Awake()
     {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject playerObj in players)
+        Stack<PlayerSpawner> spawnerStack = new Stack<PlayerSpawner>();
+        foreach(PlayerSpawner playerSpawner in playerSpawners) {spawnerStack.Push(playerSpawner);}
+        
+        PlayerController[] playerControllers = FindObjectsOfType<PlayerController>();
+        foreach (var playerController in playerControllers)
         {
-            Player player = playerObj.GetComponent<Player>();
+            bool destroyed = spawnerStack.Peek().TryToSpawnWith(playerController);
+            // Remove from list if it destroyed itself (successfully spawned)
+            if (destroyed)
+                spawnerStack.Pop();
         }
-        PlayerInputManager.instance.JoinPlayer();
+        
+        
+        // disable objects that weren't assigned
+        foreach (PlayerSpawner playerSpawner in spawnerStack)
+        {
+            Debug.Log(playerSpawner);
+            if(playerSpawner)
+                playerSpawner.gameObject.SetActive(false);
+        }
+    }
+
+    private void Start()
+    {
+        
     }
 }

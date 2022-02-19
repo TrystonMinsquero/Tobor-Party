@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public abstract class Player : MonoBehaviour
+public class Player : MonoBehaviour
 {
+    
 }

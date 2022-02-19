@@ -84,17 +84,6 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""ba365a2c-32ef-4b38-9c42-d65efefbd6b1"",
-                    ""path"": ""<Gamepad>/leftStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""Gamepad"",
                     ""id"": ""488156cc-c205-4639-b5ca-32de615f864e"",
                     ""path"": ""2DVector"",
@@ -156,179 +145,248 @@ public class @Controls : IInputActionCollection, IDisposable
             ""id"": ""f2aa711a-8ebf-4b5a-8ee8-9f746ddf8d97"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
-                    ""id"": ""45479a6d-94a7-471d-91f4-5c337fe68bb8"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Accelerate"",
-                    ""type"": ""Button"",
-                    ""id"": ""0b219f1d-2692-4ae0-afb5-30924ecc7af6"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Reverse"",
-                    ""type"": ""Button"",
-                    ""id"": ""9ad87dab-b716-44f5-ae72-898bcd578e4e"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Turn"",
-                    ""type"": ""Value"",
-                    ""id"": ""f91ce767-0c6e-45b1-8161-345c4fccc558"",
-                    ""expectedControlType"": ""Axis"",
+                    ""name"": ""Movement"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""daf8fd8f-0ec4-4ba4-ba57-9deb57371168"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""52df4ffd-c65f-4e70-9ea8-d19446503e2f"",
-                    ""path"": """",
+                    ""name"": ""WASD"",
+                    ""id"": ""368b450f-40d0-4488-9cbc-f7092cbe7a43"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
-                    ""isComposite"": false,
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""692b29e9-0fb1-4ca0-a1f8-bdea9dbf4125"",
+                    ""name"": ""up"",
+                    ""id"": ""b37c0ec1-4b70-4b2b-b0e5-925349b7c6a9"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""78c58d80-09bf-4748-b09a-c35a3b3c2d18"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""274fd188-49cf-46fa-b179-3d676096f515"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""13a82549-f02b-4ea8-a777-27375d3072f8"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Gamepad"",
+                    ""id"": ""633bdc1a-fa4c-4519-be5f-eee2d489af38"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""ceba8490-be9d-4f16-80ee-a3a880de563b"",
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Accelerate"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""f54cf858-0499-424b-8a46-253829405d69"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Accelerate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""675b93dc-1232-499a-abdf-9d1f569d40fc"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Accelerate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8c600f5e-fb35-4aca-add9-db74fe719a4c"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Reverse"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f3d91d70-9b24-49dd-92b9-1c97704acd37"",
+                    ""name"": ""down"",
+                    ""id"": ""64d81a66-454b-4c9e-aaee-21d6e7e35f9a"",
                     ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Reverse"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f05a4904-024b-449e-8353-00e81aaef775"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Reverse"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""WASD"",
-                    ""id"": ""8b4dbb27-a6d6-4334-be95-adc8790331e3"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Turn"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""55717669-aae7-409d-a25b-f3b2d8605fdc"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Turn"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""positive"",
-                    ""id"": ""ba1d192e-3124-4c7e-9be6-8bdcc03da327"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Turn"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Left Stick"",
-                    ""id"": ""a5abac60-5621-4d6a-97bb-1ee37e89fe40"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Turn"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""7f629ce2-531b-4b7e-8976-b4308141a4d3"",
+                    ""name"": ""left"",
+                    ""id"": ""af698b00-62fe-45f7-b344-bbe6d420a92e"",
                     ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Turn"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""positive"",
-                    ""id"": ""541bfcad-d6f5-4361-9f94-a02c0cb6a6a2"",
+                    ""name"": ""right"",
+                    ""id"": ""88b1b60f-20dd-4a98-987f-83cfc906b870"",
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Turn"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
+        },
+        {
+            ""name"": ""Sumo"",
+            ""id"": ""d1453105-7a7b-4cd8-b436-cee3a5c9c188"",
+            ""actions"": [
+                {
+                    ""name"": ""Movement"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""d0e78be4-cd7d-4e71-b692-54ba4740db4a"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""8ef292e8-54b7-477b-be20-660930569f1c"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""e05668bc-45bb-42e5-8d84-8b63e68e8437"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""a84b65f5-ffb5-4c29-8e1b-2efebd41ae18"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""1aab3f09-4cac-45b2-b5b1-c6e26fe4069c"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""6342f4ce-efe1-4620-ba58-056823c3b64c"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Gamepad"",
+                    ""id"": ""468df178-44bb-4217-baeb-41009fef8a8f"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""be463318-7700-4526-9444-84cdf23d27fa"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""1ba0d627-1208-46a7-b675-47b5d809db2d"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""5ea87bc4-4c40-47dc-9e85-c7fcf5ddd668"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""6113e802-c2be-4012-83c6-15373a7acb6f"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -342,10 +400,10 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
         // Racing
         m_Racing = asset.FindActionMap("Racing", throwIfNotFound: true);
-        m_Racing_Newaction = m_Racing.FindAction("New action", throwIfNotFound: true);
-        m_Racing_Accelerate = m_Racing.FindAction("Accelerate", throwIfNotFound: true);
-        m_Racing_Reverse = m_Racing.FindAction("Reverse", throwIfNotFound: true);
-        m_Racing_Turn = m_Racing.FindAction("Turn", throwIfNotFound: true);
+        m_Racing_Movement = m_Racing.FindAction("Movement", throwIfNotFound: true);
+        // Sumo
+        m_Sumo = asset.FindActionMap("Sumo", throwIfNotFound: true);
+        m_Sumo_Movement = m_Sumo.FindAction("Movement", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -428,18 +486,12 @@ public class @Controls : IInputActionCollection, IDisposable
     // Racing
     private readonly InputActionMap m_Racing;
     private IRacingActions m_RacingActionsCallbackInterface;
-    private readonly InputAction m_Racing_Newaction;
-    private readonly InputAction m_Racing_Accelerate;
-    private readonly InputAction m_Racing_Reverse;
-    private readonly InputAction m_Racing_Turn;
+    private readonly InputAction m_Racing_Movement;
     public struct RacingActions
     {
         private @Controls m_Wrapper;
         public RacingActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_Racing_Newaction;
-        public InputAction @Accelerate => m_Wrapper.m_Racing_Accelerate;
-        public InputAction @Reverse => m_Wrapper.m_Racing_Reverse;
-        public InputAction @Turn => m_Wrapper.m_Racing_Turn;
+        public InputAction @Movement => m_Wrapper.m_Racing_Movement;
         public InputActionMap Get() { return m_Wrapper.m_Racing; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -449,47 +501,63 @@ public class @Controls : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_RacingActionsCallbackInterface != null)
             {
-                @Newaction.started -= m_Wrapper.m_RacingActionsCallbackInterface.OnNewaction;
-                @Newaction.performed -= m_Wrapper.m_RacingActionsCallbackInterface.OnNewaction;
-                @Newaction.canceled -= m_Wrapper.m_RacingActionsCallbackInterface.OnNewaction;
-                @Accelerate.started -= m_Wrapper.m_RacingActionsCallbackInterface.OnAccelerate;
-                @Accelerate.performed -= m_Wrapper.m_RacingActionsCallbackInterface.OnAccelerate;
-                @Accelerate.canceled -= m_Wrapper.m_RacingActionsCallbackInterface.OnAccelerate;
-                @Reverse.started -= m_Wrapper.m_RacingActionsCallbackInterface.OnReverse;
-                @Reverse.performed -= m_Wrapper.m_RacingActionsCallbackInterface.OnReverse;
-                @Reverse.canceled -= m_Wrapper.m_RacingActionsCallbackInterface.OnReverse;
-                @Turn.started -= m_Wrapper.m_RacingActionsCallbackInterface.OnTurn;
-                @Turn.performed -= m_Wrapper.m_RacingActionsCallbackInterface.OnTurn;
-                @Turn.canceled -= m_Wrapper.m_RacingActionsCallbackInterface.OnTurn;
+                @Movement.started -= m_Wrapper.m_RacingActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_RacingActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_RacingActionsCallbackInterface.OnMovement;
             }
             m_Wrapper.m_RacingActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Newaction.started += instance.OnNewaction;
-                @Newaction.performed += instance.OnNewaction;
-                @Newaction.canceled += instance.OnNewaction;
-                @Accelerate.started += instance.OnAccelerate;
-                @Accelerate.performed += instance.OnAccelerate;
-                @Accelerate.canceled += instance.OnAccelerate;
-                @Reverse.started += instance.OnReverse;
-                @Reverse.performed += instance.OnReverse;
-                @Reverse.canceled += instance.OnReverse;
-                @Turn.started += instance.OnTurn;
-                @Turn.performed += instance.OnTurn;
-                @Turn.canceled += instance.OnTurn;
+                @Movement.started += instance.OnMovement;
+                @Movement.performed += instance.OnMovement;
+                @Movement.canceled += instance.OnMovement;
             }
         }
     }
     public RacingActions @Racing => new RacingActions(this);
+
+    // Sumo
+    private readonly InputActionMap m_Sumo;
+    private ISumoActions m_SumoActionsCallbackInterface;
+    private readonly InputAction m_Sumo_Movement;
+    public struct SumoActions
+    {
+        private @Controls m_Wrapper;
+        public SumoActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_Sumo_Movement;
+        public InputActionMap Get() { return m_Wrapper.m_Sumo; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(SumoActions set) { return set.Get(); }
+        public void SetCallbacks(ISumoActions instance)
+        {
+            if (m_Wrapper.m_SumoActionsCallbackInterface != null)
+            {
+                @Movement.started -= m_Wrapper.m_SumoActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_SumoActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_SumoActionsCallbackInterface.OnMovement;
+            }
+            m_Wrapper.m_SumoActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Movement.started += instance.OnMovement;
+                @Movement.performed += instance.OnMovement;
+                @Movement.canceled += instance.OnMovement;
+            }
+        }
+    }
+    public SumoActions @Sumo => new SumoActions(this);
     public interface IGameplayActions
     {
         void OnMovement(InputAction.CallbackContext context);
     }
     public interface IRacingActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
-        void OnAccelerate(InputAction.CallbackContext context);
-        void OnReverse(InputAction.CallbackContext context);
-        void OnTurn(InputAction.CallbackContext context);
+        void OnMovement(InputAction.CallbackContext context);
+    }
+    public interface ISumoActions
+    {
+        void OnMovement(InputAction.CallbackContext context);
     }
 }

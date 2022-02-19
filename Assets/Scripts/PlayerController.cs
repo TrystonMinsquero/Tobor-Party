@@ -2,21 +2,15 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInput))]
-public class PlayerController : Player
+public abstract class PlayerController : MonoBehaviour
 {
-    private Vector2 movementInput;
-    private Controls controls;
-
-    private PlayerInput _playerInput;
+    protected Controls controls;
 
     private void Awake()
     {
         controls = new Controls();
         transform.tag = "Player";
         DontDestroyOnLoad(this.gameObject);
-
-        _playerInput = GetComponent<PlayerInput>();
-        
     }
 
     private void OnEnable()

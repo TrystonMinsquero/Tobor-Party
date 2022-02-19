@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
@@ -10,12 +11,11 @@ struct FrameInputs
     public Vector3 direction;
 }
 
-[RequireComponent(typeof(CarController))]
-public class Car : MonoBehaviour
+public class Car : PlayerObject
 {
 
     public Rigidbody rb;
-    public Transform cam;
+    public Camera cam;
     public Transform tobor;
 
     public AnimationCurve accelCurve;
@@ -33,7 +33,7 @@ public class Car : MonoBehaviour
 
     public Text speedText;
 
-    private CarController _controller;
+    public CarController _controller;
 
   
 
@@ -41,7 +41,6 @@ public class Car : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        _controller = GetComponent<CarController>();
     }
 
     void FixedUpdate()
@@ -106,4 +105,22 @@ public class Car : MonoBehaviour
         tobor.rotation = Quaternion.Slerp(rot, tar, Time.deltaTime * rotSpeed);
     } 
     #endregion
+
+    // returns true if was assigned, false otherwise
+    public override bool AssignController(PlayerController playerController)
+    {
+
+        if (playerController as CarController == null)
+            return false;
+        
+        _controller = (CarController) playerController;
+        PlayerInput playerInput = playerController.gameObject.GetComponent<PlayerInput>();
+        playerInput.camera = cam;
+        
+        // Only enable correct action Map
+        foreach(InputActionMap actionMap in playerInput.actions.actionMaps)
+            actionMap.Disable();
+        playerInput.actions.FindActionMap("Gameplay").Enable();
+        return true;
+    }
 }

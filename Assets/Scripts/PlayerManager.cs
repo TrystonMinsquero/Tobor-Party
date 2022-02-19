@@ -1,15 +1,15 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(PlayerInputManager))]
 public class PlayerManager : MonoBehaviour
-{ 
+{
     public static PlayerManager instance;
-    
+
     public static Player[] players;
     public static int playerCount;
 
     public uint maxPlayers;
+
     //used to view players in the editor
     public Player[] playersDisplay;
 
@@ -21,6 +21,7 @@ public class PlayerManager : MonoBehaviour
             instance = this;
 
         players = new Player[maxPlayers];
+        DontDestroyOnLoad(this);
     }
 
     private void Update()
@@ -52,12 +53,13 @@ public class PlayerManager : MonoBehaviour
     }
 
     #region Indexing
+
     //Gets the index of player in the player array, returns -1 if not there
     public static int GetIndex(Player _player)
     {
         if (playerCount <= 0 || _player == null)
             return -1;
-        for(int i = 0; i < players.Length; i++)
+        for (int i = 0; i < players.Length; i++)
             if (players[i] == _player)
                 return i;
         return -1;
@@ -83,25 +85,26 @@ public class PlayerManager : MonoBehaviour
                 return i;
         return -1;
     }
+
     #endregion
 
     //Will check coniditons to add a player and add them if conditions hold
     private static void JoinPlayer(Player player)
     {
-        
+
         if (Contains(player))
             return;
 
-        if(NextPlayerSlot() < 0)
+        if (NextPlayerSlot() < 0)
         {
             Destroy(player.gameObject);
             return;
         }
-        
+
         AddPlayer(player);
 
     }
-    
+
     //Properly adds a player to the game
     private static void AddPlayer(Player player, bool inGame = false)
     {
@@ -121,7 +124,7 @@ public class PlayerManager : MonoBehaviour
     //Properly removes players from the game
     private static void RemovePlayer(Player player)
     {
-            
+
         if (LobbyManager.CanJoinLeave)
         {
             int playerIndex = GetIndex(player);

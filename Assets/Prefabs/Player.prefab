@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3596477304763055541}
   - component: {fileID: 3596477304763055542}
-  - component: {fileID: 3596477304763055538}
+  - component: {fileID: 6310519251700466550}
+  - component: {fileID: 5031498817694499539}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -59,10 +60,10 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 6310519251700466550}
+        m_TargetAssemblyTypeName: CarController, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -70,31 +71,47 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 2
     m_ActionId: 7639d771-33f1-4970-9963-92493f60746a
     m_ActionName: Gameplay/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 45479a6d-94a7-471d-91f4-5c337fe68bb8
-    m_ActionName: Racing/New action
+      m_Calls:
+      - m_Target: {fileID: 6310519251700466550}
+        m_TargetAssemblyTypeName: CarController, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: daf8fd8f-0ec4-4ba4-ba57-9deb57371168
+    m_ActionName: Racing/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/rightTrigger,/XInputControllerWindows/leftTrigger,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 0b219f1d-2692-4ae0-afb5-30924ecc7af6
-    m_ActionName: Racing/Accelerate[/XInputControllerWindows/rightTrigger,/Mouse/leftButton,/Keyboard/upArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 9ad87dab-b716-44f5-ae72-898bcd578e4e
-    m_ActionName: Racing/Reverse[/Keyboard/downArrow,/XInputControllerWindows/leftTrigger,/Mouse/rightButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: f91ce767-0c6e-45b1-8161-345c4fccc558
-    m_ActionName: Racing/Turn[/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
+      m_Calls:
+      - m_Target: {fileID: 6310519251700466550}
+        m_TargetAssemblyTypeName: CarController, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d0e78be4-cd7d-4e71-b692-54ba4740db4a
+    m_ActionName: Sumo/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/rightTrigger,/XInputControllerWindows/leftTrigger,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &3596477304763055538
+--- !u!114 &6310519251700466550
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,6 +120,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 3596477304763055537}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1620ea05986fc984bb3fd4f89bee0614, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bb4d8c592ab99b47a8908b2eb78966f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5031498817694499539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3596477304763055537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f85cffb92c7ed7f46ac15c100871be28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
