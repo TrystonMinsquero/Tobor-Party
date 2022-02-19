@@ -34,13 +34,15 @@ public class LevelManager : MonoBehaviour
                     spawnerStack.Pop();
             }
         }
-        
+
         // disable objects that weren't assigned
         foreach (PlayerObject playerObject in FindObjectsOfType<PlayerObject>())
         {
             if(!playerObject.HasController())
                 playerObject.gameObject.SetActive(false);
         }
+
+        PlayerInputManager.instance.splitScreen = true;
     }
 
 }

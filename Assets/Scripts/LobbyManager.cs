@@ -23,7 +23,7 @@ public class LobbyManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("TestCar");
+        SceneManager.LoadScene("Campus Track");
     }
 
 }
