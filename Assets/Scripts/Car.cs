@@ -22,6 +22,7 @@ public class Car : PlayerObject
     [Header("Transform Movement")]
     public float toborRotSpeed = 5;
     public Vector3 normal;
+    public Vector3[] latestNormal = new Vector3[5];
 
     [Header("FOV")]
     public AnimationCurve fovCurve;
@@ -50,7 +51,10 @@ public class Car : PlayerObject
     public float friction = 0.1f;
     public float gravity = 20;
     public float turnVelocityPersistence = 0.95f;
-    
+    public float airTurnMultiplier = 0.2f;
+
+    public bool isGrounded = false;
+
     [Header("Extra Movement")]
     public float bumpForce = 50;
 
@@ -75,6 +79,9 @@ public class Car : PlayerObject
     private float turnVelocity = 0;
     void FixedUpdate()
     {
+        if (isGrounded)
+            normal = latestNormal[4];
+
         //var add = Quaternion.Euler(0, rotation.y, 0) * inputs.direction;
 
         // Inputs
@@ -88,6 +95,9 @@ public class Car : PlayerObject
 
         var velocity = rb.velocity;
         velocity.y = 0;
+
+        if (!isGrounded)
+            turnDir *= airTurnMultiplier;
 
         turnVelocity = Mathf.Lerp(turnVelocity, turnDir * Mathf.Sign(rb.velocity.sqrMagnitude < 0.1 ? 1 : Vector3.Dot(currentInputDirection, rb.velocity)), Time.fixedDeltaTime * 6);
         var turn = turnVelocity * (0.5f * rb.velocity.magnitude / maxSpeed + 0.5f);
@@ -126,6 +136,8 @@ public class Car : PlayerObject
 
         if(speedText)
             speedText.text = $"Speed: {rb.velocity.magnitude:00.0} mph";
+
+        isGrounded = false;
     }
 
     #region Input Handling
@@ -156,15 +168,25 @@ public class Car : PlayerObject
 
     void OnCollisionStay(Collision c)
     {
-        if (c.transform.CompareTag("Floor"))
+        //if (c.transform.CompareTag("Floor"))
+        foreach (var v in c.contacts)
         {
-            foreach (var v in c.contacts)
+            if (v.normal.y > 0.4f)
             {
-                if (v.normal.y > 0.4f)
+                if (isGrounded)
                 {
-                    normal = v.normal;
-                    break;
+                    for (int i = 1; i < latestNormal.Length; i++)
+                        latestNormal[i] = latestNormal[i - 1];
                 }
+                else
+                {
+                    for (int i = 1; i < latestNormal.Length; i++)
+                        latestNormal[i] = v.normal;
+                }
+                latestNormal[0] = v.normal;
+
+                isGrounded = true;
+                break;
             }
         }
     }
@@ -173,7 +195,7 @@ public class Car : PlayerObject
     void LateUpdate()
     {
         var d = currentInputDirection;
-        d.y = rb.velocity.normalized.y;
+        //d.y = rb.velocity.normalized.y;
         toborDir = Vector3.SmoothDamp(toborDir, d, ref toborVel, 1 / toborRotSpeed);
 
         rbSpeed = Mathf.SmoothDamp(rbSpeed, rb.velocity.magnitude, ref speedVel, 1 / fovSpeed);
@@ -183,7 +205,9 @@ public class Car : PlayerObject
         var dir = toborDir; //rb.velocity;
         if (dir.sqrMagnitude < 0.4f)
             dir = tobor.rotation * Vector3.forward;
-        var tar = Quaternion.LookRotation(toborDir, normal);
+
+        var n = isGrounded ? normal : Quaternion.LookRotation(rb.velocity, normal) * Vector3.up;
+        var tar = Quaternion.FromToRotation(Vector3.up, n) * Quaternion.LookRotation(toborDir, Vector3.up);
 
         camDir = Vector3.SmoothDamp(camDir, currentInputDirection, ref camDirVel, 1 / camSpeed);
         carPos = Vector3.SmoothDamp(carPos, transform.position, ref camPosVel, 1 / camPosSpeed);

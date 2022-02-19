@@ -163,7 +163,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3569652920662991469}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c2b701bcfa528c4abf99d66d2043898, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -180,7 +180,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -200,6 +200,23 @@ MonoBehaviour:
   rb: {fileID: 3569652920662991459}
   cam: {fileID: 3569652921226709809}
   tobor: {fileID: 3569652920678478631}
+  toborRotSpeed: 5
+  normal: {x: 0, y: 0, z: 0}
+  fovCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  fovSpeed: 5
+  camSpeed: 5
+  camPosSpeed: 6
+  camOffset: {x: 0, y: 0}
+  xRotation: 15
+  inputMoveSpeed: 4
+  inputRotSpeed: 270
+  currentInputSpeed: 0
+  currentInputDirection: {x: 0, y: 0, z: 1}
   accelCurve:
     serializedVersion: 2
     m_Curve:
@@ -226,13 +243,10 @@ MonoBehaviour:
     m_RotationOrder: 4
   maxSpeed: 15
   acceleration: 25
-  rotSpeed: 5
-  bumpForce: 350
   friction: 0.3
   gravity: -10
-  normal: {x: 0, y: 0, z: 0}
-  velocity: {x: 0, y: 0, z: 0}
-  rotation: {x: 0, y: 0}
+  turnVelocityPersistence: 0.95
+  bumpForce: 350
   speedText: {fileID: 0}
   _controller: {fileID: 0}
 --- !u!114 &3569652920662991462
