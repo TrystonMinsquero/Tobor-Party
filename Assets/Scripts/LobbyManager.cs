@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LobbyManager : MonoBehaviour
 {
@@ -21,9 +20,5 @@ public class LobbyManager : MonoBehaviour
         //MusicManager.StartMusic();
     }
 
-    public void StartGame()
-    {
-        SceneManager.LoadScene("Campus Track");
-    }
 
 }
