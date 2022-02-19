@@ -1,39 +1,46 @@
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInputManager))]
 public class LevelManager : MonoBehaviour
 {
-    public List<PlayerSpawner> playerSpawners;
+    // only necessary for order of players
+    public PlayerSpawner[] playerSpawners;
 
     private void Awake()
     {
-        Stack<PlayerSpawner> spawnerStack = new Stack<PlayerSpawner>();
-        foreach(PlayerSpawner playerSpawner in playerSpawners) {spawnerStack.Push(playerSpawner);}
-        
-        PlayerController[] playerControllers = FindObjectsOfType<PlayerController>();
-        foreach (var playerController in playerControllers)
+        // if someone forgets to start spawners on
+        if (playerSpawners == null)
         {
-            bool destroyed = spawnerStack.Peek().TryToSpawnWith(playerController);
-            // Remove from list if it destroyed itself (successfully spawned)
-            if (destroyed)
-                spawnerStack.Pop();
+            Debug.LogWarning("You should assign playerSpawners");
+            playerSpawners = FindObjectsOfType<PlayerSpawner>();
         }
         
+        // convert to stack
+        Stack<PlayerSpawner> spawnerStack = new Stack<PlayerSpawner>();
+        foreach(PlayerSpawner playerSpawner in playerSpawners.Reverse()) {spawnerStack.Push(playerSpawner);}
+
+        // if came from the lobby
+        if (PlayerManager.instance)
+        {
+            // give all players a player object
+            foreach (var playerController in PlayerManager.players)
+            {
+                bool destroyed = spawnerStack.Peek().TryToSpawnWith(playerController?.GetComponent<PlayerController>());
+                // Remove from list if it destroyed itself (successfully spawned)
+                if (destroyed)
+                    spawnerStack.Pop();
+            }
+        }
         
         // disable objects that weren't assigned
-        foreach (PlayerSpawner playerSpawner in spawnerStack)
+        foreach (PlayerObject playerObject in FindObjectsOfType<PlayerObject>())
         {
-            Debug.Log(playerSpawner);
-            if(playerSpawner)
-                playerSpawner.gameObject.SetActive(false);
+            if(!playerObject.HasController())
+                playerObject.gameObject.SetActive(false);
         }
     }
 
-    private void Start()
-    {
-        
-    }
 }

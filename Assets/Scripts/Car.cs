@@ -63,6 +63,11 @@ public class Car : PlayerObject
     // Update is called once per frame
     void Update()
     {
+        if (!HasController())
+        {
+            Debug.LogWarning("No Controller Assigned!");
+            return;
+        }
         var d = _controller.MoveInput;
         var dir = new Vector3(d.x, 0, d.y);
         dir.Normalize();
@@ -122,5 +127,10 @@ public class Car : PlayerObject
             actionMap.Disable();
         playerInput.actions.FindActionMap("Gameplay").Enable();
         return true;
+    }
+
+    public override bool HasController()
+    {
+        return _controller != null;
     }
 }

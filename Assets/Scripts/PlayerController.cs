@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public abstract class PlayerController : MonoBehaviour
 {
-    protected Controls controls;
+    protected static Controls controls;
 
     private void Awake()
     {
