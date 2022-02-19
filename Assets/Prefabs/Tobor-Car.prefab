@@ -200,18 +200,42 @@ MonoBehaviour:
   rb: {fileID: 3569652920662991459}
   cam: {fileID: 3569652921226709809}
   tobor: {fileID: 3569652920678478631}
-  toborRotSpeed: 5
+  toborRotSpeed: 20
   normal: {x: 0, y: 0, z: 0}
+  latestNormal:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   fovCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 65
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 75
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   fovSpeed: 5
-  camSpeed: 5
-  camPosSpeed: 6
-  camOffset: {x: 0, y: 0}
+  camSpeed: 9
+  camPosSpeed: 25
+  camOffset: {x: 3, y: 0.82}
   xRotation: 15
   inputMoveSpeed: 4
   inputRotSpeed: 270
@@ -244,8 +268,10 @@ MonoBehaviour:
   maxSpeed: 15
   acceleration: 25
   friction: 0.3
-  gravity: -10
+  gravity: 10
   turnVelocityPersistence: 0.95
+  airTurnMultiplier: 0.2
+  isGrounded: 0
   bumpForce: 350
   speedText: {fileID: 0}
   _controller: {fileID: 0}
