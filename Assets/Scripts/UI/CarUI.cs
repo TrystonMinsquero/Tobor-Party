@@ -12,7 +12,8 @@ public class CarUI : MonoBehaviour
     public Text lapText;
     public Text speedText;
     public Text checkpointTimeText;
-    public Gradient checkPointGradient;
+    public Text lapTimerText;
+    public Image itemBox;
 
     private CheckpointUser cpUser;
     private Rigidbody rb;
@@ -29,6 +30,12 @@ public class CarUI : MonoBehaviour
     private void OnEnable()
     {
         cpUser.ReachedCheckpoint += StartToShowCheckpointTime;
+        cpUser.CompletedLap += StartToShowCheckpointTime;
+    }
+    
+    private void OnDisable()
+    {
+        cpUser.ReachedCheckpoint -= StartToShowCheckpointTime;
     }
 
     private void Update()
@@ -53,11 +60,8 @@ public class CarUI : MonoBehaviour
         switch (place)
         {
             case 1: return "st";
-                break;
             case 2: return "nd";
-                break;
             case 3: return "rd";
-                break;
             default: return "th";
         }
     }
