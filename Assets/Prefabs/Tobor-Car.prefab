@@ -253,6 +253,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b225fe49944a5c40961fda50fff9007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startText: {fileID: 6505130506846881120}
+  placeText: {fileID: 7583159754152122169}
+  placeSuffixText: {fileID: 2477866953793815153}
+  lapText: {fileID: 1942376034852355841}
+  speedText: {fileID: 3507564862358450478}
+  checkpointTimeText: {fileID: 1804534890771587466}
 --- !u!1 &14438646894300351
 GameObject:
   m_ObjectHideFlags: 0
