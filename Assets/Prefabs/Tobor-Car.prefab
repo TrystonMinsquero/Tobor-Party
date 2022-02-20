@@ -160,6 +160,7 @@ MonoBehaviour:
   fovSpeed: 5
   minDriftSpeed: 6
   minDriftStartAngle: 0.1
+  driftTurnSpeeds: {x: 40, y: 80, z: 200}
   driftTurnSpeedMultiplier: 2
   driftTurnVelocityPercentage: 1
   driftTurnSpeedSame:
@@ -261,6 +262,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  driftDirection: 0
+  driftInput: 0
+  driftVisualAngle: {x: 15, y: 20, z: 30}
   driftAngleVisualSpeed: 8
   driftExtraAngleMultiplier: 1
   driftJumpRecoverTime: 0.14
@@ -368,6 +372,35 @@ MonoBehaviour:
   lapText: {fileID: 1942376034852355841}
   speedText: {fileID: 3507564862358450478}
   checkpointTimeText: {fileID: 1804534890771587466}
+  checkPointGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!1 &14438646894300351
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,7 +941,7 @@ RectTransform:
   m_GameObject: {fileID: 2247157794648022216}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -40.8}
-  m_LocalScale: {x: 0.18, y: 0.18, z: 1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_Children: []
   m_Father: {fileID: 537915879830090487}
   m_RootOrder: 5
@@ -947,7 +980,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 317a25eb31d4b384f92960485c09d753, type: 3}
+    m_Font: {fileID: 12800000, guid: 52df282de46505f42935dc9ae4f6f26e, type: 3}
     m_FontSize: 128
     m_FontStyle: 0
     m_BestFit: 0
@@ -959,7 +992,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Lap time
+  m_Text: +23434
 --- !u!1 &3967614362762608342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,7 +1388,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 7.64}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 36, y: 119}
+  m_AnchoredPosition: {x: 41.3, y: 119}
   m_SizeDelta: {x: 83.359985, y: 100}
   m_Pivot: {x: 0.094421916, y: 0.7936468}
 --- !u!222 &7859069308011614165
@@ -1503,7 +1536,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8266145588106139352}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -16}
+  m_LocalPosition: {x: 0, y: 0, z: -16.3}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 6379179895827973821}
@@ -1511,7 +1544,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 439, y: 21}
+  m_AnchoredPosition: {x: 439, y: 22}
   m_SizeDelta: {x: 432.6, y: 168.7}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &8229398853573211759
@@ -1555,7 +1588,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: m/s
+  m_Text: mph
 --- !u!1 &8725406443070684952
 GameObject:
   m_ObjectHideFlags: 0

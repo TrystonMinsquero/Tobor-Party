@@ -41,11 +41,11 @@ public class CarUI : MonoBehaviour
         lapText.text = (cpUser.Laps + 1) + "/" + RaceManager.instance.numLaps;
         speedText.text = $"{rb.velocity.magnitude:0.0}";
 
-        if (cpUser.currentCheckpoint == nextCheckPoint)
-        {
-            
-        }
-        
+        if (!cpUser.RightDirection)
+            checkpointTimeText.text = "<color=red>Wrong Way!</color>";
+        if (cpUser.RightDirection && checkpointTimeText.text == "<color=red>Wrong Way!</color>")
+            checkpointTimeText.text = "";
+
     }
 
     private string GetPlaceSuffix(int place)
@@ -64,6 +64,8 @@ public class CarUI : MonoBehaviour
 
     private void StartToShowCheckpointTime(float oldTime, float newTime)
     {
+        StopCoroutine("ShowCheckpointTime");
+        
         float time = newTime - oldTime;
         char prefix = ' ';
         if (oldTime < 0)
