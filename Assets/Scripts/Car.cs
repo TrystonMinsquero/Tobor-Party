@@ -240,7 +240,13 @@ public class Car : PlayerObject
         {
             boostTime -= Time.fixedDeltaTime;
             maxSpeed = boostMaxSpeed;
-            targetAccelerationAdd *= boostAcceleration / acceleration;
+
+            var boostDir = Vector3.Dot(inputVelocity, currentInputDirection) > 0 ? inputVelocity : -inputVelocity;
+            if (boostDir.sqrMagnitude < 0.2f)
+                boostDir = currentInputDirection;
+            boostDir.Normalize();
+
+            targetAccelerationAdd = boostDir * Time.fixedDeltaTime * boostAcceleration;
             targetAcceleration = boostAcceleration;
         }
         else
@@ -362,7 +368,7 @@ public class Car : PlayerObject
         dampedToborDriftAngle = Mathf.SmoothDamp(dampedToborDriftAngle, angleTarget, ref angleVel, 1 / driftAngleVisualSpeed);
         tobor.rotation = toborRotation * Quaternion.Euler(0, dampedToborDriftAngle, 0) * Quaternion.Euler(0, 0, dampedToborDriftAngle * driftTiltMultiplier);
 
-        if (isDrifting) particles.StartDrift();
+        if (isDrifting && isGrounded) particles.StartDrift();
         else particles.StopDrift();
     }
     #endregion

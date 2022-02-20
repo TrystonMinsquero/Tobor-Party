@@ -17,13 +17,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Fire Lines
+    second: {fileID: 2100000, guid: 9da1f55f8e3203c40af4d260aa87669c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Grass
     second: {instanceID: 0}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Lamp Post
+    second: {fileID: 2100000, guid: 5e267842014f7d94bb6e55caede45c62, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Ramp
     second: {fileID: 2100000, guid: c2826a42aad42d14ca55c8ee1176f3d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Road black
+    second: {fileID: 2100000, guid: abd7576e536717845b2e5114e757b061, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

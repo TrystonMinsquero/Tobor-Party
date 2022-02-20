@@ -6,6 +6,11 @@ public class ToborParticles : MonoBehaviour
 {
     public ParticleSystem[] tireSmokes;
 
+    public void Start()
+    {
+        StopDrift();
+    }
+
     public void StartDrift()
     {
         foreach (var tireSmoke in tireSmokes)
