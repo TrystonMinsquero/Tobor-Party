@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 14438645323195882}
   - component: {fileID: 14438645323195874}
   - component: {fileID: 5312674712506174225}
+  - component: {fileID: 8698148077261201008}
   m_Layer: 0
   m_Name: Tobor-Car
   m_TagString: Untagged
@@ -239,6 +240,18 @@ MonoBehaviour:
   currentCheckpoint: {fileID: 0}
   nextCheckpoint: {fileID: 0}
   car: {fileID: 0}
+--- !u!114 &8698148077261201008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14438645323195873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b225fe49944a5c40961fda50fff9007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &14438646894300351
 GameObject:
   m_ObjectHideFlags: 0
