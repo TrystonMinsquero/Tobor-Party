@@ -21,8 +21,8 @@ public class CarUI : MonoBehaviour
 
     private void Awake()
     {
-        cpUser = GetComponent<CheckpointUser>();
-        rb = GetComponent<Rigidbody>();
+        cpUser = GetComponentInParent<CheckpointUser>();
+        rb = GetComponentInParent<Rigidbody>();
         checkpointTimeText.text = "";
         nextCheckPoint = cpUser.nextCheckpoint;
     }

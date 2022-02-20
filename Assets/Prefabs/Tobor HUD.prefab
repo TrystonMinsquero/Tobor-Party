@@ -484,6 +484,7 @@ GameObject:
   - component: {fileID: 4275346412151309850}
   - component: {fileID: 4607762064507418970}
   - component: {fileID: 4951522388945492896}
+  - component: {fileID: 5533509816753977992}
   m_Layer: 0
   m_Name: Tobor HUD
   m_TagString: Untagged
@@ -579,6 +580,26 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5533509816753977992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6235699137412582462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b225fe49944a5c40961fda50fff9007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startText: {fileID: 1262085916377049440}
+  placeText: {fileID: 2520259118745369401}
+  placeSuffixText: {fileID: 7612823978935610993}
+  lapText: {fileID: 5850665717751091969}
+  speedText: {fileID: 8892452461269441838}
+  checkpointTimeText: {fileID: 5967259759554465162}
+  lapTimerText: {fileID: 8093332329299190743}
+  itemBox: {fileID: 753048186855224327}
 --- !u!1 &7357010371275980824
 GameObject:
   m_ObjectHideFlags: 0
