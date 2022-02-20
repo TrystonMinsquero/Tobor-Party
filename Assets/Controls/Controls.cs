@@ -193,6 +193,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Drift"",
+                    ""type"": ""Button"",
+                    ""id"": ""3cfae1f0-fe75-45ed-a22d-4a264bd806f9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -426,6 +435,39 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""GasReverse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""526b3a85-112c-41be-b3d8-e3914bb88906"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drift"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""57991bee-013a-4cb9-89fd-dce1115f2ff1"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drift"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""42d03216-b78b-4c1b-9afe-6bbe222b9bc2"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drift"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -566,6 +608,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Racing = asset.FindActionMap("Racing", throwIfNotFound: true);
         m_Racing_Steer = m_Racing.FindAction("Steer", throwIfNotFound: true);
         m_Racing_GasReverse = m_Racing.FindAction("GasReverse", throwIfNotFound: true);
+        m_Racing_Drift = m_Racing.FindAction("Drift", throwIfNotFound: true);
         // Sumo
         m_Sumo = asset.FindActionMap("Sumo", throwIfNotFound: true);
         m_Sumo_Movement = m_Sumo.FindAction("Movement", throwIfNotFound: true);
@@ -663,12 +706,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private IRacingActions m_RacingActionsCallbackInterface;
     private readonly InputAction m_Racing_Steer;
     private readonly InputAction m_Racing_GasReverse;
+    private readonly InputAction m_Racing_Drift;
     public struct RacingActions
     {
         private @Controls m_Wrapper;
         public RacingActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Steer => m_Wrapper.m_Racing_Steer;
         public InputAction @GasReverse => m_Wrapper.m_Racing_GasReverse;
+        public InputAction @Drift => m_Wrapper.m_Racing_Drift;
         public InputActionMap Get() { return m_Wrapper.m_Racing; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -684,6 +729,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @GasReverse.started -= m_Wrapper.m_RacingActionsCallbackInterface.OnGasReverse;
                 @GasReverse.performed -= m_Wrapper.m_RacingActionsCallbackInterface.OnGasReverse;
                 @GasReverse.canceled -= m_Wrapper.m_RacingActionsCallbackInterface.OnGasReverse;
+                @Drift.started -= m_Wrapper.m_RacingActionsCallbackInterface.OnDrift;
+                @Drift.performed -= m_Wrapper.m_RacingActionsCallbackInterface.OnDrift;
+                @Drift.canceled -= m_Wrapper.m_RacingActionsCallbackInterface.OnDrift;
             }
             m_Wrapper.m_RacingActionsCallbackInterface = instance;
             if (instance != null)
@@ -694,6 +742,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @GasReverse.started += instance.OnGasReverse;
                 @GasReverse.performed += instance.OnGasReverse;
                 @GasReverse.canceled += instance.OnGasReverse;
+                @Drift.started += instance.OnDrift;
+                @Drift.performed += instance.OnDrift;
+                @Drift.canceled += instance.OnDrift;
             }
         }
     }
@@ -739,6 +790,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     {
         void OnSteer(InputAction.CallbackContext context);
         void OnGasReverse(InputAction.CallbackContext context);
+        void OnDrift(InputAction.CallbackContext context);
     }
     public interface ISumoActions
     {
