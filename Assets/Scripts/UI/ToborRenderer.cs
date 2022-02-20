@@ -44,7 +44,7 @@ public class ToborRenderer : MonoBehaviour
 
         camera.cullingMask = layer;
 
-        texture = new RenderTexture(width, width, 0);
+        texture = new RenderTexture(width, width, 0, RenderTextureFormat.ARGB32);
         camera.targetTexture = texture;
 
         output.texture = texture;
