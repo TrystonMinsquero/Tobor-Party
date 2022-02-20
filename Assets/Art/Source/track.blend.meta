@@ -12,6 +12,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Bushes
+    second: {fileID: 2100000, guid: c06407d6d6c7d414ab233ce822303c20, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Grass
     second: {instanceID: 0}
   - first:
@@ -59,6 +64,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: leaves
     second: {fileID: 2100000, guid: d9927060dd836bb4d8ce80498412a80f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: newGrass
+    second: {fileID: 2100000, guid: 81f5ea8aee4edeb4096fed064e82a2db, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
