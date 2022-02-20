@@ -18,6 +18,7 @@ public class Car : PlayerObject
     public Rigidbody rb;
     public Camera cam;
     public Transform tobor;
+    public CheckpointUser checkpoints;
 
     [Header("Transform Movement")]
     public float toborRotSpeed = 5;
@@ -29,7 +30,8 @@ public class Car : PlayerObject
     public float fovSpeed = 5;
     private float currentFOV = 70f;
 
-    [Header("Camera Movement")]
+    [Header("Camera Movement")] 
+    public float camSpeedMoveBack = 0.4f;
     public float camSpeed = 5;
     public float camPosSpeed = 6;
     public Vector2 camOffset;
@@ -61,6 +63,7 @@ public class Car : PlayerObject
     [Header("Other")]
     public Text speedText;
     public CarController _controller;
+    public Vector3 startRotation;
 
     #region Smooth Damp Variables
     private Vector3 toborDir = Vector3.forward, toborVel = Vector3.zero;
@@ -74,6 +77,13 @@ public class Car : PlayerObject
     {
         rb = GetComponent<Rigidbody>();
         carPos = transform.position;
+
+        camRotation = Quaternion.Euler(startRotation);
+        tobor.rotation = Quaternion.Euler(startRotation);
+        currentInputDirection = Quaternion.Euler(startRotation) * Vector3.forward;
+        toborDir = currentInputDirection;
+
+        checkpoints = GetComponent<CheckpointUser>();
     }
 
     private float turnVelocity = 0;
@@ -217,13 +227,15 @@ public class Car : PlayerObject
         var rot = Quaternion.LookRotation(camDir, Vector3.up);
         camRotation = Quaternion.Slerp(camRotation, rot * Quaternion.Euler(xRotation, 0, 0), 1 - Mathf.Exp(Time.deltaTime * -camSpeed));
 
+        var speedPercent = rbSpeed / maxSpeed;
+
         tobor.position = carPos;
         tobor.rotation = Quaternion.Slerp(tobor.rotation, tar, Time.deltaTime * toborRotSpeed);
 
         cam.transform.rotation = camRotation;
-        cam.transform.position = carPos + camRotation * Vector3.back * (camOffset.x) + Vector3.up * camOffset.y;
+        cam.transform.position = carPos + camRotation * Vector3.back * (camOffset.x + speedPercent * camSpeedMoveBack) + Vector3.up * camOffset.y;
 
-        currentFOV = Mathf.Lerp(currentFOV, fovCurve.Evaluate(rbSpeed / maxSpeed),
+        currentFOV = Mathf.Lerp(currentFOV, fovCurve.Evaluate(speedPercent),
             1 - Mathf.Exp(Time.deltaTime * -fovSpeed));
         cam.fieldOfView = currentFOV;
     } 

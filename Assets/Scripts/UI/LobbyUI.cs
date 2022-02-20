@@ -24,7 +24,7 @@ public class LobbyUI : MonoBehaviour
     
     public void StartGame()
     {
-        SceneManager.LoadScene("Campus Track");
+        SceneManager.LoadScene("RaceTrack");
     }
 
     public void Exit()
