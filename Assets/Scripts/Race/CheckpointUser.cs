@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,11 @@ public class CheckpointUser : MonoBehaviour
     public int Laps { get; private set; } = 0;
     public float StartTime { get; private set; } = 0;
 
+    private Dictionary<Checkpoint, float> checkPointTimes;
+
+    // <old time, new time>
+    public event Action<float, float> ReachedCheckpoint = delegate(float f, float f1) {  };
+
     public Checkpoint currentCheckpoint;
     public Checkpoint nextCheckpoint;
     public Car car;
@@ -17,6 +23,10 @@ public class CheckpointUser : MonoBehaviour
     {
         currentCheckpoint = Checkpoints.Instance.checkpoints[0];
         nextCheckpoint = Checkpoints.Instance.checkpoints[1];
+
+        checkPointTimes = new Dictionary<Checkpoint, float>();
+        foreach (Checkpoint cp in Checkpoints.Instance.checkpoints)
+            checkPointTimes[cp] = -1;
 
         car = GetComponent<Car>();
 
@@ -33,18 +43,19 @@ public class CheckpointUser : MonoBehaviour
     {
         if (checkpoint.index == (currentCheckpoint.index + 1) % Checkpoints.Instance.checkpoints.Count)
         {
+            UpdateCheckpoint(currentCheckpoint, Time.time - StartTime);
             currentCheckpoint = checkpoint;
             nextCheckpoint =
                 Checkpoints.Instance.checkpoints[
                     (currentCheckpoint.index + 1) % Checkpoints.Instance.checkpoints.Count];
 
+            ResetTimer();
             Debug.Log($"Checkpoint reached: {checkpoint.index}");
 
             if (checkpoint.index == 0)
             {
                 Laps++;
                 Debug.Log($"Finished lap in {Time.time - StartTime}");
-                ResetTimer();
             }
         }
     }
@@ -65,7 +76,16 @@ public class CheckpointUser : MonoBehaviour
         percent = Mathf.Clamp01(percent);
         progress += currentCheckpoint.index * factor;
         progress += factor * percent;
-        progress += factor * percent;
+        
         Progress = progress;
     }
+
+    public void UpdateCheckpoint(Checkpoint cp, float newTime)
+    {
+        ReachedCheckpoint?.Invoke(checkPointTimes[cp], newTime);
+        
+        checkPointTimes[cp] = checkPointTimes[cp] < 0 ? newTime : Mathf.Max(newTime, checkPointTimes[cp]);
+
+    }
+
 }

@@ -1,12 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RaceManager : MonoBehaviour
 {
+    public static RaceManager instance;
+    
     public static bool Started { get; private set; }
     public static string StartState { get; private set; } = "";
+
+    public uint numLaps = 2; 
     public List<CheckpointUser> cars = new List<CheckpointUser>();
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
@@ -31,12 +41,15 @@ public class RaceManager : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
 
-        StartState = "";
+        StartState = "GO!";
         Started = true;
+        yield return new WaitForSeconds(1);
+
+        StartState = "";
     }
 
     void Update()
     {
-        cars.Sort((a, b) => a.Progress.CompareTo(b.Progress));
+        cars.Sort((b,a) => a.Progress.CompareTo(b.Progress));
     }
 }
