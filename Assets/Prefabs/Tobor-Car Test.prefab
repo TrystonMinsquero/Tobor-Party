@@ -231,6 +231,7 @@ MonoBehaviour:
   rb: {fileID: 4540808129453799083}
   cam: {fileID: 4540808127819702265}
   tobor: {fileID: 4540808129410557935}
+  checkpoints: {fileID: 0}
   toborRotSpeed: 20
   normal: {x: 0, y: 0, z: 0}
   latestNormal:
@@ -264,6 +265,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   fovSpeed: 5
+  camSpeedMoveBack: 0.4
   camSpeed: 9
   camPosSpeed: 25
   camOffset: {x: 3, y: 1}
@@ -306,6 +308,7 @@ MonoBehaviour:
   bumpForce: 350
   speedText: {fileID: 0}
   _controller: {fileID: 6250376665478019991}
+  startRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &4540808129453799086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,6 +386,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6b2370f3-205b-401a-80b9-c0ab827f32ad
     m_ActionName: Racing/GasReverse[/Keyboard/s,/Keyboard/w,/Keyboard/downArrow,/Keyboard/upArrow,/XInputControllerWindows/leftTrigger,/XInputControllerWindows/rightTrigger,/XInputControllerWindows/buttonEast,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6250376665478019991}
+        m_TargetAssemblyTypeName: CarController, Assembly-CSharp
+        m_MethodName: OnDrift
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3cfae1f0-fe75-45ed-a22d-4a264bd806f9
+    m_ActionName: Racing/Drift[/Keyboard/space,/XInputControllerWindows/buttonWest,/XInputControllerWindows/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6250376665478019991}
+        m_TargetAssemblyTypeName: CarController, Assembly-CSharp
+        m_MethodName: OnLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3a375650-729a-4381-b90e-1a17f9a8b2ea
+    m_ActionName: Racing/Look[/XInputControllerWindows/rightStick,/Keyboard/q,/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI
