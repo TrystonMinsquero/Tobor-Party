@@ -9,6 +9,8 @@ using Vector3 = UnityEngine.Vector3;
 struct FrameInputs
 {
     public Vector3 direction;
+    public Vector2 lookRotation;
+    public bool drift;
 }
 
 public class Car : PlayerObject
@@ -38,7 +40,7 @@ public class Car : PlayerObject
     public float xRotation = 15;
 
     private Quaternion camRotation;
-
+    private Vector2 lookRotation;
 
     [Header("Input Movement")] 
     public float inputMoveSpeed = 4f;
@@ -173,6 +175,9 @@ public class Car : PlayerObject
         var dir = new Vector3(d.x, 0, d.y);
         //dir.Normalize();
         inputs.direction = dir;
+
+        inputs.lookRotation = _controller.LookInput;
+        inputs.drift = _controller.DriftInput;
     }
     #endregion
 

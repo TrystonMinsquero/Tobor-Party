@@ -10,6 +10,13 @@ public class RaceManager : MonoBehaviour
 
     void Start()
     {
+        if (cars == null || cars.Count == 0)
+        {
+            Started = true;
+            StartState = "";
+            return;
+        }
+
         cars.RemoveAll((a) => a.gameObject.activeSelf == false);
         Started = false;
         StartState = "3";
