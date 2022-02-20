@@ -62,12 +62,15 @@ public class CheckpointUser : MonoBehaviour
             if (checkpoint.index == 0)
             {
                 float newTime = Time.time - LastLapStartTime;
-                float bestTime = lapTimes.Min((f => f));
 
                 if(lapTimes.Count == 0)
                     CompletedLap.Invoke(-1, newTime);
-                else 
+                else
+                {
+                    float bestTime = lapTimes.Min((f => f));
                     CompletedLap.Invoke(bestTime, newTime);
+                }
+                
                 lapTimes.Add(newTime);
                 Laps++;
                 Debug.Log($"Finished lap in {Time.time - LastLapStartTime}");

@@ -52,6 +52,11 @@ public class CarUI : MonoBehaviour
             checkpointTimeText.text = "<color=red>Wrong Way!</color>";
         if (cpUser.RightDirection && checkpointTimeText.text == "<color=red>Wrong Way!</color>")
             checkpointTimeText.text = "";
+        
+        
+        TimeSpan time = TimeSpan.FromSeconds(Time.time - cpUser.StartTime);
+        
+        lapTimerText.text = time.TotalSeconds > 60 ? time.ToString("mm':'ss") : time.ToString("ss'.'FF");
 
     }
 
