@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9114258969592835598}
   - component: {fileID: 9114258969592835597}
-  - component: {fileID: 9114258969592835596}
+  - component: {fileID: 7666105714792413566}
   m_Layer: 0
   m_Name: Boost
   m_TagString: Untagged
@@ -127,7 +127,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &9114258969592835596
+--- !u!114 &7666105714792413566
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

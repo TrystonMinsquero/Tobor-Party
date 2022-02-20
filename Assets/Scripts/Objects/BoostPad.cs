@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boost : MonoBehaviour
+public class BoostPad : MonoBehaviour
 {
     public float boostTime = 0.4f;
 
