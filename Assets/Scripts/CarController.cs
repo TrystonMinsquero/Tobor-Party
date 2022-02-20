@@ -4,8 +4,10 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public class CarController : PlayerController
 {
-    public Vector2 MoveInput { get; private set; }
+    public float SteerInput { get; private set; }
+    public float GasBreakInput { get; private set; }
 
-    public void OnMove(InputAction.CallbackContext ctx) { MoveInput = ctx.ReadValue<Vector2>(); }
+    public void OnSteer(InputAction.CallbackContext ctx) { SteerInput = ctx.ReadValue<float>(); }
+    public void OnGasBreak(InputAction.CallbackContext ctx) { GasBreakInput = ctx.ReadValue<float>(); }
 
 }

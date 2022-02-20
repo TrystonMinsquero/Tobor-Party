@@ -150,7 +150,8 @@ public class Car : PlayerObject
             Debug.LogWarning("No Controller Assigned!");
             return;
         }
-        var d = _controller.MoveInput;
+        
+        var d = new Vector2(_controller.SteerInput, _controller.GasBreakInput);
         var dir = new Vector3(d.x, 0, d.y);
         //dir.Normalize();
         inputs.direction = dir;
@@ -242,7 +243,7 @@ public class Car : PlayerObject
         // Only enable correct action Map
         foreach(InputActionMap actionMap in playerInput.actions.actionMaps)
             actionMap.Disable();
-        playerInput.actions.FindActionMap("Gameplay").Enable();
+        playerInput.actions.FindActionMap("Racing").Enable();
         return true;
     }
 

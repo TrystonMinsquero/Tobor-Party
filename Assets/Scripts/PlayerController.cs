@@ -4,11 +4,20 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public abstract class PlayerController : MonoBehaviour
 {
-    protected static Controls controls;
+    protected Controls controls;
 
     private void Awake()
     {
-        controls = new Controls();
+        // Check for other components to see if they have already instantiated
+        foreach (PlayerController pc in GetComponents<PlayerController>())
+        {
+            if (pc.controls != null)
+                controls = pc.controls;
+        }
+        
+        if(controls == null)
+            controls = new Controls();
+        
         transform.tag = "Player";
         DontDestroyOnLoad(this.gameObject);
     }

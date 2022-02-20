@@ -24,14 +24,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     ""name"": ""Controls"",
     ""maps"": [
         {
-            ""name"": ""Gameplay"",
-            ""id"": ""6404561b-2398-4302-ad9c-d74b6eade907"",
+            ""name"": ""UI"",
+            ""id"": ""09a9dd9c-9769-424d-b1dc-4846d55adcfb"",
             ""actions"": [
                 {
-                    ""name"": ""Movement"",
+                    ""name"": ""Rotate"",
                     ""type"": ""Value"",
-                    ""id"": ""7639d771-33f1-4970-9963-92493f60746a"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""id"": ""4fe816d0-dec8-46e1-9e95-1ff3e2862b53"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -39,112 +39,101 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""WASD"",
-                    ""id"": ""8d0675bd-57ae-4cda-a4f8-896f5c95c8b9"",
-                    ""path"": ""2DVector(mode=2)"",
+                    ""name"": ""AD"",
+                    ""id"": ""34dbf413-8da4-4597-b78d-2be441e935b9"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""d2bf4bff-bf7b-4873-811b-264588938243"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""db43d19c-0644-4b8a-9e60-21b83d73528a"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""bc467868-aec0-4dfe-b19f-39ade25a6ae7"",
+                    ""name"": ""negative"",
+                    ""id"": ""a1a48917-ab84-4631-a815-7c4f72e49a73"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Movement"",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
-                    ""id"": ""36181a0a-eb7b-4ceb-844b-6867ad545b18"",
+                    ""name"": ""positive"",
+                    ""id"": ""01901d8c-632e-4344-9dfa-77abd71ba446"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Movement"",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Gamepad"",
-                    ""id"": ""488156cc-c205-4639-b5ca-32de615f864e"",
-                    ""path"": ""2DVector"",
+                    ""name"": ""Arrow Keys"",
+                    ""id"": ""79365653-028d-4485-b8f1-1e15662ef5ca"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""21940a54-16d6-442a-a9ae-d8d0fabeed25"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""name"": ""negative"",
+                    ""id"": ""26a296b3-c150-4960-9cb5-79e2fae40485"",
+                    ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""down"",
-                    ""id"": ""5ae03a2b-661b-4142-b9ef-887247fa4a4e"",
+                    ""name"": ""positive"",
+                    ""id"": ""bfd9ad15-6a9d-4906-af58-aab63ec897f9"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Triggers"",
+                    ""id"": ""e09e7f2e-77ea-4e28-a632-c94a2c70a932"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""b9b5f951-edfe-46aa-937c-1e293ce7b0cc"",
                     ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
-                    ""id"": ""f7dd1675-f20b-47b1-8643-f26103d2541e"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""name"": ""positive"",
+                    ""id"": ""3e18fac0-970a-4a30-960e-70d8ebb8935b"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""de8a27a0-b0cc-461c-8cf2-78bca4e9cb2e"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -155,10 +144,19 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             ""id"": ""f2aa711a-8ebf-4b5a-8ee8-9f746ddf8d97"",
             ""actions"": [
                 {
-                    ""name"": ""Movement"",
+                    ""name"": ""Steer"",
                     ""type"": ""Value"",
-                    ""id"": ""daf8fd8f-0ec4-4ba4-ba57-9deb57371168"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""id"": ""d0aa06e1-428f-490a-8d8b-6454338a41c0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""GasReverse"",
+                    ""type"": ""Value"",
+                    ""id"": ""6b2370f3-205b-401a-80b9-c0ab827f32ad"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -166,112 +164,233 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""WASD"",
-                    ""id"": ""368b450f-40d0-4488-9cbc-f7092cbe7a43"",
-                    ""path"": ""2DVector(mode=2)"",
+                    ""name"": ""AD"",
+                    ""id"": ""fe806e86-a5c2-417e-a613-f07736a2043c"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Steer"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""b37c0ec1-4b70-4b2b-b0e5-925349b7c6a9"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""78c58d80-09bf-4748-b09a-c35a3b3c2d18"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""274fd188-49cf-46fa-b179-3d676096f515"",
+                    ""name"": ""negative"",
+                    ""id"": ""01fa0bc6-0400-480a-b9b7-4e0685a5dc31"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Movement"",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
-                    ""id"": ""13a82549-f02b-4ea8-a777-27375d3072f8"",
+                    ""name"": ""positive"",
+                    ""id"": ""8e5eb921-5d00-4907-a80c-b297ecdd2935"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Movement"",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Gamepad"",
-                    ""id"": ""633bdc1a-fa4c-4519-be5f-eee2d489af38"",
-                    ""path"": ""2DVector"",
+                    ""name"": ""Arrow Keys"",
+                    ""id"": ""b5c433f1-5544-4acf-9606-38680b4c8ad4"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Steer"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""ceba8490-be9d-4f16-80ee-a3a880de563b"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""name"": ""negative"",
+                    ""id"": ""14203d5c-c3e0-4abf-94e0-0ea62e5129d1"",
+                    ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Steer"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""down"",
-                    ""id"": ""64d81a66-454b-4c9e-aaee-21d6e7e35f9a"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""name"": ""positive"",
+                    ""id"": ""9a686bc0-1dfe-4872-ae2c-d479a87400be"",
+                    ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Steer"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
-                    ""id"": ""af698b00-62fe-45f7-b344-bbe6d420a92e"",
+                    ""name"": ""Left Stick"",
+                    ""id"": ""4efeafb7-be6c-4703-a686-76988e367680"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""8cffc1ea-554b-4388-9092-77caaaa2c43a"",
                     ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Steer"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
-                    ""id"": ""88b1b60f-20dd-4a98-987f-83cfc906b870"",
+                    ""name"": ""positive"",
+                    ""id"": ""d3221cb0-c8f5-404f-a916-50314d55bdf5"",
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""WS"",
+                    ""id"": ""d85ba018-4b62-4795-b889-ec33c1797f55"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GasReverse"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""e754b52d-a527-4791-bcac-8c87efdf030a"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GasReverse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""1e309bad-5cc2-4f2e-91c3-b0d7be4c9bdb"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GasReverse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Arrow Keys"",
+                    ""id"": ""857ad60f-f423-4a2b-a04b-41d47c364588"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GasReverse"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""9b55416a-ef3f-48b0-b319-db83b0062133"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GasReverse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""c22880c3-4e3f-4886-81ae-4772dc0a0dac"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GasReverse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Triggers"",
+                    ""id"": ""7102989e-f6ea-420e-93a7-2132e6cb1910"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GasReverse"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""34db5efa-821a-4f5a-9268-54c46a9d40c5"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GasReverse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""cdc76dd5-9b06-4302-af03-61000b34f992"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GasReverse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Buttons"",
+                    ""id"": ""1f60534d-ca45-41b0-aeb9-a6779d8cfc59"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GasReverse"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""d40c93fe-8ebf-4d47-8040-a7b25821d1e1"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GasReverse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""0d19e957-674b-4ded-99e5-d2565481e52e"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GasReverse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -407,12 +526,13 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // Gameplay
-        m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
-        m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Rotate = m_UI.FindAction("Rotate", throwIfNotFound: true);
         // Racing
         m_Racing = asset.FindActionMap("Racing", throwIfNotFound: true);
-        m_Racing_Movement = m_Racing.FindAction("Movement", throwIfNotFound: true);
+        m_Racing_Steer = m_Racing.FindAction("Steer", throwIfNotFound: true);
+        m_Racing_GasReverse = m_Racing.FindAction("GasReverse", throwIfNotFound: true);
         // Sumo
         m_Sumo = asset.FindActionMap("Sumo", throwIfNotFound: true);
         m_Sumo_Movement = m_Sumo.FindAction("Movement", throwIfNotFound: true);
@@ -472,48 +592,50 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Gameplay
-    private readonly InputActionMap m_Gameplay;
-    private IGameplayActions m_GameplayActionsCallbackInterface;
-    private readonly InputAction m_Gameplay_Movement;
-    public struct GameplayActions
+    // UI
+    private readonly InputActionMap m_UI;
+    private IUIActions m_UIActionsCallbackInterface;
+    private readonly InputAction m_UI_Rotate;
+    public struct UIActions
     {
         private @Controls m_Wrapper;
-        public GameplayActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
-        public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
+        public UIActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Rotate => m_Wrapper.m_UI_Rotate;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(GameplayActions set) { return set.Get(); }
-        public void SetCallbacks(IGameplayActions instance)
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void SetCallbacks(IUIActions instance)
         {
-            if (m_Wrapper.m_GameplayActionsCallbackInterface != null)
+            if (m_Wrapper.m_UIActionsCallbackInterface != null)
             {
-                @Movement.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
+                @Rotate.started -= m_Wrapper.m_UIActionsCallbackInterface.OnRotate;
+                @Rotate.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnRotate;
+                @Rotate.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnRotate;
             }
-            m_Wrapper.m_GameplayActionsCallbackInterface = instance;
+            m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Movement.started += instance.OnMovement;
-                @Movement.performed += instance.OnMovement;
-                @Movement.canceled += instance.OnMovement;
+                @Rotate.started += instance.OnRotate;
+                @Rotate.performed += instance.OnRotate;
+                @Rotate.canceled += instance.OnRotate;
             }
         }
     }
-    public GameplayActions @Gameplay => new GameplayActions(this);
+    public UIActions @UI => new UIActions(this);
 
     // Racing
     private readonly InputActionMap m_Racing;
     private IRacingActions m_RacingActionsCallbackInterface;
-    private readonly InputAction m_Racing_Movement;
+    private readonly InputAction m_Racing_Steer;
+    private readonly InputAction m_Racing_GasReverse;
     public struct RacingActions
     {
         private @Controls m_Wrapper;
         public RacingActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_Racing_Movement;
+        public InputAction @Steer => m_Wrapper.m_Racing_Steer;
+        public InputAction @GasReverse => m_Wrapper.m_Racing_GasReverse;
         public InputActionMap Get() { return m_Wrapper.m_Racing; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -523,16 +645,22 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_RacingActionsCallbackInterface != null)
             {
-                @Movement.started -= m_Wrapper.m_RacingActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_RacingActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_RacingActionsCallbackInterface.OnMovement;
+                @Steer.started -= m_Wrapper.m_RacingActionsCallbackInterface.OnSteer;
+                @Steer.performed -= m_Wrapper.m_RacingActionsCallbackInterface.OnSteer;
+                @Steer.canceled -= m_Wrapper.m_RacingActionsCallbackInterface.OnSteer;
+                @GasReverse.started -= m_Wrapper.m_RacingActionsCallbackInterface.OnGasReverse;
+                @GasReverse.performed -= m_Wrapper.m_RacingActionsCallbackInterface.OnGasReverse;
+                @GasReverse.canceled -= m_Wrapper.m_RacingActionsCallbackInterface.OnGasReverse;
             }
             m_Wrapper.m_RacingActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Movement.started += instance.OnMovement;
-                @Movement.performed += instance.OnMovement;
-                @Movement.canceled += instance.OnMovement;
+                @Steer.started += instance.OnSteer;
+                @Steer.performed += instance.OnSteer;
+                @Steer.canceled += instance.OnSteer;
+                @GasReverse.started += instance.OnGasReverse;
+                @GasReverse.performed += instance.OnGasReverse;
+                @GasReverse.canceled += instance.OnGasReverse;
             }
         }
     }
@@ -570,13 +698,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         }
     }
     public SumoActions @Sumo => new SumoActions(this);
-    public interface IGameplayActions
+    public interface IUIActions
     {
-        void OnMovement(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
     }
     public interface IRacingActions
     {
-        void OnMovement(InputAction.CallbackContext context);
+        void OnSteer(InputAction.CallbackContext context);
+        void OnGasReverse(InputAction.CallbackContext context);
     }
     public interface ISumoActions
     {
