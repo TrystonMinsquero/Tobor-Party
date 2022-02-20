@@ -22,7 +22,7 @@ public class Car : PlayerObject
 
     [Header("Transform Movement")]
     public float toborRotSpeed = 5;
-    public Vector3 normal;
+    public Vector3 normal = Vector3.up;
     public Vector3[] latestNormal = new Vector3[5];
 
     [Header("FOV")]
@@ -78,6 +78,8 @@ public class Car : PlayerObject
         rb = GetComponent<Rigidbody>();
         carPos = transform.position;
 
+        normal = Vector3.up;
+
         camRotation = Quaternion.Euler(startRotation);
         tobor.rotation = Quaternion.Euler(startRotation);
         currentInputDirection = Quaternion.Euler(startRotation) * Vector3.forward;
@@ -97,6 +99,12 @@ public class Car : PlayerObject
         // Inputs
         var accel = inputs.direction.z;
         var turnDir = inputs.direction.x;
+
+        if (!RaceManager.Started)
+        {
+            accel = 0;
+            turnDir = 0;
+        }
 
         //var dir = inputVelocity.normalized;
         //var mag = inputVelocity.magnitude;
