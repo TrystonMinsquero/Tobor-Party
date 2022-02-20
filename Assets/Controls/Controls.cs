@@ -202,6 +202,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""3a375650-729a-4381-b90e-1a17f9a8b2ea"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -468,6 +477,72 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Drift"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""54c17c46-f1e9-4253-817a-e710baccc578"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""d020333c-988c-49ad-a91a-31e023b6b7e8"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""25875d20-2a34-4f94-aac5-5f3c9da3f9df"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""b40df03d-ba0c-4908-92bd-4b9d3715a530"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""cf8c495e-d0b1-4aae-878c-f57c25683966"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""125a5845-f303-421d-9a65-49b8a9a6c64c"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -609,6 +684,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Racing_Steer = m_Racing.FindAction("Steer", throwIfNotFound: true);
         m_Racing_GasReverse = m_Racing.FindAction("GasReverse", throwIfNotFound: true);
         m_Racing_Drift = m_Racing.FindAction("Drift", throwIfNotFound: true);
+        m_Racing_Look = m_Racing.FindAction("Look", throwIfNotFound: true);
         // Sumo
         m_Sumo = asset.FindActionMap("Sumo", throwIfNotFound: true);
         m_Sumo_Movement = m_Sumo.FindAction("Movement", throwIfNotFound: true);
@@ -707,6 +783,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Racing_Steer;
     private readonly InputAction m_Racing_GasReverse;
     private readonly InputAction m_Racing_Drift;
+    private readonly InputAction m_Racing_Look;
     public struct RacingActions
     {
         private @Controls m_Wrapper;
@@ -714,6 +791,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Steer => m_Wrapper.m_Racing_Steer;
         public InputAction @GasReverse => m_Wrapper.m_Racing_GasReverse;
         public InputAction @Drift => m_Wrapper.m_Racing_Drift;
+        public InputAction @Look => m_Wrapper.m_Racing_Look;
         public InputActionMap Get() { return m_Wrapper.m_Racing; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -732,6 +810,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Drift.started -= m_Wrapper.m_RacingActionsCallbackInterface.OnDrift;
                 @Drift.performed -= m_Wrapper.m_RacingActionsCallbackInterface.OnDrift;
                 @Drift.canceled -= m_Wrapper.m_RacingActionsCallbackInterface.OnDrift;
+                @Look.started -= m_Wrapper.m_RacingActionsCallbackInterface.OnLook;
+                @Look.performed -= m_Wrapper.m_RacingActionsCallbackInterface.OnLook;
+                @Look.canceled -= m_Wrapper.m_RacingActionsCallbackInterface.OnLook;
             }
             m_Wrapper.m_RacingActionsCallbackInterface = instance;
             if (instance != null)
@@ -745,6 +826,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Drift.started += instance.OnDrift;
                 @Drift.performed += instance.OnDrift;
                 @Drift.canceled += instance.OnDrift;
+                @Look.started += instance.OnLook;
+                @Look.performed += instance.OnLook;
+                @Look.canceled += instance.OnLook;
             }
         }
     }
@@ -791,6 +875,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnSteer(InputAction.CallbackContext context);
         void OnGasReverse(InputAction.CallbackContext context);
         void OnDrift(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
     }
     public interface ISumoActions
     {

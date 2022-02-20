@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4540808127819702267
+--- !u!1 &1651875253646952202
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,348 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4540808127819702270}
-  - component: {fileID: 4540808127819702265}
-  - component: {fileID: 5743012211961448910}
+  - component: {fileID: 1651875253646952203}
+  - component: {fileID: 1651875253646952214}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1651875253646952203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651875253646952202}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.015}
+  m_LocalScale: {x: 1, y: 1, z: 1.1901}
+  m_Children:
+  - {fileID: 721629970443510882}
+  m_Father: {fileID: 1651875253683934797}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &1651875253646952214
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651875253646952202}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1651875253683934785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1651875253683934797}
+  - component: {fileID: 1651875253683934796}
+  - component: {fileID: 1651875253683934799}
+  - component: {fileID: 1651875253683934798}
+  - component: {fileID: 1651875253683934794}
+  - component: {fileID: 4129588849267277245}
+  - component: {fileID: 9175344629857344371}
+  - component: {fileID: 5409633844182729013}
+  m_Layer: 0
+  m_Name: Tobor-Car Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1651875253683934797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651875253683934785}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.008867, y: 7.22, z: -100.04}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1651875253646952203}
+  - {fileID: 1651875255271833370}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1651875253683934796
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651875253683934785}
+  m_Material: {fileID: 13400000, guid: 6c2b701bcfa528c4abf99d66d2043898, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1651875253683934799
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651875253683934785}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 3
+--- !u!114 &1651875253683934798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651875253683934785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 832d2fb8e37e88148aebb3af91700014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1651875253683934799}
+  cam: {fileID: 1651875255271833373}
+  tobor: {fileID: 1651875253646952203}
+  checkpoints: {fileID: 0}
+  toborRotSpeed: 20
+  normal: {x: 0, y: 0, z: 0}
+  latestNormal:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  fovCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 70
+      inSlope: 0.10482788
+      outSlope: 0.10482788
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.45
+    - serializedVersion: 3
+      time: 1
+      value: 80
+      inSlope: 0.47834367
+      outSlope: 0.47834367
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.29583335
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  fovSpeed: 5
+  camSpeedMoveBack: 0.4
+  camSpeed: 9
+  camPosSpeed: 25
+  camOffset: {x: 3, y: 1}
+  xRotation: 15
+  inputMoveSpeed: 4
+  inputRotSpeed: 90
+  currentInputSpeed: 0
+  currentInputDirection: {x: 0, y: 0, z: 1}
+  accelCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.9983978
+      inSlope: -1.4320177
+      outSlope: -1.4320177
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.08713397
+    - serializedVersion: 3
+      time: 1
+      value: 0.4
+      inSlope: -0.22424479
+      outSlope: -0.22424479
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.23333335
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  maxSpeed: 15
+  acceleration: 25
+  friction: 0.3
+  gravity: 10
+  turnVelocityPersistence: 0.95
+  airTurnMultiplier: 0.2
+  isGrounded: 0
+  bumpForce: 350
+  speedText: {fileID: 0}
+  _controller: {fileID: 9175344629857344371}
+  startRotation: {x: 0, y: 0, z: 0}
+--- !u!114 &1651875253683934794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651875253683934785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf6be774fcb8ee48928cec0320008d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4129588849267277245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651875253683934785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 9ec470e5449a1ad41848252cdefc2c7c, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d0e78be4-cd7d-4e71-b692-54ba4740db4a
+    m_ActionName: Sumo/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/rightTrigger,/XInputControllerWindows/leftTrigger,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4fe816d0-dec8-46e1-9e95-1ff3e2862b53
+    m_ActionName: UI/Rotate[/Keyboard/a,/Keyboard/d,/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/leftTrigger,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9175344629857344371}
+        m_TargetAssemblyTypeName: CarController, Assembly-CSharp
+        m_MethodName: OnSteer
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d0aa06e1-428f-490a-8d8b-6454338a41c0
+    m_ActionName: Racing/Steer[/Keyboard/a,/Keyboard/d,/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9175344629857344371}
+        m_TargetAssemblyTypeName: CarController, Assembly-CSharp
+        m_MethodName: OnGasBreak
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6b2370f3-205b-401a-80b9-c0ab827f32ad
+    m_ActionName: Racing/GasReverse[/Keyboard/s,/Keyboard/w,/Keyboard/downArrow,/Keyboard/upArrow,/XInputControllerWindows/leftTrigger,/XInputControllerWindows/rightTrigger,/XInputControllerWindows/buttonEast,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9175344629857344371}
+        m_TargetAssemblyTypeName: CarController, Assembly-CSharp
+        m_MethodName: OnDrift
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3cfae1f0-fe75-45ed-a22d-4a264bd806f9
+    m_ActionName: Racing/Drift[/Keyboard/space,/XInputControllerWindows/buttonWest,/XInputControllerWindows/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9175344629857344371}
+        m_TargetAssemblyTypeName: CarController, Assembly-CSharp
+        m_MethodName: OnLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3a375650-729a-4381-b90e-1a17f9a8b2ea
+    m_ActionName: Racing/Look[/XInputControllerWindows/rightStick,/Keyboard/q,/Keyboard/e]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Racing
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 1651875255271833373}
+--- !u!114 &9175344629857344371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651875253683934785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bb4d8c592ab99b47a8908b2eb78966f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5409633844182729013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651875253683934785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f85cffb92c7ed7f46ac15c100871be28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1651875255271833375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1651875255271833370}
+  - component: {fileID: 1651875255271833373}
+  - component: {fileID: 7375721946159982890}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -18,27 +357,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4540808127819702270
+--- !u!4 &1651875255271833370
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4540808127819702267}
+  m_GameObject: {fileID: 1651875255271833375}
   m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
   m_LocalPosition: {x: 0, y: 1.68, z: -2.796}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4540808129453799081}
+  m_Father: {fileID: 1651875253683934797}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
---- !u!20 &4540808127819702265
+--- !u!20 &1651875255271833373
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4540808127819702267}
+  m_GameObject: {fileID: 1651875255271833375}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -75,13 +414,13 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &5743012211961448910
+--- !u!114 &7375721946159982890
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4540808127819702267}
+  m_GameObject: {fileID: 1651875255271833375}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
@@ -108,316 +447,12 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!1 &4540808129410557934
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4540808129410557935}
-  - component: {fileID: 4540808129410557938}
-  m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4540808129410557935
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4540808129410557934}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.015}
-  m_LocalScale: {x: 1, y: 1, z: 1.1901}
-  m_Children:
-  - {fileID: 2588212471111468166}
-  m_Father: {fileID: 4540808129453799081}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4540808129410557938
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4540808129410557934}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &4540808129453799077
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4540808129453799081}
-  - component: {fileID: 4540808129453799080}
-  - component: {fileID: 4540808129453799083}
-  - component: {fileID: 4540808129453799082}
-  - component: {fileID: 4540808129453799086}
-  - component: {fileID: 1200116977094827353}
-  - component: {fileID: 6250376665478019991}
-  - component: {fileID: 7132138803227730385}
-  m_Layer: 0
-  m_Name: Tobor-Car Test
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4540808129453799081
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4540808129453799077}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2481272, y: 0.004, z: -1.5537847}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4540808129410557935}
-  - {fileID: 4540808127819702270}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &4540808129453799080
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4540808129453799077}
-  m_Material: {fileID: 13400000, guid: 6c2b701bcfa528c4abf99d66d2043898, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &4540808129453799083
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4540808129453799077}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 3
---- !u!114 &4540808129453799082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4540808129453799077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 832d2fb8e37e88148aebb3af91700014, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 4540808129453799083}
-  cam: {fileID: 4540808127819702265}
-  tobor: {fileID: 4540808129410557935}
-  toborRotSpeed: 20
-  normal: {x: 0, y: 0, z: 0}
-  latestNormal:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  fovCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 70
-      inSlope: 0.10482788
-      outSlope: 0.10482788
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.45
-    - serializedVersion: 3
-      time: 1
-      value: 80
-      inSlope: 0.47834367
-      outSlope: 0.47834367
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.29583335
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  fovSpeed: 5
-  camSpeed: 9
-  camPosSpeed: 25
-  camOffset: {x: 3, y: 1}
-  xRotation: 15
-  inputMoveSpeed: 4
-  inputRotSpeed: 270
-  currentInputSpeed: 0
-  currentInputDirection: {x: 0, y: 0, z: 1}
-  accelCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.9983978
-      inSlope: -1.4320177
-      outSlope: -1.4320177
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.08713397
-    - serializedVersion: 3
-      time: 1
-      value: 0.4
-      inSlope: -0.22424479
-      outSlope: -0.22424479
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.23333335
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  maxSpeed: 15
-  acceleration: 25
-  friction: 0.3
-  gravity: 10
-  turnVelocityPersistence: 0.95
-  airTurnMultiplier: 0.2
-  isGrounded: 0
-  bumpForce: 350
-  speedText: {fileID: 0}
-  _controller: {fileID: 6250376665478019991}
---- !u!114 &4540808129453799086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4540808129453799077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bf6be774fcb8ee48928cec0320008d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1200116977094827353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4540808129453799077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 9ec470e5449a1ad41848252cdefc2c7c, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: d0e78be4-cd7d-4e71-b692-54ba4740db4a
-    m_ActionName: Sumo/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/rightTrigger,/XInputControllerWindows/leftTrigger,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4fe816d0-dec8-46e1-9e95-1ff3e2862b53
-    m_ActionName: UI/Rotate[/Keyboard/a,/Keyboard/d,/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/leftTrigger,/XInputControllerWindows/rightTrigger]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6250376665478019991}
-        m_TargetAssemblyTypeName: CarController, Assembly-CSharp
-        m_MethodName: OnSteer
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: d0aa06e1-428f-490a-8d8b-6454338a41c0
-    m_ActionName: Racing/Steer[/Keyboard/a,/Keyboard/d,/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6250376665478019991}
-        m_TargetAssemblyTypeName: CarController, Assembly-CSharp
-        m_MethodName: OnGasBreak
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 6b2370f3-205b-401a-80b9-c0ab827f32ad
-    m_ActionName: Racing/GasReverse[/Keyboard/s,/Keyboard/w,/Keyboard/downArrow,/Keyboard/upArrow,/XInputControllerWindows/leftTrigger,/XInputControllerWindows/rightTrigger,/XInputControllerWindows/buttonEast,/XInputControllerWindows/buttonSouth]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: UI
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 4540808127819702265}
---- !u!114 &6250376665478019991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4540808129453799077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bb4d8c592ab99b47a8908b2eb78966f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7132138803227730385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4540808129453799077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f85cffb92c7ed7f46ac15c100871be28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1001 &2621540263619240813
+--- !u!1001 &975319448681628553
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 4540808129410557935}
+    m_TransformParent: {fileID: 1651875253646952203}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 955b814abc6048e4c895d7d8ff28fdcd, type: 3}
       propertyPath: m_RootOrder
@@ -467,6 +502,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7918335002988649766, guid: 955b814abc6048e4c895d7d8ff28fdcd, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5f5806c41388c6f4c8b56085c05f3509, type: 2}
+    - target: {fileID: -7918335002988649766, guid: 955b814abc6048e4c895d7d8ff28fdcd, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: a2e78d15a1c791c4f9a2873fa785efab, type: 2}
+    - target: {fileID: -4683669308469848369, guid: 955b814abc6048e4c895d7d8ff28fdcd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 59ca58121da8b604ca8c5ad9b26ca013, type: 2}
+    - target: {fileID: -4683669308469848369, guid: 955b814abc6048e4c895d7d8ff28fdcd, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 30327787406411f45969307734129637, type: 2}
+    - target: {fileID: -1461304994638716399, guid: 955b814abc6048e4c895d7d8ff28fdcd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b4a4d142784c4b4cb0c454e2598c097, type: 2}
+    - target: {fileID: -1461304994638716399, guid: 955b814abc6048e4c895d7d8ff28fdcd, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d68abb8b595e65844acda994571ec4f6, type: 2}
+    - target: {fileID: -1461304994638716399, guid: 955b814abc6048e4c895d7d8ff28fdcd, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: aee1062ae8c94f846b5b9d910dafc252, type: 2}
+    - target: {fileID: -1461304994638716399, guid: 955b814abc6048e4c895d7d8ff28fdcd, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b4a4d142784c4b4cb0c454e2598c097, type: 2}
     - target: {fileID: 919132149155446097, guid: 955b814abc6048e4c895d7d8ff28fdcd, type: 3}
       propertyPath: m_Name
       value: Tobor
@@ -474,8 +541,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -7463960209093245854, guid: 955b814abc6048e4c895d7d8ff28fdcd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 955b814abc6048e4c895d7d8ff28fdcd, type: 3}
---- !u!4 &2588212471111468166 stripped
+--- !u!4 &721629970443510882 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 955b814abc6048e4c895d7d8ff28fdcd, type: 3}
-  m_PrefabInstance: {fileID: 2621540263619240813}
+  m_PrefabInstance: {fileID: 975319448681628553}
   m_PrefabAsset: {fileID: 0}
