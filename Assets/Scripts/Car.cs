@@ -21,6 +21,7 @@ public class Car : PlayerObject
     public Camera cam;
     public Transform tobor;
     public CheckpointUser checkpoints;
+    public ToborParticles particles;
 
     [Header("Transform Movement")]
     public float toborRotSpeed = 5;
@@ -34,14 +35,21 @@ public class Car : PlayerObject
 
     [Header("Drifting")] 
     public float minDriftSpeed = 4f;
+    public float minDriftStartAngle = 0.1f;
+
+    public Vector3 driftTurnSpeeds = new Vector3(40, 80, 200); // x = min, y = constant, z = max turn speed
+
     public float driftTurnSpeedMultiplier = 1.5f;
     public float driftTurnVelocityPercentage = 0.4f;
     public AnimationCurve driftTurnSpeedSame; // turn speed multiplier based on difference in angle
     public AnimationCurve driftTurnSpeedOpposite; // turn speed multiplier based on difference in angle
     public AnimationCurve driftTurnPersistence; // turn persistence based on difference in angle
 
+    public float driftDirection = 0;
+    public float driftInput = 0; // -1 slow drift, 0 constant drift, 1 fast drift
 
     [Header("Drift Visuals")] 
+    public Vector3 driftVisualAngle = new Vector3(15, 20, 30);
     public float driftAngleVisualSpeed = 5f;
     public float driftExtraAngleMultiplier = 0.8f;
     public float driftJumpRecoverTime = 0.14f;
@@ -74,6 +82,7 @@ public class Car : PlayerObject
     public float airTurnMultiplier = 0.2f;
 
     public bool isGrounded = false;
+    public bool canDrift = false;
 
     [Header("Extra Movement")]
     public float bumpForce = 50;
@@ -96,6 +105,7 @@ public class Car : PlayerObject
 
     void Start()
     {
+        particles = GetComponentInChildren<ToborParticles>();
         rb = GetComponent<Rigidbody>();
         carPos = transform.position;
 
@@ -134,18 +144,28 @@ public class Car : PlayerObject
         // TODO: make tilt, based off angle difference between currentInputDirection and velocity?
         var velocity = rb.velocity;
         velocity.y = 0;
+        var signedAngle = Vector3.SignedAngle(velocity, currentInputDirection, Vector3.up);
+        var angle = Mathf.Abs(signedAngle);
+        
+        canDrift = isGrounded && velocity.magnitude > minDriftSpeed && angle > minDriftStartAngle;
+        var drifting = inputs.drift && canDrift;
 
-        var drifting = inputs.drift && velocity.magnitude > minDriftSpeed;
-        if (drifting && !lastDrift)
+        if (drifting && !lastDrift &&
+            (turnDir > 0 && signedAngle > 0 || turnDir < 0 && signedAngle < 0))
+        {
             jumpVel = driftJumpSpeed;
+            driftDirection = turnDir > 0 ? 1 : -1;
+        }
         lastDrift = drifting;
 
-        float driftMult = 1;
-        if (drifting && isGrounded)
+        if (!inputs.drift)
         {
-            var signedAngle = Vector3.SignedAngle(velocity, currentInputDirection, Vector3.up);
-            var angle = Mathf.Abs(signedAngle);
+            driftDirection = 0;
+        }
 
+        float driftMult = 1;
+        if (drifting)
+        {
             turnDir *= driftTurnSpeedMultiplier;
 
             Debug.Log($"{(turnDir > 0 && signedAngle > 0 || turnDir < 0 && signedAngle < 0 ? "Same" : "Opposite")}");
@@ -307,11 +327,15 @@ public class Car : PlayerObject
         float angleTarget = 0;
         var velocity = rb.velocity;
         velocity.y = 0; 
-        if (inputs.drift && rb.velocity.magnitude > minDriftSpeed)
+        if (inputs.drift && canDrift)
         {
-            
+            particles.StartDrift();
             angleTarget = Vector3.SignedAngle(velocity, currentInputDirection, Vector3.up);
             
+        }
+        else
+        {
+            particles.StopDrift();
         }
         anglePos = Mathf.SmoothDamp(anglePos, angleTarget, ref angleVel, 1 / driftAngleVisualSpeed);
         tobor.rotation = toborRotation * Quaternion.Euler(0, anglePos * driftExtraAngleMultiplier, 0);
