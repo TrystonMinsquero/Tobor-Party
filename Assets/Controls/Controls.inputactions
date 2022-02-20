@@ -7,11 +7,12 @@
             "actions": [
                 {
                     "name": "Movement",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "7639d771-33f1-4970-9963-92493f60746a",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -133,11 +134,12 @@
             "actions": [
                 {
                     "name": "Movement",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "daf8fd8f-0ec4-4ba4-ba57-9deb57371168",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -259,11 +261,12 @@
             "actions": [
                 {
                     "name": "Movement",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "d0e78be4-cd7d-4e71-b692-54ba4740db4a",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
