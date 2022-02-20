@@ -54,7 +54,7 @@ public class PlayerManager : MonoBehaviour
 
     #region Indexing
 
-    //Gets the index of player in the player array, returns -1 if not there
+    //Gets the nameIndex of player in the player array, returns -1 if not there
     public static int GetIndex(Player _player)
     {
         if (playerCount <= 0 || _player == null)
@@ -76,7 +76,7 @@ public class PlayerManager : MonoBehaviour
         return false;
     }
 
-    //returns the next empty slot index in the array (so players can leave and rejoin without creating holes in array),
+    //returns the next empty slot nameIndex in the array (so players can leave and rejoin without creating holes in array),
     //returns -1 if no slots are available
     public static int NextPlayerSlot()
     {

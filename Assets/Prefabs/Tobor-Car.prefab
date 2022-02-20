@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 14438645323195886}
   - component: {fileID: 14438645323195882}
   - component: {fileID: 14438645323195874}
+  - component: {fileID: 5312674712506174225}
   m_Layer: 0
   m_Name: Tobor-Car
   m_TagString: Untagged
@@ -121,6 +122,7 @@ MonoBehaviour:
   rb: {fileID: 14438645323195887}
   cam: {fileID: 14438646894300349}
   tobor: {fileID: 14438645271540907}
+  checkpoints: {fileID: 0}
   toborRotSpeed: 20
   normal: {x: 0, y: 0, z: 0}
   latestNormal:
@@ -134,7 +136,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 65
+      value: 64
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -143,7 +145,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 75
+      value: 76
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -154,9 +156,10 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   fovSpeed: 5
+  camSpeedMoveBack: 0.2
   camSpeed: 9
   camPosSpeed: 25
-  camOffset: {x: 3, y: 0.82}
+  camOffset: {x: 3, y: 0.75}
   xRotation: 15
   inputMoveSpeed: 4
   inputRotSpeed: 270
@@ -196,6 +199,7 @@ MonoBehaviour:
   bumpForce: 350
   speedText: {fileID: 0}
   _controller: {fileID: 0}
+  startRotation: {x: 0, y: 180, z: 0}
 --- !u!114 &14438645323195882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +224,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e23a4099882a93438b7be4cdb63d020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5312674712506174225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14438645323195873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c71130361af0604e992a51dbd0678fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCheckpoint: {fileID: 0}
+  nextCheckpoint: {fileID: 0}
+  car: {fileID: 0}
 --- !u!1 &14438646894300351
 GameObject:
   m_ObjectHideFlags: 0
