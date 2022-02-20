@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TestCar.unity
     guid: fb6e694256ce2b44b9994a36724d0b91
   - enabled: 1
-    path: Assets/Scenes/Campus Track.unity
+    path: Assets/Scenes/CampusTrackV2.unity
     guid: 21a7c49479305ca4791204e83d67b097
   - enabled: 1
     path: Assets/Scenes/RaceTrack.unity

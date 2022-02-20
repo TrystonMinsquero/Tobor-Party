@@ -7,6 +7,7 @@ public class CheckpointUser : MonoBehaviour
     public bool RightDirection { get; private set; } = true;
     public float Progress { get; private set; } = 0;
     public int Laps { get; private set; } = 0;
+    public float StartTime { get; private set; } = 0;
 
     public Checkpoint currentCheckpoint;
     public Checkpoint nextCheckpoint;
@@ -18,6 +19,14 @@ public class CheckpointUser : MonoBehaviour
         nextCheckpoint = Checkpoints.Instance.checkpoints[1];
 
         car = GetComponent<Car>();
+
+        // Todo: integrate this
+        ResetTimer();
+    }
+
+    public void ResetTimer()
+    {
+        StartTime = Time.time;
     }
 
     public void CheckpointReached(Checkpoint checkpoint)
@@ -34,6 +43,8 @@ public class CheckpointUser : MonoBehaviour
             if (checkpoint.index == 0)
             {
                 Laps++;
+                Debug.Log($"Finished lap in {Time.time - StartTime}");
+                ResetTimer();
             }
         }
     }
@@ -50,8 +61,8 @@ public class CheckpointUser : MonoBehaviour
 
         float progress = Laps;
         float factor = 1f / Checkpoints.Instance.checkpoints.Count;
-        float percent = Vector3.Dot(transform.position - currentCheckpoint.transform.position, dir) / dir.magnitude;
-        Debug.Log(percent);
+        float percent = Vector3.Dot(transform.position - currentCheckpoint.transform.position, dir) / dir.sqrMagnitude;
+        percent = Mathf.Clamp01(percent);
         progress += currentCheckpoint.index * factor;
         progress += factor * percent;
         progress += factor * percent;
