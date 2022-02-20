@@ -22,6 +22,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Stone Bench
+    second: {fileID: 2100000, guid: 1fe9abaf0ced0ca408d33397df0c373f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Whtie
     second: {fileID: 2100000, guid: 5427b11b20cd59c47b795f97296bf94d, type: 2}
   - first:
@@ -69,6 +74,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: red
     second: {fileID: 2100000, guid: 30327787406411f45969307734129637, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rocks
+    second: {fileID: 2100000, guid: aaca53a755d004a4fbe4540a1e786838, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
