@@ -1,9 +1,17 @@
+using System;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LobbyUI : MonoBehaviour
 {
     public JoinBox[] joinBoxes;
+    public Button startButton;
+
+    public void Start()
+    {
+        startButton.Select();
+    }
 
     public void Update()
     {
@@ -24,7 +32,8 @@ public class LobbyUI : MonoBehaviour
     
     public void StartGame()
     {
-        SceneManager.LoadScene("RaceTrack");
+        if(PlayerManager.playerCount > 0)
+            SceneManager.LoadScene("RaceTrack");
     }
 
     public void Exit()
