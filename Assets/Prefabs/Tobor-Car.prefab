@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 14438645323195887}
-  cam: {fileID: 14438646894300349}
+  cam: {fileID: 5266066330313113719}
   tobor: {fileID: 14438645271540907}
   checkpoints: {fileID: 0}
   particles: {fileID: 0}
@@ -154,10 +154,19 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0
       outWeight: 0
+    - serializedVersion: 3
+      time: 1.8
+      value: 90
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  fovSpeed: 5
+  fovSpeed: 8
   minDriftSpeed: 6
   minDriftStartAngle: 0.1
   driftTurnSpeedCurve:
@@ -264,7 +273,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maxSpeed: 15
+  maxGasSpeed: 15
   acceleration: 25
   friction: 0.3
   gravity: 10
@@ -272,6 +281,8 @@ MonoBehaviour:
   airTurnMultiplier: 0.2
   isGrounded: 0
   isDrifting: 0
+  boostMaxSpeed: 32
+  boostAcceleration: 450
   bumpForce: 350
   speedText: {fileID: 0}
   _controller: {fileID: 0}
@@ -373,6 +384,7 @@ GameObject:
   - component: {fileID: 14438646894300346}
   - component: {fileID: 14438646894300349}
   - component: {fileID: 4465021935380571609}
+  - component: {fileID: 5266066330313113719}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -471,6 +483,20 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &5266066330313113719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14438646894300351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 292a1b57d9fff994f95dc63f9efbcb1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  car: {fileID: 14438645323195886}
+  camera: {fileID: 14438646894300349}
 --- !u!1 &371112847946263891
 GameObject:
   m_ObjectHideFlags: 0
@@ -6686,13 +6712,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f657e13fff962b643acd604a855f3d35, type: 3}
---- !u!198 &7924849127139450581 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 477345120711762531, guid: f657e13fff962b643acd604a855f3d35, type: 3}
-  m_PrefabInstance: {fileID: 7738704305833409718}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &257170255885472894 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7562881247138408648, guid: f657e13fff962b643acd604a855f3d35, type: 3}
+  m_PrefabInstance: {fileID: 7738704305833409718}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7924849127139450581 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 477345120711762531, guid: f657e13fff962b643acd604a855f3d35, type: 3}
   m_PrefabInstance: {fileID: 7738704305833409718}
   m_PrefabAsset: {fileID: 0}
