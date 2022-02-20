@@ -10,12 +10,15 @@ public class JoinBox : MonoBehaviour
     public Canvas joined;
     public Canvas empty;
 
+    public ToborPreview preview;
+
     public void AddPlayer(Player player)
     {
         empty.enabled = false;
         joined.enabled = true;
         hasPlayer = true;
         
+        preview.Enable();
     }
 
     public void RemovePlayer(Player player)
