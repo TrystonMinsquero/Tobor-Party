@@ -23,6 +23,7 @@ public class Car : PlayerObject
     public Transform tobor;
     public CheckpointUser checkpoints;
     public ToborParticles particles;
+    public ItemHolder holder;
 
     [Header("Transform Movement")]
     public float toborRotSpeed = 5;
