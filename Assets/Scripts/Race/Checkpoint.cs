@@ -9,7 +9,6 @@ public class Checkpoint : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        Debug.Log(collider.transform);
         if (collider.transform.TryGetComponent<CheckpointUser>(out var user))
         {
             user.CheckpointReached(this);

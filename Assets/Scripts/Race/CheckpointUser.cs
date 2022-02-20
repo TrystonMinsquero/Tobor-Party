@@ -5,6 +5,9 @@ using UnityEngine;
 public class CheckpointUser : MonoBehaviour
 {
     public bool RightDirection { get; private set; } = true;
+    public float Progress { get; private set; } = 0;
+    public int Laps { get; private set; } = 0;
+
     public Checkpoint currentCheckpoint;
     public Checkpoint nextCheckpoint;
     public Car car;
@@ -30,7 +33,7 @@ public class CheckpointUser : MonoBehaviour
 
             if (checkpoint.index == 0)
             {
-
+                Laps++;
             }
         }
     }
@@ -38,11 +41,20 @@ public class CheckpointUser : MonoBehaviour
     void Update()
     {
         var vel = car.rb.velocity;
-        
+        var dir = nextCheckpoint.transform.position - currentCheckpoint.transform.position;
+
         if (vel.sqrMagnitude > 0.4f)
         {
-            var dir = nextCheckpoint.transform.position - currentCheckpoint.transform.position;
             RightDirection = Vector3.Dot(vel, dir) > 0;
         }
+
+        float progress = Laps;
+        float factor = 1f / Checkpoints.Instance.checkpoints.Count;
+        float percent = Vector3.Dot(transform.position - currentCheckpoint.transform.position, dir) / dir.magnitude;
+        Debug.Log(percent);
+        progress += currentCheckpoint.index * factor;
+        progress += factor * percent;
+        progress += factor * percent;
+        Progress = progress;
     }
 }

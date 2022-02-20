@@ -47,7 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tobor: {fileID: 5536257336615937690}
   camera: {fileID: 581910015133405192}
-  width: 256
+  width: 320
+  height: 500
   texture: {fileID: 0}
   rotation: {x: 15, y: 215}
 --- !u!1 &581910015133405193
@@ -109,7 +110,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1
+  orthographic size: 1.5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -175,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3569652920662991457, guid: d9147e6f5a5446849bd4832464d629e3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.55
       objectReference: {fileID: 0}
     - target: {fileID: 3569652920662991457, guid: d9147e6f5a5446849bd4832464d629e3, type: 3}
       propertyPath: m_LocalPosition.z
