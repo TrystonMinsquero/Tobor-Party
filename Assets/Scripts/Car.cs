@@ -33,6 +33,7 @@ public class Car : PlayerObject
     private float currentFOV = 70f;
 
     [Header("Camera Movement")] 
+    public float lookAroundSpeed = 10f;
     public float camSpeedMoveBack = 0.4f;
     public float camSpeed = 5;
     public float camPosSpeed = 6;
@@ -71,6 +72,7 @@ public class Car : PlayerObject
     private Vector3 toborDir = Vector3.forward, toborVel = Vector3.zero;
     private Vector3 camDir = Vector3.zero, camDirVel = Vector3.zero;
     private Vector3 carPos = Vector3.zero, camPosVel = Vector3.zero;
+    private Vector3 lookPos = Vector3.zero, lookVel = Vector3.zero;
     private float rbSpeed = 0, speedVel = 0;
     #endregion
 
@@ -241,6 +243,9 @@ public class Car : PlayerObject
         camRotation = Quaternion.Slerp(camRotation, rot * Quaternion.Euler(xRotation, 0, 0), 1 - Mathf.Exp(Time.deltaTime * -camSpeed));
 
         var speedPercent = rbSpeed / maxSpeed;
+
+        lookPos = Vector3.SmoothDamp(lookPos, inputs.lookRotation, ref lookVel, 1 / lookAroundSpeed);
+
 
         tobor.position = carPos;
         tobor.rotation = Quaternion.Slerp(tobor.rotation, tar, Time.deltaTime * toborRotSpeed);
