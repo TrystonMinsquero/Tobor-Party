@@ -15,10 +15,11 @@ struct FrameInputs
 
 public class Car : PlayerObject
 {
+    public float Scale => transform.localScale.x;
 
     [Header("Objects")]
     public Rigidbody rb;
-    public Camera cam;
+    public CameraObject cam;
     public Transform tobor;
     public CheckpointUser checkpoints;
     public ToborParticles particles;
@@ -69,7 +70,7 @@ public class Car : PlayerObject
 
     [Header("Physics Movements")]
     public AnimationCurve accelCurve;
-    public float maxSpeed = 15, acceleration = 5;
+    public float maxGasSpeed = 15, acceleration = 5;
     public float friction = 0.1f;
     public float gravity = 20;
     public float turnVelocityPersistence = 0.95f;
@@ -77,6 +78,10 @@ public class Car : PlayerObject
 
     public bool isGrounded = false;
     public bool isDrifting = false;
+
+    [Header("Boost")] 
+    public float boostMaxSpeed = 30;
+    public float boostAcceleration = 90;
 
     [Header("Extra Movement")]
     public float bumpForce = 50;
@@ -96,7 +101,6 @@ public class Car : PlayerObject
     private float dampedToborDriftAngle = 0, angleVel = 0;
     #endregion
 
-
     void Start()
     {
         particles = GetComponentInChildren<ToborParticles>();
@@ -111,6 +115,23 @@ public class Car : PlayerObject
         dampedToborDirection = currentInputDirection;
 
         checkpoints = GetComponent<CheckpointUser>();
+
+        cam.transform.parent = null;
+        cam.transform.localScale = Vector3.one;
+        cam.car = this;
+    }
+
+    void OnEnable()
+    {
+        cam.gameObject.SetActive(true);
+    }
+
+    private float boostTime = 0;
+    public void Boost(float amount)
+    {
+        if (boostTime < 0)
+            boostTime = 0;
+        boostTime += amount;
     }
 
     private bool lastDrift = false;
@@ -196,7 +217,7 @@ public class Car : PlayerObject
             turnVelocity = Mathf.Lerp(turnVelocity,
                 turnInput * turnDirection, Time.fixedDeltaTime * 6);
 
-            var turn = turnVelocity * (0.5f * rb.velocity.magnitude / maxSpeed + 0.5f);
+            var turn = turnVelocity * (0.5f * rb.velocity.magnitude / maxGasSpeed + 0.5f);
 
             turnAmount = turn * inputRotSpeed * Time.fixedDeltaTime;
             velocityTurn = turnAmount * turnVelocityPersistence;
@@ -211,11 +232,25 @@ public class Car : PlayerObject
         
         velocity = Quaternion.Euler(Vector3.up * velocityTurn) * velocity;
 
+        var targetAccelerationAdd = inputVelocity * Time.fixedDeltaTime * acceleration;
+        var targetAcceleration = acceleration;
+
+        var maxSpeed = maxGasSpeed;
+        if (boostTime > 0)
+        {
+            boostTime -= Time.fixedDeltaTime;
+            maxSpeed = boostMaxSpeed;
+            targetAccelerationAdd *= boostAcceleration / acceleration;
+            targetAcceleration = boostAcceleration;
+        }
+        else
+        {
+            targetAccelerationAdd *= accelCurve.Evaluate(velocity.magnitude / maxSpeed);
+        }
+
         // Clamp max speed
-        var targetAcceleration = inputVelocity * Time.fixedDeltaTime * acceleration;
-        var finalVelocity = Vector3.ClampMagnitude(velocity + targetAcceleration, maxSpeed);
-        var velocityChange = acceleration * accelCurve.Evaluate(velocity.magnitude / maxSpeed) * Time.fixedDeltaTime;
-        velocity = Vector3.MoveTowards(velocity, finalVelocity, velocityChange);
+        var finalVelocity = Vector3.ClampMagnitude(velocity + targetAccelerationAdd, maxSpeed);
+        velocity = Vector3.MoveTowards(velocity, finalVelocity, targetAcceleration * Time.fixedDeltaTime);
 
         // Friction
         velocity = Vector3.MoveTowards(velocity, Vector3.zero,velocity.magnitude * friction * Time.fixedDeltaTime);
@@ -306,7 +341,7 @@ public class Car : PlayerObject
         var camVelocityRotation = Quaternion.LookRotation(dampedCameraInputDirection, Vector3.up);
         camRotation = Quaternion.Slerp(camRotation, camVelocityRotation * Quaternion.Euler(xRotation, 0, 0), 1 - Mathf.Exp(Time.deltaTime * -camSpeed));
 
-        var speedPercent = dampedSpeed / maxSpeed;
+        var speedPercent = dampedSpeed / maxGasSpeed;
         currentFOV = Mathf.Lerp(currentFOV, fovCurve.Evaluate(speedPercent),
             1 - Mathf.Exp(Time.deltaTime * -fovSpeed));
         cam.fieldOfView = currentFOV;
@@ -341,7 +376,7 @@ public class Car : PlayerObject
         
         _controller = (CarController) playerController;
         PlayerInput playerInput = playerController.gameObject.GetComponent<PlayerInput>();
-        playerInput.camera = cam;
+        playerInput.camera = cam.camera;
         
         // Only enable correct action Map
         foreach(InputActionMap actionMap in playerInput.actions.actionMaps)
