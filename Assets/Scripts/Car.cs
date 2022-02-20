@@ -232,23 +232,25 @@ public class Car : PlayerObject
         
         velocity = Quaternion.Euler(Vector3.up * velocityTurn) * velocity;
 
-        var targetAcceleration = inputVelocity * Time.fixedDeltaTime * acceleration;
+        var targetAccelerationAdd = inputVelocity * Time.fixedDeltaTime * acceleration;
+        var targetAcceleration = acceleration;
 
         var maxSpeed = maxGasSpeed;
         if (boostTime > 0)
         {
             boostTime -= Time.fixedDeltaTime;
             maxSpeed = boostMaxSpeed;
-            targetAcceleration *= boostAcceleration / acceleration;
+            targetAccelerationAdd *= boostAcceleration / acceleration;
+            targetAcceleration = boostAcceleration;
         }
         else
         {
-            targetAcceleration *= accelCurve.Evaluate(velocity.magnitude / maxSpeed);
+            targetAccelerationAdd *= accelCurve.Evaluate(velocity.magnitude / maxSpeed);
         }
 
         // Clamp max speed
-        var finalVelocity = Vector3.ClampMagnitude(velocity + targetAcceleration, maxSpeed);
-        velocity = Vector3.MoveTowards(velocity, finalVelocity, acceleration * Time.fixedDeltaTime);
+        var finalVelocity = Vector3.ClampMagnitude(velocity + targetAccelerationAdd, maxSpeed);
+        velocity = Vector3.MoveTowards(velocity, finalVelocity, targetAcceleration * Time.fixedDeltaTime);
 
         // Friction
         velocity = Vector3.MoveTowards(velocity, Vector3.zero,velocity.magnitude * friction * Time.fixedDeltaTime);
