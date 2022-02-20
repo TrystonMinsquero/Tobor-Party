@@ -17,13 +17,6 @@ public class ToborPreview : MonoBehaviour
         renderer.Disable();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (renderer.Enabled)
-            renderer.Rotate(0, Time.deltaTime * 20f);
-    }
-
     public void Enable()
     {
         renderer.Enable();

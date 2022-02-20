@@ -50,7 +50,7 @@ public class ToborRenderer : MonoBehaviour
         output.texture = texture;
     }
 
-    public void Rotate(float x, float y)
+    public void Rotate(float y, float x = 0)
     {
         rotation += new Vector2(x, y);
         rotation.x = Mathf.Clamp(x, -30f, 30f);

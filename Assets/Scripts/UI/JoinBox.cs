@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class JoinBox : MonoBehaviour
@@ -11,6 +12,7 @@ public class JoinBox : MonoBehaviour
     public Canvas empty;
 
     public ToborPreview preview;
+    public UIController _controller;
 
     public void AddPlayer(Player player)
     {
@@ -19,6 +21,13 @@ public class JoinBox : MonoBehaviour
         hasPlayer = true;
         
         preview.Enable();
+        _controller = player.GetComponent<UIController>();
+    }
+
+    private void Update()
+    {
+        if(_controller)
+            preview.renderer.Rotate(-_controller.Rotate * 3);
     }
 
     public void RemovePlayer(Player player)
