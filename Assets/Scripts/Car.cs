@@ -71,6 +71,7 @@ public class Car : PlayerObject
 
     [Header("Physics Movements")]
     public AnimationCurve accelCurve;
+    public AnimationCurve turnSpeedCurve;
     public float maxGasSpeed = 15, acceleration = 5;
     public float friction = 0.1f;
     public float gravity = 20;
@@ -85,7 +86,8 @@ public class Car : PlayerObject
     public float boostAcceleration = 90;
 
     [Header("Extra Movement")]
-    public float bumpForce = 50;
+    public float bumpForce = 5;
+    public float carBumpForce = 1.5f;
 
     [Header("Other")]
     public Text speedText;
@@ -223,7 +225,7 @@ public class Car : PlayerObject
             turnVelocity = Mathf.Lerp(turnVelocity,
                 turnInput * turnDirection, Time.fixedDeltaTime * 6);
 
-            var turn = turnVelocity * (0.5f * rb.velocity.magnitude / maxGasSpeed + 0.5f);
+            var turn = turnVelocity * turnSpeedCurve.Evaluate(velocity.magnitude / maxGasSpeed);
 
             turnAmount = turn * inputRotSpeed * Time.fixedDeltaTime;
             velocityTurn = turnAmount * turnVelocityPersistence;
@@ -301,10 +303,16 @@ public class Car : PlayerObject
 
     void OnCollisionEnter(Collision c)
     {
+        if (c.transform.TryGetComponent<Car>(out var car))
+        {
+            var vel = car.rb.position - rb.position;
+            car.rb.AddForce(vel * carBumpForce, ForceMode.VelocityChange);
+        }
+
         if (c.transform.TryGetComponent<Bumpy>(out var bump))
         {
             var p = c.contacts[0].normal;
-            rb.AddForce(p * bumpForce);
+            rb.AddForce(p * bumpForce, ForceMode.VelocityChange);
         }
     }
 
