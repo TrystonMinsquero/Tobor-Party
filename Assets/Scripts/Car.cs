@@ -134,6 +134,11 @@ public class Car : PlayerObject
         boostTime += amount;
     }
 
+    public void AddItem(Item item)
+    {
+
+    }
+
     private bool lastDrift = false;
     private float turnVelocity = 0;
     void FixedUpdate()
