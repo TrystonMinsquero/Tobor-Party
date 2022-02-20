@@ -25,7 +25,7 @@ public class Car : PlayerObject
 
     [Header("Transform Movement")]
     public float toborRotSpeed = 5;
-    public Vector3 normal = Vector3.up;
+    public Vector3 groundNormal = Vector3.up;
     public Vector3[] latestNormal = new Vector3[5];
 
     [Header("FOV")]
@@ -37,21 +37,15 @@ public class Car : PlayerObject
     public float minDriftSpeed = 4f;
     public float minDriftStartAngle = 0.1f;
 
-    public Vector3 driftTurnSpeeds = new Vector3(40, 80, 200); // x = min, y = constant, z = max turn speed
+    public AnimationCurve driftTurnSpeedCurve; // -1 = close, 1 = far
 
-    public float driftTurnSpeedMultiplier = 1.5f;
-    public float driftTurnVelocityPercentage = 0.4f;
-    public AnimationCurve driftTurnSpeedSame; // turn speed multiplier based on difference in angle
-    public AnimationCurve driftTurnSpeedOpposite; // turn speed multiplier based on difference in angle
-    public AnimationCurve driftTurnPersistence; // turn persistence based on difference in angle
-
-    public float driftDirection = 0;
-    public float driftInput = 0; // -1 slow drift, 0 constant drift, 1 fast drift
+    private float driftDirection = 0;
 
     [Header("Drift Visuals")] 
-    public Vector3 driftVisualAngle = new Vector3(15, 20, 30);
+    public AnimationCurve driftVisualAngleCurve; // -1 = close, 1 = far
     public float driftAngleVisualSpeed = 5f;
-    public float driftExtraAngleMultiplier = 0.8f;
+    public float driftTiltMultiplier = 0.6f;
+
     public float driftJumpRecoverTime = 0.14f;
     public float driftJumpSpeed = 3.5f;
 
@@ -82,7 +76,7 @@ public class Car : PlayerObject
     public float airTurnMultiplier = 0.2f;
 
     public bool isGrounded = false;
-    public bool canDrift = false;
+    public bool isDrifting = false;
 
     [Header("Extra Movement")]
     public float bumpForce = 50;
@@ -93,13 +87,13 @@ public class Car : PlayerObject
     public Vector3 startRotation;
 
     #region Smooth Damp Variables
-    private Vector3 toborDir = Vector3.forward, toborVel = Vector3.zero;
-    private Vector3 camDir = Vector3.zero, camDirVel = Vector3.zero;
-    private Vector3 carPos = Vector3.zero, camPosVel = Vector3.zero;
-    private Vector3 lookPos = Vector3.zero, lookVel = Vector3.zero;
-    private float rbSpeed = 0, speedVel = 0;
-    private float jumpPos = 0, jumpVel = 0;
-    private float anglePos = 0, angleVel = 0;
+    private Vector3 dampedToborDirection = Vector3.forward, toborVel = Vector3.zero;
+    private Vector3 dampedCameraInputDirection = Vector3.zero, camDirVel = Vector3.zero;
+    private Vector3 dampedCarPosition = Vector3.zero, camPosVel = Vector3.zero;
+    private Vector3 dampedLookInput = Vector3.zero, lookVel = Vector3.zero;
+    private float dampedSpeed = 0, speedVel = 0;
+    private float dampedJumpPos = 0, jumpVel = 0;
+    private float dampedToborDriftAngle = 0, angleVel = 0;
     #endregion
 
 
@@ -107,14 +101,14 @@ public class Car : PlayerObject
     {
         particles = GetComponentInChildren<ToborParticles>();
         rb = GetComponent<Rigidbody>();
-        carPos = transform.position;
+        dampedCarPosition = transform.position;
 
-        normal = Vector3.up;
+        groundNormal = Vector3.up;
 
         camRotation = Quaternion.Euler(startRotation);
         toborRotation = Quaternion.Euler(startRotation);
         currentInputDirection = Quaternion.Euler(startRotation) * Vector3.forward;
-        toborDir = currentInputDirection;
+        dampedToborDirection = currentInputDirection;
 
         checkpoints = GetComponent<CheckpointUser>();
     }
@@ -124,100 +118,105 @@ public class Car : PlayerObject
     void FixedUpdate()
     {
         if (isGrounded)
-            normal = latestNormal[4];
-
-        //var add = Quaternion.Euler(0, rotation.y, 0) * inputs.direction;
+            groundNormal = latestNormal[4];
 
         // Inputs
-        var accel = inputs.direction.z;
-        var turnDir = inputs.direction.x;
+        var accelInput = inputs.direction.z;
+        var turnInput = inputs.direction.x;
 
+        // Prevent car from moving before game started
         if (!RaceManager.Started)
         {
-            accel = 0;
-            turnDir = 0;
+            accelInput = 0;
+            turnInput = 0;
         }
-
-        //var dir = inputVelocity.normalized;
-        //var mag = inputVelocity.magnitude;
-
-        // TODO: make tilt, based off angle difference between currentInputDirection and velocity?
+        
+        // XZ velocity
         var velocity = rb.velocity;
         velocity.y = 0;
+
+        // Angle between: input direction and movement
         var signedAngle = Vector3.SignedAngle(velocity, currentInputDirection, Vector3.up);
         var angle = Mathf.Abs(signedAngle);
         
-        canDrift = isGrounded && velocity.magnitude > minDriftSpeed && angle > minDriftStartAngle;
-        var drifting = inputs.drift && canDrift;
+        // Check drifting: grounded, going fast enough, turning in a direction, and not going backwards
+        var canDrift = isGrounded && velocity.magnitude > minDriftSpeed && angle > minDriftStartAngle && currentInputSpeed > 0.05f;
+        var drifting = inputs.drift && canDrift || driftDirection != 0;
 
-        if (drifting && !lastDrift &&
-            (turnDir > 0 && signedAngle > 0 || turnDir < 0 && signedAngle < 0))
+        // Changing move variables
+        float turnAmount = 0;
+        float velocityTurn = 0;
+
+        // Drifting starting conditions
+        if (drifting && !lastDrift && Mathf.Abs(turnInput) > 0.05f)
         {
+            isDrifting = true;
             jumpVel = driftJumpSpeed;
-            driftDirection = turnDir > 0 ? 1 : -1;
+            driftDirection = turnInput > 0 ? 1 : -1;
+            lastDrift = true;
         }
-        lastDrift = drifting;
-
-        if (!inputs.drift)
+        else if (!drifting || !inputs.drift)
         {
+            lastDrift = false;
             driftDirection = 0;
+            isDrifting = false;
         }
 
-        float driftMult = 1;
-        if (drifting)
+        //float driftMult = 1;
+        if (isDrifting)
         {
-            turnDir *= driftTurnSpeedMultiplier;
-
-            Debug.Log($"{(turnDir > 0 && signedAngle > 0 || turnDir < 0 && signedAngle < 0 ? "Same" : "Opposite")}");
-
+            //turnDir *= driftTurnSpeedMultiplier;
+            //Debug.Log($"{(turnDir > 0 && signedAngle > 0 || turnDir < 0 && signedAngle < 0 ? "Same" : "Opposite")}");
             // rotating in same dir
-            if (turnDir > 0 && signedAngle > 0 || turnDir < 0 && signedAngle < 0)
-                turnDir *= driftTurnSpeedSame.Evaluate(angle);
+            //if (turnDir > 0 && signedAngle > 0 || turnDir < 0 && signedAngle < 0)
+            //    turnDir *= driftTurnSpeedSame.Evaluate(angle);
             // Trying to rotate in opposite direction
-            else
-                turnDir *= driftTurnSpeedOpposite.Evaluate(angle);
+            //else
+            //    turnDir *= driftTurnSpeedOpposite.Evaluate(angle);
             
 
             // driftTurnPersistence
-            driftMult = driftTurnVelocityPercentage;
-            driftMult *= driftTurnPersistence.Evaluate(angle);
+            //driftMult = driftTurnVelocityPercentage;
+            //driftMult *= driftTurnPersistence.Evaluate(angle);
+
+            // Todo: Smooth turnInput!
+            turnAmount = driftTurnSpeedCurve.Evaluate(turnInput * driftDirection) * driftDirection * Time.fixedDeltaTime;
+            velocityTurn = turnAmount;
         }
 
         if (!isGrounded)
-            turnDir *= airTurnMultiplier;
+            turnInput *= airTurnMultiplier;
 
-        turnVelocity = Mathf.Lerp(turnVelocity, turnDir * Mathf.Sign(rb.velocity.sqrMagnitude < 0.1 ? 1 : Vector3.Dot(currentInputDirection, rb.velocity)), Time.fixedDeltaTime * 6);
-        var turn = turnVelocity * (0.5f * rb.velocity.magnitude / maxSpeed + 0.5f);
-        var turnAmount = Vector3.up * turn * inputRotSpeed * Time.fixedDeltaTime;
-        currentInputDirection = Quaternion.Euler(turnAmount) * currentInputDirection;
-        currentInputSpeed = Mathf.MoveTowards(currentInputSpeed, accel, inputMoveSpeed * Time.fixedDeltaTime);
-
-        currentInputDirection.Normalize();
-        var inputVelocity = Vector3.ClampMagnitude(currentInputDirection * currentInputSpeed, 1);
-
-        var add = inputVelocity;
-
-        //var add = Quaternion.Euler(0, rotation.y, 0) * inputs.inputVelocity;
-
-        var velTurn = turnAmount * turnVelocityPersistence;
-        if (drifting)
+        if (!isDrifting)
         {
-            velTurn *= driftMult;
-        }
-        velocity = Quaternion.Euler(velTurn) * velocity;
+            // Direction to turn (based on forward/back movement)
+            var turnDirection =
+                Mathf.Sign(rb.velocity.sqrMagnitude < 0.1 ? 1 : Vector3.Dot(currentInputDirection, rb.velocity));
 
+            turnVelocity = Mathf.Lerp(turnVelocity,
+                turnInput * turnDirection, Time.fixedDeltaTime * 6);
+
+            var turn = turnVelocity * (0.5f * rb.velocity.magnitude / maxSpeed + 0.5f);
+
+            turnAmount = turn * inputRotSpeed * Time.fixedDeltaTime;
+            velocityTurn = turnAmount * turnVelocityPersistence;
+        }
+
+        // Change input speed and direction
+        currentInputDirection = Quaternion.Euler(Vector3.up * turnAmount) * currentInputDirection;
+        currentInputDirection.Normalize();
+        currentInputSpeed = Mathf.MoveTowards(currentInputSpeed, accelInput, inputMoveSpeed * Time.fixedDeltaTime);
+        
+        var inputVelocity = Vector3.ClampMagnitude(currentInputDirection * currentInputSpeed, 1);
+        
+        velocity = Quaternion.Euler(Vector3.up * velocityTurn) * velocity;
 
         // Clamp max speed
-        var finalVelocity = Vector3.ClampMagnitude(velocity + add * Time.fixedDeltaTime * acceleration, maxSpeed);
-
-        // Drifting?
-        // finalVelocity = Vector3.MoveTowards(velocity, currentInputDirection * finalVelocity.magnitude, Time.fixedDeltaTime * 10);
-        
-        
-        // Acceleration
-        var velocityChange = acceleration * Time.fixedDeltaTime * accelCurve.Evaluate(rb.velocity.magnitude / maxSpeed);
-        // Movement
+        var targetAcceleration = inputVelocity * Time.fixedDeltaTime * acceleration;
+        var finalVelocity = Vector3.ClampMagnitude(velocity + targetAcceleration, maxSpeed);
+        var velocityChange = acceleration * accelCurve.Evaluate(velocity.magnitude / maxSpeed) * Time.fixedDeltaTime;
         velocity = Vector3.MoveTowards(velocity, finalVelocity, velocityChange);
+
         // Friction
         velocity = Vector3.MoveTowards(velocity, Vector3.zero,velocity.magnitude * friction * Time.fixedDeltaTime);
         velocity.y = rb.velocity.y;
@@ -226,8 +225,8 @@ public class Car : PlayerObject
         // Gravity
         rb.AddForce(gravity * Vector3.down * Time.fixedDeltaTime, ForceMode.VelocityChange);
 
-        if(speedText)
-            speedText.text = $"Speed: {rb.velocity.magnitude:00.0} mph";
+        // Drifting?
+        // finalVelocity = Vector3.MoveTowards(velocity, currentInputDirection * finalVelocity.magnitude, Time.fixedDeltaTime * 10);
 
         isGrounded = false;
     }
@@ -292,65 +291,45 @@ public class Car : PlayerObject
     private Quaternion toborRotation;
     void LateUpdate()
     {
-        var d = currentInputDirection;
-        //d.y = rb.velocity.normalized.y;
-        toborDir = Vector3.SmoothDamp(toborDir, d, ref toborVel, 1 / toborRotSpeed);
+        // SmoothDamp for no jaggedness
+        dampedToborDirection = Vector3.SmoothDamp(dampedToborDirection, currentInputDirection, ref toborVel, 1 / toborRotSpeed);
+        dampedSpeed = Mathf.SmoothDamp(dampedSpeed, rb.velocity.magnitude, ref speedVel, 1 / fovSpeed);
+        dampedCameraInputDirection = Vector3.SmoothDamp(dampedCameraInputDirection, currentInputDirection, ref camDirVel, 1 / camSpeed);
+        dampedCarPosition = Vector3.SmoothDamp(dampedCarPosition, transform.position, ref camPosVel, 1 / camPosSpeed);
+        dampedLookInput = Vector3.SmoothDamp(dampedLookInput, inputs.lookRotation, ref lookVel, 1 / lookAroundSpeed);
+        dampedJumpPos = Mathf.SmoothDamp(dampedJumpPos, 0, ref jumpVel, driftJumpRecoverTime);
 
-        rbSpeed = Mathf.SmoothDamp(rbSpeed, rb.velocity.magnitude, ref speedVel, 1 / fovSpeed);
+        // Calculate toborRotation from ground normal and rotation!
+        var normal = isGrounded || rb.velocity.sqrMagnitude < 0.4f ? groundNormal : Quaternion.LookRotation(rb.velocity, groundNormal) * Vector3.up;
+        var targetRotation = Quaternion.FromToRotation(Vector3.up, normal) * Quaternion.LookRotation(dampedToborDirection, Vector3.up);
 
-        // Tobor rotation
-        //var rot = tobor.rotation;
-        var dir = toborDir; //rb.velocity;
-        if (dir.sqrMagnitude < 0.4f)
-            dir = toborRotation * Vector3.forward;
+        var camVelocityRotation = Quaternion.LookRotation(dampedCameraInputDirection, Vector3.up);
+        camRotation = Quaternion.Slerp(camRotation, camVelocityRotation * Quaternion.Euler(xRotation, 0, 0), 1 - Mathf.Exp(Time.deltaTime * -camSpeed));
 
-        var n = isGrounded || rb.velocity.sqrMagnitude < 0.4f ? normal : Quaternion.LookRotation(rb.velocity, normal) * Vector3.up;
-        var tar = Quaternion.FromToRotation(Vector3.up, n) * Quaternion.LookRotation(toborDir, Vector3.up);
-
-        camDir = Vector3.SmoothDamp(camDir, currentInputDirection, ref camDirVel, 1 / camSpeed);
-        carPos = Vector3.SmoothDamp(carPos, transform.position, ref camPosVel, 1 / camPosSpeed);
-
-        //camY = Mathf.SmoothDampAngle(camY, Vector3.Angle(Vector3.forward, currentInputDirection), ref yVel, 1 / camSpeed);
-        //camRotation = Quaternion.Euler(0, camY, 0) * Quaternion.Euler(xRotation, 0, 0);
-        
-        var rot = Quaternion.LookRotation(camDir, Vector3.up);
-        camRotation = Quaternion.Slerp(camRotation, rot * Quaternion.Euler(xRotation, 0, 0), 1 - Mathf.Exp(Time.deltaTime * -camSpeed));
-
-        var speedPercent = rbSpeed / maxSpeed;
-
-        lookPos = Vector3.SmoothDamp(lookPos, inputs.lookRotation, ref lookVel, 1 / lookAroundSpeed);
-        
-        jumpPos = Mathf.SmoothDamp(jumpPos, 0, ref jumpVel, driftJumpRecoverTime);
-
-        tobor.position = carPos + Vector3.up * (jumpPos);
-        toborRotation = Quaternion.Slerp(toborRotation, tar, Time.deltaTime * toborRotSpeed);
-        float angleTarget = 0;
-        var velocity = rb.velocity;
-        velocity.y = 0; 
-        if (inputs.drift && canDrift)
-        {
-            particles.StartDrift();
-            angleTarget = Vector3.SignedAngle(velocity, currentInputDirection, Vector3.up);
-            
-        }
-        else
-        {
-            particles.StopDrift();
-        }
-        anglePos = Mathf.SmoothDamp(anglePos, angleTarget, ref angleVel, 1 / driftAngleVisualSpeed);
-        tobor.rotation = toborRotation * Quaternion.Euler(0, anglePos * driftExtraAngleMultiplier, 0);
-
-        var look = Vector3.Scale(new Vector3(-lookPos.y, lookPos.x), new Vector3(20, 90));
-        var finalRotation = Quaternion.Euler(0, look.y, 0) * camRotation * Quaternion.Euler(look.x, 0, 0);
-        var yRot = Quaternion.LookRotation(
-            (Vector3.Scale(new Vector3(1, 0, 1), finalRotation * Vector3.forward)).normalized, Vector3.up);
-        cam.transform.rotation = finalRotation;
-        cam.transform.position = carPos + finalRotation * Vector3.back * (camOffset.x + speedPercent * camSpeedMoveBack) + yRot * Quaternion.Euler(look.x, 0, 0) * Vector3.up * camOffset.y;
-
+        var speedPercent = dampedSpeed / maxSpeed;
         currentFOV = Mathf.Lerp(currentFOV, fovCurve.Evaluate(speedPercent),
             1 - Mathf.Exp(Time.deltaTime * -fovSpeed));
         cam.fieldOfView = currentFOV;
-    } 
+
+        var look = Vector3.Scale(new Vector3(-dampedLookInput.y, dampedLookInput.x), new Vector3(20, 90));
+        var finalCamRot = Quaternion.Euler(0, look.y, 0) * camRotation * Quaternion.Euler(look.x, 0, 0);
+        cam.transform.rotation = finalCamRot;
+        var camRotForward = Quaternion.LookRotation(Vector3.Scale(finalCamRot * Vector3.forward, new Vector3(1, 0, 1)).normalized, Vector3.up);
+        cam.transform.position = dampedCarPosition + finalCamRot * Vector3.back * (camOffset.x + speedPercent * camSpeedMoveBack) + camRotForward * Quaternion.Euler(look.x, 0, 0) * Vector3.up * camOffset.y;
+
+        
+
+        // Tobor Transform
+        tobor.position = dampedCarPosition + Vector3.up * (dampedJumpPos);
+        toborRotation = Quaternion.Slerp(toborRotation, targetRotation, Time.deltaTime * toborRotSpeed);
+
+        float angleTarget = driftDirection * driftVisualAngleCurve.Evaluate(inputs.direction.x * driftDirection);
+        dampedToborDriftAngle = Mathf.SmoothDamp(dampedToborDriftAngle, angleTarget, ref angleVel, 1 / driftAngleVisualSpeed);
+        tobor.rotation = toborRotation * Quaternion.Euler(0, dampedToborDriftAngle, 0) * Quaternion.Euler(0, 0, dampedToborDriftAngle * driftTiltMultiplier);
+
+        if (isDrifting) particles.StartDrift();
+        else particles.StopDrift();
+    }
     #endregion
 
     // returns true if was assigned, false otherwise

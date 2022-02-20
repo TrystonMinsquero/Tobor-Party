@@ -126,7 +126,7 @@ MonoBehaviour:
   checkpoints: {fileID: 0}
   particles: {fileID: 0}
   toborRotSpeed: 20
-  normal: {x: 0, y: 0, z: 0}
+  groundNormal: {x: 0, y: 1, z: 0}
   latestNormal:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
@@ -160,15 +160,45 @@ MonoBehaviour:
   fovSpeed: 5
   minDriftSpeed: 6
   minDriftStartAngle: 0.1
-  driftTurnSpeeds: {x: 40, y: 80, z: 200}
-  driftTurnSpeedMultiplier: 2
-  driftTurnVelocityPercentage: 1
-  driftTurnSpeedSame:
+  driftTurnSpeedCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
+      time: -1
+      value: 20
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.8833333
+    - serializedVersion: 3
       time: 0
-      value: 1
+      value: 45
+      inSlope: 48.77268
+      outSlope: 48.77268
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.275
+    - serializedVersion: 3
+      time: 1
+      value: 125
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  driftVisualAngleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -1
+      value: 12
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -176,97 +206,28 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 30
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 1
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 45
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 1
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  driftTurnSpeedOpposite:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 15
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.80211484
-    - serializedVersion: 3
-      time: 30
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.50846606
-    - serializedVersion: 3
-      time: 45
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.055479176
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  driftTurnPersistence:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
       time: 0
-      value: 0
-      inSlope: 0.00024744525
-      outSlope: 0.00024744525
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.592233
-    - serializedVersion: 3
-      time: 15
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      value: 18
+      inSlope: 0.81254923
+      outSlope: 0.81254923
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.71925414
+      outWeight: 1
     - serializedVersion: 3
-      time: 30
-      value: 1
-      inSlope: 0
-      outSlope: 0
+      time: 1
+      value: 22
+      inSlope: -0
+      outSlope: -0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.47916666
+      inWeight: 0.9083333
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  driftDirection: 0
-  driftInput: 0
-  driftVisualAngle: {x: 15, y: 20, z: 30}
   driftAngleVisualSpeed: 8
-  driftExtraAngleMultiplier: 1
+  driftTiltMultiplier: 0.88
   driftJumpRecoverTime: 0.14
   driftJumpSpeed: 4
   lookAroundSpeed: 10
@@ -276,7 +237,7 @@ MonoBehaviour:
   camOffset: {x: 3, y: 0.75}
   xRotation: 15
   inputMoveSpeed: 4
-  inputRotSpeed: 135
+  inputRotSpeed: 100
   currentInputSpeed: 0
   currentInputDirection: {x: 0, y: 0, z: 1}
   accelCurve:
@@ -310,7 +271,7 @@ MonoBehaviour:
   turnVelocityPersistence: 0.95
   airTurnMultiplier: 0.2
   isGrounded: 0
-  canDrift: 0
+  isDrifting: 0
   bumpForce: 350
   speedText: {fileID: 0}
   _controller: {fileID: 0}
