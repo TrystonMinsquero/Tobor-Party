@@ -24,10 +24,10 @@ Material:
     - _OverheadCloudAnimationSpeed: 50
     - _OverheadCloudFlowDirectionX: 1
     - _OverheadCloudFlowDirectionZ: 1
-    - _OverheadCloudRemapMax: 1
-    - _OverheadCloudRemapMin: 0
+    - _OverheadCloudRemapMax: 2.57
+    - _OverheadCloudRemapMin: -0.04
     - _OverheadCloudShadowClipMask: 0.53
-    - _OverheadCloudSize: 10
+    - _OverheadCloudSize: 20
     - _OverheadCloudStep: 1
     m_Colors:
     - _OverheadCloudColor: {r: 1, g: 1, b: 1, a: 1}
@@ -104,7 +104,7 @@ Material:
     - _OverheadCloudFlowZ: 1
     - _OverheadCloudRemapMax: 2.57
     - _OverheadCloudRemapMin: -0.04
-    - _OverheadCloudSize: 10
+    - _OverheadCloudSize: 20
     - _OverheadCloudStep: 1
     - _StarsDensity0: 0
     - _StarsDensity1: 0
@@ -131,14 +131,14 @@ Material:
     - _DetailOverlayColor: {r: 0, g: 0, b: 0, a: 0}
     - _DetailOverlayTintColor: {r: 0, g: 0, b: 0, a: 0}
     - _FogColor: {r: 0, g: 0, b: 0, a: 0}
-    - _GroundColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
+    - _GroundColor: {r: 0.6698113, g: 0.6540139, b: 0.6540139, a: 1}
     - _HorizonCloudColor: {r: 1, g: 1, b: 1, a: 1}
-    - _HorizonColor: {r: 1, g: 0.94944346, b: 0.839, a: 1}
+    - _HorizonColor: {r: 0.6759078, g: 0.77281785, b: 0.7830189, a: 1}
     - _MoonColor: {r: 0, g: 0, b: 0, a: 0}
     - _MoonDirection: {r: 1, g: 1, b: 1, a: 0}
     - _MoonLightColor: {r: 0, g: 0, b: 0, a: 0}
     - _OverheadCloudColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SkyColor: {r: 0.2264151, g: 0.6028122, b: 0.9056604, a: 1}
+    - _SkyColor: {r: 0.4818886, g: 0.5628404, b: 0.8584906, a: 1}
     - _StarsColor0: {r: 0, g: 0, b: 0, a: 0}
     - _StarsColor1: {r: 0, g: 0, b: 0, a: 0}
     - _StarsColor2: {r: 0, g: 0, b: 0, a: 0}
@@ -158,9 +158,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa5278d11d9502245b5cc174a196561b, type: 3}
   m_Name: SkyProfile-064293594558421736
   m_EditorClassIdentifier: 
-  skyColor: {r: 0.2264151, g: 0.6028122, b: 0.9056604, a: 1}
-  horizonColor: {r: 1, g: 0.94944346, b: 0.839, a: 1}
-  groundColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
+  skyColor: {r: 0.4818886, g: 0.5628404, b: 0.8584906, a: 1}
+  horizonColor: {r: 0.6759078, g: 0.77281785, b: 0.7830189, a: 1}
+  groundColor: {r: 0.6698113, g: 0.6540139, b: 0.6540139, a: 1}
   horizonThickness: 1
   horizonExponent: 3
   horizonStep: 500
@@ -220,7 +220,7 @@ MonoBehaviour:
   enableOverheadCloud: 1
   overheadCloudColor: {r: 1, g: 1, b: 1, a: 1}
   overheadCloudAltitude: 1000
-  overheadCloudSize: 10
+  overheadCloudSize: 20
   overheadCloudStep: 1
   overheadCloudAnimationSpeed: 50
   overheadCloudFlowDirectionX: 1
