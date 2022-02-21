@@ -87,7 +87,7 @@ public class CarUI : MonoBehaviour
         rot += rb.velocity.magnitude * speedintervalsMultiplyer;
         
         Quaternion target = Quaternion.Euler(0, 0, rot);
-        speedometerNeedle.rotation = Quaternion.Slerp(speedometerNeedle.rotation, target,  Time.deltaTime * 2);
+        speedometerNeedle.localRotation = Quaternion.Slerp(speedometerNeedle.localRotation, target,  Time.deltaTime * 2);
     }
 
     private string GetMillisecondTime(TimeSpan time)
