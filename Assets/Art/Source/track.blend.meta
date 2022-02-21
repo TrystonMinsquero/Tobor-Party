@@ -12,8 +12,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Black.001
+    second: {fileID: 2100000, guid: a5955c37265c1c14099a5abdaff9f8bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Bushes
     second: {fileID: 2100000, guid: c06407d6d6c7d414ab233ce822303c20, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ChanceCube1
+    second: {fileID: 2100000, guid: 8990c3a4ab0e96442b67ccc143a4e2c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ChanceCube2
+    second: {fileID: 2100000, guid: afaded6e40596e343990d46fff49202e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -32,6 +47,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 02868e8a3f0bc8f49904dbca0fdbb9c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal Railing
+    second: {fileID: 2100000, guid: 7a8ea6c0555a5be44addf2e50670e5a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Ramp
     second: {fileID: 2100000, guid: c2826a42aad42d14ca55c8ee1176f3d5, type: 2}
   - first:
@@ -39,6 +64,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Road black
     second: {fileID: 2100000, guid: abd7576e536717845b2e5114e757b061, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RoadSign
+    second: {fileID: 2100000, guid: a1cc43d88d72d8842851055e52069893, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -52,8 +82,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Whtie.001
+    second: {fileID: 2100000, guid: 529a7b2b4389304458a9bf2dd834f544, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Yellow
     second: {fileID: 2100000, guid: d68abb8b595e65844acda994571ec4f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Yellow.001
+    second: {fileID: 2100000, guid: 895c3dcc2ec18da4bb8eacf12410237a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -62,8 +102,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: dark grey.001
+    second: {fileID: 2100000, guid: 85fa54d6ca69cfe47ac5557fb155c179, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: glow
     second: {fileID: 2100000, guid: 5f5806c41388c6f4c8b56085c05f3509, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glow.001
+    second: {fileID: 2100000, guid: 66c957ba72aaa054c9f19b12986a6a1c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -72,8 +122,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: grey.001
+    second: {fileID: 2100000, guid: 2381cb1391d31194d944df63e7eaccd9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: headlights
     second: {fileID: 2100000, guid: 484f97d7d96f70f48ac261b99c82351f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: headlights.001
+    second: {fileID: 2100000, guid: 2bfe7f8dee1eecb4c877de4938937b0f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -92,6 +152,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: oorange.001
+    second: {fileID: 2100000, guid: 6f787a43e8a9fc247bc3eac4fd4685f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: pavement
     second: {fileID: 2100000, guid: 973dce5cecbf9e14cbfa17d1c16e6825, type: 2}
   - first:
@@ -99,6 +164,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: red
     second: {fileID: 2100000, guid: 30327787406411f45969307734129637, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: red.001
+    second: {fileID: 2100000, guid: fd3e93fdba5b47f42bde4f421095b611, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
