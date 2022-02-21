@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 908388626991721319}
   - component: {fileID: 908388626991721316}
   m_Layer: 0
-  m_Name: Boost
+  m_Name: Triple Boost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf854377d664e31bd6bd0cb6a77d68e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  probability: {x: 0.6, y: 0.4}
-  itemImage: {fileID: 21300000, guid: c27b55c5ac567e3488912cde0f533c50, type: 3}
-  uses: 1
+  probability: {x: 0, y: 0.6}
+  itemImage: {fileID: 21300000, guid: 8c85e51a85f7e7643a0348fece442cf8, type: 3}
+  uses: 3
   boostTime: 0.5
   itemCooldown: 0.8

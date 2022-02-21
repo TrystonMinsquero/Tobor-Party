@@ -18,6 +18,7 @@ public enum CarState
     Small = 1,
     Normal = 2,
     Big = 4,
+    Tobor = 8,
 }
 
 public class Car : PlayerObject
@@ -27,6 +28,8 @@ public class Car : PlayerObject
         get
         {
             var s = transform.localScale.x;
+            if (s > 2.5f)
+                return CarState.Tobor;
             if (s > 1.2f)
                 return CarState.Big;
             else if (s < 0.9f)
@@ -81,6 +84,8 @@ public class Car : PlayerObject
     private Quaternion camRotation;
     private Vector2 lookRotation;
 
+    public AnimationCurve scaleDistanceMultiplierCurve;
+
     [Header("Input Movement")] 
     public float inputMoveSpeed = 4f;
     public float inputRotSpeed = 120f;
@@ -111,6 +116,7 @@ public class Car : PlayerObject
     public float wipeoutDampTime = 0.1f;
     public float wipeoutFriction = 3f;
     public float wipeoutRecoverSpeed = 120;
+    public float defaultWipeoutTime = 1.2f;
 
     [Header("Extra Movement")]
     public float bumpForce = 5;
@@ -415,7 +421,9 @@ public class Car : PlayerObject
             else
             {
                 mult = 1.5f;
-                WipeOut(1f);
+                if (otherState == CarState.Tobor)
+                    mult = 5f;
+                WipeOut(defaultWipeoutTime);
             }
 
             var vel = car.rb.position - rb.position;
@@ -484,7 +492,7 @@ public class Car : PlayerObject
         var finalCamRot = Quaternion.Euler(0, look.y, 0) * camRotation * Quaternion.Euler(look.x, 0, 0);
         cam.transform.rotation = finalCamRot;
         var camRotForward = Quaternion.LookRotation(Vector3.Scale(finalCamRot * Vector3.forward, new Vector3(1, 0, 1)).normalized, Vector3.up);
-        cam.transform.position = dampedCarPosition + finalCamRot * Vector3.back * (camOffset.x + speedPercent * camSpeedMoveBack) + camRotForward * Quaternion.Euler(look.x, 0, 0) * Vector3.up * camOffset.y;
+        cam.transform.position = dampedCarPosition + (finalCamRot * Vector3.back * (camOffset.x + speedPercent * camSpeedMoveBack) + camRotForward * Quaternion.Euler(look.x, 0, 0) * Vector3.up * camOffset.y) * scaleDistanceMultiplierCurve.Evaluate(transform.localScale.x);
 
         // Tobor Transform
         tobor.position = dampedCarPosition + Vector3.up * (dampedJumpPos);
