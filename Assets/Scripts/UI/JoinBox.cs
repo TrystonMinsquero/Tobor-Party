@@ -63,13 +63,13 @@ public class JoinBox : MonoBehaviour
     public void ReadyUp()
     {
         isReady = true;
-        readyUpText.enabled = true;
+        readyUpText.text = "Ready!";
     }
 
     public void UnReady()
     {
         isReady = false;
-        readyUpText.enabled = false;
+        readyUpText.text = "";
     }
     
 }
