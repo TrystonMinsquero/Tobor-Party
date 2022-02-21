@@ -52,12 +52,25 @@ public class CarUI : MonoBehaviour
             checkpointTimeText.text = "<color=red>Wrong Way!</color>";
         if (cpUser.RightDirection && checkpointTimeText.text == "<color=red>Wrong Way!</color>")
             checkpointTimeText.text = "";
+        TimeSpan time = TimeSpan.FromSeconds(Time.time - RaceManager.StartTime);
+        if (RaceManager.StartTime == 0)
+            lapTimerText.text = "00:00";
+        else
+            lapTimerText.text = time.TotalSeconds > 60 ? time.ToString("mm':'ss") : GetMillisecondTime(time);
         
-        
-        TimeSpan time = TimeSpan.FromSeconds(Time.time - cpUser.StartTime);
-        
-        lapTimerText.text = time.TotalSeconds > 60 ? time.ToString("mm':'ss") : time.ToString("ss'.'FF");
 
+    }
+
+    private string GetMillisecondTime(TimeSpan time)
+    {
+        string ms = time.Milliseconds.ToString();
+        if (ms.Length >= 2)
+            ms = ms.Substring(0,2);
+        else if (ms.Length == 1)
+            ms += "0";
+        else if (ms.Length == 0)
+            ms = "00";
+        return time.ToString("ss'.'") + ms;
     }
 
     private string GetPlaceSuffix(int place)
