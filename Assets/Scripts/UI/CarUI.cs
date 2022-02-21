@@ -10,10 +10,10 @@ public class CarUI : MonoBehaviour
     public Text startText;
     public Text placeText;
     public Text placeSuffixText;
-    public Text lapText;
+    public TMP_Text lapText;
     public TMP_Text speedText;
     public Text checkpointTimeText;
-    public Text lapTimerText;
+    public TMP_Text lapTimerText;
     public Image itemBox;
 
     private ItemHolder holder;

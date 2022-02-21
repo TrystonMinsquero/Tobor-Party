@@ -11714,30 +11714,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 14438646894300346}
     m_Modifications:
-    - target: {fileID: 1213466703448570671, guid: a7f212c9eecdc6e449caf169c6136047, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -48.199997
-      objectReference: {fileID: 0}
-    - target: {fileID: 1387794366401407677, guid: a7f212c9eecdc6e449caf169c6136047, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 35.199997
-      objectReference: {fileID: 0}
-    - target: {fileID: 1829489752165219015, guid: a7f212c9eecdc6e449caf169c6136047, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -4.800003
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275346412151309850, guid: a7f212c9eecdc6e449caf169c6136047, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 14438646894300349}
-    - target: {fileID: 4275346412151309850, guid: a7f212c9eecdc6e449caf169c6136047, type: 3}
-      propertyPath: m_RenderMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275346412151309850, guid: a7f212c9eecdc6e449caf169c6136047, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -461050389
-      objectReference: {fileID: 0}
     - target: {fileID: 5526486746144399095, guid: a7f212c9eecdc6e449caf169c6136047, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -11825,10 +11801,6 @@ PrefabInstance:
     - target: {fileID: 6235699137412582462, guid: a7f212c9eecdc6e449caf169c6136047, type: 3}
       propertyPath: m_Name
       value: Tobor HUD
-      objectReference: {fileID: 0}
-    - target: {fileID: 8261460908831651683, guid: a7f212c9eecdc6e449caf169c6136047, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -49.699997
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7f212c9eecdc6e449caf169c6136047, type: 3}
