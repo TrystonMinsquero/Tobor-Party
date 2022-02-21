@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour
 {
-    public AnimationCurve positionProbability; // from 0 to 1. 
+    public Vector2 probability; // left is first place, right is last place 
     public Sprite itemImage;
 
     public abstract void Activate(Car car);

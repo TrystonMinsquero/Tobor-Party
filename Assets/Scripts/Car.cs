@@ -129,17 +129,42 @@ public class Car : PlayerObject
         cam.gameObject.SetActive(true);
     }
 
+    #region Items: UsingItem, AddItem(), ActivateItem(), DiscardItem()
+    public bool UsingItem { get; set; } = false;
+
+    public void AddItem(Item item)
+    {
+        if (holder.Item == null)
+        {
+            UsingItem = false;
+            holder.Equip(item);
+        }
+    }
+
+    public void ActivateItem()
+    {
+        if (!UsingItem)
+        {
+            holder.Item.Activate(this);
+        }
+    }
+
+    public void DiscardItem()
+    {
+        if (holder.Item != null)
+        {
+            Destroy(holder.Item.gameObject);
+            UsingItem = false;
+        }
+    } 
+    #endregion
+
     private float boostTime = 0;
     public void Boost(float amount)
     {
         if (boostTime < 0)
             boostTime = 0;
         boostTime += amount;
-    }
-
-    public void AddItem(Item item)
-    {
-
     }
 
     private bool lastDrift = false;
@@ -298,6 +323,12 @@ public class Car : PlayerObject
 
         inputs.lookRotation = _controller.LookInput;
         inputs.drift = _controller.DriftInput;
+
+        if (holder.Item != null && _controller.UseItemInput)
+        {
+            Debug.Log("HEY");
+            ActivateItem();
+        }
     }
     #endregion
 
