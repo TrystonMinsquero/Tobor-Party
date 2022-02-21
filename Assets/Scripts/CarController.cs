@@ -20,16 +20,4 @@ public class CarController : PlayerController
     public void OnLook(InputAction.CallbackContext ctx) { LookInput = ctx.ReadValue<Vector2>(); }
 
 
-    public void OnPause(InputAction.CallbackContext ctx)
-    {
-        // Show pause menu with
-        // if (PauseMenu.Exists)
-        // {
-        //     if (PauseMenu.Active)
-        //         PauseMenu.Activate();
-        //     else
-        //         PauseMenu.Deactivate();
-        // }
-         
-    }
 }

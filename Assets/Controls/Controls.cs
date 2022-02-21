@@ -64,6 +64,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""bce66838-fd52-43c0-8670-3b302758a969"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""-------------Default Actions--------------"",
                     ""type"": ""Button"",
                     ""id"": ""294b508d-84ba-4da1-85eb-3fa6a9070485"",
@@ -823,6 +832,28 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Change Skin"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c0ee5bf8-5db2-4c87-b27d-6e9a3ba17604"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7adca1bb-f6f5-41c3-93d9-eb4a20aa2fee"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -1409,6 +1440,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_UI_Ready = m_UI.FindAction("Ready", throwIfNotFound: true);
         m_UI_Leave = m_UI.FindAction("Leave", throwIfNotFound: true);
         m_UI_ChangeSkin = m_UI.FindAction("Change Skin", throwIfNotFound: true);
+        m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
         m_UI_DefaultActions = m_UI.FindAction("-------------Default Actions--------------", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
         m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
@@ -1494,6 +1526,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_Ready;
     private readonly InputAction m_UI_Leave;
     private readonly InputAction m_UI_ChangeSkin;
+    private readonly InputAction m_UI_Pause;
     private readonly InputAction m_UI_DefaultActions;
     private readonly InputAction m_UI_Navigate;
     private readonly InputAction m_UI_Submit;
@@ -1513,6 +1546,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Ready => m_Wrapper.m_UI_Ready;
         public InputAction @Leave => m_Wrapper.m_UI_Leave;
         public InputAction @ChangeSkin => m_Wrapper.m_UI_ChangeSkin;
+        public InputAction @Pause => m_Wrapper.m_UI_Pause;
         public InputAction @DefaultActions => m_Wrapper.m_UI_DefaultActions;
         public InputAction @Navigate => m_Wrapper.m_UI_Navigate;
         public InputAction @Submit => m_Wrapper.m_UI_Submit;
@@ -1545,6 +1579,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @ChangeSkin.started -= m_Wrapper.m_UIActionsCallbackInterface.OnChangeSkin;
                 @ChangeSkin.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnChangeSkin;
                 @ChangeSkin.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnChangeSkin;
+                @Pause.started -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
                 @DefaultActions.started -= m_Wrapper.m_UIActionsCallbackInterface.OnDefaultActions;
                 @DefaultActions.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnDefaultActions;
                 @DefaultActions.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnDefaultActions;
@@ -1594,6 +1631,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @ChangeSkin.started += instance.OnChangeSkin;
                 @ChangeSkin.performed += instance.OnChangeSkin;
                 @ChangeSkin.canceled += instance.OnChangeSkin;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
                 @DefaultActions.started += instance.OnDefaultActions;
                 @DefaultActions.performed += instance.OnDefaultActions;
                 @DefaultActions.canceled += instance.OnDefaultActions;
@@ -1743,6 +1783,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnReady(InputAction.CallbackContext context);
         void OnLeave(InputAction.CallbackContext context);
         void OnChangeSkin(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
         void OnDefaultActions(InputAction.CallbackContext context);
         void OnNavigate(InputAction.CallbackContext context);
         void OnSubmit(InputAction.CallbackContext context);
