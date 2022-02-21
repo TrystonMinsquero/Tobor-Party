@@ -17,13 +17,15 @@ public class JoinBox : MonoBehaviour
     public TMP_Text readyUpText;
 
     public ToborPreview preview;
-    public UIController _controller;
+    private UIController _controller;
+    private Player player;
 
     public void AddPlayer(Player player)
     {
         empty.enabled = false;
         joined.enabled = true;
         hasPlayer = true;
+        this.player = player;
         UnReady();
 
         preview.Enable();
@@ -47,6 +49,10 @@ public class JoinBox : MonoBehaviour
                {
                    UnReady();
                }
+               else
+               {
+                   PlayerManager.RemovePlayer(player);
+               }
            }
             
 
@@ -58,18 +64,19 @@ public class JoinBox : MonoBehaviour
         joined.enabled = false;
         empty.enabled = true;
         hasPlayer = false;
+        this.player = null;
     }
 
     public void ReadyUp()
     {
         isReady = true;
-        readyUpText.enabled = true;
+        readyUpText.text = "Ready!";
     }
 
     public void UnReady()
     {
         isReady = false;
-        readyUpText.enabled = false;
+        readyUpText.text = "";
     }
     
 }

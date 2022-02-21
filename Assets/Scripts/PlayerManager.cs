@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -122,7 +123,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     //Properly removes players from the game
-    private static void RemovePlayer(Player player)
+    public static void RemovePlayer(Player player)
     {
 
         if (LobbyManager.CanJoinLeave)
@@ -135,5 +136,10 @@ public class PlayerManager : MonoBehaviour
                 playerCount--;
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        instance = null;
     }
 }

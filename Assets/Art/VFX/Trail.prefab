@@ -51,7 +51,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3c3f12ab02dfd5243a81f2485e51c08c, type: 2}
+  - {fileID: 2100000, guid: b2ea977fcf707d94b9063896caebb130, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
