@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="51c923a0-25cd-4217-9576-2d457c48d13d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tobor-Party/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tobor-Party/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tobor-Preview/Join Box.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tobor-Preview/Join Box.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/LobbyUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LobbyUI.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +80,7 @@
       <workItem from="1645290238631" duration="6876000" />
       <workItem from="1645320939811" duration="14850000" />
       <workItem from="1645386654555" duration="22048000" />
-      <workItem from="1645417542935" duration="1464000" />
+      <workItem from="1645417542935" duration="4069000" />
     </task>
     <servers />
   </component>

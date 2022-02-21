@@ -34,7 +34,7 @@ public class JoinBox : MonoBehaviour
     {
         if (_controller)
         {
-            preview.renderer.Rotate(-_controller.Rotate * 200 * Time.deltaTime);
+            preview.renderer.Rotate(-_controller.Rotate * 400 * Time.deltaTime);
 
            if(_controller.ChangeSkin != 0) 
                preview.renderer.ChangeSkin(_controller.ChangeSkin > 0);

@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   probability: {x: 0.2, y: 0.7}
-  itemImage: {fileID: 21300000, guid: 8b7c69aff64e56243b7dce7cb53301cc, type: 3}
+  itemImage: {fileID: 21300000, guid: 4321df72285aba34994a3c0777fc071e, type: 3}
   scaleFactor: 2
   scaleLerpTime: 0.5
   scaleTime: 10
