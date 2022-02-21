@@ -1,4 +1,5 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,15 +7,33 @@ using UnityEngine.UI;
 public class LobbyUI : MonoBehaviour
 {
     public JoinBox[] joinBoxes;
-    public Button startButton;
+    public Text actionText;
 
-    public void Start()
-    {
-        startButton.Select();
-    }
+    private string _UIState = "Waiting for players to ready up";
+    
 
+    private bool _countingDown;
+    
+    
     public void Update()
     {
+        
+        bool allReady = PlayerManager.playerCount > 0;
+        foreach (var joinBox in joinBoxes)
+        {
+            if (joinBox.hasPlayer && !joinBox.isReady)
+                allReady = false;
+        }
+
+        if(allReady)
+            Debug.Log(allReady);
+        
+        if(allReady && !_countingDown)
+            StartCountdown();
+        if(!allReady && _countingDown)
+            StopCountdown();
+
+        actionText.text = _UIState;
         UpdateJoinBoxes();
     }
 
@@ -27,6 +46,30 @@ public class LobbyUI : MonoBehaviour
             else if (PlayerManager.players[i] == null && joinBoxes[i].hasPlayer)
                 joinBoxes[i].RemovePlayer(PlayerManager.players[i]);
         }
+    }
+
+    public void StartCountdown()
+    {
+        _countingDown = true;
+        StartCoroutine(CountDown());
+    }
+
+    public void StopCountdown()
+    {
+        _countingDown = false;
+        StopCoroutine(CountDown());
+        _UIState = "Waiting for players to ready up";
+    }
+    
+    private IEnumerator CountDown()
+    {
+        for (int i = 3; i >= 1; i--)
+        {
+            _UIState = $"Game Starting in {i}";
+            yield return new WaitForSeconds(1);
+        }
+
+        StartGame();
     }
     
     
