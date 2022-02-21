@@ -524,9 +524,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: 0
-  hasPlayer: 0
   joined: {fileID: 2935113088540511140}
   empty: {fileID: 2935113089025834745}
+  readyUpText: {fileID: 7875505389904708180}
   preview: {fileID: 6759961717188137464}
   _controller: {fileID: 0}
 --- !u!114 &6759961717188137464

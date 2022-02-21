@@ -15,6 +15,7 @@ public class CarUI : MonoBehaviour
     public Text lapTimerText;
     public Image itemBox;
 
+    private ItemHolder holder;
     private CheckpointUser cpUser;
     private Rigidbody rb;
     private Checkpoint nextCheckPoint;
@@ -23,6 +24,7 @@ public class CarUI : MonoBehaviour
     {
         cpUser = GetComponentInParent<CheckpointUser>();
         rb = GetComponentInParent<Rigidbody>();
+        holder = cpUser.GetComponent<ItemHolder>();
         checkpointTimeText.text = "";
         nextCheckPoint = cpUser.nextCheckpoint;
     }
@@ -57,8 +59,17 @@ public class CarUI : MonoBehaviour
             lapTimerText.text = "00:00";
         else
             lapTimerText.text = time.TotalSeconds > 60 ? time.ToString("mm':'ss") : GetMillisecondTime(time);
-        
 
+        if (holder.Item == null)
+        {
+            itemBox.gameObject.SetActive(false);
+            itemBox.sprite = null;
+        }
+        else
+        {
+            itemBox.gameObject.SetActive(true);
+            itemBox.sprite = holder.Item.itemImage;
+        }
     }
 
     private string GetMillisecondTime(TimeSpan time)

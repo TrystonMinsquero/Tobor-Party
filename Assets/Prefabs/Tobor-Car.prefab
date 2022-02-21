@@ -246,6 +246,57 @@ MonoBehaviour:
   camPosSpeed: 25
   camOffset: {x: 3, y: 0.75}
   xRotation: 15
+  scaleDistanceMultiplierCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.5
+      inSlope: 0.21279015
+      outSlope: 0.21279015
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.9359192
+    - serializedVersion: 3
+      time: 0.8
+      value: 0.92138857
+      inSlope: 0.047072664
+      outSlope: 0.047072664
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 1
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.00038843203
+      outSlope: 0.00038843203
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.69405144
+      outWeight: 0
+    - serializedVersion: 3
+      time: 2
+      value: 1.15
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 4
+      value: 2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   inputMoveSpeed: 4
   inputRotSpeed: 100
   currentInputSpeed: 0
@@ -256,20 +307,29 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0.9983978
-      inSlope: -1.4320177
-      outSlope: -1.4320177
+      inSlope: -0.0062293843
+      outSlope: -0.0062293843
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.08713397
+      outWeight: 0.2843137
     - serializedVersion: 3
-      time: 1
+      time: 0.85
       value: 0.4
-      inSlope: -0.22424479
-      outSlope: -0.22424479
+      inSlope: -0.6678763
+      outSlope: -0.6678763
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.23333335
+      outWeight: 0.4210159
+    - serializedVersion: 3
+      time: 1
+      value: 0.36
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -307,9 +367,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maxGasSpeed: 15
+  maxGasSpeed: 17.5
   acceleration: 25
-  friction: 0.3
+  defaultFriction: 0.3
+  maxFrictionSpeed: 15
   gravity: 15
   turnVelocityPersistence: 0.95
   airTurnMultiplier: 0.33
@@ -317,11 +378,17 @@ MonoBehaviour:
   isDrifting: 0
   boostMaxSpeed: 32
   boostAcceleration: 450
+  wipeoutRotateSpeed: 720
+  wipeoutDampTime: 0.1
+  wipeoutFriction: 3
+  wipeoutRecoverSpeed: 120
+  defaultWipeoutTime: 1.2
   bumpForce: 3
   carBumpForce: 3
   speedText: {fileID: 0}
   _controller: {fileID: 0}
   startRotation: {x: 0, y: 180, z: 0}
+  wipeoutTime: 0
 --- !u!114 &14438645323195882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -724,6 +791,51 @@ MonoBehaviour:
   - {fileID: 909172207629433604}
   - {fileID: 5494875195704549247}
   - {fileID: 2242638600104005677}
+  carTrails:
+  - {fileID: 4263610306133266815}
+  - {fileID: 6609560379053825276}
+  trailLengthCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 15
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 17
+      value: 0.05
+      inSlope: 0.000060293154
+      outSlope: 0.000060293154
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 1
+    - serializedVersion: 3
+      time: 18
+      value: 0.075
+      inSlope: 0.025000002
+      outSlope: 0.025000002
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7169902458854289465
 GameObject:
   m_ObjectHideFlags: 0
@@ -5929,6 +6041,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2248694591853080606, guid: 39c3e33ae0b283642af167c5cd61cca7, type: 3}
   m_PrefabInstance: {fileID: 3827181337476840892}
   m_PrefabAsset: {fileID: 0}
+--- !u!96 &6609560379053825276 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 7972779829834572096, guid: 39c3e33ae0b283642af167c5cd61cca7, type: 3}
+  m_PrefabInstance: {fileID: 3827181337476840892}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5070789852151264788
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6056,6 +6173,11 @@ PrefabInstance:
 --- !u!4 &5384779210768924705 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2248694591853080606, guid: 39c3e33ae0b283642af167c5cd61cca7, type: 3}
+  m_PrefabInstance: {fileID: 6164974859411845183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!96 &4263610306133266815 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 7972779829834572096, guid: 39c3e33ae0b283642af167c5cd61cca7, type: 3}
   m_PrefabInstance: {fileID: 6164974859411845183}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6351598745136700038

@@ -15,6 +15,42 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Ready",
+                    "type": "Button",
+                    "id": "cf44b92f-18a5-4406-84f6-50885ce7162e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Leave",
+                    "type": "Button",
+                    "id": "b233cc39-b7fe-4d35-a998-aa71c2ba9035",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Change Skin",
+                    "type": "Button",
+                    "id": "a74fb894-abe1-4a67-9570-f213d8662194",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "-------------Default Actions--------------",
+                    "type": "Button",
+                    "id": "294b508d-84ba-4da1-85eb-3fa6a9070485",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Navigate",
                     "type": "PassThrough",
                     "id": "2e944cf3-1381-4391-bd16-7ef42f9ac3c3",
@@ -107,7 +143,7 @@
             ],
             "bindings": [
                 {
-                    "name": "AD",
+                    "name": "QE",
                     "id": "34dbf413-8da4-4597-b78d-2be441e935b9",
                     "path": "1DAxis",
                     "interactions": "",
@@ -120,7 +156,7 @@
                 {
                     "name": "negative",
                     "id": "a1a48917-ab84-4631-a815-7c4f72e49a73",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -131,7 +167,7 @@
                 {
                     "name": "positive",
                     "id": "01901d8c-632e-4344-9dfa-77abd71ba446",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -173,7 +209,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Triggers",
+                    "name": "Bumpers",
                     "id": "e09e7f2e-77ea-4e28-a632-c94a2c70a932",
                     "path": "1DAxis",
                     "interactions": "",
@@ -186,7 +222,7 @@
                 {
                     "name": "negative",
                     "id": "b9b5f951-edfe-46aa-937c-1e293ce7b0cc",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -197,7 +233,7 @@
                 {
                     "name": "positive",
                     "id": "3e18fac0-970a-4a30-960e-70d8ebb8935b",
-                    "path": "<Gamepad>/rightTrigger",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -219,7 +255,7 @@
                 {
                     "name": "negative",
                     "id": "2f9e9698-f2ab-4387-a61a-cd40de5ef64d",
-                    "path": "<Gamepad>/leftStick/left",
+                    "path": "<Gamepad>/rightStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -230,7 +266,7 @@
                 {
                     "name": "positive",
                     "id": "9581e637-e680-4974-9e73-05b03a43b893",
-                    "path": "<Gamepad>/leftStick/right",
+                    "path": "<Gamepad>/rightStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -655,6 +691,116 @@
                     "action": "TrackedDeviceOrientation",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "66213f9a-01e4-4388-ad7a-2485598e7750",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Leave",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "39061cef-af8c-41ce-8dd2-f4f30fe8c00a",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Leave",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5a547ad3-9a39-4867-a959-13604a8d6c5a",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ready",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5e31d2c7-980c-44e9-b8fd-9629565cb9ca",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ready",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Triggers",
+                    "id": "dac9d46f-7f77-4d9e-8236-c37634f1900f",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change Skin",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "417724c0-6f85-4eee-892b-e5868ce231b7",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change Skin",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "33bb0b7b-9c98-4254-99d3-0d9f8c2a6e64",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change Skin",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "AD",
+                    "id": "012b078d-f38f-4cc9-93fd-994b39dafa6b",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change Skin",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "58421ec0-471c-434e-b017-ed2f826b25f5",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change Skin",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "b6352825-797d-4e96-a759-cff5f7c65088",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change Skin",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },
