@@ -57,6 +57,10 @@ public class ToborRenderer : MonoBehaviour
         rotation.x = Mathf.Clamp(x, -30f, 30f);
         tobor.rotation = Quaternion.Euler(0, rotation.y, 0) * Quaternion.Euler(rotation.x, 0, 0);
     }
+    public void ChangeSkin(bool right)
+    {
+        
+    }
 
     public void Enable()
     {

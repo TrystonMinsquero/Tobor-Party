@@ -13,9 +13,31 @@ struct FrameInputs
     public bool drift;
 }
 
+public enum CarState
+{
+    Small = 1,
+    Normal = 2,
+    Big = 4,
+    Tobor = 8,
+}
+
 public class Car : PlayerObject
 {
-    public float Scale => transform.localScale.x;
+    public CarState State
+    {
+        get
+        {
+            var s = transform.localScale.x;
+            if (s > 2.5f)
+                return CarState.Tobor;
+            if (s > 1.2f)
+                return CarState.Big;
+            else if (s < 0.9f)
+                return CarState.Small;
+
+            return CarState.Normal;
+        }
+    }
 
     [Header("Objects")]
     public Rigidbody rb;
@@ -62,6 +84,8 @@ public class Car : PlayerObject
     private Quaternion camRotation;
     private Vector2 lookRotation;
 
+    public AnimationCurve scaleDistanceMultiplierCurve;
+
     [Header("Input Movement")] 
     public float inputMoveSpeed = 4f;
     public float inputRotSpeed = 120f;
@@ -71,26 +95,39 @@ public class Car : PlayerObject
 
     [Header("Physics Movements")]
     public AnimationCurve accelCurve;
+    public AnimationCurve turnSpeedCurve;
     public float maxGasSpeed = 15, acceleration = 5;
-    public float friction = 0.1f;
+    public float defaultFriction= 0.3f;
+    public float maxFrictionSpeed = 15;
     public float gravity = 20;
     public float turnVelocityPersistence = 0.95f;
     public float airTurnMultiplier = 0.2f;
 
     public bool isGrounded = false;
     public bool isDrifting = false;
+    public bool isWipeout => wipeoutTime > 0;
 
     [Header("Boost")] 
     public float boostMaxSpeed = 30;
     public float boostAcceleration = 90;
 
+    [Header("Wipeout")] 
+    public float wipeoutRotateSpeed = 720;
+    public float wipeoutDampTime = 0.1f;
+    public float wipeoutFriction = 3f;
+    public float wipeoutRecoverSpeed = 120;
+    public float defaultWipeoutTime = 1.2f;
+
     [Header("Extra Movement")]
-    public float bumpForce = 50;
+    public float bumpForce = 5;
+    public float carBumpForce = 1.5f;
 
     [Header("Other")]
     public Text speedText;
     public CarController _controller;
     public Vector3 startRotation;
+
+    public float wipeoutTime = 0;
 
     #region Smooth Damp Variables
     private Vector3 dampedToborDirection = Vector3.forward, toborVel = Vector3.zero;
@@ -100,6 +137,7 @@ public class Car : PlayerObject
     private float dampedSpeed = 0, speedVel = 0;
     private float dampedJumpPos = 0, jumpVel = 0;
     private float dampedToborDriftAngle = 0, angleVel = 0;
+    private float wipeoutPos = 0, wipeoutVel = 0;
     #endregion
 
     void Start()
@@ -127,6 +165,36 @@ public class Car : PlayerObject
         cam.gameObject.SetActive(true);
     }
 
+    #region Items: UsingItem, AddItem(), ActivateItem(), DiscardItem()
+    public bool UsingItem { get; set; } = false;
+
+    public void AddItem(Item item)
+    {
+        if (holder.Item == null)
+        {
+            UsingItem = false;
+            holder.Equip(item);
+        }
+    }
+
+    public void ActivateItem()
+    {
+        if (!UsingItem)
+        {
+            holder.Item.Activate(this);
+        }
+    }
+
+    public void DiscardItem()
+    {
+        if (holder.Item != null)
+        {
+            Destroy(holder.Item.gameObject);
+            UsingItem = false;
+        }
+    } 
+    #endregion
+
     private float boostTime = 0;
     public void Boost(float amount)
     {
@@ -135,9 +203,18 @@ public class Car : PlayerObject
         boostTime += amount;
     }
 
-    public void AddItem(Item item)
+    public void WipeOut(float amount)
     {
+        boostTime = 0;
 
+        isDrifting = false;
+        driftDirection = 0;
+        lastDrift = false;
+
+        // Todo: check if player can be wiped out
+        if (wipeoutTime < 0)
+            wipeoutTime = 0;
+        wipeoutTime += amount;
     }
 
     private bool lastDrift = false;
@@ -150,6 +227,13 @@ public class Car : PlayerObject
         // Inputs
         var accelInput = inputs.direction.z;
         var turnInput = inputs.direction.x;
+
+        if (isWipeout)
+        {
+            accelInput = 0;
+            turnInput = 0;
+            wipeoutTime -= Time.fixedDeltaTime;
+        }
 
         // Prevent car from moving before game started
         if (!RaceManager.Started)
@@ -223,7 +307,7 @@ public class Car : PlayerObject
             turnVelocity = Mathf.Lerp(turnVelocity,
                 turnInput * turnDirection, Time.fixedDeltaTime * 6);
 
-            var turn = turnVelocity * (0.5f * rb.velocity.magnitude / maxGasSpeed + 0.5f);
+            var turn = turnVelocity * turnSpeedCurve.Evaluate(velocity.magnitude / maxGasSpeed);
 
             turnAmount = turn * inputRotSpeed * Time.fixedDeltaTime;
             velocityTurn = turnAmount * turnVelocityPersistence;
@@ -240,6 +324,7 @@ public class Car : PlayerObject
 
         var targetAccelerationAdd = inputVelocity * Time.fixedDeltaTime * acceleration;
         var targetAcceleration = acceleration;
+        var friction = isWipeout ? wipeoutFriction : defaultFriction;
 
         var maxSpeed = maxGasSpeed;
         if (boostTime > 0)
@@ -265,7 +350,14 @@ public class Car : PlayerObject
         velocity = Vector3.MoveTowards(velocity, finalVelocity, targetAcceleration * Time.fixedDeltaTime);
 
         // Friction
-        velocity = Vector3.MoveTowards(velocity, Vector3.zero,velocity.magnitude * friction * Time.fixedDeltaTime);
+        var mag = Mathf.Clamp(velocity.magnitude, 0, maxFrictionSpeed);
+        velocity = Vector3.MoveTowards(velocity, Vector3.zero,mag * friction * Time.fixedDeltaTime);
+
+        var speed = velocity.magnitude;
+        if (Vector3.Dot(velocity, currentInputDirection) < 0)
+            speed = 0;
+        particles.UpdateTrails(speed);
+
         velocity.y = rb.velocity.y;
         rb.velocity = velocity;
 
@@ -280,6 +372,7 @@ public class Car : PlayerObject
 
     #region Input Handling
     private FrameInputs inputs = new FrameInputs();
+    private bool lastUseItemInput = false;
     // Update is called once per frame
     void Update()
     {
@@ -296,15 +389,51 @@ public class Car : PlayerObject
 
         inputs.lookRotation = _controller.LookInput;
         inputs.drift = _controller.DriftInput;
+
+        if (holder.Item != null && _controller.UseItemInput && !lastUseItemInput)
+        {
+            lastUseItemInput = true;
+            ActivateItem();
+        }
+
+        if (!_controller.UseItemInput)
+            lastUseItemInput = false;
     }
     #endregion
 
     void OnCollisionEnter(Collision c)
     {
+        if (c.transform.TryGetComponent<Car>(out var car))
+        {
+            var thisState = this.State;
+            var otherState = car.State;
+            float mult = 1;
+
+            if (thisState == otherState)
+            {
+                if (thisState == CarState.Big)
+                    mult = 1.5f;
+            }
+            else if (thisState > otherState)
+            {
+                mult = 0.8f;
+            }
+            else
+            {
+                mult = 1.5f;
+                if (otherState == CarState.Tobor)
+                    mult = 5f;
+                WipeOut(defaultWipeoutTime);
+            }
+
+            var vel = car.rb.position - rb.position;
+            car.rb.AddForce(vel * carBumpForce * mult, ForceMode.VelocityChange);
+        }
+
         if (c.transform.TryGetComponent<Bumpy>(out var bump))
         {
             var p = c.contacts[0].normal;
-            rb.AddForce(p * bumpForce);
+            rb.AddForce(p * bumpForce, ForceMode.VelocityChange);
         }
     }
 
@@ -335,6 +464,7 @@ public class Car : PlayerObject
 
     #region Camera
 
+    private float wipeoutAngle = 0;
     private Quaternion toborRotation;
     void LateUpdate()
     {
@@ -362,17 +492,27 @@ public class Car : PlayerObject
         var finalCamRot = Quaternion.Euler(0, look.y, 0) * camRotation * Quaternion.Euler(look.x, 0, 0);
         cam.transform.rotation = finalCamRot;
         var camRotForward = Quaternion.LookRotation(Vector3.Scale(finalCamRot * Vector3.forward, new Vector3(1, 0, 1)).normalized, Vector3.up);
-        cam.transform.position = dampedCarPosition + finalCamRot * Vector3.back * (camOffset.x + speedPercent * camSpeedMoveBack) + camRotForward * Quaternion.Euler(look.x, 0, 0) * Vector3.up * camOffset.y;
-
-        
+        cam.transform.position = dampedCarPosition + (finalCamRot * Vector3.back * (camOffset.x + speedPercent * camSpeedMoveBack) + camRotForward * Quaternion.Euler(look.x, 0, 0) * Vector3.up * camOffset.y) * scaleDistanceMultiplierCurve.Evaluate(transform.localScale.x);
 
         // Tobor Transform
         tobor.position = dampedCarPosition + Vector3.up * (dampedJumpPos);
         toborRotation = Quaternion.Slerp(toborRotation, targetRotation, Time.deltaTime * toborRotSpeed);
 
+        // Wipeouts!
+        if (isWipeout)
+        {
+            wipeoutAngle += Time.deltaTime * wipeoutRotateSpeed;
+        }
+        else
+        {
+            wipeoutAngle %= 360;
+            wipeoutAngle = Mathf.MoveTowardsAngle(wipeoutAngle, 0, wipeoutRecoverSpeed);
+        }
+        wipeoutPos = Mathf.SmoothDamp(wipeoutPos, wipeoutAngle, ref wipeoutVel, wipeoutDampTime);
+
         float angleTarget = driftDirection * driftVisualAngleCurve.Evaluate(inputs.direction.x * driftDirection);
         dampedToborDriftAngle = Mathf.SmoothDamp(dampedToborDriftAngle, angleTarget, ref angleVel, 1 / driftAngleVisualSpeed);
-        tobor.rotation = toborRotation * Quaternion.Euler(0, dampedToborDriftAngle, 0) * Quaternion.Euler(0, 0, dampedToborDriftAngle * driftTiltMultiplier);
+        tobor.rotation = toborRotation * Quaternion.Euler(0, dampedToborDriftAngle + wipeoutPos, 0) * Quaternion.Euler(0, 0, dampedToborDriftAngle * driftTiltMultiplier);
 
         if (isDrifting && isGrounded) particles.StartDrift();
         else particles.StopDrift();

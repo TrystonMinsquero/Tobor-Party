@@ -11,7 +11,22 @@ public class ItemBox : MonoBehaviour
 
     Item GetItem(float position)
     {
+        float totalWeight = 0;
+        foreach (Item item in items)
+            totalWeight += Mathf.Lerp(item.probability.x, item.probability.y, position);
 
+        double r = Random.value * totalWeight;
+        foreach (Item item in items)
+        {
+            var weight = Mathf.Lerp(item.probability.x, item.probability.y, position);
+            if (weight >= r)
+            {
+                var clone = Instantiate(item);
+                return clone;
+            }
+
+            r -= weight;
+        }
         return null;
     }
 
@@ -22,7 +37,10 @@ public class ItemBox : MonoBehaviour
 
         if (collider.transform.TryGetComponent<Car>(out var car))
         {
-            car.AddItem(null);
+            float pos = RaceManager.instance.cars.IndexOf(car.GetComponent<CheckpointUser>());
+            pos /= RaceManager.instance.cars.Count;
+
+            car.AddItem(GetItem(pos));
 
             StartCoroutine(UseItemDelay());
         }

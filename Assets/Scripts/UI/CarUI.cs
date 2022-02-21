@@ -15,14 +15,16 @@ public class CarUI : MonoBehaviour
     public Text lapTimerText;
     public Image itemBox;
 
+    private ItemHolder holder;
     private CheckpointUser cpUser;
     private Rigidbody rb;
     private Checkpoint nextCheckPoint;
 
     private void Awake()
     {
-        cpUser = GetComponent<CheckpointUser>();
-        rb = GetComponent<Rigidbody>();
+        cpUser = GetComponentInParent<CheckpointUser>();
+        rb = GetComponentInParent<Rigidbody>();
+        holder = cpUser.GetComponent<ItemHolder>();
         checkpointTimeText.text = "";
         nextCheckPoint = cpUser.nextCheckpoint;
     }
@@ -52,12 +54,34 @@ public class CarUI : MonoBehaviour
             checkpointTimeText.text = "<color=red>Wrong Way!</color>";
         if (cpUser.RightDirection && checkpointTimeText.text == "<color=red>Wrong Way!</color>")
             checkpointTimeText.text = "";
-        
-        
-        TimeSpan time = TimeSpan.FromSeconds(Time.time - cpUser.StartTime);
-        
-        lapTimerText.text = time.TotalSeconds > 60 ? time.ToString("mm':'ss") : time.ToString("ss'.'FF");
+        TimeSpan time = TimeSpan.FromSeconds(Time.time - RaceManager.StartTime);
+        if (RaceManager.StartTime == 0)
+            lapTimerText.text = "00:00";
+        else
+            lapTimerText.text = time.TotalSeconds > 60 ? time.ToString("mm':'ss") : GetMillisecondTime(time);
 
+        if (holder.Item == null)
+        {
+            itemBox.gameObject.SetActive(false);
+            itemBox.sprite = null;
+        }
+        else
+        {
+            itemBox.gameObject.SetActive(true);
+            itemBox.sprite = holder.Item.itemImage;
+        }
+    }
+
+    private string GetMillisecondTime(TimeSpan time)
+    {
+        string ms = time.Milliseconds.ToString();
+        if (ms.Length >= 2)
+            ms = ms.Substring(0,2);
+        else if (ms.Length == 1)
+            ms += "0";
+        else if (ms.Length == 0)
+            ms = "00";
+        return time.ToString("ss'.'") + ms;
     }
 
     private string GetPlaceSuffix(int place)

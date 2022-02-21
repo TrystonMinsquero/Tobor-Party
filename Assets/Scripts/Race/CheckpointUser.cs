@@ -9,7 +9,6 @@ public class CheckpointUser : MonoBehaviour
     public bool RightDirection { get; private set; } = true;
     public float Progress { get; private set; } = 0;
     public int Laps { get; private set; } = 0;
-    public float StartTime { get; private set; } = 0;
     public float LastLapStartTime { get; private set; } = 0;
     public float LastCheckpointStartTime { get; private set; } = 0;
 
@@ -37,14 +36,8 @@ public class CheckpointUser : MonoBehaviour
 
         car = GetComponent<Car>();
 
-        // Todo: integrate this
-        ResetTimer();
     }
 
-    public void ResetTimer()
-    {
-        LastCheckpointStartTime = Time.time;
-    }
 
     public void CheckpointReached(Checkpoint checkpoint)
     {
@@ -56,7 +49,7 @@ public class CheckpointUser : MonoBehaviour
                 Checkpoints.Instance.checkpoints[
                     (currentCheckpoint.index + 1) % Checkpoints.Instance.checkpoints.Count];
 
-            ResetTimer();
+            LastCheckpointStartTime = Time.time;
             Debug.Log($"Checkpoint reached: {checkpoint.index}");
 
             if (checkpoint.index == 0)

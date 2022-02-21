@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 0460df0c5d9fedd4da2cfe62f4b657cd
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - FOT-NewRodin Pro
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0304b53666bfddf4c82c98928ab857c9, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

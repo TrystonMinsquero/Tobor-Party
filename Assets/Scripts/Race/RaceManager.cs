@@ -8,6 +8,7 @@ public class RaceManager : MonoBehaviour
     public static RaceManager instance;
     
     public static bool Started { get; private set; }
+    public static float StartTime { get; private set; }
     public static string StartState { get; private set; } = "";
 
     public uint numLaps = 2; 
@@ -30,6 +31,7 @@ public class RaceManager : MonoBehaviour
         cars.RemoveAll((a) => a.gameObject.activeSelf == false);
         Started = false;
         StartState = "3";
+        StartTime = 0;
         StartCoroutine(StartGame());
     }
 
@@ -46,6 +48,7 @@ public class RaceManager : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         StartState = "";
+        StartTime = Time.time;
     }
 
     void Update()
