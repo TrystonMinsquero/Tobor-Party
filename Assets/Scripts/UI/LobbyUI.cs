@@ -9,7 +9,7 @@ public class LobbyUI : MonoBehaviour
     public JoinBox[] joinBoxes;
     public Text actionText;
 
-    private string _UIState = "Waiting for players to ready up";
+    public string _UIState = "Waiting for players to ready up...";
     
 
     private bool _countingDown;
@@ -17,13 +17,15 @@ public class LobbyUI : MonoBehaviour
     
     public void Update()
     {
+        bool hasPlayer = false;
+        foreach(var joinBox in joinBoxes)
+            if (joinBox.hasPlayer) hasPlayer = true;
         
-        bool allReady = PlayerManager.playerCount > 0;
+        bool allReady = hasPlayer;
+        
         foreach (var joinBox in joinBoxes)
-        {
             if (joinBox.hasPlayer && !joinBox.isReady)
                 allReady = false;
-        }
 
         
         if(allReady && !_countingDown)
@@ -56,7 +58,7 @@ public class LobbyUI : MonoBehaviour
     {
         _countingDown = false;
         StopAllCoroutines();
-        _UIState = "Waiting for players to ready up";
+        _UIState = "Waiting for players to ready up...";
     }
     
     private IEnumerator CountDown()
