@@ -60,6 +60,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 908388626991721316, guid: b5c5344ca371ede4b8dfeddc404eeb1e, type: 3}
+  - {fileID: 4286749823204568878, guid: 2742cfa8912b397418c8a6b070f574c6, type: 3}
+  - {fileID: 4286749823204568878, guid: b2c1e0c1e9a368b419216cce2c618f70, type: 3}
   isEnabled: 1
   delayTime: 5
   visual: {fileID: 7730383196911283276}

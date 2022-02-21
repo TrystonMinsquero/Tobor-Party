@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4286749823204568877}
   - component: {fileID: 4286749823204568878}
   m_Layer: 0
-  m_Name: Jumbo
+  m_Name: Mini
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d9c2fdd4dfc4583ba870533f29626b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  probability: {x: 0.2, y: 0.7}
-  itemImage: {fileID: 21300000, guid: 8b7c69aff64e56243b7dce7cb53301cc, type: 3}
-  scaleFactor: 2
+  probability: {x: 0.1, y: 1}
+  itemImage: {fileID: 21300000, guid: 14abb0c9cc30d20479c0a65921fd0c2f, type: 3}
+  scaleFactor: 0.75
   scaleLerpTime: 0.5
   scaleTime: 10
