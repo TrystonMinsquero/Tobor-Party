@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,7 @@ public class CarUI : MonoBehaviour
     public Text placeText;
     public Text placeSuffixText;
     public Text lapText;
-    public Text speedText;
+    public TMP_Text speedText;
     public Text checkpointTimeText;
     public Text lapTimerText;
     public Image itemBox;
@@ -19,6 +20,8 @@ public class CarUI : MonoBehaviour
     private CheckpointUser cpUser;
     private Rigidbody rb;
     private Checkpoint nextCheckPoint;
+
+    public Transform speedometerNeedle;
 
     private void Awake()
     {
@@ -48,7 +51,7 @@ public class CarUI : MonoBehaviour
 
         startText.text = RaceManager.StartState;
         lapText.text = (cpUser.Laps + 1) + "/" + RaceManager.instance.numLaps;
-        speedText.text = $"{rb.velocity.magnitude:0.0}";
+        speedText.text = $"{rb.velocity.magnitude:0}";
 
         if (!cpUser.RightDirection)
             checkpointTimeText.text = "<color=red>Wrong Way!</color>";
@@ -70,6 +73,21 @@ public class CarUI : MonoBehaviour
             itemBox.gameObject.SetActive(true);
             itemBox.sprite = holder.Item.itemImage;
         }
+        
+        // update speedometer
+        RotateSpeedometer();
+    }
+
+    private void RotateSpeedometer()
+    {
+        float rot = 30; // starting rotation point is 30 degrees
+        float rotMax = -180;
+
+        float speedintervalsMultiplyer = rotMax / 20;
+        rot += rb.velocity.magnitude * speedintervalsMultiplyer;
+        
+        Quaternion target = Quaternion.Euler(0, 0, rot);
+        speedometerNeedle.rotation = Quaternion.Slerp(speedometerNeedle.rotation, target,  Time.deltaTime * 2);
     }
 
     private string GetMillisecondTime(TimeSpan time)
