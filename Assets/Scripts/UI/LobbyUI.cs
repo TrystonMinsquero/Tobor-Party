@@ -25,8 +25,6 @@ public class LobbyUI : MonoBehaviour
                 allReady = false;
         }
 
-        if(allReady)
-            Debug.Log(allReady);
         
         if(allReady && !_countingDown)
             StartCountdown();
@@ -57,7 +55,7 @@ public class LobbyUI : MonoBehaviour
     public void StopCountdown()
     {
         _countingDown = false;
-        StopCoroutine(CountDown());
+        StopAllCoroutines();
         _UIState = "Waiting for players to ready up";
     }
     
