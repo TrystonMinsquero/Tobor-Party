@@ -307,6 +307,7 @@ public class Car : PlayerObject
 
     #region Input Handling
     private FrameInputs inputs = new FrameInputs();
+    private bool lastUseItemInput = false;
     // Update is called once per frame
     void Update()
     {
@@ -324,11 +325,14 @@ public class Car : PlayerObject
         inputs.lookRotation = _controller.LookInput;
         inputs.drift = _controller.DriftInput;
 
-        if (holder.Item != null && _controller.UseItemInput)
+        if (holder.Item != null && _controller.UseItemInput && !lastUseItemInput)
         {
-            Debug.Log("HEY");
+            lastUseItemInput = true;
             ActivateItem();
         }
+
+        if (!_controller.UseItemInput)
+            lastUseItemInput = false;
     }
     #endregion
 
