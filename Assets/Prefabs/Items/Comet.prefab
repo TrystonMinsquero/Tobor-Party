@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 908388626991721319}
-  - component: {fileID: 908388626991721316}
+  - component: {fileID: -3908375354817224009}
   m_Layer: 0
-  m_Name: Triple Boost
+  m_Name: Comet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &908388626991721316
+--- !u!114 &-3908375354817224009
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,11 +40,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 908388626991721317}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbf854377d664e31bd6bd0cb6a77d68e, type: 3}
+  m_Script: {fileID: 11500000, guid: ffec3a22f2a64c0a858547beb54b61f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  probability: {x: 0.1, y: 0.6}
-  itemImage: {fileID: 21300000, guid: 9958079032e8f7440ba4ba2062255d0f, type: 3}
-  uses: 3
-  boostTime: 0.5
-  itemCooldown: 0.8
+  probability: {x: 0.1, y: 0.9}
+  itemImage: {fileID: 21300000, guid: 68ae127fac829b943a23e11d35f3032e, type: 3}
+  time: 10

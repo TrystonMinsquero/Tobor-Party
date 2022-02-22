@@ -7,10 +7,17 @@ public class ToborParticles : MonoBehaviour
     public ParticleSystem[] tireSmokes;
     public TrailRenderer[] carTrails;
     public AnimationCurve trailLengthCurve;
+    public ParticleSystem[] empParticles;
 
     public void Start()
     {
         StopDrift();
+    }
+
+    public void PlayEMP()
+    {
+        foreach (var emp in empParticles)
+            emp.Play();
     }
 
     public void StartDrift()

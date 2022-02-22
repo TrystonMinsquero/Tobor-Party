@@ -4,9 +4,24 @@ using UnityEngine;
 
 public class Comet : Item
 {
-    // Get a super buff (like mario kart star) of speedboost
+    public float time = 10f;
+    private Car car;
+
     public override void Activate(Car car)
     {
-        throw new System.NotImplementedException();
+        this.car = car;
+        StartCoroutine(Cooldown());
+    }
+
+    IEnumerator Cooldown()
+    {
+
+        car.UsingItem = true;
+        car.cometEnabled = true;
+        yield return new WaitForSeconds(time);
+
+        car.cometEnabled = false;
+        car.UsingItem = false;
+        car.DiscardItem();
     }
 }

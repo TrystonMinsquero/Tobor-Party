@@ -67,9 +67,33 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 28884984802347225, guid: 25fa30f58a412a746b34067b6b65ab88, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 664813708411158526, guid: 25fa30f58a412a746b34067b6b65ab88, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1321296999303131050, guid: 25fa30f58a412a746b34067b6b65ab88, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5312674712506174225, guid: 25fa30f58a412a746b34067b6b65ab88, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638268898352468989, guid: 25fa30f58a412a746b34067b6b65ab88, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6255534644139208371, guid: 25fa30f58a412a746b34067b6b65ab88, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8506313672799849273, guid: 25fa30f58a412a746b34067b6b65ab88, type: 3}
+      propertyPath: playOnAwake
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5312674712506174225, guid: 25fa30f58a412a746b34067b6b65ab88, type: 3}

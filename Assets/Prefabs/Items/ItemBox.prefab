@@ -64,6 +64,8 @@ MonoBehaviour:
   - {fileID: 4286749823204568878, guid: b2c1e0c1e9a368b419216cce2c618f70, type: 3}
   - {fileID: 908388626991721316, guid: 0fe494abf307bdc41a666906fa0b25ef, type: 3}
   - {fileID: 4286749823204568878, guid: 3a1fa15320261e9489195eb98ebe1288, type: 3}
+  - {fileID: 7615545685139705630, guid: 2b0fc0c6325dc9646af049d54e9976a6, type: 3}
+  - {fileID: -3908375354817224009, guid: 9a1ed3b64d83aac4c810cb2e5be15c70, type: 3}
   isEnabled: 1
   delayTime: 5
   visual: {fileID: 7965613310697241981}

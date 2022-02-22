@@ -107,6 +107,8 @@ public class Car : PlayerObject
     public bool isDrifting = false;
     public bool isWipeout => wipeoutTime > 0;
 
+    public float maxMiniGasSpeed = 20f;
+
     [Header("Boost")] 
     public float boostMaxSpeed = 30;
     public float boostAcceleration = 90;
@@ -117,6 +119,12 @@ public class Car : PlayerObject
     public float wipeoutFriction = 3f;
     public float wipeoutRecoverSpeed = 120;
     public float defaultWipeoutTime = 1.2f;
+
+    [Header("Comet")] 
+    public float cometSpeed = 20f;
+    public float cometAccelerationMultiplier = 5f;
+    public float cometTurnSpeedMultiplier = 1.2f;
+    public bool cometEnabled = false;
 
     [Header("Extra Movement")]
     public float bumpForce = 5;
@@ -313,6 +321,9 @@ public class Car : PlayerObject
             velocityTurn = turnAmount * turnVelocityPersistence;
         }
 
+        if (cometEnabled)
+            turnAmount *= cometTurnSpeedMultiplier;
+
         // Change input speed and direction
         currentInputDirection = Quaternion.Euler(Vector3.up * turnAmount) * currentInputDirection;
         currentInputDirection.Normalize();
@@ -327,6 +338,19 @@ public class Car : PlayerObject
         var friction = isWipeout ? wipeoutFriction : defaultFriction;
 
         var maxSpeed = maxGasSpeed;
+
+        if (cometEnabled)
+        {
+            maxSpeed = cometSpeed;
+            targetAcceleration *= cometAccelerationMultiplier;
+
+        }
+
+        if (transform.localScale.x < 0.9f)
+        {
+            maxSpeed = maxMiniGasSpeed;
+        }
+
         if (boostTime > 0)
         {
             boostTime -= Time.fixedDeltaTime;
@@ -488,7 +512,7 @@ public class Car : PlayerObject
             1 - Mathf.Exp(Time.deltaTime * -fovSpeed));
         cam.fieldOfView = currentFOV;
 
-        var look = Vector3.Scale(new Vector3(-dampedLookInput.y, dampedLookInput.x), new Vector3(20, 90));
+        var look = Vector3.Scale(new Vector3(-dampedLookInput.y, dampedLookInput.x), new Vector3(30, 120));
         var finalCamRot = Quaternion.Euler(0, look.y, 0) * camRotation * Quaternion.Euler(look.x, 0, 0);
         cam.transform.rotation = finalCamRot;
         var camRotForward = Quaternion.LookRotation(Vector3.Scale(finalCamRot * Vector3.forward, new Vector3(1, 0, 1)).normalized, Vector3.up);
