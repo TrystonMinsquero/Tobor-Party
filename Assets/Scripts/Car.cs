@@ -418,7 +418,7 @@ public class Car : PlayerObject
     #region Input Handling
     private FrameInputs inputs = new FrameInputs();
     private bool lastUseItemInput = false;
-    // Update is called once per frame
+    // UpdateInput is called once per frame
     void Update()
     {
         if (!HasController())
@@ -440,7 +440,7 @@ public class Car : PlayerObject
         }
         else
         {
-            botInputs.Update(ref inputs, checkpoints);
+            botInputs.UpdateInput(ref inputs, checkpoints);
         }
 
         if (holder.Item != null && inputs.useItem && !lastUseItemInput)
@@ -563,7 +563,8 @@ public class Car : PlayerObject
         }
         wipeoutPos = Mathf.SmoothDamp(wipeoutPos, wipeoutAngle, ref wipeoutVel, wipeoutDampTime);
 
-        float angleTarget = driftDirection * driftVisualAngleCurve.Evaluate(inputs.direction.x * driftDirection);
+        // Todo: check inputs.steerInput, change to fixedUpdate version?
+        float angleTarget = driftDirection * driftVisualAngleCurve.Evaluate(inputs.steerInput * driftDirection);
         dampedToborDriftAngle = Mathf.SmoothDamp(dampedToborDriftAngle, angleTarget, ref angleVel, 1 / driftAngleVisualSpeed);
         tobor.rotation = toborRotation * Quaternion.Euler(0, dampedToborDriftAngle + wipeoutPos, 0) * Quaternion.Euler(0, 0, dampedToborDriftAngle * driftTiltMultiplier);
 

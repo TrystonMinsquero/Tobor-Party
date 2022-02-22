@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BotInput : MonoBehaviour
 {
-    public void Update(ref FrameInputs inputs, CheckpointUser cpUser)
+    public void UpdateInput(ref FrameInputs inputs, CheckpointUser cpUser)
     {
         inputs.gasInput = 1;
         inputs.steerInput = 1;
