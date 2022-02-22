@@ -16,6 +16,7 @@ public class EMP : Item
             if (car != thisCar)
             {
                 car.WipeOut(empTime);
+                car.particles.PlayEMP();
             }
         }
 

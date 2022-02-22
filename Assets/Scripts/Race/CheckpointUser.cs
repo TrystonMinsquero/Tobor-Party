@@ -71,14 +71,23 @@ public class CheckpointUser : MonoBehaviour
         }
     }
 
+    private float wrongDirectionTime = 0;
     void Update()
     {
         var vel = car.rb.velocity;
         var dir = nextCheckpoint.transform.position - currentCheckpoint.transform.position;
 
-        if (vel.sqrMagnitude > 0.4f)
+        bool rightDir = vel.sqrMagnitude > 0.4f && Vector3.Dot(vel, dir) < 0;
+        if (rightDir)
         {
-            RightDirection = Vector3.Dot(vel, dir) > 0;
+            wrongDirectionTime += Time.deltaTime;
+            if (wrongDirectionTime > 2f)
+                RightDirection = false;
+        }
+        else
+        {
+            wrongDirectionTime = 0;
+            RightDirection = true;
         }
 
         float progress = Laps;

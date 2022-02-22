@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d9c2fdd4dfc4583ba870533f29626b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  probability: {x: 0.04, y: 0.04}
+  probability: {x: 0.025, y: 0.025}
   itemImage: {fileID: 21300000, guid: 4321df72285aba34994a3c0777fc071e, type: 3}
-  scaleFactor: 5
+  scaleFactor: 6
   scaleLerpTime: 5
   scaleTime: 20
