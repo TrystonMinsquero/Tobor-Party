@@ -6,11 +6,14 @@ using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
-struct FrameInputs
+public struct FrameInputs
 {
-    public Vector3 direction;
     public Vector2 lookRotation;
+
+    public float steerInput;
+    public float gasInput;
     public bool drift;
+    public bool useItem;
 }
 
 public enum CarState
@@ -38,6 +41,9 @@ public class Car : PlayerObject
             return CarState.Normal;
         }
     }
+
+    public bool isBot = false;
+    private BotInput botInputs;
 
     [Header("Objects")]
     public Rigidbody rb;
@@ -106,6 +112,7 @@ public class Car : PlayerObject
     public bool isGrounded = false;
     public bool isDrifting = false;
     public bool isWipeout => wipeoutTime > 0;
+    public bool isDeactivated = false;
 
     public float maxMiniGasSpeed = 20f;
 
@@ -150,6 +157,9 @@ public class Car : PlayerObject
 
     void Start()
     {
+        if (isBot)
+            botInputs = GetComponent<BotInput>();
+
         particles = GetComponentInChildren<ToborParticles>();
         rb = GetComponent<Rigidbody>();
         dampedCarPosition = transform.position;
@@ -225,6 +235,11 @@ public class Car : PlayerObject
         wipeoutTime += amount;
     }
 
+    public void Deactivate()
+    {
+        isDeactivated = true;
+    }
+
     private bool lastDrift = false;
     private float turnVelocity = 0;
     void FixedUpdate()
@@ -233,8 +248,14 @@ public class Car : PlayerObject
             groundNormal = latestNormal[4];
 
         // Inputs
-        var accelInput = inputs.direction.z;
-        var turnInput = inputs.direction.x;
+        var accelInput = Mathf.Clamp(inputs.gasInput, -1, 1);
+        var turnInput = Mathf.Clamp(inputs.steerInput, -1, 1);
+
+        if (isDeactivated)
+        {
+            accelInput = 0;
+            turnInput = 0;
+        }
 
         if (isWipeout)
         {
@@ -405,22 +426,30 @@ public class Car : PlayerObject
             Debug.LogWarning("No Controller Assigned!");
             return;
         }
-        
-        var d = new Vector2(_controller.SteerInput, _controller.GasBreakInput);
-        var dir = new Vector3(d.x, 0, d.y);
-        //dir.Normalize();
-        inputs.direction = dir;
 
-        inputs.lookRotation = _controller.LookInput;
-        inputs.drift = _controller.DriftInput;
+        // User inputs
+        if (!isBot)
+        {
+            inputs.lookRotation = _controller.LookInput;
 
-        if (holder.Item != null && _controller.UseItemInput && !lastUseItemInput)
+            inputs.steerInput = _controller.SteerInput;
+            inputs.gasInput = _controller.GasBreakInput;
+            inputs.drift = _controller.DriftInput;
+            inputs.useItem = _controller.UseItemInput;
+
+        }
+        else
+        {
+            botInputs.Update(ref inputs, checkpoints);
+        }
+
+        if (holder.Item != null && inputs.useItem && !lastUseItemInput)
         {
             lastUseItemInput = true;
             ActivateItem();
         }
 
-        if (!_controller.UseItemInput)
+        if (!inputs.useItem)
             lastUseItemInput = false;
     }
     #endregion
@@ -563,6 +592,6 @@ public class Car : PlayerObject
 
     public override bool HasController()
     {
-        return _controller != null;
+        return _controller != null || isBot;
     }
 }
