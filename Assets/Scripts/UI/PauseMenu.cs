@@ -56,6 +56,10 @@ public class PauseMenu : MonoBehaviour
 
     public static void Leave()
     {
+        IsPaused = false;
+        Time.timeScale = 1;
+        if(Instance)
+            Instance.GetComponent<Canvas>().enabled = false;
         foreach (var player in PlayerManager.players)
         {
             Destroy(player?.gameObject);
