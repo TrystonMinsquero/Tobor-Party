@@ -3,7 +3,12 @@ guid: 1998475035b36154caff8ecece92a191
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ChanceCube2.001
+    second: {fileID: 2100000, guid: 0a1964c28e42c904da667408dab6ce4d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
