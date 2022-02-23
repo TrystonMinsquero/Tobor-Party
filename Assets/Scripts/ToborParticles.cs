@@ -42,6 +42,12 @@ public class ToborParticles : MonoBehaviour
             speedLines.Play();
     }
 
+    public void StopSpeedLines()
+    {
+        foreach (var speedLines in speedLineParticles)
+            speedLines.Stop();
+    }
+
     public void StartDrift()
     {
         foreach (var tireSmoke in tireSmokes)
