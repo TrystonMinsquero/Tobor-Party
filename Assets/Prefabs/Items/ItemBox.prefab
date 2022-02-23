@@ -44,7 +44,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7730383196070854771
 MonoBehaviour:
@@ -69,6 +69,10 @@ MonoBehaviour:
   isEnabled: 1
   delayTime: 5
   visual: {fileID: 7965613310697241981}
+  verticalWavesPerSecond: 0.4
+  floatDistance: 0.35
+  rotationsPerSecond: 0.4
+  verticalOffset: 0.45
 --- !u!1001 &7082722729227862060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -82,15 +86,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1998475035b36154caff8ecece92a191, type: 3}
       propertyPath: m_LocalScale.x
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1998475035b36154caff8ecece92a191, type: 3}
       propertyPath: m_LocalScale.y
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1998475035b36154caff8ecece92a191, type: 3}
       propertyPath: m_LocalScale.z
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1998475035b36154caff8ecece92a191, type: 3}
       propertyPath: m_LocalPosition.x
@@ -98,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1998475035b36154caff8ecece92a191, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1998475035b36154caff8ecece92a191, type: 3}
       propertyPath: m_LocalPosition.z

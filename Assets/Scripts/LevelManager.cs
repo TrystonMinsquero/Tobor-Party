@@ -26,9 +26,10 @@ public class LevelManager : MonoBehaviour
         if (PlayerManager.instance)
         {
             // give all players a player object
-            foreach (var playerController in PlayerManager.players)
+            foreach (var player in PlayerManager.players)
             {
-                bool destroyed = spawnerStack.Peek().TryToSpawnWith(playerController?.GetComponent<PlayerController>());
+                player?.SetUp(spawnerStack.Peek().GetComponent<PlayerObject>());
+                bool destroyed = spawnerStack.Peek().TryToSpawnWith(player?.GetComponent<PlayerController>());
                 // Remove from list if it destroyed itself (successfully spawned)
                 if (destroyed)
                     spawnerStack.Pop();

@@ -1,17 +1,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RaceManager : MonoBehaviour
 {
     public static RaceManager instance;
     
     public static bool Started { get; private set; }
+    public static bool Finished { get; private set; }
     public static float StartTime { get; private set; }
     public static string StartState { get; private set; } = "";
 
-    public uint numLaps = 2; 
+    public static uint numLaps = 1; 
     public List<CheckpointUser> cars = new List<CheckpointUser>();
 
     private void Awake()
@@ -28,8 +31,11 @@ public class RaceManager : MonoBehaviour
             return;
         }
 
+        // Removes cars that are disable
         cars.RemoveAll((a) => a.gameObject.activeSelf == false);
+
         Started = false;
+        Finished = false;
         StartState = "3";
         StartTime = 0;
         StartCoroutine(StartGame());
@@ -51,8 +57,35 @@ public class RaceManager : MonoBehaviour
         StartTime = Time.time;
     }
 
+    IEnumerator EndGame()
+    {
+        foreach (var player in PlayerManager.players)
+            if (player != null && player.playerObject != null)
+            {
+                var cpUser = player.playerObject.GetComponent<CheckpointUser>();
+                player.AddRaceData(cpUser.GetRaceData());
+            }
+                
+        
+        yield return new WaitForSeconds(2);
+        
+        SceneManager.LoadScene("Winning Scene");
+    }
+
     void Update()
     {
         cars.Sort((b,a) => a.Progress.CompareTo(b.Progress));
+
+        bool allFinished = true;
+        foreach (CheckpointUser cpUser in cars)
+            if (cpUser.Laps < numLaps)
+                allFinished = false;
+
+        if (allFinished && !Finished)
+        {
+            Finished = true;
+            StartCoroutine(EndGame());
+        }
+
     }
 }

@@ -11,7 +11,7 @@ public class PlayerManager : MonoBehaviour
 
     public uint maxPlayers;
 
-    //used to view players in the editor
+    // used to view players in the editor
     public Player[] playersDisplay;
 
     private void Awake()
@@ -30,7 +30,7 @@ public class PlayerManager : MonoBehaviour
         playersDisplay = players;
     }
 
-    //Event that gets called when new input is detected
+    // Event that gets called when new input is detected
     public void OnPlayerJoined(PlayerInput playerInput)
     {
         JoinPlayer(playerInput.GetComponent<Player>());

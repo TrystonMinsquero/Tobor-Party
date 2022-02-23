@@ -120,6 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832d2fb8e37e88148aebb3af91700014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBot: 0
+  deleteCamera: 0
   rb: {fileID: 14438645323195887}
   cam: {fileID: 5266066330313113719}
   tobor: {fileID: 14438645271540907}
@@ -385,16 +387,17 @@ MonoBehaviour:
   airTurnMultiplier: 0.33
   isGrounded: 0
   isDrifting: 0
+  isDeactivated: 0
   maxMiniGasSpeed: 22.5
-  boostMaxSpeed: 32
+  boostMaxSpeed: 35
   boostAcceleration: 450
   wipeoutRotateSpeed: 720
   wipeoutDampTime: 0.1
   wipeoutFriction: 3
   wipeoutRecoverSpeed: 120
   defaultWipeoutTime: 1.2
-  cometSpeed: 20
-  cometAccelerationMultiplier: 5
+  cometSpeed: 28
+  cometAccelerationMultiplier: 8
   cometTurnSpeedMultiplier: 1.2
   cometEnabled: 0
   bumpForce: 3
@@ -859,6 +862,8 @@ MonoBehaviour:
   - {fileID: 28884984802347225}
   - {fileID: 1321296999303131050}
   - {fileID: 664813708411158526}
+  bodyMaterialRenderer: {fileID: 2618469755889362662}
+  starMaterial: {fileID: 2100000, guid: b5d4b8017ebb3764689a3a44826d2d83, type: 2}
 --- !u!1 &6456486523268568138
 GameObject:
   m_ObjectHideFlags: 0

@@ -52,6 +52,8 @@ public class CheckpointUser : MonoBehaviour
             LastCheckpointStartTime = Time.time;
             Debug.Log($"Checkpoint reached: {checkpoint.index}");
 
+            
+            // On a lap completion
             if (checkpoint.index == 0)
             {
                 float newTime = Time.time - LastLapStartTime;
@@ -66,6 +68,13 @@ public class CheckpointUser : MonoBehaviour
                 
                 lapTimes.Add(newTime);
                 Laps++;
+
+                if (Laps >= RaceManager.numLaps)
+                {
+                    car.Deactivate();
+                    
+                }
+
                 Debug.Log($"Finished lap in {Time.time - LastLapStartTime}");
             }
         }
@@ -105,6 +114,11 @@ public class CheckpointUser : MonoBehaviour
         ReachedCheckpoint?.Invoke(checkPointTimes[cp], newTime);
         checkPointTimes[cp] = checkPointTimes[cp] < 0 ? newTime : Mathf.Max(newTime, checkPointTimes[cp]);
         LastCheckpointStartTime = Time.time;
+    }
+
+    public RaceData GetRaceData()
+    {
+        return new RaceData(RaceManager.instance.cars.IndexOf(this), lapTimes, checkPointTimes);
     }
 
 

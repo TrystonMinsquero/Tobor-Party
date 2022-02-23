@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
+    public Transform leftGoal;
+    public Transform rightGoal;
     public int index;
     public int nameIndex;
 
