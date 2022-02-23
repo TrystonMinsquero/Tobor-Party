@@ -10,6 +10,7 @@ public class RaceManager : MonoBehaviour
     public static RaceManager instance;
     
     public static bool Started { get; private set; }
+    public static bool Finished { get; private set; }
     public static float StartTime { get; private set; }
     public static string StartState { get; private set; } = "";
 
@@ -34,6 +35,7 @@ public class RaceManager : MonoBehaviour
         cars.RemoveAll((a) => a.gameObject.activeSelf == false);
 
         Started = false;
+        Finished = false;
         StartState = "3";
         StartTime = 0;
         StartCoroutine(StartGame());
@@ -79,7 +81,11 @@ public class RaceManager : MonoBehaviour
             if (cpUser.Laps < numLaps)
                 allFinished = false;
 
-        if (allFinished)
+        if (allFinished && !Finished)
+        {
+            Finished = true;
             StartCoroutine(EndGame());
+        }
+
     }
 }
