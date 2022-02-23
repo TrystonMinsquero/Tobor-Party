@@ -252,7 +252,7 @@ public class Car : PlayerObject
         // Todo: check if player can be wiped out
         if (wipeoutTime < 0)
             wipeoutTime = 0;
-        wipeoutTime += amount;
+        wipeoutTime = Mathf.Max(amount, wipeoutTime);
     }
 
     public void Deactivate()

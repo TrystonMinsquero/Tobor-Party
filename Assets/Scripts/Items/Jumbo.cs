@@ -20,22 +20,22 @@ public class Jumbo : Item
         float t = 0;
         while (t < scaleLerpTime)
         {
-            car.transform.localScale = Vector3.one * Mathf.Lerp(1, scaleFactor, t / scaleLerpTime);
+            car.Scale = Mathf.Lerp(1, scaleFactor, t / scaleLerpTime);
             t += Time.deltaTime;
             yield return null;
         }
-        car.transform.localScale = Vector3.one * scaleFactor;
+        car.Scale = scaleFactor;
 
         car.UsingItem = true;
         yield return new WaitForSeconds(scaleTime);
         t = 0;
         while (t < scaleLerpTime)
         {
-            car.transform.localScale = Vector3.one * Mathf.Lerp(scaleFactor, 1, t / scaleLerpTime);
+            car.Scale = Mathf.Lerp(scaleFactor, 1, t / scaleLerpTime);
             t += Time.deltaTime;
             yield return null;
         }
-        car.transform.localScale = Vector3.one;
+        car.Scale = 1;
 
         car.UsingItem = false;
         car.DiscardItem();
