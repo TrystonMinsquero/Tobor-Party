@@ -50,7 +50,7 @@ public class CarUI : MonoBehaviour
         placeSuffixText.text = GetPlaceSuffix(place);
 
         startText.text = RaceManager.StartState;
-        lapText.text = (cpUser.Laps + 1) + "/" + RaceManager.instance.numLaps;
+        lapText.text = (cpUser.Laps + 1) + "/" + RaceManager.numLaps;
         speedText.text = $"{rb.velocity.magnitude:0}";
 
         if (!cpUser.RightDirection)
@@ -145,5 +145,10 @@ public class CarUI : MonoBehaviour
         checkpointTimeText.text = prefix == '-' ? $"{time:0.00}s" : "" + prefix + $"{time:0.00}s";
         yield return new WaitForSeconds(1.5f);
         checkpointTimeText.text = "";
+    }
+
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
     }
 }
