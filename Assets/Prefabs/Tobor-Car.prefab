@@ -251,7 +251,7 @@ MonoBehaviour:
   driftTiltMultiplier: 0.88
   driftJumpRecoverTime: 0.14
   driftJumpSpeed: 4
-  lookAroundSpeed: 10
+  lookAroundSpeed: 6
   camSpeedMoveBack: 0.2
   camSpeed: 9
   camPosSpeed: 25
@@ -389,6 +389,7 @@ MonoBehaviour:
   isDrifting: 0
   isDeactivated: 0
   maxMiniGasSpeed: 22.5
+  minYPosition: -15
   boostMaxSpeed: 35
   boostAcceleration: 450
   wipeoutRotateSpeed: 720

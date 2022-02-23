@@ -12,7 +12,7 @@ public class CameraObject : MonoBehaviour
 
     public Car car;
 
-    public Camera camera;
+    public new Camera camera;
 
     void Update()
     {

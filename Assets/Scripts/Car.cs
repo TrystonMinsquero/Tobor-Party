@@ -42,6 +42,8 @@ public class Car : PlayerObject
         }
     }
 
+    public float Scale = 1;
+
     [Header("Bot")]
     public bool isBot = false;
     public bool deleteCamera = false;
@@ -59,6 +61,7 @@ public class Car : PlayerObject
     public float toborRotSpeed = 5;
     public Vector3 groundNormal = Vector3.up;
     public Vector3[] latestNormal = new Vector3[5];
+    public float minScale = 0.5f;
 
     [Header("FOV")]
     public AnimationCurve fovCurve;
@@ -161,6 +164,8 @@ public class Car : PlayerObject
 
     void Start()
     {
+        Scale = transform.localScale.x;
+
         if (isBot)
         {
             botInputs = GetComponent<BotInput>();
@@ -203,26 +208,26 @@ public class Car : PlayerObject
 
     public void AddItem(Item item)
     {
-        if (holder.Item == null)
-        {
-            UsingItem = false;
-            holder.Equip(item);
-        }
+        holder.AddItem(item);
     }
 
     public void ActivateItem()
     {
         if (!UsingItem)
         {
-            holder.Item.Activate(this);
+            var item = holder.Items[0];
+            item.Activate(this);
         }
     }
 
     public void DiscardItem()
     {
-        if (holder.Item != null)
+        if (holder.Items.Count > 0)
         {
-            Destroy(holder.Item.gameObject);
+            var item = holder.Items[0];
+            Destroy(item.gameObject);
+
+            holder.Items.RemoveAt(0);
             UsingItem = false;
         }
     } 
@@ -259,6 +264,8 @@ public class Car : PlayerObject
     private float turnVelocity = 0;
     void FixedUpdate()
     {
+        FixScalingCollider();
+
         if (rb.position.y < minYPosition)
         {
             WipeOut(1f);
@@ -466,7 +473,7 @@ public class Car : PlayerObject
             botInputs.UpdateInput(ref inputs, checkpoints);
         }
 
-        if (holder.Item != null && inputs.useItem && !lastUseItemInput)
+        if (holder.Items.Count > 0 && inputs.useItem && !lastUseItemInput)
         {
             lastUseItemInput = true;
             ActivateItem();
@@ -544,6 +551,9 @@ public class Car : PlayerObject
     private Quaternion toborRotation;
     void LateUpdate()
     {
+        FixScalingCollider();
+        FixScalingRenderer();
+
         // SmoothDamp for no jaggedness
         dampedToborDirection = Vector3.SmoothDamp(dampedToborDirection, currentInputDirection, ref toborVel, 1 / toborRotSpeed);
         dampedSpeed = Mathf.SmoothDamp(dampedSpeed, rb.velocity.magnitude, ref speedVel, 1 / fovSpeed);
@@ -559,6 +569,13 @@ public class Car : PlayerObject
         var camVelocityRotation = Quaternion.LookRotation(dampedCameraInputDirection, Vector3.up);
         camRotation = Quaternion.Slerp(camRotation, camVelocityRotation * Quaternion.Euler(xRotation, 0, 0), 1 - Mathf.Exp(Time.deltaTime * -camSpeed));
 
+        var carPos = dampedCarPosition;
+
+        if (Scale < minScale)
+        {
+            carPos += Vector3.down * (minScale - Scale) / 2;
+        }
+
         if (cam != null)
         {
             var speedPercent = dampedSpeed / maxGasSpeed;
@@ -572,14 +589,15 @@ public class Car : PlayerObject
             var camRotForward =
                 Quaternion.LookRotation(Vector3.Scale(finalCamRot * Vector3.forward, new Vector3(1, 0, 1)).normalized,
                     Vector3.up);
-            cam.transform.position = dampedCarPosition +
+            cam.transform.position = carPos +
                                      (finalCamRot * Vector3.back * (camOffset.x + speedPercent * camSpeedMoveBack) +
                                       camRotForward * Quaternion.Euler(look.x, 0, 0) * Vector3.up * camOffset.y) *
                                      scaleDistanceMultiplierCurve.Evaluate(transform.localScale.x);
         }
 
         // Tobor Transform
-        tobor.position = dampedCarPosition + Vector3.up * (dampedJumpPos);
+        
+        tobor.position = carPos + Vector3.up * (dampedJumpPos);
         toborRotation = Quaternion.Slerp(toborRotation, targetRotation, Time.deltaTime * toborRotSpeed);
 
         // Wipeouts!
@@ -613,6 +631,31 @@ public class Car : PlayerObject
         if (isDrifting && isGrounded) particles.StartDrift();
         else particles.StopDrift();
     }
+
+    private void FixScalingRenderer()
+    {
+        if (Scale < minScale)
+        {
+            tobor.localScale = Vector3.one * (Scale / minScale);
+        }
+        else
+        {
+            tobor.localScale = Vector3.one;
+        }
+    }
+
+    private void FixScalingCollider()
+    {
+        if (Scale < minScale)
+        {
+            transform.localScale = Vector3.one * minScale;
+        }
+        else
+        {
+            transform.localScale = Vector3.one * Scale;
+        }
+    }
+
     #endregion
 
     // returns true if was assigned, false otherwise

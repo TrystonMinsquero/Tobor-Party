@@ -14,7 +14,7 @@ public class CarUI : MonoBehaviour
     public TMP_Text speedText;
     public TMP_Text checkpointTimeText;
     public TMP_Text lapTimerText;
-    public Image itemBox;
+    public Image[] itemBoxes;
 
     private ItemHolder holder;
     private CheckpointUser cpUser;
@@ -63,7 +63,21 @@ public class CarUI : MonoBehaviour
         else
             lapTimerText.text = time.TotalSeconds > 60 ? time.ToString("mm':'ss") : GetMillisecondTime(time);
 
-        if (holder.Item == null)
+        for (int i = 0; i < itemBoxes.Length; i++)
+        {
+            if (i < holder.Items.Count)
+            {
+                itemBoxes[i].gameObject.SetActive(true);
+                itemBoxes[i].sprite = holder.Items[i].itemImage;
+            }
+            else
+            {
+                itemBoxes[i].gameObject.SetActive(false);
+                itemBoxes[i].sprite = null;
+            }
+        }
+        /*
+        if (holder.Items.Count > 0)
         {
             itemBox.gameObject.SetActive(false);
             itemBox.sprite = null;
@@ -73,7 +87,8 @@ public class CarUI : MonoBehaviour
             itemBox.gameObject.SetActive(true);
             itemBox.sprite = holder.Item.itemImage;
         }
-        
+        */
+         
         // update speedometer
         RotateSpeedometer();
     }

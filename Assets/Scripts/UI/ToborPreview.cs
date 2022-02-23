@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ToborPreview : MonoBehaviour
 {
     public LayerMask layer;
-    public ToborRenderer renderer;
+    public new ToborRenderer renderer;
     public RawImage outputImage;
 
     // Start is called before the first frame update

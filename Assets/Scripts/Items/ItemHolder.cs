@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class ItemHolder : MonoBehaviour
 {
-    public Item Item { get; private set; }
+    private const int MaxItems = 2;
+    public List<Item> Items { get; private set; } = new List<Item>(2);
 
-    public void Equip(Item item)
+    public void AddItem(Item item)
     {
-        Item = item;
+        if (Items.Count >= MaxItems)
+            return;
+
+        Items.Add(item);
     }
 }

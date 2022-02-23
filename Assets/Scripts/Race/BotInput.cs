@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BotInput : MonoBehaviour
 {
+    public bool attackPlayer = false;
+
     private float checkpointPositionLerp = 0;
 
     void Start()
@@ -16,15 +18,22 @@ public class BotInput : MonoBehaviour
         var car = cpUser.car;
         var rb = car.rb;
         var checkpoint = cpUser.nextCheckpoint;
-        var targetPos = Vector3.Lerp(checkpoint.leftGoal.position, checkpoint.rightGoal.position, checkpointPositionLerp);
+        var targetPos = Vector3.Lerp(checkpoint.leftGoal.position, checkpoint.rightGoal.position,
+            checkpointPositionLerp);
+        if (!attackPlayer)
+        {
+            var targetDir = targetPos - rb.position;
+            var rbDir = car.currentInputDirection;
+            rbDir.y = 0;
 
-        var targetDir = targetPos - rb.position;
-        var rbDir = car.currentInputDirection;
-        rbDir.y = 0;
+            var angle = Vector3.SignedAngle(rbDir, targetDir, Vector3.up);
 
-        var angle = Vector3.SignedAngle(rbDir, targetDir, Vector3.up);
+            inputs.gasInput = 1;
+            inputs.steerInput = angle < 0 ? -1 : 1;
+        }
+        else
+        {
 
-        inputs.gasInput = 1;
-        inputs.steerInput = angle < 0 ? -1 : 1;
+        }
     }
 }

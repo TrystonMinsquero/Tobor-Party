@@ -8,7 +8,7 @@ public class ToborRenderer : MonoBehaviour
     public bool Enabled => tobor.gameObject.activeSelf;
 
     public Transform tobor;
-    public Camera camera;
+    public new Camera camera;
     public int width = 256;
     public int height = 256;
 
