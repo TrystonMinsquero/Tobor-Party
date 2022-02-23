@@ -42,7 +42,9 @@ public class Car : PlayerObject
         }
     }
 
+    [Header("Bot")]
     public bool isBot = false;
+    public bool deleteCamera = false;
     private BotInput botInputs;
 
     [Header("Objects")]
@@ -116,6 +118,8 @@ public class Car : PlayerObject
 
     public float maxMiniGasSpeed = 20f;
 
+    public float minYPosition = -15f;
+
     [Header("Boost")] 
     public float boostMaxSpeed = 30;
     public float boostAcceleration = 90;
@@ -158,7 +162,14 @@ public class Car : PlayerObject
     void Start()
     {
         if (isBot)
+        {
             botInputs = GetComponent<BotInput>();
+            if (deleteCamera)
+            {
+                Destroy(cam.gameObject);
+                cam = null;
+            }
+        }
 
         particles = GetComponentInChildren<ToborParticles>();
         rb = GetComponent<Rigidbody>();
@@ -173,14 +184,18 @@ public class Car : PlayerObject
 
         checkpoints = GetComponent<CheckpointUser>();
 
-        cam.transform.parent = null;
-        cam.transform.localScale = Vector3.one;
-        cam.car = this;
+        if (cam != null)
+        {
+            cam.transform.parent = null;
+            cam.transform.localScale = Vector3.one;
+            cam.car = this;
+        }
     }
 
     void OnEnable()
     {
-        cam.gameObject.SetActive(true);
+        if (cam != null)
+            cam.gameObject.SetActive(true);
     }
 
     #region Items: UsingItem, AddItem(), ActivateItem(), DiscardItem()
@@ -244,6 +259,14 @@ public class Car : PlayerObject
     private float turnVelocity = 0;
     void FixedUpdate()
     {
+        if (rb.position.y < minYPosition)
+        {
+            WipeOut(1f);
+            var p = (checkpoints.currentCheckpoint.leftGoal.position + checkpoints.currentCheckpoint.rightGoal.position) / 2f;
+            rb.position = p + Vector3.up * 4;
+            rb.velocity = Vector3.zero;
+        }
+
         if (isGrounded)
             groundNormal = latestNormal[4];
 
@@ -536,16 +559,24 @@ public class Car : PlayerObject
         var camVelocityRotation = Quaternion.LookRotation(dampedCameraInputDirection, Vector3.up);
         camRotation = Quaternion.Slerp(camRotation, camVelocityRotation * Quaternion.Euler(xRotation, 0, 0), 1 - Mathf.Exp(Time.deltaTime * -camSpeed));
 
-        var speedPercent = dampedSpeed / maxGasSpeed;
-        currentFOV = Mathf.Lerp(currentFOV, fovCurve.Evaluate(speedPercent),
-            1 - Mathf.Exp(Time.deltaTime * -fovSpeed));
-        cam.fieldOfView = currentFOV;
+        if (cam != null)
+        {
+            var speedPercent = dampedSpeed / maxGasSpeed;
+            currentFOV = Mathf.Lerp(currentFOV, fovCurve.Evaluate(speedPercent),
+                1 - Mathf.Exp(Time.deltaTime * -fovSpeed));
+            cam.fieldOfView = currentFOV;
 
-        var look = Vector3.Scale(new Vector3(-dampedLookInput.y, dampedLookInput.x), new Vector3(30, 120));
-        var finalCamRot = Quaternion.Euler(0, look.y, 0) * camRotation * Quaternion.Euler(look.x, 0, 0);
-        cam.transform.rotation = finalCamRot;
-        var camRotForward = Quaternion.LookRotation(Vector3.Scale(finalCamRot * Vector3.forward, new Vector3(1, 0, 1)).normalized, Vector3.up);
-        cam.transform.position = dampedCarPosition + (finalCamRot * Vector3.back * (camOffset.x + speedPercent * camSpeedMoveBack) + camRotForward * Quaternion.Euler(look.x, 0, 0) * Vector3.up * camOffset.y) * scaleDistanceMultiplierCurve.Evaluate(transform.localScale.x);
+            var look = Vector3.Scale(new Vector3(-dampedLookInput.y, dampedLookInput.x), new Vector3(30, 120));
+            var finalCamRot = Quaternion.Euler(0, look.y, 0) * camRotation * Quaternion.Euler(look.x, 0, 0);
+            cam.transform.rotation = finalCamRot;
+            var camRotForward =
+                Quaternion.LookRotation(Vector3.Scale(finalCamRot * Vector3.forward, new Vector3(1, 0, 1)).normalized,
+                    Vector3.up);
+            cam.transform.position = dampedCarPosition +
+                                     (finalCamRot * Vector3.back * (camOffset.x + speedPercent * camSpeedMoveBack) +
+                                      camRotForward * Quaternion.Euler(look.x, 0, 0) * Vector3.up * camOffset.y) *
+                                     scaleDistanceMultiplierCurve.Evaluate(transform.localScale.x);
+        }
 
         // Tobor Transform
         tobor.position = dampedCarPosition + Vector3.up * (dampedJumpPos);
@@ -558,8 +589,19 @@ public class Car : PlayerObject
         }
         else
         {
-            wipeoutAngle %= 360;
-            wipeoutAngle = Mathf.MoveTowardsAngle(wipeoutAngle, 0, wipeoutRecoverSpeed);
+            if (wipeoutAngle > 0)
+            {
+                wipeoutAngle %= 360;
+                wipeoutAngle -= 360;
+            }
+
+            if (wipeoutPos > 360)
+            {
+                wipeoutPos %= 360;
+                wipeoutPos -= 360;
+            }
+
+            wipeoutAngle = Mathf.MoveTowards(wipeoutAngle, 0, wipeoutRecoverSpeed);
         }
         wipeoutPos = Mathf.SmoothDamp(wipeoutPos, wipeoutAngle, ref wipeoutVel, wipeoutDampTime);
 

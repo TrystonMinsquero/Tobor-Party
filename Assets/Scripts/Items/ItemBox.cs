@@ -9,6 +9,11 @@ public class ItemBox : MonoBehaviour
     public float delayTime = 5f;
     public GameObject visual;
 
+    public float verticalWavesPerSecond = 5;
+    public float floatDistance = 0.4f;
+    public float rotationsPerSecond = 10;
+    public float verticalOffset = 0.2f;
+
     Item GetItem(float position)
     {
         float totalWeight = 0;
@@ -28,6 +33,12 @@ public class ItemBox : MonoBehaviour
             r -= weight;
         }
         return null;
+    }
+
+    void Update()
+    {
+        visual.transform.localPosition = Vector3.up * (verticalOffset + floatDistance * Mathf.Sin(2 * Mathf.PI * Time.time * verticalWavesPerSecond));
+        visual.transform.localRotation = Quaternion.Euler(0, (Time.time * 360 * rotationsPerSecond) % 360, 0);
     }
 
     void OnTriggerEnter(Collider collider)

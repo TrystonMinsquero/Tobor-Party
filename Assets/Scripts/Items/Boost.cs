@@ -9,6 +9,8 @@ public class Boost : Item
     public float boostTime = 0.5f;
     public float itemCooldown = 0.8f;
 
+    public Sprite[] useSprites;
+
     private Car car;
 
     // Boost temporarily
@@ -29,5 +31,7 @@ public class Boost : Item
         uses--;
         if (uses <= 0)
             car.DiscardItem();
+        else
+            this.itemImage = useSprites[uses - 1];
     }
 }

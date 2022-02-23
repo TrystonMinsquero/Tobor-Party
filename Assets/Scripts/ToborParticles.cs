@@ -8,10 +8,25 @@ public class ToborParticles : MonoBehaviour
     public TrailRenderer[] carTrails;
     public AnimationCurve trailLengthCurve;
     public ParticleSystem[] empParticles;
+    public MeshRenderer bodyMaterialRenderer;
+    public Material starMaterial;
+    private Material defaultMaterial;
+
 
     public void Start()
     {
+        defaultMaterial = bodyMaterialRenderer.sharedMaterials[0];
         StopDrift();
+    }
+
+    public void ResetTexture()
+    {
+        bodyMaterialRenderer.sharedMaterials[0] = defaultMaterial;
+    }
+
+    public void StarTexture()
+    {
+        bodyMaterialRenderer.sharedMaterials[0] = starMaterial;
     }
 
     public void PlayEMP()
