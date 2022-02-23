@@ -688,17 +688,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6118856790944379080}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5526486746144399095}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 7.2}
-  m_SizeDelta: {x: 387.88, y: 165.08002}
+  m_AnchoredPosition: {x: 344.7, y: 111.5}
+  m_SizeDelta: {x: 75.1855, y: 19.506}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8778581780376043078
 CanvasRenderer:
@@ -728,12 +728,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '+1234
-
-'
+  m_text: +12.42
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9c4d37a9e31f6bc4196975eb4c9c683d, type: 2}
-  m_sharedMaterial: {fileID: -4511502071344307021, guid: 9c4d37a9e31f6bc4196975eb4c9c683d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4bec014828aed404aa4942699e2843d7, type: 2}
+  m_sharedMaterial: {fileID: -2807265492551013330, guid: 4bec014828aed404aa4942699e2843d7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -757,15 +755,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -773,7 +771,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -793,7 +791,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 106.74993, y: 68.416985, z: 105.37937, w: 44.49744}
+  m_margin: {x: 0, y: -1.1243172, z: -0.3354263, w: -7.2064896}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -832,8 +830,8 @@ RectTransform:
   m_Children:
   - {fileID: 1213466703448570671}
   - {fileID: 2092707371508655953}
-  - {fileID: 8885502457645208376}
   - {fileID: 7335769409755724137}
+  - {fileID: 8885502457645208376}
   - {fileID: 9161838253890345639}
   - {fileID: 7490000356031743962}
   - {fileID: 1829489752165219015}
@@ -925,7 +923,9 @@ MonoBehaviour:
   speedText: {fileID: 7125706272387074189}
   checkpointTimeText: {fileID: 1900947884334509347}
   lapTimerText: {fileID: 2229891537582883887}
-  itemBox: {fileID: 753048186855224327}
+  itemBoxes:
+  - {fileID: 753048186855224327}
+  - {fileID: 5453659437990540617}
   speedometerNeedle: {fileID: 6454192185484610598}
 --- !u!1 &6616578178031136874
 GameObject:
@@ -961,8 +961,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000030517578, y: 0.000022888184}
-  m_SizeDelta: {x: 60, y: 60}
+  m_AnchoredPosition: {x: -37.5, y: -31.2}
+  m_SizeDelta: {x: 59, y: 59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1746275234346779039
 CanvasRenderer:
@@ -1333,7 +1333,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &9161838253890345639
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1351,7 +1351,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -338, y: -115}
+  m_AnchoredPosition: {x: -308, y: -99.7}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &569954616678154251
@@ -1732,7 +1732,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5526486746144399095}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
