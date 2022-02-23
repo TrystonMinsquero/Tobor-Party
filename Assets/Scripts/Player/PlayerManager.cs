@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour
     public static Player[] players;
     public static int playerCount;
 
-    public uint maxPlayers;
+    public uint maxPlayers = 4;
 
     // used to view players in the editor
     public Player[] playersDisplay;
@@ -17,12 +17,16 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         if (instance != null)
-            Destroy(this.gameObject);
+        {
+            DestroyImmediate(this.gameObject);
+            
+        }
         else
+        {
             instance = this;
-
-        players = new Player[maxPlayers];
-        DontDestroyOnLoad(this);
+            players = new Player[maxPlayers];
+            DontDestroyOnLoad(this);
+        }
     }
 
     private void Update()
@@ -40,7 +44,8 @@ public class PlayerManager : MonoBehaviour
     //Event that gets called when player leaves
     public void OnPlayerLeft(PlayerInput playerInput)
     {
-        RemovePlayer(playerInput.GetComponent<Player>());
+        if (playerInput.enabled)
+            RemovePlayer(playerInput.GetComponent<Player>());
         //ScoreKeeper.UpdateScores();
     }
 
@@ -135,11 +140,19 @@ public class PlayerManager : MonoBehaviour
                 Destroy(player.gameObject);
                 playerCount--;
             }
+            else
+                Debug.LogWarning("Player does not exist");
         }
     }
 
     private void OnDestroy()
     {
-        instance = null;
+        if (instance == this)
+        {
+            instance = null;
+            playerCount = 0;
+            for(int i = 0; i < players.Length; i++)
+                players[i] = null;
+        }
     }
 }

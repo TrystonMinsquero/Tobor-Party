@@ -12,7 +12,6 @@ public class PlayerSpawner : MonoBehaviour
         if (!playerObject.AssignController(player))
             return false;
         
-        //player.transform.parent = playerObject.transform;
         Destroy(this);
         return true;
     }

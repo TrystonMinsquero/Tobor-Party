@@ -12,8 +12,8 @@ public class CheckpointUser : MonoBehaviour
     public float LastLapStartTime { get; private set; } = 0;
     public float LastCheckpointStartTime { get; private set; } = 0;
 
-    private Dictionary<Checkpoint, float> checkPointTimes;
-    private List<float> lapTimes;
+    private Dictionary<Checkpoint, float> bestCheckpointTimes;
+    private List<float> bestLapTimes;
 
     // <old time, new time>
     public event Action<float, float> ReachedCheckpoint = delegate(float f, float f1) {  };
@@ -28,11 +28,17 @@ public class CheckpointUser : MonoBehaviour
     {
         currentCheckpoint = Checkpoints.Instance.checkpoints[0];
         nextCheckpoint = Checkpoints.Instance.checkpoints[1];
-        lapTimes = new List<float>();
+        
+        // if lap times not populated from previous run
+        bestLapTimes = new List<float>();
 
-        checkPointTimes = new Dictionary<Checkpoint, float>();
-        foreach (Checkpoint cp in Checkpoints.Instance.checkpoints)
-            checkPointTimes[cp] = -1;
+        // if checkpoint Times not populated from previous run
+        if (bestCheckpointTimes == null)
+        {
+            bestCheckpointTimes = new Dictionary<Checkpoint, float>();
+            foreach (Checkpoint cp in Checkpoints.Instance.checkpoints)
+                bestCheckpointTimes[cp] = -1;
+        }
 
         car = GetComponent<Car>();
 
@@ -58,18 +64,18 @@ public class CheckpointUser : MonoBehaviour
             {
                 float newTime = Time.time - LastLapStartTime;
 
-                if(lapTimes.Count == 0)
+                if(bestLapTimes.Count == 0)
                     CompletedLap.Invoke(-1, newTime);
                 else
                 {
-                    float bestTime = lapTimes.Min((f => f));
+                    float bestTime = bestLapTimes.Min((f => f));
                     CompletedLap.Invoke(bestTime, newTime);
                 }
                 
-                lapTimes.Add(newTime);
+                bestLapTimes.Add(newTime);
                 Laps++;
 
-                if (Laps >= RaceManager.numLaps)
+                if (Laps >= RaceManager.instance.numLaps)
                 {
                     car.Deactivate();
                     
@@ -111,14 +117,14 @@ public class CheckpointUser : MonoBehaviour
 
     public void UpdateCheckpoint(Checkpoint cp, float newTime)
     {
-        ReachedCheckpoint?.Invoke(checkPointTimes[cp], newTime);
-        checkPointTimes[cp] = checkPointTimes[cp] < 0 ? newTime : Mathf.Max(newTime, checkPointTimes[cp]);
+        ReachedCheckpoint?.Invoke(bestCheckpointTimes[cp], newTime);
+        bestCheckpointTimes[cp] = bestCheckpointTimes[cp] < 0 ? newTime : Mathf.Max(newTime, bestCheckpointTimes[cp]);
         LastCheckpointStartTime = Time.time;
     }
 
     public RaceData GetRaceData()
     {
-        return new RaceData(RaceManager.instance.cars.IndexOf(this), lapTimes, checkPointTimes);
+        return new RaceData(RaceManager.instance.cars.IndexOf(this)+1, Time.time - RaceManager.StartTime, bestLapTimes, bestCheckpointTimes);
     }
 
 

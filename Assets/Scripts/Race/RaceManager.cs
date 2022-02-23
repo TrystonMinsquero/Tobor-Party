@@ -14,7 +14,7 @@ public class RaceManager : MonoBehaviour
     public static float StartTime { get; private set; }
     public static string StartState { get; private set; } = "";
 
-    public static uint numLaps = 1; 
+    public uint numLaps = 1; 
     public List<CheckpointUser> cars = new List<CheckpointUser>();
 
     private void Awake()
@@ -37,7 +37,7 @@ public class RaceManager : MonoBehaviour
         Started = false;
         Finished = false;
         StartState = "3";
-        StartTime = 0;
+        StartTime = Time.time;
         StartCoroutine(StartGame());
     }
 

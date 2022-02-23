@@ -60,12 +60,12 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         if(Instance)
             Instance.GetComponent<Canvas>().enabled = false;
+        
         foreach (var player in PlayerManager.players)
         {
-            Destroy(player?.gameObject);
+            player?.GetComponent<PlayerController>().SwitchActionMap("UI");
         }
-        Destroy(PlayerManager.instance.gameObject);
-        
+         
         SceneManager.LoadScene("Lobby");
     }
 }

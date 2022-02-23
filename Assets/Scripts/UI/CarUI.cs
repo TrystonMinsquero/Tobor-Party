@@ -50,7 +50,7 @@ public class CarUI : MonoBehaviour
         placeSuffixText.text = GetPlaceSuffix(place);
 
         startText.text = RaceManager.StartState;
-        lapText.text = (cpUser.Laps + 1) + "/" + RaceManager.numLaps;
+        lapText.text = (cpUser.Laps + 1) + "/" + RaceManager.instance.numLaps;
         speedText.text = $"{rb.velocity.magnitude:0}";
 
         if (!cpUser.RightDirection)

@@ -15,21 +15,26 @@ public class JoinBox : MonoBehaviour
     public Canvas joined;
     public Canvas empty;
     public TMP_Text readyUpText;
-
     public ToborPreview preview;
+
     private UIController _controller;
-    private Player player;
+    private Player _player;
 
     public void AddPlayer(Player player)
     {
         empty.enabled = false;
         joined.enabled = true;
         hasPlayer = true;
-        this.player = player;
+        _player = player;
         UnReady();
 
         preview.Enable();
         _controller = player.GetComponent<UIController>();
+        if (_controller)
+        {
+            _controller.Ready += ReadyUp;
+            _controller.Leave += BackOut;
+        }
     }
 
     private void Update()
@@ -40,31 +45,45 @@ public class JoinBox : MonoBehaviour
 
            if(_controller.ChangeSkin != 0) 
                preview.renderer.ChangeSkin(_controller.ChangeSkin > 0);
-           
-           if(_controller.Ready) 
-               ReadyUp();
-           if (_controller.Leave)
-           {
-               if (isReady)
-               {
-                   UnReady();
-               }
-               else
-               {
-                   PlayerManager.RemovePlayer(player);
-               }
-           }
-            
+           //
+           // if(_controller.Ready) 
+           //     ReadyUp();
+           // if (_controller.Leave)
+           // {
+           //     if (isReady)
+           //     {
+           //         UnReady();
+           //     }
+           //     else
+           //     {
+           //         PlayerManager.RemovePlayer(player);
+           //     }
+           // }
+           //  
 
         }
     }
 
+    public void BackOut()
+    {
+        if(isReady)
+            UnReady();
+        else
+            RemovePlayer(_player);
+    }
+
     public void RemovePlayer(Player player)
     {
+        if (_controller)
+        {
+            _controller.Ready -= ReadyUp;
+            _controller.Ready -= BackOut;
+        }
         joined.enabled = false;
         empty.enabled = true;
         hasPlayer = false;
-        this.player = null;
+        _player = null;
+        PlayerManager.RemovePlayer(player);
     }
 
     public void ReadyUp()

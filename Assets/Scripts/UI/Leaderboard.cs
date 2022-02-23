@@ -1,16 +1,26 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Leaderboard : MonoBehaviour
 {
-    public LeaderboardSlot[] slots = new LeaderboardSlot[8];
-    public Button doneButton;
+    public LeaderboardSlot[] slots = new LeaderboardSlot[4];
+    public Button activeButton;
+
+    private void Start()
+    {
+        foreach (var slot in slots)
+        {
+            slot.Hide();
+        }
+
+        if (PlayerManager.instance == null)
+            return;
+        Display();
+    }
 
     public void Display()
     {
-        doneButton.Select();
+        activeButton?.Select();
         Populate();
         for (int i = 0; i < PlayerManager.playerCount; i++)
             slots[i].Show();
