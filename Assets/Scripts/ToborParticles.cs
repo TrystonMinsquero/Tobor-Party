@@ -8,6 +8,7 @@ public class ToborParticles : MonoBehaviour
     public TrailRenderer[] carTrails;
     public AnimationCurve trailLengthCurve;
     public ParticleSystem[] empParticles;
+    public ParticleSystem[] speedLineParticles;
     public MeshRenderer bodyMaterialRenderer;
     public Material starMaterial;
     private Material defaultMaterial;
@@ -33,6 +34,12 @@ public class ToborParticles : MonoBehaviour
     {
         foreach (var emp in empParticles)
             emp.Play();
+    }
+
+    public void PlaySpeedLines()
+    {
+        foreach (var speedLines in speedLineParticles)
+            speedLines.Play();
     }
 
     public void StartDrift()
