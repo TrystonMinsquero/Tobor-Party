@@ -433,6 +433,18 @@ public class Car : PlayerObject
             speed = 0;
         particles.UpdateTrails(speed);
 
+        if (!isBot)
+        {
+            if (boostTime > 0)
+            {
+                particles.PlaySpeedLines();
+            }
+            else
+            {
+                particles.StopSpeedLines();
+            }
+        }
+
         velocity.y = rb.velocity.y;
         rb.velocity = velocity;
 

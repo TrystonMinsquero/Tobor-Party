@@ -2795,6 +2795,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 14438646894300349, guid: 25fa30f58a412a746b34067b6b65ab88, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 8503
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742783374038043348, guid: 25fa30f58a412a746b34067b6b65ab88, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 3317159132450887017, guid: 25fa30f58a412a746b34067b6b65ab88, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -45.099976
@@ -3255,6 +3263,14 @@ PrefabInstance:
     - target: {fileID: 14438645323195885, guid: 25fa30f58a412a746b34067b6b65ab88, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 14438646894300349, guid: 25fa30f58a412a746b34067b6b65ab88, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 2359
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742783374038043348, guid: 25fa30f58a412a746b34067b6b65ab88, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3317159132450887017, guid: 25fa30f58a412a746b34067b6b65ab88, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -6258,7 +6274,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: -1, y: 8, z: 9, w: -10}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -7087,6 +7103,14 @@ PrefabInstance:
     - target: {fileID: 14438645323195885, guid: 25fa30f58a412a746b34067b6b65ab88, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 14438646894300349, guid: 25fa30f58a412a746b34067b6b65ab88, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4407
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742783374038043348, guid: 25fa30f58a412a746b34067b6b65ab88, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3317159132450887017, guid: 25fa30f58a412a746b34067b6b65ab88, type: 3}
       propertyPath: m_AnchoredPosition.y

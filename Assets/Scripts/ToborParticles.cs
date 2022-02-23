@@ -39,13 +39,15 @@ public class ToborParticles : MonoBehaviour
     public void PlaySpeedLines()
     {
         foreach (var speedLines in speedLineParticles)
-            speedLines.Play();
+            if (!speedLines.isPlaying)
+                speedLines.Play();
     }
 
     public void StopSpeedLines()
     {
         foreach (var speedLines in speedLineParticles)
-            speedLines.Stop();
+            if (speedLines.isPlaying)
+                speedLines.Stop();
     }
 
     public void StartDrift()
