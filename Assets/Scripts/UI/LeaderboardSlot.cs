@@ -18,7 +18,7 @@ public class LeaderboardSlot : MonoBehaviour
             return;
         playerNum.text = "" + (PlayerManager.GetIndex(player) + 1);
         playerPlace.text = "" + player.raceData.place ;
-        playerTime.text = "" + TimeSpan.FromSeconds(player.raceData.bestLapTimes.Sum()).ToString("mm':'ss'.'FF");
+        playerTime.text = "" + TimeSpan.FromSeconds(player.raceData.finishTime).ToString("mm':'ss'.'FF");
     }
 
     public void Show()

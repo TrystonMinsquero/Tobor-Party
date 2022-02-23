@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,8 @@ public class Leaderboard : MonoBehaviour
 
         if (PlayerManager.instance == null)
             return;
+        
+        PlayerManager.SwitchAllActionMaps("UI");
         Display();
     }
 
@@ -29,15 +32,17 @@ public class Leaderboard : MonoBehaviour
 
     public void Populate()
     {
-        int slotCount = 0;
+
+        List<Player> sortedPlayers = new List<Player>();
+        
         foreach(Player player in PlayerManager.players)
-        {
-            if (player != null && PlayerManager.Contains(player))
-            {
-                slots[slotCount].Fill(player);
-                slotCount++;
-            }
-        }
+            if(player)
+                sortedPlayers.Add(player);
+        
+        sortedPlayers.Sort((player1, player2) => (int)((player1.raceData.finishTime - player2.raceData.finishTime) * 100));
+        for(int i = 0; i < sortedPlayers.Count; i++)
+            slots[i].Fill(sortedPlayers[i]);
+            
     }
 }
 

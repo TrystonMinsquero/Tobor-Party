@@ -127,6 +127,16 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    public static void SwitchAllActionMaps(string actionMapName)
+    {
+        foreach (var player in players)
+        {
+            if(player && player.TryGetComponent<PlayerController>(out var playerController))
+                playerController.SwitchActionMap(actionMapName);
+                
+        }
+    }
+
     //Properly removes players from the game
     public static void RemovePlayer(Player player)
     {
