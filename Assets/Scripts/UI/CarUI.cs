@@ -105,7 +105,7 @@ public class CarUI : MonoBehaviour
         speedometerNeedle.localRotation = Quaternion.Slerp(speedometerNeedle.localRotation, target,  Time.deltaTime * 2);
     }
 
-    private string GetMillisecondTime(TimeSpan time)
+    public static string GetMillisecondTime(TimeSpan time)
     {
         string ms = time.Milliseconds.ToString();
         if (ms.Length >= 2)
@@ -117,7 +117,7 @@ public class CarUI : MonoBehaviour
         return time.ToString("ss'.'") + ms;
     }
 
-    private string GetPlaceSuffix(int place)
+    public static string GetPlaceSuffix(int place)
     {
         switch (place)
         {

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class Leaderboard : MonoBehaviour
 {
     public LeaderboardSlot[] slots = new LeaderboardSlot[4];
-    public Button activeButton;
 
     private void Start()
     {
@@ -17,29 +16,33 @@ public class Leaderboard : MonoBehaviour
         if (PlayerManager.instance == null)
             return;
         
-        PlayerManager.SwitchAllActionMaps("UI");
         Display();
     }
 
     public void Display()
     {
-        activeButton?.Select();
         Populate();
-        for (int i = 0; i < PlayerManager.playerCount; i++)
-            slots[i].Show();
+        int i = 0;
+        foreach (var player in PlayerManager.players)
+        {
+            if (player && player.raceData != null && player.raceData.place > 0 && player.raceData.finishTime >= 0)
+            {
+                slots[i].Show();
+                i++;
+            }
+        }
         GetComponent<Canvas>().enabled = true;
     }
 
     public void Populate()
     {
-
         List<Player> sortedPlayers = new List<Player>();
         
         foreach(Player player in PlayerManager.players)
-            if(player)
+            if(player && player.raceData != null && player.raceData.place > 0 && player.raceData.finishTime >= 0)
                 sortedPlayers.Add(player);
         
-        sortedPlayers.Sort((player1, player2) => (int)((player1.raceData.finishTime - player2.raceData.finishTime) * 100));
+        sortedPlayers.Sort((player1, player2) => player1.raceData.place - player2.raceData.place);
         for(int i = 0; i < sortedPlayers.Count; i++)
             slots[i].Fill(sortedPlayers[i]);
             

@@ -155,6 +155,14 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    public static void ClearAndDestroy()
+    {
+        for(int i = 0; i < players.Length; i++)
+            if (players[i])
+                RemovePlayer(players[i]);
+        Destroy(instance.gameObject);
+    }
+
     private void OnDestroy()
     {
         if (instance == this)

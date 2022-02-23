@@ -16,9 +16,12 @@ public class LeaderboardSlot : MonoBehaviour
     {
         if (PlayerManager.GetIndex(player) < 0)
             return;
-        playerNum.text = "" + (PlayerManager.GetIndex(player) + 1);
-        playerPlace.text = "" + player.raceData.place ;
-        playerTime.text = "" + TimeSpan.FromSeconds(player.raceData.finishTime).ToString("mm':'ss'.'FF");
+        playerNum.text = "P" + (PlayerManager.GetIndex(player) + 1);
+        playerPlace.text = "" + player.raceData.place + CarUI.GetPlaceSuffix(player.raceData.place);
+        var timeSpan = TimeSpan.FromSeconds(player.raceData.finishTime);
+        playerTime.text = timeSpan.TotalSeconds >= 60
+            ? timeSpan.ToString("mm':'ss'.'FF")
+            : CarUI.GetMillisecondTime(timeSpan);
     }
 
     public void Show()
@@ -43,3 +46,5 @@ public class LeaderboardSlot : MonoBehaviour
     }
 
 }
+
+

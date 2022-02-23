@@ -33,6 +33,12 @@ public class RaceManager : MonoBehaviour
 
         // Removes cars that are disable
         cars.RemoveAll((a) => a.gameObject.activeSelf == false);
+        
+        // Link Checkpoint User to Player
+        foreach(Player player in PlayerManager.players)
+            if (player && player.playerObject.TryGetComponent<CheckpointUser>(out var cpUser))
+                cpUser.FinishedRace += data => player.AddRaceData(data); 
+                
 
         Started = false;
         Finished = false;
@@ -63,6 +69,7 @@ public class RaceManager : MonoBehaviour
             if (player != null && player.playerObject != null)
             {
                 var cpUser = player.playerObject.GetComponent<CheckpointUser>();
+                cpUser.FinishedRace -= data => player.AddRaceData(data);
                 player.AddRaceData(cpUser.GetRaceData());
             }
                 

@@ -19,6 +19,7 @@ public class CheckpointUser : MonoBehaviour
     public event Action<float, float> ReachedCheckpoint = delegate(float f, float f1) {  };
     // <old time, new time>
     public event Action<float, float> CompletedLap = delegate(float f, float f1) {  };
+    public event Action<RaceData> FinishedRace = delegate(RaceData data) {  };
 
     public Checkpoint currentCheckpoint;
     public Checkpoint nextCheckpoint;
@@ -78,7 +79,7 @@ public class CheckpointUser : MonoBehaviour
                 if (Laps >= RaceManager.instance.numLaps)
                 {
                     car.Deactivate();
-                    
+                    FinishedRace.Invoke(GetRaceData());
                 }
 
                 Debug.Log($"Finished lap in {Time.time - LastLapStartTime}");
