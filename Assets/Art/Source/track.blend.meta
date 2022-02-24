@@ -52,6 +52,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: bca545a49f8f9db4dbee51fa17bd4153, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.008
+    second: {fileID: 2100000, guid: 5ee96cdda9adab847a89e5031e7270a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Metal Railing
     second: {fileID: 2100000, guid: 7a8ea6c0555a5be44addf2e50670e5a4, type: 2}
   - first:
