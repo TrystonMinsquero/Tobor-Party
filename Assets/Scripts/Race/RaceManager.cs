@@ -57,10 +57,10 @@ public class RaceManager : MonoBehaviour
 
         StartState = "GO!";
         Started = true;
+        StartTime = Time.time;
         yield return new WaitForSeconds(1);
 
         StartState = "";
-        StartTime = Time.time;
     }
 
     IEnumerator EndGame()
@@ -70,7 +70,6 @@ public class RaceManager : MonoBehaviour
             {
                 var cpUser = player.playerObject.GetComponent<CheckpointUser>();
                 cpUser.FinishedRace -= data => player.AddRaceData(data);
-                player.AddRaceData(cpUser.GetRaceData());
             }
                 
         

@@ -3,16 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="51c923a0-25cd-4217-9576-2d457c48d13d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tobor-Party/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tobor-Party/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/RaceTrack.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/RaceTrack.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Winning Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Winning Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Race/CheckpointUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Race/CheckpointUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Race/RaceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Race/RaceManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/CarUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/CarUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Leaderboard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Leaderboard.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/LeaderboardSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LeaderboardSlot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PauseMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PauseMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/WinMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/WinMenu.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,10 +55,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="23516">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="23516" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -98,6 +91,7 @@
       <workItem from="1645417542935" duration="4069000" />
       <workItem from="1645492351103" duration="2636000" />
       <workItem from="1645570255851" duration="29425000" />
+      <workItem from="1645748867756" duration="1710000" />
     </task>
     <servers />
   </component>

@@ -45,6 +45,9 @@ public class CarUI : MonoBehaviour
 
     private void Update()
     {
+        if (cpUser.Laps >= RaceManager.instance.numLaps)
+            return;
+
         int place = RaceManager.instance.cars.IndexOf(cpUser) + 1;
         placeText.text = place.ToString();
         placeSuffixText.text = GetPlaceSuffix(place);
@@ -76,18 +79,6 @@ public class CarUI : MonoBehaviour
                 itemBoxes[i].sprite = null;
             }
         }
-        /*
-        if (holder.Items.Count > 0)
-        {
-            itemBox.gameObject.SetActive(false);
-            itemBox.sprite = null;
-        }
-        else
-        {
-            itemBox.gameObject.SetActive(true);
-            itemBox.sprite = holder.Item.itemImage;
-        }
-        */
          
         // update speedometer
         RotateSpeedometer();
