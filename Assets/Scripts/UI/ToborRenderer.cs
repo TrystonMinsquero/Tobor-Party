@@ -59,7 +59,7 @@ public class ToborRenderer : MonoBehaviour
     }
     public void ChangeSkin(bool right)
     {
-        
+        Debug.Log(right);
     }
 
     public void Enable()

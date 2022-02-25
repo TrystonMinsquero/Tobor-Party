@@ -13,7 +13,8 @@ public class JoinBox : MonoBehaviour
     [Header("UI Draggables")]
     public Canvas joined;
     public Canvas empty;
-    public TMP_Text readyUpText;
+    public TMP_Text readyText;
+    public GameObject readyUpText;
     public ToborPreview preview;
 
     private UIController _controller;
@@ -35,6 +36,7 @@ public class JoinBox : MonoBehaviour
         {
             _controller.Ready += ReadyUp;
             _controller.Leave += BackOut;
+            _controller.ChangeSkin += ChangeSkin;
         }
     }
 
@@ -43,25 +45,6 @@ public class JoinBox : MonoBehaviour
         if (_controller)
         {
             preview.renderer.Rotate(-_controller.Rotate * 400 * Time.deltaTime);
-
-           if(_controller.ChangeSkin != 0) 
-               preview.renderer.ChangeSkin(_controller.ChangeSkin > 0);
-           //
-           // if(_controller.Ready) 
-           //     ReadyUp();
-           // if (_controller.Leave)
-           // {
-           //     if (isReady)
-           //     {
-           //         UnReady();
-           //     }
-           //     else
-           //     {
-           //         PlayerManager.RemovePlayer(player);
-           //     }
-           // }
-           //  
-
         }
     }
 
@@ -78,7 +61,8 @@ public class JoinBox : MonoBehaviour
         if (_controller)
         {
             _controller.Ready -= ReadyUp;
-            _controller.Ready -= BackOut;
+            _controller.Leave -= BackOut;
+            _controller.ChangeSkin -= ChangeSkin;
         }
         if(joined)
             joined.enabled = false;
@@ -92,13 +76,21 @@ public class JoinBox : MonoBehaviour
     public void ReadyUp()
     {
         isReady = true;
-        readyUpText.text = "Ready!";
+        readyText.text = "Ready!";
+        readyUpText.SetActive(false);
     }
 
     public void UnReady()
     {
         isReady = false;
-        readyUpText.text = "";
+        readyText.text = "";
+        readyUpText.SetActive(true);
+    }
+
+    private void ChangeSkin(float input)
+    {
+        if(input != 0 && !isReady)
+            preview.renderer.ChangeSkin(input > 0);
     }
     
 }
