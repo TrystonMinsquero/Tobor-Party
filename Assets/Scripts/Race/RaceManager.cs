@@ -14,6 +14,8 @@ public class RaceManager : MonoBehaviour
     public static float StartTime { get; private set; }
     public static string StartState { get; private set; } = "";
 
+    public static CheckpointUser FirstPlace { get; private set; }
+
     public uint numLaps = 1; 
     public List<CheckpointUser> cars = new List<CheckpointUser>();
 
@@ -83,10 +85,19 @@ public class RaceManager : MonoBehaviour
     {
         cars.Sort((b,a) => a.Progress.CompareTo(b.Progress));
 
+        CheckpointUser previousCar = null;
+        if (cars.Count > 0)
+            FirstPlace = cars[0];
+
         bool allFinished = true;
         foreach (CheckpointUser cpUser in cars)
+        {
+            cpUser.NextPlayer = previousCar;
+            previousCar = cpUser;
+
             if (cpUser.Laps < numLaps)
                 allFinished = false;
+        }
 
         if (allFinished && !Finished)
         {

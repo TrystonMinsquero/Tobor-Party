@@ -12,6 +12,8 @@ public class CheckpointUser : MonoBehaviour
     public float LastLapStartTime { get; private set; } = 0;
     public float LastCheckpointStartTime { get; private set; } = 0;
 
+    public CheckpointUser NextPlayer { get; set; }
+
     private Dictionary<Checkpoint, float> bestCheckpointTimes;
     private List<float> bestLapTimes;
 

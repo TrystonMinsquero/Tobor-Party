@@ -144,6 +144,8 @@ public class Car : PlayerObject
     public float bumpForce = 5;
     public float carBumpForce = 1.5f;
 
+    public AnimationCurve katsupCurve; // 0 = 1, 1 = 1 lap behind
+
     [Header("Other")]
     public Text speedText;
     public CarController _controller;
@@ -394,7 +396,6 @@ public class Car : PlayerObject
         {
             maxSpeed = cometSpeed;
             targetAcceleration *= cometAccelerationMultiplier;
-
         }
 
         if (transform.localScale.x < 0.9f)
@@ -419,6 +420,10 @@ public class Car : PlayerObject
         {
             targetAccelerationAdd *= accelCurve.Evaluate(velocity.magnitude / maxSpeed);
         }
+
+        var progressChange = RaceManager.FirstPlace.Progress - checkpoints.Progress;
+        maxSpeed *= katsupCurve.Evaluate(progressChange);
+
 
         // Clamp max speed
         var finalVelocity = Vector3.ClampMagnitude(velocity + targetAccelerationAdd, maxSpeed);
@@ -485,7 +490,7 @@ public class Car : PlayerObject
             botInputs.UpdateInput(ref inputs, checkpoints);
         }
 
-        if (holder.Items.Count > 0 && inputs.useItem && !lastUseItemInput)
+        if (wipeoutTime <= 0 && holder.Items.Count > 0 && inputs.useItem && !lastUseItemInput)
         {
             lastUseItemInput = true;
             ActivateItem();
