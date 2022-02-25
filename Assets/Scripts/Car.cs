@@ -670,7 +670,7 @@ public class Car : PlayerObject
         dampedToborDriftAngle = Mathf.SmoothDamp(dampedToborDriftAngle, angleTarget, ref angleVel, 1 / driftAngleVisualSpeed);
         tobor.rotation = toborRotation * Quaternion.Euler(0, dampedToborDriftAngle + wipeoutPos, 0) * Quaternion.Euler(0, 0, dampedToborDriftAngle * driftTiltMultiplier);
 
-        particles.UpdateSwiftBoostColor(Mathf.Clamp01(swiftBoostPercentage / MaxSwiftTiers));
+        particles.UpdateSwiftBoostColor(swiftBoostPercentage / MaxSwiftTiers);
         if (isDrifting && isGrounded) particles.StartDrift();
         else particles.StopDrift();
     }

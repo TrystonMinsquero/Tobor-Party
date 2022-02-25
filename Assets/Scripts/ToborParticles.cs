@@ -15,6 +15,7 @@ public class ToborParticles : MonoBehaviour
     private Material defaultMaterial;
 
     public Gradient swiftBoostColor;
+    public AnimationCurve swiftParticleRateCurve;
 
     public void Start()
     {
@@ -87,6 +88,9 @@ public class ToborParticles : MonoBehaviour
         {
             var main = spark.main;
             main.startColor = swiftBoostColor.Evaluate(swiftPercentage);
+
+            var emm = spark.emission;
+            emm.rateOverTimeMultiplier = swiftParticleRateCurve.Evaluate(swiftPercentage);
         }
     }
 }

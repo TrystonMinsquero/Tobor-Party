@@ -66,8 +66,11 @@ public class CheckpointUser : MonoBehaviour
             if (checkpoint.index == 0)
             {
                 float newTime = Time.time - LastLapStartTime;
+                Debug.Log($"Finished lap in {newTime}");
 
-                if(bestLapTimes.Count == 0)
+                LastLapStartTime = Time.time;
+
+                if (bestLapTimes.Count == 0)
                     CompletedLap.Invoke(-1, newTime);
                 else
                 {
@@ -83,8 +86,6 @@ public class CheckpointUser : MonoBehaviour
                     car.Deactivate();
                     FinishedRace.Invoke(GetRaceData());
                 }
-
-                Debug.Log($"Finished lap in {Time.time - LastLapStartTime}");
             }
         }
     }
