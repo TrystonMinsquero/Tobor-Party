@@ -34,7 +34,7 @@ public class Leaderboard : MonoBehaviour
         GetComponent<Canvas>().enabled = true;
     }
 
-    public void Populate()
+    private void Populate()
     {
         List<Player> sortedPlayers = new List<Player>();
         

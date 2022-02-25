@@ -22,12 +22,15 @@ public class CarUI : MonoBehaviour
     private Checkpoint nextCheckPoint;
 
     public Transform speedometerNeedle;
+    public Leaderboard leaderboard;
 
     private void Awake()
     {
         cpUser = GetComponentInParent<CheckpointUser>();
         rb = GetComponentInParent<Rigidbody>();
         holder = cpUser.GetComponent<ItemHolder>();
+        
+        leaderboard?.gameObject.SetActive(false);
         checkpointTimeText.text = "";
         nextCheckPoint = cpUser.nextCheckpoint;
     }
@@ -41,31 +44,44 @@ public class CarUI : MonoBehaviour
     private void OnDisable()
     {
         cpUser.ReachedCheckpoint -= StartToShowCheckpointTime;
+        cpUser.CompletedLap -= StartToShowCheckpointTime;
     }
 
     private void Update()
     {
+        // Cancel update if done
         if (cpUser.Laps >= RaceManager.instance.numLaps)
+        {
+            if (leaderboard && !leaderboard.gameObject.activeSelf)
+                leaderboard?.gameObject.SetActive(true);
+            leaderboard?.Display();
             return;
+        }
 
+        // Update Place text
         int place = RaceManager.instance.cars.IndexOf(cpUser) + 1;
         placeText.text = place.ToString();
         placeSuffixText.text = GetPlaceSuffix(place);
 
+        // Update start text, laptext, and speed text
         startText.text = RaceManager.StartState;
         lapText.text = (cpUser.Laps + 1) + "/" + RaceManager.instance.numLaps;
         speedText.text = $"{rb.velocity.magnitude:0}";
 
+        // Update Wrong way text
         if (!cpUser.RightDirection)
             checkpointTimeText.text = "<color=red>Wrong Way!</color>";
         if (cpUser.RightDirection && checkpointTimeText.text == "<color=red>Wrong Way!</color>")
             checkpointTimeText.text = "";
+        
+        // Update Total Time
         TimeSpan time = TimeSpan.FromSeconds(Time.time - RaceManager.StartTime);
-        if (RaceManager.StartTime == 0)
+        if (!RaceManager.Started)
             lapTimerText.text = "00:00";
         else
             lapTimerText.text = time.TotalSeconds > 60 ? time.ToString("mm':'ss") : GetMillisecondTime(time);
 
+        // Update Item box display
         for (int i = 0; i < itemBoxes.Length; i++)
         {
             if (i < holder.Items.Count)

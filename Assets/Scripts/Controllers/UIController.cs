@@ -3,8 +3,8 @@ using UnityEngine.InputSystem;
 
 public class UIController : PlayerController
 {
-    public event Action Ready;
-    public event Action Leave;
+    public event Action Ready = delegate {  };
+    public event Action Leave = delegate {  };
     public float ChangeSkin { get; private set; }
     public float Rotate { get; private set; }
 
