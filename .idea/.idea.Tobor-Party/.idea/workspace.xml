@@ -3,17 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="51c923a0-25cd-4217-9576-2d457c48d13d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tobor-Party/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tobor-Party/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tobor HUD.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tobor HUD.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tobor-Car.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tobor-Car.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Slot.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Slot.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Tobor HUD.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Tobor HUD.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/RaceTrack.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/RaceTrack.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Winning Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Winning Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/UIController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/CarUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/CarUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Leaderboard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Leaderboard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Race/CheckpointUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Race/CheckpointUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/JoinBox.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/JoinBox.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,10 +55,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="5732">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="5732" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -99,7 +91,7 @@
       <workItem from="1645417542935" duration="4069000" />
       <workItem from="1645492351103" duration="2636000" />
       <workItem from="1645570255851" duration="29425000" />
-      <workItem from="1645748867756" duration="7169000" />
+      <workItem from="1645748867756" duration="11134000" />
     </task>
     <servers />
   </component>
@@ -119,24 +111,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/UI/JoinBox.cs</url>
-          <line>23</line>
-          <properties documentPath="C:\GitHub Repos\Unity\Tobor-Party\Assets\Scripts\UI\JoinBox.cs" initialLine="23" containingFunctionPresentation="method 'AddPlayer'">
-            <startOffsets>
-              <option value="536" />
-            </startOffsets>
-            <endOffsets>
-              <option value="537" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

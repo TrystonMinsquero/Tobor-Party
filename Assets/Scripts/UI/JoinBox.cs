@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,8 +7,6 @@ using UnityEngine.UI;
 
 public class JoinBox : MonoBehaviour
 {
-    [Header("Data")]
-    public int slot;
     public bool hasPlayer { get; private set; }
     public bool isReady { get; private set; }
 
@@ -30,6 +29,8 @@ public class JoinBox : MonoBehaviour
 
         preview.Enable();
         _controller = player.GetComponent<UIController>();
+        _controller.controls.UI.Ready.Enable();
+        
         if (_controller)
         {
             _controller.Ready += ReadyUp;
@@ -79,8 +80,10 @@ public class JoinBox : MonoBehaviour
             _controller.Ready -= ReadyUp;
             _controller.Ready -= BackOut;
         }
-        joined.enabled = false;
-        empty.enabled = true;
+        if(joined)
+            joined.enabled = false;
+        if(empty)
+            empty.enabled = true;
         hasPlayer = false;
         _player = null;
         PlayerManager.RemovePlayer(player);

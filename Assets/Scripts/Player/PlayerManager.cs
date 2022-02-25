@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Layouts;
+using UnityEngine.XR;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -27,6 +29,8 @@ public class PlayerManager : MonoBehaviour
             players = new Player[maxPlayers];
             DontDestroyOnLoad(this);
         }
+        
+        InputSystem.DisableDevice(Mouse.current);
     }
 
     private void Update()

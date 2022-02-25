@@ -59,7 +59,7 @@ public class CheckpointUser : MonoBehaviour
                     (currentCheckpoint.index + 1) % Checkpoints.Instance.checkpoints.Count];
 
             LastCheckpointStartTime = Time.time;
-            Debug.Log($"Checkpoint reached: {checkpoint.index}");
+            //Debug.Log($"Checkpoint reached: {checkpoint.index}");
 
             
             // On a lap completion
