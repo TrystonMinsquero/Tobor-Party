@@ -257,9 +257,13 @@ public class Car : PlayerObject
         wipeoutTime = Mathf.Max(amount, wipeoutTime);
     }
 
+    // Deactivates player input, replaces with Bot input
     public void Deactivate()
     {
-        isDeactivated = true;
+        isDeactivated = false;
+
+        botInputs = gameObject.AddComponent<BotInput>();
+        isBot = true;
     }
 
     private bool lastDrift = false;
@@ -421,9 +425,11 @@ public class Car : PlayerObject
             targetAccelerationAdd *= accelCurve.Evaluate(velocity.magnitude / maxSpeed);
         }
 
-        var progressChange = RaceManager.FirstPlace.Progress - checkpoints.Progress;
-        maxSpeed *= katsupCurve.Evaluate(progressChange);
-
+        if (RaceManager.FirstPlace != null)
+        {
+            var progressChange = RaceManager.FirstPlace.Progress - checkpoints.Progress;
+            maxSpeed *= katsupCurve.Evaluate(progressChange);
+        }
 
         // Clamp max speed
         var finalVelocity = Vector3.ClampMagnitude(velocity + targetAccelerationAdd, maxSpeed);
