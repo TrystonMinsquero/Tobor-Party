@@ -68,6 +68,8 @@ public class JoinBox : MonoBehaviour
             joined.enabled = false;
         if(empty)
             empty.enabled = true;
+        if(readyUpText)
+            readyUpText.SetActive(false);
         hasPlayer = false;
         _player = null;
         PlayerManager.RemovePlayer(player);
@@ -76,15 +78,19 @@ public class JoinBox : MonoBehaviour
     public void ReadyUp()
     {
         isReady = true;
-        readyText.text = "Ready!";
-        readyUpText.SetActive(false);
+        if(readyText)
+            readyText.text = "Ready!";
+        if(readyUpText)
+            readyUpText.SetActive(false);
     }
 
     public void UnReady()
     {
         isReady = false;
-        readyText.text = "";
-        readyUpText.SetActive(true);
+        if(readyText)
+            readyText.text = "";
+        if(readyUpText)
+            readyUpText.SetActive(true);
     }
 
     private void ChangeSkin(float input)
