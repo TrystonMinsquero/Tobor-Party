@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: isBot
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 14438645323195886, guid: 25fa30f58a412a746b34067b6b65ab88, type: 3}
+      propertyPath: deleteCamera
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 14438646894300351, guid: 25fa30f58a412a746b34067b6b65ab88, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -87,3 +91,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99c194af8d7bbd649a1f0c8f86b38a54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackPlayer: 0
+  turnThreshold: 11
+  turnEndThreshold: 7
+  driftEndThreshold: 10
+  driftThreshold: 45
+  checkpointPositionLerp: 0.5

@@ -127,6 +127,14 @@ public class Car : PlayerObject
     public float boostMaxSpeed = 30;
     public float boostAcceleration = 90;
 
+    [Header("Swift Boost")] 
+    public float swiftBoostPerTier = 0.1f;
+
+    public const int MaxSwiftTiers = 3;
+    public float swiftBoostTierTime = 0.8f;
+    public AnimationCurve driftBoostCurve;
+    private float swiftBoostPercentage; 
+
     [Header("Wipeout")] 
     public float wipeoutRotateSpeed = 720;
     public float wipeoutDampTime = 0.1f;
@@ -336,6 +344,13 @@ public class Car : PlayerObject
             lastDrift = false;
             driftDirection = 0;
             isDrifting = false;
+
+            // Todo: swift boost drifting
+            var tiers = Mathf.FloorToInt(swiftBoostPercentage);
+            if (tiers > MaxSwiftTiers)
+                tiers = MaxSwiftTiers;
+
+            Boost(tiers * swiftBoostPerTier);
         }
 
         //float driftMult = 1;
@@ -356,8 +371,11 @@ public class Car : PlayerObject
             //driftMult *= driftTurnPersistence.Evaluate(angle);
 
             // Todo: Smooth turnInput!
-            turnAmount = driftTurnSpeedCurve.Evaluate(turnInput * driftDirection) * driftDirection * Time.fixedDeltaTime;
+            var turn = turnInput * driftDirection;
+            turnAmount = driftTurnSpeedCurve.Evaluate(turn) * driftDirection * Time.fixedDeltaTime;
             velocityTurn = turnAmount;
+
+            swiftBoostPercentage += Time.fixedDeltaTime * turn / swiftBoostTierTime * driftBoostCurve.Evaluate(turn);
         }
 
         if (!isGrounded)
@@ -365,6 +383,7 @@ public class Car : PlayerObject
 
         if (!isDrifting)
         {
+            swiftBoostPercentage = 0;
             // Direction to turn (based on forward/back movement)
             var turnDirection =
                 Mathf.Sign(rb.velocity.sqrMagnitude < 0.1 ? 1 : Vector3.Dot(currentInputDirection, rb.velocity));
@@ -651,6 +670,7 @@ public class Car : PlayerObject
         dampedToborDriftAngle = Mathf.SmoothDamp(dampedToborDriftAngle, angleTarget, ref angleVel, 1 / driftAngleVisualSpeed);
         tobor.rotation = toborRotation * Quaternion.Euler(0, dampedToborDriftAngle + wipeoutPos, 0) * Quaternion.Euler(0, 0, dampedToborDriftAngle * driftTiltMultiplier);
 
+        particles.UpdateSwiftBoostColor(Mathf.Clamp01(swiftBoostPercentage / MaxSwiftTiers));
         if (isDrifting && isGrounded) particles.StartDrift();
         else particles.StopDrift();
     }

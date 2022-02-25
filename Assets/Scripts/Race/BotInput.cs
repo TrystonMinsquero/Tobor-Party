@@ -2,16 +2,89 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public abstract class BotState
+{
+    public static BotState Default => new DefaultState();
+    public static BotState Turn => new TurnState();
+    public static BotState Drift => new DriftState();
+
+
+    public abstract BotState Run(BotInput bot, ref FrameInputs inputs, 
+        Vector3 pos, float angle);
+}
+
+public class DefaultState : BotState
+{
+    public override BotState Run(BotInput bot, ref FrameInputs inputs, Vector3 pos, float angle)
+    {
+        inputs.gasInput = 1;
+        inputs.steerInput = 0;
+        inputs.drift = false;
+
+        if (Mathf.Abs(angle) > bot.turnThreshold)
+            return Turn;
+
+        return this;
+    }
+}
+
+public class TurnState : BotState
+{
+    bool prevItem = false;
+
+    public override BotState Run(BotInput bot, ref FrameInputs inputs, Vector3 pos, float angle)
+    {
+        inputs.useItem = prevItem;
+        prevItem = !prevItem;
+
+        inputs.gasInput = 1;
+        inputs.drift = false;
+
+        if (Mathf.Abs(angle) < bot.turnEndThreshold)
+            return Default;
+
+        inputs.steerInput = angle < 0 ? -1 : 1;
+
+        return this;
+    }
+}
+
+public class DriftState : BotState
+{
+    public override BotState Run(BotInput bot, ref FrameInputs inputs, Vector3 pos, float angle)
+    {
+        inputs.gasInput = 1;
+        inputs.drift = true;
+
+        if (Mathf.Abs(angle) < bot.driftEndThreshold)
+            return Default;
+
+        inputs.steerInput = angle < 0 ? -1 : 1;
+
+        return this;
+    }
+}
+
 public class BotInput : MonoBehaviour
 {
     public bool attackPlayer = false;
 
-    private float checkpointPositionLerp = 0;
+    public BotState state;
+
+    public float turnThreshold = 20f;
+    public float turnEndThreshold = 5f;
+
+    public float driftEndThreshold = 10f;
+    public float driftThreshold = 70f;
+
+    public float checkpointPositionLerp = 0.5f;
+
     private Car target;
 
     void Start()
     {
-        checkpointPositionLerp = Random.value;
+        state = BotState.Default;
+        //checkpointPositionLerp = Random.value;
 
         if (PlayerManager.playerCount > 0)
         {
@@ -52,11 +125,10 @@ public class BotInput : MonoBehaviour
             var targetDir = targetPos - rb.position;
             var rbDir = car.currentInputDirection;
             rbDir.y = 0;
-
+            
             var angle = Vector3.SignedAngle(rbDir, targetDir, Vector3.up);
 
-            inputs.gasInput = 1;
-            inputs.steerInput = angle < 0 ? -1 : 1;
+            state = state.Run(this, ref inputs, targetDir, angle);
         }
     }
 }

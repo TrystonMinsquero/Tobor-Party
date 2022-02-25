@@ -37,9 +37,10 @@ public class RaceManager : MonoBehaviour
         cars.RemoveAll((a) => a.gameObject.activeSelf == false);
         
         // Link Checkpoint User to Player
-        foreach(Player player in PlayerManager.players)
-            if (player && player.playerObject.TryGetComponent<CheckpointUser>(out var cpUser))
-                cpUser.FinishedRace += data => player.AddRaceData(data); 
+        if (PlayerManager.players != null)
+            foreach(Player player in PlayerManager.players)
+                if (player && player.playerObject.TryGetComponent<CheckpointUser>(out var cpUser))
+                    cpUser.FinishedRace += data => player.AddRaceData(data); 
                 
 
         Started = false;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ToborParticles : MonoBehaviour
 {
+    public ParticleSystem[] driftSparks;
     public ParticleSystem[] tireSmokes;
     public TrailRenderer[] carTrails;
     public AnimationCurve trailLengthCurve;
@@ -13,6 +14,7 @@ public class ToborParticles : MonoBehaviour
     public Material starMaterial;
     private Material defaultMaterial;
 
+    public Gradient swiftBoostColor;
 
     public void Start()
     {
@@ -55,6 +57,10 @@ public class ToborParticles : MonoBehaviour
         foreach (var tireSmoke in tireSmokes)
             if (!tireSmoke.isPlaying)
                 tireSmoke.Play();
+
+        foreach (var spark in driftSparks)
+            if (!spark.isPlaying)
+                spark.Play();
     }
 
     public void StopDrift()
@@ -62,6 +68,10 @@ public class ToborParticles : MonoBehaviour
         foreach (var tireSmoke in tireSmokes)
             if (tireSmoke.isPlaying)
                 tireSmoke.Stop();
+
+        foreach (var spark in driftSparks)
+            if (spark.isPlaying)
+                spark.Stop();
     }
 
     public void UpdateTrails(float speed)
@@ -69,5 +79,14 @@ public class ToborParticles : MonoBehaviour
         var t = trailLengthCurve.Evaluate(speed);
         foreach (var trail in carTrails)
             trail.time = t;
+    }
+
+    public void UpdateSwiftBoostColor(float swiftPercentage)
+    {
+        foreach (var spark in driftSparks)
+        {
+            var main = spark.main;
+            main.startColor = swiftBoostColor.Evaluate(swiftPercentage);
+        }
     }
 }
