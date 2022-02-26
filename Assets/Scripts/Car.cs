@@ -133,6 +133,7 @@ public class Car : PlayerObject
     public const int MaxSwiftTiers = 3;
     public float swiftBoostTierTime = 0.8f;
     public AnimationCurve driftBoostCurve;
+
     private float swiftBoostPercentage; 
 
     [Header("Wipeout")] 
@@ -375,7 +376,7 @@ public class Car : PlayerObject
             turnAmount = driftTurnSpeedCurve.Evaluate(turn) * driftDirection * Time.fixedDeltaTime;
             velocityTurn = turnAmount;
 
-            swiftBoostPercentage += Time.fixedDeltaTime * turn / swiftBoostTierTime * driftBoostCurve.Evaluate(turn);
+            swiftBoostPercentage += Mathf.Abs(turnAmount) / driftTurnSpeedCurve.Evaluate(1) * driftBoostCurve.Evaluate(turn) / swiftBoostTierTime;
         }
 
         if (!isGrounded)

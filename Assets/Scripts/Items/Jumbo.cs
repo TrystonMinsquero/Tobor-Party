@@ -17,6 +17,8 @@ public class Jumbo : Item
 
     IEnumerator Cooldown()
     {
+        car.UsingItem = true;
+
         float t = 0;
         while (t < scaleLerpTime)
         {
@@ -26,7 +28,6 @@ public class Jumbo : Item
         }
         car.Scale = scaleFactor;
 
-        car.UsingItem = true;
         yield return new WaitForSeconds(scaleTime);
         t = 0;
         while (t < scaleLerpTime)

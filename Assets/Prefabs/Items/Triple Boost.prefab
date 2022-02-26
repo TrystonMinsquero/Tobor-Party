@@ -47,7 +47,7 @@ MonoBehaviour:
   itemImage: {fileID: 21300000, guid: 9958079032e8f7440ba4ba2062255d0f, type: 3}
   uses: 3
   boostTime: 0.5
-  itemCooldown: 0.8
+  itemCooldown: 0.1
   useSprites:
   - {fileID: 21300000, guid: 1df70b3ee8e0bb845badd225dbfb8161, type: 3}
   - {fileID: 21300000, guid: 4cdfa322864c3e54f99ac03829646183, type: 3}
