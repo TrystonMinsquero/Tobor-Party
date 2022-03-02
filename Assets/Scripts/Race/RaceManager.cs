@@ -19,9 +19,13 @@ public class RaceManager : MonoBehaviour
     public uint numLaps = 1; 
     public List<CheckpointUser> cars = new List<CheckpointUser>();
 
+    public AudioSource countdownAudio;
+
     private void Awake()
     {
         instance = this;
+        if(!countdownAudio)
+            TryGetComponent(out countdownAudio);
     }
 
     void Start()
@@ -42,7 +46,7 @@ public class RaceManager : MonoBehaviour
                 if (player && player.playerObject.TryGetComponent<CheckpointUser>(out var cpUser))
                     cpUser.FinishedRace += data => player.AddRaceData(data); 
                 
-
+        
         Started = false;
         Finished = false;
         StartState = "3";
@@ -52,7 +56,7 @@ public class RaceManager : MonoBehaviour
 
     IEnumerator StartGame()
     {
-        SFXManager.Play("Countdown");
+        countdownAudio?.Play();
         for (int i = 3; i >= 1; i--)
         {
             StartState = $"{i}";

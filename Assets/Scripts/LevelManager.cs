@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class LevelManager : MonoBehaviour
 {
     // only necessary for order of players
     public PlayerSpawner[] playerSpawners;
+
+    public static AudioSource gameMusic;
 
     private void Awake()
     {
@@ -44,6 +47,12 @@ public class LevelManager : MonoBehaviour
         }
 
         PlayerInputManager.instance.splitScreen = true;
+
+        gameMusic = GetComponent<AudioSource>();
     }
 
+    private void OnDestroy()
+    {
+        gameMusic = null;
+    }
 }
