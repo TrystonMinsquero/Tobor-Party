@@ -11002,14 +11002,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f657e13fff962b643acd604a855f3d35, type: 3}
---- !u!198 &909172207629433604 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 477345120711762531, guid: f657e13fff962b643acd604a855f3d35, type: 3}
-  m_PrefabInstance: {fileID: 721096653492361575}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7130634143826145711 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7562881247138408648, guid: f657e13fff962b643acd604a855f3d35, type: 3}
+  m_PrefabInstance: {fileID: 721096653492361575}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &909172207629433604 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 477345120711762531, guid: f657e13fff962b643acd604a855f3d35, type: 3}
   m_PrefabInstance: {fileID: 721096653492361575}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &818227979805541769
@@ -11186,6 +11186,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2168267029857533161, guid: 4cc43f0f143ae17488af04bf281cf7d4, type: 3}
   m_PrefabInstance: {fileID: 818227979805541769}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1535117669672499583 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2168267029857533174, guid: 4cc43f0f143ae17488af04bf281cf7d4, type: 3}
+  m_PrefabInstance: {fileID: 818227979805541769}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c28b6140be0bf8b4ea64019e702aaebe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1513724652901759302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11993,6 +12004,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5533509816753977992, guid: a7f212c9eecdc6e449caf169c6136047, type: 3}
+      propertyPath: leaderboard
+      value: 
+      objectReference: {fileID: 1535117669672499583}
     - target: {fileID: 6235699137412582462, guid: a7f212c9eecdc6e449caf169c6136047, type: 3}
       propertyPath: m_Name
       value: Tobor HUD
