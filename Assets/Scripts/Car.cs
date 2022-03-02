@@ -528,7 +528,7 @@ public class Car : PlayerObject
             lastUseItemInput = false;
         
         // Audio
-        float volume = inputMoveSpeed / (maxGasSpeed * 50);
+        float volume = rb.velocity.magnitude / (maxGasSpeed * 50);
         if (volume > .05f) volume = .05f;
         whirring.volume = volume;
 
