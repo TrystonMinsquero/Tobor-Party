@@ -2759,6 +2759,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: abd7576e536717845b2e5114e757b061, type: 2}
     - target: {fileID: -7775304284535452026, guid: 023bd6898d24378409700b229092e16c, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: -7775304284535452026, guid: 023bd6898d24378409700b229092e16c, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
