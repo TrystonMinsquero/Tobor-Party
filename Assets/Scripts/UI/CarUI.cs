@@ -24,6 +24,9 @@ public class CarUI : MonoBehaviour
     public Transform speedometerNeedle;
     public Leaderboard leaderboard;
 
+    public PositionNumberHandler positionNumberHandler;
+    public Image ckptImage;
+
     private void Awake()
     {
         cpUser = GetComponentInParent<CheckpointUser>();
@@ -60,8 +63,9 @@ public class CarUI : MonoBehaviour
 
         // Update Place text
         int place = RaceManager.instance.cars.IndexOf(cpUser) + 1;
-        placeText.text = place.ToString();
-        placeSuffixText.text = GetPlaceSuffix(place);
+        positionNumberHandler.UpdatePosition(place);
+        //placeText.text = place.ToString();
+        //placeSuffixText.text = GetPlaceSuffix(place);
 
         // Update start text, laptext, and speed text
         startText.text = RaceManager.StartState;
@@ -154,19 +158,62 @@ public class CarUI : MonoBehaviour
 
     private IEnumerator ShowCheckpointTime(float time, char prefix)
     {
+        
+        checkpointTimeText.text = ""; // reset text?
+        ckptImage.enabled = true;
+        ckptImage.transform.localScale = new Vector3(1, 0, 1);
+
+        // play animation
+        float lerpTime = 0, lerpDur = 0.15f;
+        while (lerpTime < lerpDur)
+        {
+            float t = lerpTime / lerpDur;
+            t = t * t * (3f - 2f * t);
+
+            float y = Mathf.Lerp(0, 1, t);
+            ckptImage.transform.localScale = new Vector3(1, y, 1);
+            
+            lerpTime += Time.deltaTime;
+            yield return null;
+        }
+        ckptImage.transform.localScale = new Vector3(1, 1, 1);
+            
+        
+        string rtColor = "";
+        
         switch (prefix)
         {
-            case '+': checkpointTimeText.color = Color.red;
+            case '+': rtColor = "<color=\"red\">";
                 break;
-            case '-': checkpointTimeText.color = Color.green;
+            case '-': rtColor = "<color=\"green\">";
                 break;
-            default: checkpointTimeText.color = Color.gray;
+            default: rtColor = "<color=#939397>"; 
                 break;
         }
         
-        checkpointTimeText.text = prefix == '-' ? $"{time:0.00}s" : "" + prefix + $"{time:0.00}s";
+        //checkpointTimeText.text = "CHECKPOINT  " + (prefix == '-' ? $"{time:0.00}s" : "" + prefix + $"{time:0.00}s");
+        checkpointTimeText.text = "CHECKPOINT  " + rtColor + (prefix == '-' ? $"{time:0.00}s" : "" + prefix + $"{time:0.00}s");
+        
         yield return new WaitForSeconds(1.5f);
+        
+        // play animation
+        lerpTime = 0;
+        lerpDur = 0.1f;
+        while (lerpTime < lerpDur)
+        {
+            float t = lerpTime / lerpDur;
+            t = t * t * (3f - 2f * t);
+
+            float y = Mathf.Lerp(1, 0, t);
+            ckptImage.transform.localScale = new Vector3(1, y, 1);
+            
+            lerpTime += Time.deltaTime;
+            yield return null;
+        }
+        ckptImage.transform.localScale = new Vector3(1, 0, 1);
+        
         checkpointTimeText.text = "";
+        ckptImage.enabled = false;
     }
 
     private void OnDestroy()
