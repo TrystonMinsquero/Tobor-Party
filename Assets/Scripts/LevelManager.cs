@@ -55,14 +55,6 @@ public class LevelManager : MonoBehaviour
         gameMusic = GetComponent<AudioSource>();
     }
 
-    public static void SetAudioEnable(bool enable)
-    {
-        if (!Instance)
-            return;
-        if (Instance.TryGetComponent<AudioListener>(out var listener))
-            listener.enabled = enable;
-    }
-    
     private void OnDestroy()
     {
         gameMusic = null;

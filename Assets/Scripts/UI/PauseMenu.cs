@@ -28,8 +28,8 @@ public class PauseMenu : MonoBehaviour
         IsPaused = true;
         Time.timeScale = 0;
         LevelManager.gameMusic?.Pause();
-        LevelManager.SetAudioEnable(false);
         RaceManager.instance?.countdownAudio?.Pause();
+        AudioListener.pause = true;
         Instance.GetComponent<Canvas>().enabled = true;
         Instance.initialButton.Select();
         foreach (var player in PlayerManager.players)
@@ -45,8 +45,8 @@ public class PauseMenu : MonoBehaviour
         IsPaused = false;
         Time.timeScale = 1;
         LevelManager.gameMusic?.UnPause();
-        LevelManager.SetAudioEnable(true);
         RaceManager.instance?.countdownAudio?.UnPause();
+        AudioListener.pause = false;
         if(Instance)
             Instance.GetComponent<Canvas>().enabled = false;
         foreach (var player in PlayerManager.players)
@@ -63,6 +63,7 @@ public class PauseMenu : MonoBehaviour
     public static void Leave()
     {
         IsPaused = false;
+        AudioListener.pause = false;
         Time.timeScale = 1;
         if(Instance)
             Instance.GetComponent<Canvas>().enabled = false;
