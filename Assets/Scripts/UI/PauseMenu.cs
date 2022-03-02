@@ -28,6 +28,7 @@ public class PauseMenu : MonoBehaviour
         IsPaused = true;
         Time.timeScale = 0;
         LevelManager.gameMusic?.Pause();
+        LevelManager.SetAudioEnable(false);
         RaceManager.instance?.countdownAudio?.Pause();
         Instance.GetComponent<Canvas>().enabled = true;
         Instance.initialButton.Select();
@@ -44,6 +45,7 @@ public class PauseMenu : MonoBehaviour
         IsPaused = false;
         Time.timeScale = 1;
         LevelManager.gameMusic?.UnPause();
+        LevelManager.SetAudioEnable(true);
         RaceManager.instance?.countdownAudio?.UnPause();
         if(Instance)
             Instance.GetComponent<Canvas>().enabled = false;

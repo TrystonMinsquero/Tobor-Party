@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInputManager))]
 public class LevelManager : MonoBehaviour
 {
+    public static LevelManager Instance { get; private set; }
+    
     // only necessary for order of players
     public PlayerSpawner[] playerSpawners;
 
@@ -14,6 +16,8 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
+        
         // if someone forgets to start spawners on
         if (playerSpawners == null)
         {
@@ -51,6 +55,14 @@ public class LevelManager : MonoBehaviour
         gameMusic = GetComponent<AudioSource>();
     }
 
+    public static void SetAudioEnable(bool enable)
+    {
+        if (!Instance)
+            return;
+        if (Instance.TryGetComponent<AudioListener>(out var listener))
+            listener.enabled = enable;
+    }
+    
     private void OnDestroy()
     {
         gameMusic = null;

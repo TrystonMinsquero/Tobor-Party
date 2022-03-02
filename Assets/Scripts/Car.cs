@@ -528,9 +528,9 @@ public class Car : PlayerObject
             lastUseItemInput = false;
         
         // Audio
-        float volume = rb.velocity.magnitude / (maxGasSpeed * 50);
-        if (volume > .05f) volume = .05f;
-        whirring.volume = volume;
+        float volume = rb.velocity.magnitude / (maxGasSpeed * 40);
+        if (volume > .04f) volume = .04f;
+        whirring.volume = volume * Time.timeScale;
 
     }
     #endregion
