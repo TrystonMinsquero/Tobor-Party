@@ -61,7 +61,7 @@ public class LobbyUI : MonoBehaviour
         _countingDown = true;
         countdownAudio.Play();
         StartCoroutine(CountDown());
-        StartCoroutine(FadeOutAudio(musicAudio, 3));
+        StartCoroutine(FadeOutAudio(musicAudio, 3.5f));
     }
 
     public void StopCountdown()
@@ -78,7 +78,7 @@ public class LobbyUI : MonoBehaviour
         if (audioSource)
         {
             float initVolume = audioSource.volume;
-            while (audioSource.volume > .01f) {
+            while (audioSource.volume > .03f) {
                 audioSource.volume -= initVolume * Time.deltaTime / time;
                 yield return null;
             }

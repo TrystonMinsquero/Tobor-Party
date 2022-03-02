@@ -17,7 +17,7 @@ public class Boost : Item
     public override void Activate(Car car)
     {
         this.car = car;
-
+        SFXManager.Play("Boost");
         car.Boost(boostTime);
         StartCoroutine(Cooldown());
     }

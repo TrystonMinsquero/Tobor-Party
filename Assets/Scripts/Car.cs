@@ -265,6 +265,7 @@ public class Car : PlayerObject
         if (wipeoutTime < 0)
             wipeoutTime = 0;
         wipeoutTime = Mathf.Max(amount, wipeoutTime);
+        SFXManager.Play("WAH");
     }
 
     // Deactivates player input, replaces with Bot input
@@ -527,8 +528,8 @@ public class Car : PlayerObject
             lastUseItemInput = false;
         
         // Audio
-        float volume = inputMoveSpeed / (maxGasSpeed * 10);
-        if (volume > .1f) volume = .1f;
+        float volume = inputMoveSpeed / (maxGasSpeed * 50);
+        if (volume > .05f) volume = .05f;
         whirring.volume = volume;
 
     }

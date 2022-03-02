@@ -2062,6 +2062,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tobor-Bot Variant (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8960250011995358805, guid: 98be73cd162787d46a7a37eb6adf6520, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8960250011995358809, guid: 98be73cd162787d46a7a37eb6adf6520, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -4566,6 +4570,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tobor-Bot Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8960250011995358805, guid: 98be73cd162787d46a7a37eb6adf6520, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8960250011995358809, guid: 98be73cd162787d46a7a37eb6adf6520, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -4634,6 +4642,10 @@ PrefabInstance:
     - target: {fileID: 8960250011995358805, guid: 98be73cd162787d46a7a37eb6adf6520, type: 3}
       propertyPath: m_Name
       value: Tobor-Bot Variant (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8960250011995358805, guid: 98be73cd162787d46a7a37eb6adf6520, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8960250011995358809, guid: 98be73cd162787d46a7a37eb6adf6520, type: 3}
       propertyPath: m_RootOrder
@@ -5813,12 +5825,27 @@ MonoBehaviour:
   sounds:
   - name: Item Pickup
     clip: {fileID: 8300000, guid: 90c0391336bd7e943bf4d5ee818ae56d, type: 3}
-    volume: 0.12
+    volume: 0.1
     pitch: 1
     source: {fileID: 0}
   - name: Countdown
     clip: {fileID: 8300000, guid: 32b76ffd111c1b247bf20fa57a279d7a, type: 3}
     volume: 0.15
+    pitch: 1
+    source: {fileID: 0}
+  - name: Boost
+    clip: {fileID: 8300000, guid: b3a0209288537ba4980a9d8818c4bc59, type: 3}
+    volume: 0.08
+    pitch: 1
+    source: {fileID: 0}
+  - name: WAH
+    clip: {fileID: 8300000, guid: 047b0bd715a226549afa926a62b9845a, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: EMP Blast
+    clip: {fileID: 8300000, guid: a9f677821abf45c48b2a0e3b7a6928ea, type: 3}
+    volume: 0.1
     pitch: 1
     source: {fileID: 0}
 --- !u!4 &1633649946
@@ -6598,6 +6625,10 @@ PrefabInstance:
     - target: {fileID: 8960250011995358805, guid: 98be73cd162787d46a7a37eb6adf6520, type: 3}
       propertyPath: m_Name
       value: Tobor-Bot Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8960250011995358805, guid: 98be73cd162787d46a7a37eb6adf6520, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8960250011995358809, guid: 98be73cd162787d46a7a37eb6adf6520, type: 3}
       propertyPath: m_RootOrder

@@ -11,6 +11,7 @@ public class BoostPad : MonoBehaviour
     {
         if (collider.transform.TryGetComponent<Car>(out var car))
         {
+            SFXManager.Play("Boost");
             car.Boost(boostTime);
         }
     }

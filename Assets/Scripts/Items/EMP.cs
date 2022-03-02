@@ -10,6 +10,7 @@ public class EMP : Item
     // Knock out other players in a radius and play animation
     public override void Activate(Car thisCar)
     {
+        SFXManager.Play("EMP Blast");
         foreach (var user in RaceManager.instance.cars)
         {
             var car = user.GetComponent<Car>();
