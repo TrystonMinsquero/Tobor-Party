@@ -159,6 +159,7 @@ public class Car : PlayerObject
     public Text speedText;
     public CarController _controller;
     public Vector3 startRotation;
+    public AudioSource whirring;
 
     public float wipeoutTime = 0;
 
@@ -524,6 +525,12 @@ public class Car : PlayerObject
 
         if (!inputs.useItem)
             lastUseItemInput = false;
+        
+        // Audio
+        float volume = inputMoveSpeed / (maxGasSpeed * 10);
+        if (volume > .1f) volume = .1f;
+        whirring.volume = volume;
+
     }
     #endregion
 

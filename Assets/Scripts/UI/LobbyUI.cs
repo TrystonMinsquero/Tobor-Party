@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
@@ -11,10 +12,16 @@ public class LobbyUI : MonoBehaviour
 
     public string _UIState = "Waiting for players to ready up...";
     public AudioSource countdownAudio;
+    public AudioSource musicAudio;
 
-
+    private float _initMusicVolume;
     private bool _countingDown;
 
+    public void Start()
+    {
+        countdownAudio = GetComponent<AudioSource>();
+        _initMusicVolume = musicAudio.volume;
+    }
 
     public void Update()
     {
@@ -54,16 +61,32 @@ public class LobbyUI : MonoBehaviour
         _countingDown = true;
         countdownAudio.Play();
         StartCoroutine(CountDown());
+        StartCoroutine(FadeOutAudio(musicAudio, 3));
     }
 
     public void StopCountdown()
     {
         _countingDown = false;
         countdownAudio.Stop();
+        musicAudio.volume = _initMusicVolume;
         StopAllCoroutines();
         _UIState = "Waiting for players to ready up...";
     }
-    
+
+    private IEnumerator FadeOutAudio(AudioSource audioSource, float time)
+    {
+        if (audioSource)
+        {
+            float initVolume = audioSource.volume;
+            while (audioSource.volume > .01f) {
+                audioSource.volume -= initVolume * Time.deltaTime / time;
+                yield return null;
+            }
+        }
+        else
+            Debug.LogWarning("Can't fade out null");
+    }
+
     private IEnumerator CountDown()
     {
         for (int i = 3; i >= 0; i--)
