@@ -52,6 +52,7 @@ public class ItemBox : MonoBehaviour
             pos /= RaceManager.instance.cars.Count;
 
             car.AddItem(GetItem(pos));
+            SFXManager.Play("Item Pickup");
 
             StartCoroutine(UseItemDelay());
         }
