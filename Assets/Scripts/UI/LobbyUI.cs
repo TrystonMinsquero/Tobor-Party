@@ -10,11 +10,12 @@ public class LobbyUI : MonoBehaviour
     public Text actionText;
 
     public string _UIState = "Waiting for players to ready up...";
-    
+    public AudioSource countdownAudio;
+
 
     private bool _countingDown;
-    
-    
+
+
     public void Update()
     {
         bool hasPlayer = false;
@@ -51,19 +52,21 @@ public class LobbyUI : MonoBehaviour
     public void StartCountdown()
     {
         _countingDown = true;
+        countdownAudio.Play();
         StartCoroutine(CountDown());
     }
 
     public void StopCountdown()
     {
         _countingDown = false;
+        countdownAudio.Stop();
         StopAllCoroutines();
         _UIState = "Waiting for players to ready up...";
     }
     
     private IEnumerator CountDown()
     {
-        for (int i = 3; i >= 1; i--)
+        for (int i = 3; i >= 0; i--)
         {
             _UIState = $"Game Starting in {i}";
             yield return new WaitForSeconds(1);

@@ -52,6 +52,7 @@ public class RaceManager : MonoBehaviour
 
     IEnumerator StartGame()
     {
+        SFXManager.Play("Countdown");
         for (int i = 3; i >= 1; i--)
         {
             StartState = $"{i}";

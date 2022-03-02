@@ -70,4 +70,9 @@ public class PauseMenu : MonoBehaviour
         PlayerManager.ClearAndDestroy();
         SceneManager.LoadScene("Lobby");
     }
+    
+    public static void Quit()
+    {
+        Application.Quit();
+    }
 }
