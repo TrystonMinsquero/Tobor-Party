@@ -1,2 +1,3 @@
-# Tobor Party
- A game made for Cometville for SGDA 2022
+# Tobor Party 
+
+A unity game made by SGDA Officers in the Spring of 2022. Originally for cometville, but maybe will become something bigger...
