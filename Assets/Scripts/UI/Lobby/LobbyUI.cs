@@ -20,7 +20,8 @@ public class LobbyUI : MonoBehaviour
     public void Start()
     {
         countdownAudio = GetComponent<AudioSource>();
-        _initMusicVolume = musicAudio.volume;
+        musicAudio = MusicManager.currentSong.source;
+        _initMusicVolume = MusicManager.currentSong.volume;
     }
 
     public void Update()
@@ -101,8 +102,11 @@ public class LobbyUI : MonoBehaviour
     
     public void StartGame()
     {
-        if(PlayerManager.playerCount > 0)
+        if (PlayerManager.playerCount > 0)
+        {
             SceneManager.LoadScene("RaceTrack");
+            musicAudio.volume = _initMusicVolume;
+        }
     }
 
     public void Exit()
