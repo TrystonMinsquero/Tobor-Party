@@ -19,7 +19,7 @@ public class ToborRenderer : MonoBehaviour
 
     void Start()
     {
-        skin = GetComponent<PlayerSkin>();
+        skin = tobor.GetComponent<PlayerSkin>();
     }
 
     void SetLayer(Transform t, LayerMask layer)
