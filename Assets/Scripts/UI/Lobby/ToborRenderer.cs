@@ -44,12 +44,19 @@ public class ToborRenderer : MonoBehaviour
         return layerNumber - 1;
     }
 
-    public void Initialize(LayerMask layer, RawImage output)
+    public void ResetLayer()
     {
         int l = maskToLayer(layer);
         SetLayer(tobor, l);
 
         camera.cullingMask = layer;
+    }
+
+    private LayerMask layer;
+    public void Initialize(LayerMask layer, RawImage output)
+    {
+        this.layer = layer;
+        ResetLayer();
 
         texture = new RenderTexture(width, height, 0, RenderTextureFormat.ARGB32);
         camera.targetTexture = texture;
@@ -67,6 +74,8 @@ public class ToborRenderer : MonoBehaviour
     {
         if (right) skin.NextSkin();
         else skin.PrevSkin();
+
+        ResetLayer();
     }
 
     public void Enable()

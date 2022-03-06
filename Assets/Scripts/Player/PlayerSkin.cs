@@ -35,6 +35,14 @@ public class PlayerSkin : MonoBehaviour
         ApplySkin();
     }
 
+    public void SetIndex(int index)
+    {
+        Index = (index % skins.Count);
+        if (Index < 0) Index += skins.Count;
+
+        ApplySkin();
+    }
+
     public void ApplySkin()
     {
         var skin = Instantiate(Skin.skinObject);
