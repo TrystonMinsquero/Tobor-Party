@@ -15,7 +15,7 @@ public class PlayerSkin : MonoBehaviour
     public Skin Skin => skins[Index];
     public int Index { get; private set; } = 0;
 
-    public List<Skin> skins;
+    public ToborSkins skins;
 
     public Transform currentSkin;
     public Transform currentSkinParent;

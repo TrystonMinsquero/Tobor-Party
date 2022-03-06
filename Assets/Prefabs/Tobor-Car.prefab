@@ -648,13 +648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee52d58dd5a4eec4388430dc6768d786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skins:
-  - name: Tobor
-    skinObject: {fileID: 4180175838918869709, guid: 352d7f3651c16a74daa8c95b7e325baa, type: 3}
-  - name: InitialD
-    skinObject: {fileID: 8355092149201882192, guid: aac13d33afe64fc4999a40917cc3de38, type: 3}
-  - name: NFSMW
-    skinObject: {fileID: 7580809383401467997, guid: 7eba07091283ac94cb4c20d7e7bd7984, type: 3}
+  skins: {fileID: 5193816659447023975, guid: f721e6c722747f6469d47cbdc4638fb5, type: 3}
   currentSkin: {fileID: 5830427317629601977}
   currentSkinParent: {fileID: 2079632475794937794}
 --- !u!1 &14438646894300351
