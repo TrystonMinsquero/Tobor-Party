@@ -78,6 +78,12 @@ public class ToborRenderer : MonoBehaviour
         ResetLayer();
     }
 
+    public void UpdateSkin(int index)
+    {
+        skin.SetIndex(index);
+        ResetLayer();
+    }
+
     public void Enable()
     {
         tobor.gameObject.SetActive(true);

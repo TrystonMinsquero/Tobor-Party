@@ -32,6 +32,7 @@ public class JoinBox : MonoBehaviour
         preview.Enable();
         _controller = player.GetComponent<UIController>();
         _controller.controls.UI.Ready.Enable();
+        preview.renderer.UpdateSkin(_player.skinIndex);
         
         if (_controller)
         {
@@ -103,6 +104,7 @@ public class JoinBox : MonoBehaviour
     {
         if(input != 0 && !isReady)
             preview.renderer.ChangeSkin(input > 0);
+        _player.skinIndex = preview.renderer.skin.Index;
     }
     
 }

@@ -51,7 +51,8 @@ public class PlayerSkin : MonoBehaviour
         skin.localRotation = Quaternion.identity;
         skin.localPosition = Vector3.zero;
 
-        Destroy(currentSkin.gameObject);
+        if(currentSkin)
+            Destroy(currentSkin.gameObject);
         currentSkin = skin;
     }
 }
