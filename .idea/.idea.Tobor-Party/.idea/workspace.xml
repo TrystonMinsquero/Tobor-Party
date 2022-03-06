@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="51c923a0-25cd-4217-9576-2d457c48d13d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tobor-Party/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tobor-Party/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Lobby/JoinBox.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Lobby/JoinBox.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Lobby/ToborRenderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Lobby/ToborRenderer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Race/CheckpointUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Race/CheckpointUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Race/RaceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Race/RaceManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/CarUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/CarUI.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +23,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.3.0/InputSystem/Actions/InputActionState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/695d1cc93cca45069c528c15c9fdd7493e2800/07/b93f0c4e/Array.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/695d1cc93cca45069c528c15c9fdd7493e2800/e2/74db80d7/Action`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.3.0/InputSystem/Plugins/PlayerInput/PlayerInputManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.3.0/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d3b66f0ad4e34a55b6ef91ab8487819313c000/59/2df83bed/RenderTexture.cs" root0="SKIP_HIGHLIGHTING" />
@@ -61,10 +61,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="31636">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="31636" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -151,17 +151,43 @@
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Audio/MusicManager.cs</url>
-          <line>25</line>
-          <properties documentPath="C:\GitHub Repos\Unity\Tobor-Party\Assets\Scripts\Audio\MusicManager.cs" initialLine="24" containingFunctionPresentation="method 'Awake'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Race/CheckpointUser.cs</url>
+          <line>54</line>
+          <properties documentPath="C:\GitHub Repos\Unity\Tobor-Party\Assets\Scripts\Race\CheckpointUser.cs" initialLine="54" containingFunctionPresentation="method 'CheckpointReached'">
             <startOffsets>
-              <option value="638" />
+              <option value="1812" />
             </startOffsets>
             <endOffsets>
-              <option value="639" />
+              <option value="1813" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="12" />
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Race/CheckpointUser.cs</url>
+          <line>30</line>
+          <properties documentPath="C:\GitHub Repos\Unity\Tobor-Party\Assets\Scripts\Race\CheckpointUser.cs" initialLine="30" containingFunctionPresentation="method 'Start'">
+            <startOffsets>
+              <option value="1040" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1041" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Race/CheckpointUser.cs</url>
+          <line>48</line>
+          <properties documentPath="C:\GitHub Repos\Unity\Tobor-Party\Assets\Scripts\Race\CheckpointUser.cs" initialLine="48" containingFunctionPresentation="method 'Start'">
+            <startOffsets>
+              <option value="1715" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1741" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
