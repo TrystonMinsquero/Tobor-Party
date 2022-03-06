@@ -11,16 +11,16 @@ public class LobbyUI : MonoBehaviour
     public Text actionText;
 
     public string _UIState = "Waiting for players to ready up...";
-    public AudioSource countdownAudio;
-    public AudioSource musicAudio;
-
+    
+    private AudioSource _countdownAudio;
+    private AudioSource _musicAudio;
     private float _initMusicVolume;
     private bool _countingDown;
 
     public void Start()
     {
-        countdownAudio = GetComponent<AudioSource>();
-        musicAudio = MusicManager.currentSong.source;
+        _countdownAudio = GetComponent<AudioSource>();
+        _musicAudio = MusicManager.currentSong.source;
         _initMusicVolume = MusicManager.currentSong.volume;
     }
 
@@ -60,7 +60,7 @@ public class LobbyUI : MonoBehaviour
     public void StartCountdown()
     {
         _countingDown = true;
-        countdownAudio.Play();
+        _countdownAudio.Play();
         StartCoroutine(CountDown());
         MusicManager.FadeSongTo(MusicManager.currentSong.name, 3.5f, .03f, .8f);
     }
@@ -68,9 +68,10 @@ public class LobbyUI : MonoBehaviour
     public void StopCountdown()
     {
         _countingDown = false;
-        countdownAudio.Stop();
-        musicAudio.volume = _initMusicVolume;
+        _countdownAudio.Stop();
+        _musicAudio.volume = _initMusicVolume;
         StopAllCoroutines();
+        MusicManager.instance.StopAllCoroutines();
         _UIState = "Waiting for players to ready up...";
     }
 

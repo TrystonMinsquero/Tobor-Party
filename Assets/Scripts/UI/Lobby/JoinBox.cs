@@ -3,6 +3,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class JoinBox : MonoBehaviour
@@ -52,6 +53,11 @@ public class JoinBox : MonoBehaviour
     {
         if(isReady)
             UnReady();
+        else if (PlayerManager.playerCount == 1)
+        {
+            PlayerManager.ClearAndDestroy();
+            SceneManager.LoadScene("MainMenu");
+        }
         else
             RemovePlayer(_player);
     }
