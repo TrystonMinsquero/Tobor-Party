@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51c923a0-25cd-4217-9576-2d457c48d13d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/RaceTrack.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/RaceTrack.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tobor-Party/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tobor-Party/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Audio/MusicManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/MusicManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Lobby/LobbyUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Lobby/LobbyUI.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,39 +136,39 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Audio/MusicManager.cs</url>
-          <line>86</line>
+          <line>126</line>
           <properties documentPath="C:\GitHub Repos\Unity\Tobor-Party\Assets\Scripts\Audio\MusicManager.cs" initialLine="80" containingFunctionPresentation="method 'OnDisable'">
             <startOffsets>
-              <option value="2223" />
+              <option value="3759" />
             </startOffsets>
             <endOffsets>
-              <option value="2224" />
+              <option value="3760" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Audio/MusicManager.cs</url>
-          <line>88</line>
+          <line>128</line>
           <properties documentPath="C:\GitHub Repos\Unity\Tobor-Party\Assets\Scripts\Audio\MusicManager.cs" initialLine="83" containingFunctionPresentation="method 'OnDisable'">
             <startOffsets>
-              <option value="2262" />
+              <option value="3798" />
             </startOffsets>
             <endOffsets>
-              <option value="2263" />
+              <option value="3799" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Audio/MusicManager.cs</url>
-          <line>24</line>
+          <line>25</line>
           <properties documentPath="C:\GitHub Repos\Unity\Tobor-Party\Assets\Scripts\Audio\MusicManager.cs" initialLine="24" containingFunctionPresentation="method 'Awake'">
             <startOffsets>
-              <option value="612" />
+              <option value="638" />
             </startOffsets>
             <endOffsets>
-              <option value="613" />
+              <option value="639" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="12" />

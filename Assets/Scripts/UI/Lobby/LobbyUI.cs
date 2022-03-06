@@ -62,7 +62,7 @@ public class LobbyUI : MonoBehaviour
         _countingDown = true;
         countdownAudio.Play();
         StartCoroutine(CountDown());
-        StartCoroutine(FadeOutAudio(musicAudio, 3.5f));
+        MusicManager.FadeSongTo(MusicManager.currentSong.name, 3.5f, .03f, .8f);
     }
 
     public void StopCountdown()
@@ -72,20 +72,6 @@ public class LobbyUI : MonoBehaviour
         musicAudio.volume = _initMusicVolume;
         StopAllCoroutines();
         _UIState = "Waiting for players to ready up...";
-    }
-
-    private IEnumerator FadeOutAudio(AudioSource audioSource, float time)
-    {
-        if (audioSource)
-        {
-            float initVolume = audioSource.volume;
-            while (audioSource.volume > .03f) {
-                audioSource.volume -= initVolume * Time.deltaTime / time;
-                yield return null;
-            }
-        }
-        else
-            Debug.LogWarning("Can't fade out null");
     }
 
     private IEnumerator CountDown()
@@ -105,7 +91,6 @@ public class LobbyUI : MonoBehaviour
         if (PlayerManager.playerCount > 0)
         {
             SceneManager.LoadScene("RaceTrack");
-            musicAudio.volume = _initMusicVolume;
         }
     }
 

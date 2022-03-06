@@ -1,5 +1,6 @@
 using UnityEngine.Audio;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -64,6 +65,45 @@ public class MusicManager : MonoBehaviour
         }
     }
     
+    /// <summary>
+    ///   <param name="songName">the title of the song to fade</param>
+    /// </summary>
+    public static void FadeSongTo(string songName, float timeToFade, float endValue = 0, float timeUntilInitialAgain = -1)
+    {
+        Song song = _songs.Find(song => song.name == songName);
+        if (song == null || song == new Song())
+            return;
+        instance.StartCoroutine(instance.FadeTo(song.source, timeToFade, endValue, timeUntilInitialAgain));
+    }
+    
+    private IEnumerator FadeTo(AudioSource source, float timeToFade, float endValue, float timeUntilInitialAgain)
+    {
+        if (source != null)
+        {
+            float initVolume = source.volume;
+            if(initVolume > endValue) 
+                while (source.volume > endValue) {
+                    source.volume -= initVolume * Time.deltaTime / timeToFade;
+                    yield return null;
+                }
+            else
+                while (source.volume < endValue) {
+                    source.volume += initVolume * Time.deltaTime / timeToFade;
+                    yield return null;
+                }
+
+            if (timeUntilInitialAgain > 0)
+                StartCoroutine(SetVolumeAfter(source, initVolume, timeUntilInitialAgain));
+        }
+        else
+            Debug.LogWarning("Can't fade null");
+    }
+
+    private IEnumerator SetVolumeAfter(AudioSource source, float value, float time)
+    {
+        yield return new WaitForSeconds(time);
+        source.volume = value;
+    }
 
     public static void Play(string name)
     {
