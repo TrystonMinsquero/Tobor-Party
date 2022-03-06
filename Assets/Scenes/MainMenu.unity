@@ -561,14 +561,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7979573790131294878}
         m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
-        m_MethodName: ShowStartMenu
-        m_Mode: 1
+        m_MethodName: SetMenu
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Start
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!222 &320557624
@@ -694,7 +694,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &515429313
 RectTransform:
   m_ObjectHideFlags: 0
@@ -762,7 +762,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 515429312}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -1108,14 +1108,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7979573790131294878}
         m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
-        m_MethodName: ShowSettings
-        m_Mode: 1
+        m_MethodName: SetMenu
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Settings
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!224 &823631004
@@ -1474,14 +1474,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7979573790131294878}
         m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
-        m_MethodName: ShowPlayMenu
-        m_Mode: 1
+        m_MethodName: SetMenu
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Play
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &978171303
@@ -1548,14 +1548,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7979573790131294878}
         m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
-        m_MethodName: ShowStartMenu
-        m_Mode: 1
+        m_MethodName: SetMenu
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Start
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!224 &978171305
@@ -1837,7 +1837,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1119947859
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1905,7 +1905,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119947858}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -2439,14 +2439,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7979573790131294878}
         m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
-        m_MethodName: ShowCredits
-        m_Mode: 1
+        m_MethodName: SetMenu
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Credits
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!222 &1396766498
@@ -2524,7 +2524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1523251841
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2594,7 +2594,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1523251840}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -2818,14 +2818,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7979573790131294878}
         m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
-        m_MethodName: ShowStartMenu
-        m_Mode: 1
+        m_MethodName: SetMenu
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Start
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!224 &1711926735
@@ -3381,11 +3381,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec50db27e8dcda47a31d03c5fd8f711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 47414726}
-  playMenu: {fileID: 1523251844}
-  settingsMenu: {fileID: 1119947862}
-  credits: {fileID: 515429316}
-  initStartButton: {fileID: 936752623}
-  initPlayButton: {fileID: 2094523002}
-  initSettingsButton: {fileID: 978171304}
-  initCreditsButton: {fileID: 1711926734}
+  menus:
+  - name: Start
+    root: {fileID: 47414722}
+    initButton: {fileID: 936752623}
+  - name: Play
+    root: {fileID: 1523251840}
+    initButton: {fileID: 2094523002}
+  - name: Settings
+    root: {fileID: 1119947858}
+    initButton: {fileID: 978171304}
+  - name: Credits
+    root: {fileID: 515429312}
+    initButton: {fileID: 1711926734}

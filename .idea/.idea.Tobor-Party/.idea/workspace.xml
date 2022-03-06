@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="51c923a0-25cd-4217-9576-2d457c48d13d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tobor-Party/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tobor-Party/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Race/CheckpointUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Race/CheckpointUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Race/RaceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Race/RaceManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/CarUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/CarUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Controls/Controls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Controls/Controls.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Controls/Controls.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Controls/Controls.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Main Menu/MainMenuUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Main Menu/MainMenuUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,10 +63,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="31636">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="31636" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -101,6 +103,7 @@
       <workItem from="1646194908599" duration="7035000" />
       <workItem from="1646245288392" duration="11218000" />
       <workItem from="1646507078492" duration="13301000" />
+      <workItem from="1646594341088" duration="3191000" />
     </task>
     <servers />
   </component>

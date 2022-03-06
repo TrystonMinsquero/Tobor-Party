@@ -4,58 +4,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[Serializable]
+public class Menu
+{
+    public string name;
+    public GameObject root;
+    public Button initButton;
+
+    public void SetActive(bool enable)
+    {
+        root?.SetActive(enable);
+        if(enable)
+            initButton?.Select();
+    }
+}
+
 public class MainMenuUI : MonoBehaviour
 {
-    // Maybe switch this to canvas groups?
-    public Canvas startMenu;
-    public Canvas playMenu;
-    public Canvas settingsMenu;
-    public Canvas credits;
-
-    public Button initStartButton;
-    public Button initPlayButton;
-    public Button initSettingsButton;
-    public Button initCreditsButton;
+    public List<Menu> menus;
+    private string currentMenu
+    {
+        set
+        {
+            var activeMenu = menus.Find(menu => menu.name == value);
+            if (activeMenu == new Menu())
+            {
+                Debug.LogWarning("Menu name not found");
+                return;
+            }
+            foreach (var menu in menus)
+                menu.SetActive(false);
+            activeMenu.SetActive(true);
+        }
+    }
 
     private void Start()
     {
-        ShowStartMenu();
+        currentMenu = "Start";
     }
 
-    public void ShowStartMenu()
+    public void SetMenu(string menuName)
     {
-        settingsMenu.enabled = false;
-        playMenu.enabled = false;
-        credits.enabled = false;
-        startMenu.enabled = true;
-        initStartButton.Select();
-    }
-
-    public void ShowPlayMenu()
-    {
-        settingsMenu.enabled = false;
-        credits.enabled = false;
-        startMenu.enabled = false;
-        playMenu.enabled = true;
-        initPlayButton.Select();
-    }
-
-    public void ShowSettings()
-    {
-        credits.enabled = false;
-        startMenu.enabled = false;
-        playMenu.enabled = false;
-        settingsMenu.enabled = true;
-        initSettingsButton.Select();
-    }
-
-    public void ShowCredits()
-    {
-        settingsMenu.enabled = false;
-        startMenu.enabled = false;
-        playMenu.enabled = false;
-        credits.enabled = true;
-        initCreditsButton.Select();
+        currentMenu = menuName;
     }
 
     public void Quit()
