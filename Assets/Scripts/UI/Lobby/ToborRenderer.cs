@@ -13,8 +13,14 @@ public class ToborRenderer : MonoBehaviour
     public int height = 256;
 
     public RenderTexture texture;
+    public PlayerSkin skin;
 
     public Vector2 rotation = new Vector2(15f, 215f);
+
+    void Start()
+    {
+        skin = GetComponent<PlayerSkin>();
+    }
 
     void SetLayer(Transform t, LayerMask layer)
     {
@@ -59,7 +65,8 @@ public class ToborRenderer : MonoBehaviour
     }
     public void ChangeSkin(bool right)
     {
-        Debug.Log(right);
+        if (right) skin.NextSkin();
+        else skin.PrevSkin();
     }
 
     public void Enable()

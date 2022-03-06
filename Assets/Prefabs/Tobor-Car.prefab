@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 5312674712506174225}
   - component: {fileID: 233872228388195300}
   - component: {fileID: 4627435715343030462}
+  - component: {fileID: 6771276425462494685}
   m_Layer: 0
   m_Name: Tobor-Car
   m_TagString: Untagged
@@ -635,6 +636,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6771276425462494685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14438645323195873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee52d58dd5a4eec4388430dc6768d786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skins:
+  - name: Tobor
+    skinObject: {fileID: 4180175838918869709, guid: 352d7f3651c16a74daa8c95b7e325baa, type: 3}
+  - name: InitialD
+    skinObject: {fileID: 8355092149201882192, guid: aac13d33afe64fc4999a40917cc3de38, type: 3}
+  - name: NFSMW
+    skinObject: {fileID: 7580809383401467997, guid: 7eba07091283ac94cb4c20d7e7bd7984, type: 3}
+  currentSkin: {fileID: 5830427317629601977}
+  currentSkinParent: {fileID: 2079632475794937794}
 --- !u!1 &14438646894300351
 GameObject:
   m_ObjectHideFlags: 0
@@ -11002,14 +11024,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f657e13fff962b643acd604a855f3d35, type: 3}
---- !u!4 &7130634143826145711 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7562881247138408648, guid: f657e13fff962b643acd604a855f3d35, type: 3}
-  m_PrefabInstance: {fileID: 721096653492361575}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &909172207629433604 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 477345120711762531, guid: f657e13fff962b643acd604a855f3d35, type: 3}
+  m_PrefabInstance: {fileID: 721096653492361575}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7130634143826145711 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7562881247138408648, guid: f657e13fff962b643acd604a855f3d35, type: 3}
   m_PrefabInstance: {fileID: 721096653492361575}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &818227979805541769
@@ -11717,14 +11739,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f319bf1e720a80840934a47d9d7cfa72, type: 3}
---- !u!4 &2239839961676816592 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6434115627574171332, guid: f319bf1e720a80840934a47d9d7cfa72, type: 3}
-  m_PrefabInstance: {fileID: 5070789852151264788}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &5494875195704549247 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 729204226901846379, guid: f319bf1e720a80840934a47d9d7cfa72, type: 3}
+  m_PrefabInstance: {fileID: 5070789852151264788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2239839961676816592 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6434115627574171332, guid: f319bf1e720a80840934a47d9d7cfa72, type: 3}
   m_PrefabInstance: {fileID: 5070789852151264788}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5935898872858721339
