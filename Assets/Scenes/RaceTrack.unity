@@ -6101,27 +6101,27 @@ MonoBehaviour:
   sounds:
   - name: Item Pickup
     clip: {fileID: 8300000, guid: 90c0391336bd7e943bf4d5ee818ae56d, type: 3}
-    volume: 0.1
+    volume: 0.54
     pitch: 1
     source: {fileID: 0}
   - name: Countdown
     clip: {fileID: 8300000, guid: 32b76ffd111c1b247bf20fa57a279d7a, type: 3}
-    volume: 0.15
+    volume: 0.6
     pitch: 1
     source: {fileID: 0}
   - name: Boost
     clip: {fileID: 8300000, guid: b3a0209288537ba4980a9d8818c4bc59, type: 3}
-    volume: 0.08
+    volume: 0.42
     pitch: 1
     source: {fileID: 0}
   - name: WAH
     clip: {fileID: 8300000, guid: 047b0bd715a226549afa926a62b9845a, type: 3}
-    volume: 0.1
+    volume: 0.35
     pitch: 1
     source: {fileID: 0}
   - name: EMP Blast
     clip: {fileID: 8300000, guid: a9f677821abf45c48b2a0e3b7a6928ea, type: 3}
-    volume: 0.1
+    volume: 0.55
     pitch: 1
     source: {fileID: 0}
 --- !u!4 &1633649946
@@ -7159,7 +7159,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5904e-41, y: 0, z: 0, w: 6.29e-43}
+  m_BoundingSphereOverride: {x: 4.5904e-41, y: 0, z: 0, w: 1.53e-43}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0

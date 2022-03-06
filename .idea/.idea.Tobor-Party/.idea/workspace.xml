@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51c923a0-25cd-4217-9576-2d457c48d13d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Audio.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/Song.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/Song.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tobor-Party/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tobor-Party/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Lobby.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/RaceTrack.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/RaceTrack.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Winning Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Winning Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SFXManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/SFXManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SFXManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/SFXManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Sound.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/Sound.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Sound.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/Sound.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Lobby/LobbyUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Lobby/LobbyUI.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,10 +56,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="31636">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="31636" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
