@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="51c923a0-25cd-4217-9576-2d457c48d13d" name="Changes" comment="" />
+    <list default="true" id="51c923a0-25cd-4217-9576-2d457c48d13d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PauseMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PauseMenu.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,7 +102,7 @@
       <workItem from="1646245288392" duration="11218000" />
       <workItem from="1646507078492" duration="13301000" />
       <workItem from="1646594341088" duration="3191000" />
-      <workItem from="1646791664654" duration="2521000" />
+      <workItem from="1646791664654" duration="2917000" />
     </task>
     <servers />
   </component>
