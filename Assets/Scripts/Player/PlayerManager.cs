@@ -30,7 +30,7 @@ public class PlayerManager : MonoBehaviour
             DontDestroyOnLoad(this);
         }
         
-        InputSystem.DisableDevice(Mouse.current);
+        //InputSystem.DisableDevice(Mouse.current);
     }
 
     private void Update()
