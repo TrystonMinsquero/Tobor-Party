@@ -50,3 +50,5 @@ MonoBehaviour:
     skinObject: {fileID: 8355092149201882192, guid: aac13d33afe64fc4999a40917cc3de38, type: 3}
   - name: NFSMW
     skinObject: {fileID: 7580809383401467997, guid: 7eba07091283ac94cb4c20d7e7bd7984, type: 3}
+  - name: ECS
+    skinObject: {fileID: 2768716741258074989, guid: ef68bc10bff636a498326abfc0c1c027, type: 3}
