@@ -46,9 +46,13 @@ MonoBehaviour:
   skins:
   - name: Default
     skinObject: {fileID: 4180175838918869709, guid: 352d7f3651c16a74daa8c95b7e325baa, type: 3}
-  - name: Initial D
-    skinObject: {fileID: 8355092149201882192, guid: aac13d33afe64fc4999a40917cc3de38, type: 3}
-  - name: NFSMW
-    skinObject: {fileID: 7580809383401467997, guid: 7eba07091283ac94cb4c20d7e7bd7984, type: 3}
+  - name: ATEC
+    skinObject: {fileID: 2768716741258074989, guid: d97929a73eca7bf47b27d91f164b5fa2, type: 3}
   - name: ECS
     skinObject: {fileID: 2768716741258074989, guid: ef68bc10bff636a498326abfc0c1c027, type: 3}
+  - name: JSOM
+    skinObject: {fileID: 2768716741258074989, guid: 4c8cd77c22541cf4197769159923163d, type: 3}
+  - name: InitialD
+    skinObject: {fileID: 8355092149201882192, guid: aac13d33afe64fc4999a40917cc3de38, type: 3}
+  - name: NFSMostWanted
+    skinObject: {fileID: 7580809383401467997, guid: 7eba07091283ac94cb4c20d7e7bd7984, type: 3}
