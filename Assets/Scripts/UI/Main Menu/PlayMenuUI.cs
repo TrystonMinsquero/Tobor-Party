@@ -7,6 +7,6 @@ public class PlayMenuUI : MonoBehaviour
 {
     public void PlayToborRacing()
     {
-        SceneManager.LoadScene("RaceTrack");
+        SceneManager.LoadScene("Lobby");
     }
 }
