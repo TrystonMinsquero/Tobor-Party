@@ -30,7 +30,7 @@ public class PlayerManager : MonoBehaviour
             DontDestroyOnLoad(this);
         }
         
-        InputSystem.DisableDevice(Mouse.current);
+        //InputSystem.DisableDevice(Mouse.current);
     }
 
     private void Update()
@@ -161,6 +161,8 @@ public class PlayerManager : MonoBehaviour
 
     public static void ClearAndDestroy()
     {
+        if(!instance)
+            return;
         for(int i = 0; i < players.Length; i++)
             if (players[i])
                 RemovePlayer(players[i]);

@@ -4,7 +4,6 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(PlayerInputManager))]
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
