@@ -1111,7 +1111,7 @@ MonoBehaviour:
   m_NotificationBehavior: 2
   m_MaxPlayerCount: 4
   m_AllowJoining: 1
-  m_JoinBehavior: 0
+  m_JoinBehavior: 1
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls:
@@ -2068,8 +2068,6 @@ MonoBehaviour:
   - {fileID: 1188679645}
   actionText: {fileID: 684109304}
   _UIState: Waiting for players to ready up...
-  countdownAudio: {fileID: 7979573790131294878}
-  musicAudio: {fileID: 0}
 --- !u!82 &7979573790131294878
 AudioSource:
   m_ObjectHideFlags: 0

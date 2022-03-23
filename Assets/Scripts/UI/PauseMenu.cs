@@ -27,11 +27,13 @@ public class PauseMenu : MonoBehaviour
             return;
         IsPaused = true;
         Time.timeScale = 0;
-        LevelManager.gameMusic?.Pause();
+
         RaceManager.instance?.countdownAudio?.Pause();
         AudioListener.pause = true;
         Instance.GetComponent<Canvas>().enabled = true;
         Instance.initialButton.Select();
+        if(!PlayerManager.instance)
+            return;
         foreach (var player in PlayerManager.players)
         {
             player?.GetComponent<PlayerController>().SwitchActionMap("UI");
@@ -44,11 +46,13 @@ public class PauseMenu : MonoBehaviour
             return;
         IsPaused = false;
         Time.timeScale = 1;
-        LevelManager.gameMusic?.UnPause();
+        
         RaceManager.instance?.countdownAudio?.UnPause();
         AudioListener.pause = false;
         if(Instance)
             Instance.GetComponent<Canvas>().enabled = false;
+        if(!PlayerManager.instance)
+            return;
         foreach (var player in PlayerManager.players)
         {
             player?.GetComponent<PlayerController>().SwitchActionMap("Racing");
