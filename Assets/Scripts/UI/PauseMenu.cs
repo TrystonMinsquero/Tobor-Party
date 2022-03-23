@@ -79,7 +79,7 @@ public class PauseMenu : MonoBehaviour
         //  
         
         PlayerManager.ClearAndDestroy();
-        SceneManager.LoadScene("Lobby");
+        SceneManager.LoadScene("2P Lobby");
     }
     
     public static void Quit()
