@@ -34,6 +34,6 @@ public class WinMenu : MonoBehaviour
         
         if(PlayerManager.instance)
             PlayerManager.ClearAndDestroy();
-        SceneManager.LoadScene("2P Lobby");
+        SceneManager.LoadScene("Lobby");
     }
 }

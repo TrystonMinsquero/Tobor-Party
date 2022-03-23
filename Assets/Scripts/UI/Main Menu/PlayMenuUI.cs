@@ -7,6 +7,6 @@ public class PlayMenuUI : MonoBehaviour
 {
     public void PlayToborRacing()
     {
-        SceneManager.LoadScene("2P Lobby");
+        SceneManager.LoadScene("Lobby");
     }
 }
