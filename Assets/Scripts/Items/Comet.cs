@@ -15,12 +15,12 @@ public class Comet : Item
 
     IEnumerator Cooldown()
     {
-        car.particles.StarTexture();
+        //car.particles.StarTexture();
         car.UsingItem = true;
         car.cometEnabled = true;
         yield return new WaitForSeconds(time);
 
-        car.particles.ResetTexture();
+        //car.particles.ResetTexture();
         car.cometEnabled = false;
         car.UsingItem = false;
         car.DiscardItem();

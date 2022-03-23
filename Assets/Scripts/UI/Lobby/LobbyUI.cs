@@ -11,16 +11,17 @@ public class LobbyUI : MonoBehaviour
     public Text actionText;
 
     public string _UIState = "Waiting for players to ready up...";
-    public AudioSource countdownAudio;
-    public AudioSource musicAudio;
-
+    
+    private AudioSource _countdownAudio;
+    private AudioSource _musicAudio;
     private float _initMusicVolume;
     private bool _countingDown;
 
     public void Start()
     {
-        countdownAudio = GetComponent<AudioSource>();
-        _initMusicVolume = musicAudio.volume;
+        _countdownAudio = GetComponent<AudioSource>();
+        _musicAudio = MusicManager.currentSong.source;
+        _initMusicVolume = MusicManager.currentSong.volume;
     }
 
     public void Update()
@@ -59,32 +60,19 @@ public class LobbyUI : MonoBehaviour
     public void StartCountdown()
     {
         _countingDown = true;
-        countdownAudio.Play();
+        _countdownAudio.Play();
         StartCoroutine(CountDown());
-        StartCoroutine(FadeOutAudio(musicAudio, 3.5f));
+        MusicManager.FadeSongTo(MusicManager.currentSong.name, 3.5f, .03f, .8f);
     }
 
     public void StopCountdown()
     {
         _countingDown = false;
-        countdownAudio.Stop();
-        musicAudio.volume = _initMusicVolume;
+        _countdownAudio.Stop();
+        _musicAudio.volume = _initMusicVolume;
         StopAllCoroutines();
+        MusicManager.instance.StopAllCoroutines();
         _UIState = "Waiting for players to ready up...";
-    }
-
-    private IEnumerator FadeOutAudio(AudioSource audioSource, float time)
-    {
-        if (audioSource)
-        {
-            float initVolume = audioSource.volume;
-            while (audioSource.volume > .03f) {
-                audioSource.volume -= initVolume * Time.deltaTime / time;
-                yield return null;
-            }
-        }
-        else
-            Debug.LogWarning("Can't fade out null");
     }
 
     private IEnumerator CountDown()
@@ -101,8 +89,10 @@ public class LobbyUI : MonoBehaviour
     
     public void StartGame()
     {
-        if(PlayerManager.playerCount > 0)
+        if (PlayerManager.playerCount > 0)
+        {
             SceneManager.LoadScene("RaceTrack");
+        }
     }
 
     public void Exit()

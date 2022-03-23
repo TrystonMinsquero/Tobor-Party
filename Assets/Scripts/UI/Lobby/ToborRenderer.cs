@@ -13,8 +13,14 @@ public class ToborRenderer : MonoBehaviour
     public int height = 256;
 
     public RenderTexture texture;
+    public PlayerSkin skin;
 
     public Vector2 rotation = new Vector2(15f, 215f);
+
+    void Start()
+    {
+        skin = tobor.GetComponent<PlayerSkin>();
+    }
 
     void SetLayer(Transform t, LayerMask layer)
     {
@@ -38,12 +44,19 @@ public class ToborRenderer : MonoBehaviour
         return layerNumber - 1;
     }
 
-    public void Initialize(LayerMask layer, RawImage output)
+    public void ResetLayer()
     {
         int l = maskToLayer(layer);
         SetLayer(tobor, l);
 
         camera.cullingMask = layer;
+    }
+
+    private LayerMask layer;
+    public void Initialize(LayerMask layer, RawImage output)
+    {
+        this.layer = layer;
+        ResetLayer();
 
         texture = new RenderTexture(width, height, 0, RenderTextureFormat.ARGB32);
         camera.targetTexture = texture;
@@ -59,7 +72,16 @@ public class ToborRenderer : MonoBehaviour
     }
     public void ChangeSkin(bool right)
     {
-        Debug.Log(right);
+        if (right) skin.NextSkin();
+        else skin.PrevSkin();
+
+        ResetLayer();
+    }
+
+    public void UpdateSkin(int index)
+    {
+        skin.SetIndex(index);
+        ResetLayer();
     }
 
     public void Enable()

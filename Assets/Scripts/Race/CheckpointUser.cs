@@ -42,6 +42,9 @@ public class CheckpointUser : MonoBehaviour
             foreach (Checkpoint cp in Checkpoints.Instance.checkpoints)
                 bestCheckpointTimes[cp] = -1;
         }
+        
+        LastCheckpointStartTime = RaceManager.StartTime;
+        LastLapStartTime = RaceManager.StartTime;
 
         car = GetComponent<Car>();
 
@@ -117,6 +120,12 @@ public class CheckpointUser : MonoBehaviour
         progress += factor * percent;
         
         Progress = progress;
+    }
+
+    public void ResetTimes(float time)
+    {
+        LastCheckpointStartTime = time;
+        LastLapStartTime = time;
     }
 
     public void UpdateCheckpoint(Checkpoint cp, float newTime)

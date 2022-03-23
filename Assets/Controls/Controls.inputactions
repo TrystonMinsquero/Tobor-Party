@@ -1028,39 +1028,6 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Arrow Keys",
-                    "id": "857ad60f-f423-4a2b-a04b-41d47c364588",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "GasReverse",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "9b55416a-ef3f-48b0-b319-db83b0062133",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "GasReverse",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "c22880c3-4e3f-4886-81ae-4772dc0a0dac",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "GasReverse",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "Triggers",
                     "id": "7102989e-f6ea-420e-93a7-2132e6cb1910",
                     "path": "1DAxis",
@@ -1206,7 +1173,7 @@
                 {
                     "name": "left",
                     "id": "cf8c495e-d0b1-4aae-878c-f57c25683966",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1217,7 +1184,7 @@
                 {
                     "name": "right",
                     "id": "125a5845-f303-421d-9a65-49b8a9a6c64c",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

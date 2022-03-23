@@ -3,6 +3,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class JoinBox : MonoBehaviour
@@ -31,6 +32,7 @@ public class JoinBox : MonoBehaviour
         preview.Enable();
         _controller = player.GetComponent<UIController>();
         _controller.controls.UI.Ready.Enable();
+        preview.renderer.UpdateSkin(_player.skinIndex);
         
         if (_controller)
         {
@@ -52,6 +54,11 @@ public class JoinBox : MonoBehaviour
     {
         if(isReady)
             UnReady();
+        else if (PlayerManager.playerCount == 1)
+        {
+            PlayerManager.ClearAndDestroy();
+            SceneManager.LoadScene("MainMenu");
+        }
         else
             RemovePlayer(_player);
     }
@@ -97,6 +104,7 @@ public class JoinBox : MonoBehaviour
     {
         if(input != 0 && !isReady)
             preview.renderer.ChangeSkin(input > 0);
+        _player.skinIndex = preview.renderer.skin.Index;
     }
     
 }

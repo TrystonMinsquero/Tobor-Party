@@ -41,13 +41,13 @@ public class CarUI : MonoBehaviour
     private void OnEnable()
     {
         cpUser.ReachedCheckpoint += StartToShowCheckpointTime;
-        cpUser.CompletedLap += StartToShowCheckpointTime;
+        //cpUser.CompletedLap += StartToShowCheckpointTime;
     }
     
     private void OnDisable()
     {
         cpUser.ReachedCheckpoint -= StartToShowCheckpointTime;
-        cpUser.CompletedLap -= StartToShowCheckpointTime;
+        //cpUser.CompletedLap -= StartToShowCheckpointTime;
     }
 
     private void Update()

@@ -26,6 +26,7 @@ public class RaceManager : MonoBehaviour
         instance = this;
         if(!countdownAudio)
             TryGetComponent(out countdownAudio);
+        StartTime = Time.time;
     }
 
     void Start()
@@ -66,6 +67,7 @@ public class RaceManager : MonoBehaviour
         StartState = "GO!";
         Started = true;
         StartTime = Time.time;
+        foreach (var cpUser in cars) cpUser.ResetTimes(StartTime);
         yield return new WaitForSeconds(1);
 
         StartState = "";
