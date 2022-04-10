@@ -2,9 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51c923a0-25cd-4217-9576-2d457c48d13d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Main Menu/PlayMenuUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Main Menu/PlayMenuUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PauseMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PauseMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/WinMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/WinMenu.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Main Menu/ScrollRectAutoScroll.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Main Menu/ScrollRectAutoScroll.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tobor-Party/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tobor-Party/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/UI/Border.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/UI/Border.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/InputUIFixer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/InputUIFixer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Car.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Car.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MusicManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MusicManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Audio/MusicManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/MusicManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +114,7 @@
       <workItem from="1646594341088" duration="3191000" />
       <workItem from="1646791664654" duration="2917000" />
       <workItem from="1647997246527" duration="302000" />
+      <workItem from="1649607609266" duration="9100000" />
     </task>
     <servers />
   </component>
@@ -130,26 +140,26 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Audio/MusicManager.cs</url>
-          <line>126</line>
+          <line>129</line>
           <properties documentPath="C:\GitHub Repos\Unity\Tobor-Party\Assets\Scripts\Audio\MusicManager.cs" initialLine="80" containingFunctionPresentation="method 'OnDisable'">
             <startOffsets>
-              <option value="3759" />
+              <option value="3871" />
             </startOffsets>
             <endOffsets>
-              <option value="3760" />
+              <option value="3872" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Audio/MusicManager.cs</url>
-          <line>128</line>
+          <line>131</line>
           <properties documentPath="C:\GitHub Repos\Unity\Tobor-Party\Assets\Scripts\Audio\MusicManager.cs" initialLine="83" containingFunctionPresentation="method 'OnDisable'">
             <startOffsets>
-              <option value="3798" />
+              <option value="3910" />
             </startOffsets>
             <endOffsets>
-              <option value="3799" />
+              <option value="3911" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="11" />

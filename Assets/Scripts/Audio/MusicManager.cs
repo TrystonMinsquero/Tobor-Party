@@ -8,6 +8,8 @@ public class MusicManager : MonoBehaviour
 {
     public static MusicManager instance;
 
+    public AudioMixerGroup musicGroup;
+
     /// <summary>
     ///   <para>the name of the starting song you want to play at the start of the scene.</para>
     /// </summary>
@@ -57,6 +59,7 @@ public class MusicManager : MonoBehaviour
             if (_songs.Exists(song => newSong.name == song.name)) continue;
             newSong.source = instance.gameObject.AddComponent<AudioSource>();
             newSong.source.clip = newSong.clip;
+            newSong.source.outputAudioMixerGroup = instance.musicGroup;
 
             newSong.source.volume = newSong.volume;
             newSong.source.pitch = newSong.pitch;

@@ -43,23 +43,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 575ef0404f6f7544bb388f96ad46cddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicGroup: {fileID: -3936889038131775412, guid: 63f8fc91a66825c4791d695e416083a4, type: 2}
   startingSongName: Wii Shop Theme
   songs:
   - name: Wii Shop Theme
     clip: {fileID: 8300000, guid: a122edc3d811daa438ebbb6696f28c07, type: 3}
-    volume: 0.5
+    volume: 1
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Win Music
     clip: {fileID: 8300000, guid: 9b03abd8ef62207408c5ac608a7e4ea4, type: 3}
-    volume: 0.5
+    volume: 1
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: RaceTrack Music
     clip: {fileID: 8300000, guid: f48aafbbeea2aa740aaa126ba672257a, type: 3}
-    volume: 0.5
+    volume: 1
     pitch: 1
     loop: 1
     source: {fileID: 0}
