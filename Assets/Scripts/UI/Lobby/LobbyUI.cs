@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +9,7 @@ using UnityEngine.UI;
 public class LobbyUI : MonoBehaviour
 {
     public JoinBox[] joinBoxes;
-    public Text actionText;
+    public TMP_Text actionText;
 
     public string _UIState = "Waiting for players to ready up...";
     
