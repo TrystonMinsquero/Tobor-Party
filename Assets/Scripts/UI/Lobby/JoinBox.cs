@@ -102,7 +102,7 @@ public class JoinBox : MonoBehaviour
 
     private void ChangeSkin(float input)
     {
-        if(input != 0 && !isReady)
+        if(input != 0)
             preview.renderer.ChangeSkin(input > 0);
         _player.skinIndex = preview.renderer.skin.Index;
     }

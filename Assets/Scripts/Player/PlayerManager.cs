@@ -29,7 +29,13 @@ public class PlayerManager : MonoBehaviour
             players = new Player[maxPlayers];
             DontDestroyOnLoad(this);
         }
-        
+
+        foreach (var device in InputSystem.devices)
+        {
+            
+            Debug.Log(device.description);
+            Debug.Log(device.valueType);
+        }
         //InputSystem.DisableDevice(Mouse.current);
     }
 
