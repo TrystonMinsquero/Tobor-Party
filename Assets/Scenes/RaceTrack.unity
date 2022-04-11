@@ -6324,6 +6324,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2402866377897739377, guid: 6001c0ab3130144449cfc1344cab0377, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 662
+      objectReference: {fileID: 0}
+    - target: {fileID: 2402866377897739377, guid: 6001c0ab3130144449cfc1344cab0377, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -135.8
+      objectReference: {fileID: 0}
     - target: {fileID: 2707259257227020952, guid: 6001c0ab3130144449cfc1344cab0377, type: 3}
       propertyPath: m_Name
       value: Pause Menu
@@ -6411,6 +6419,10 @@ PrefabInstance:
     - target: {fileID: 2707259257227020956, guid: 6001c0ab3130144449cfc1344cab0377, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093591330767708930, guid: 6001c0ab3130144449cfc1344cab0377, type: 3}
+      propertyPath: m_Name
+      value: Game Controls Panel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6001c0ab3130144449cfc1344cab0377, type: 3}
@@ -7098,7 +7110,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: -7.439461e+34, z: 4.5904e-41, w: 1e-45}
+  m_BoundingSphereOverride: {x: 0, y: 3.723e-41, z: 1.62542e-40, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
