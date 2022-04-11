@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7263231879279329765
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7263231879279329767}
+  - component: {fileID: 7263231879279329764}
+  m_Layer: 0
+  m_Name: SFXManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7263231879279329767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7263231879279329765}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 421.60544, y: 361.69952, z: -107.77652}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7263231879279329764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7263231879279329765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7262bab25f0fe4d4d9980d7d5bc4297b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxGroup: {fileID: -640794258475243594, guid: 63f8fc91a66825c4791d695e416083a4, type: 2}
+  sounds:
+  - name: Item Pickup
+    clip: {fileID: 8300000, guid: 90c0391336bd7e943bf4d5ee818ae56d, type: 3}
+    volume: 0.808
+    pitch: 1
+    source: {fileID: 0}
+  - name: Countdown
+    clip: {fileID: 8300000, guid: 32b76ffd111c1b247bf20fa57a279d7a, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Boost
+    clip: {fileID: 8300000, guid: b3a0209288537ba4980a9d8818c4bc59, type: 3}
+    volume: 0.818
+    pitch: 1
+    source: {fileID: 0}
+  - name: WAH
+    clip: {fileID: 8300000, guid: 047b0bd715a226549afa926a62b9845a, type: 3}
+    volume: 0.804
+    pitch: 1
+    source: {fileID: 0}
+  - name: EMP Blast
+    clip: {fileID: 8300000, guid: a9f677821abf45c48b2a0e3b7a6928ea, type: 3}
+    volume: 0.801
+    pitch: 1
+    source: {fileID: 0}

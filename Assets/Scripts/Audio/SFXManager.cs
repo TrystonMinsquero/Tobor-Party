@@ -6,6 +6,7 @@ public class SFXManager : MonoBehaviour
 {
     public static SFXManager instance;
 
+    public AudioMixerGroup sfxGroup;
     public Sound[] sounds;
 
     void Awake()
@@ -20,6 +21,7 @@ public class SFXManager : MonoBehaviour
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
+            s.source.outputAudioMixerGroup = sfxGroup;
 
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
