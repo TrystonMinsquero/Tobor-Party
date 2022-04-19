@@ -130,10 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 117307440722545788, guid: b5cbacd73ca2684449f1ed100dca2eec, type: 3}
-      propertyPath: startingSongName
-      value: Win Music
-      objectReference: {fileID: 0}
     - target: {fileID: 2408733435983351267, guid: b5cbacd73ca2684449f1ed100dca2eec, type: 3}
       propertyPath: m_Name
       value: MusicManager

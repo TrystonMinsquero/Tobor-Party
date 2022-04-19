@@ -44,10 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicGroup: {fileID: -3936889038131775412, guid: 63f8fc91a66825c4791d695e416083a4, type: 2}
-  startingSongName: Wii Shop Theme
+  startingSongName: Lobby Music
   songs:
-  - name: Wii Shop Theme
-    clip: {fileID: 8300000, guid: a122edc3d811daa438ebbb6696f28c07, type: 3}
+  - name: Lobby Music
+    clip: {fileID: 8300000, guid: 6fb7df4ed7df06a478b08edf9b3502f0, type: 3}
     volume: 1
     pitch: 1
     loop: 1
