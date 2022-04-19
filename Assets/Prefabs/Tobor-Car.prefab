@@ -414,7 +414,7 @@ MonoBehaviour:
   minYPosition: -15
   boostMaxSpeed: 35
   boostAcceleration: 250
-  swiftBoostPerTier: 0.03
+  swiftBoostPerTier: 0.4
   swiftBoostTierTime: 0.75
   driftBoostCurve:
     serializedVersion: 2

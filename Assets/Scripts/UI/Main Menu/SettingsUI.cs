@@ -20,9 +20,10 @@ public class SettingsUI : MonoBehaviour
     public void Start()
     {
         SetupResolutions();
-        if (Environment.GetEnvironmentVariable("ARCADE_MODE") != null)
+
+        if (Arcade.IsRunningInArcadeMode())
             isFullscreenToggle.enabled = false;
-        
+
         audioMixer.GetFloat("MasterVolume", out var masterVolume);
         audioMixer.GetFloat("MusicVolume", out var musicVolume);
         audioMixer.GetFloat("SfxVolume", out var sfxVolume);
@@ -53,7 +54,7 @@ public class SettingsUI : MonoBehaviour
         resolutionDropdown.value = currentIndex;
         resolutionDropdown.RefreshShownValue();
     }
-    
+
     public void SetMasterVolume(float val)
     {
         audioMixer.SetFloat("MasterVolume", val);
@@ -77,6 +78,7 @@ public class SettingsUI : MonoBehaviour
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+        isFullscreenToggle.isOn = isFullscreen;
     }
 
     public void SetResolution(int resolutionIndex)

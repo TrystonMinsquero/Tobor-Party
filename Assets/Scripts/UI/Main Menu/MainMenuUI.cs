@@ -41,6 +41,8 @@ public class MainMenuUI : MonoBehaviour
     private void Start()
     {
         currentMenu = "Start";
+        if(Arcade.IsRunningInArcadeMode())
+            FindObjectOfType<SettingsUI>().SetFullscreen(true);
     }
 
     public void SetMenu(string menuName)
