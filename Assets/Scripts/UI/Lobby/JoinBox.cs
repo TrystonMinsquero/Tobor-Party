@@ -82,6 +82,25 @@ public class JoinBox : MonoBehaviour
         PlayerManager.RemovePlayer(player);
     }
 
+    public void EmptySlot()
+    {
+        if (_controller)
+        {
+            _controller.Ready -= ReadyUp;
+            _controller.Leave -= BackOut;
+            _controller.ChangeSkin -= ChangeSkin;
+            _controller = null;
+        }
+        if(joined)
+            joined.enabled = false;
+        if(empty)
+            empty.enabled = true;
+        if(readyUpText)
+            readyUpText.SetActive(false);
+        hasPlayer = false;
+        _player = null;
+    }
+
     public void ReadyUp()
     {
         isReady = true;

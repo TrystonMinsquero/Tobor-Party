@@ -23,6 +23,8 @@ public class LobbyUI : MonoBehaviour
         _countdownAudio = GetComponent<AudioSource>();
         _musicAudio = MusicManager.currentSong.source;
         _initMusicVolume = MusicManager.currentSong.volume;
+        foreach (var box in joinBoxes)
+            box.EmptySlot();
     }
 
     public void Update()
