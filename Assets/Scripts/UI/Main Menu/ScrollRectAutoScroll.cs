@@ -3,8 +3,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 
-// code source: https://gist.github.com/emredesu/af597de14a4377e1ecf96b6f7b6cc506
+// modified from code source: https://gist.github.com/emredesu/af597de14a4377e1ecf96b6f7b6cc506
 
 [RequireComponent(typeof(ScrollRect))]
 public class ScrollRectAutoScroll : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
@@ -15,6 +16,8 @@ public class ScrollRectAutoScroll : MonoBehaviour, IPointerEnterHandler, IPointe
     private ScrollRect m_ScrollRect;
 
     private Vector2 m_NextScrollPosition = Vector2.up;
+    private InputSystemUIInputModule _module;
+    
     void OnEnable() {
         if (m_ScrollRect) {
             m_ScrollRect.content.GetComponentsInChildren(m_Selectables);
@@ -22,6 +25,7 @@ public class ScrollRectAutoScroll : MonoBehaviour, IPointerEnterHandler, IPointe
     }
     void Awake() {
         m_ScrollRect = GetComponent<ScrollRect>();
+        _module = FindObjectOfType<InputSystemUIInputModule>();
     }
     void Start() {
         if (m_ScrollRect) {
@@ -30,8 +34,8 @@ public class ScrollRectAutoScroll : MonoBehaviour, IPointerEnterHandler, IPointe
         ScrollToSelected(true);
     }
     void Update() {
-        // If we are on mobile and we do not have a gamepad connected, do not do anything.
-        if (SystemInfo.deviceType == DeviceType.Handheld && Gamepad.all.Count <= 1) {
+        // If we are on mobile, do not do anything.
+        if (SystemInfo.deviceType == DeviceType.Handheld) {
             return;
         }
 
@@ -53,13 +57,15 @@ public class ScrollRectAutoScroll : MonoBehaviour, IPointerEnterHandler, IPointe
             Gamepad? currentGamepad = Gamepad.current;
 
             if (currentKeyboard != null) {
-                if (Keyboard.current.upArrowKey.wasPressedThisFrame || Keyboard.current.downArrowKey.wasPressedThisFrame) {
+                if (Keyboard.current.upArrowKey.wasPressedThisFrame || Keyboard.current.downArrowKey.wasPressedThisFrame || 
+                    _module && _module.move.ToInputAction().ReadValue<Vector2>().magnitude > .1f) {
                     ScrollToSelected(false);
                 }
             }
 
             if (currentGamepad != null) {
-                if (Gamepad.current.dpad.up.wasPressedThisFrame || Gamepad.current.dpad.down.wasPressedThisFrame) {
+                if (Gamepad.current.dpad.up.wasPressedThisFrame || Gamepad.current.dpad.down.wasPressedThisFrame || 
+                    _module && _module.move.ToInputAction().ReadValue<Vector2>().magnitude > .1f) {
                     ScrollToSelected(false);
                 }
             }

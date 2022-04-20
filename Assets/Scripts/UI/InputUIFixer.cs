@@ -11,6 +11,8 @@ public class InputUIFixer : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        if (!module)
+            module = GetComponent<InputSystemUIInputModule>();
         asset = module.actionsAsset;
     }
 
