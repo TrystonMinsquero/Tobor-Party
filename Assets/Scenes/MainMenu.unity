@@ -5091,6 +5091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 63f8fc91a66825c4791d695e416083a4, type: 2}
   resolutionDropdown: {fileID: 1649312397}
+  graphicQualityDropdown: {fileID: 733304452}
   isFullscreenToggle: {fileID: 1137566215}
   masterVolumeSlider: {fileID: 714255636}
   musicVolumeSlider: {fileID: 1109035302}
@@ -7248,7 +7249,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00001335144}
+  m_AnchoredPosition: {x: 0, y: 0.000009536743}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1392048562

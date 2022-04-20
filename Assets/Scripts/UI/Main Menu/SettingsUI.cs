@@ -10,6 +10,7 @@ public class SettingsUI : MonoBehaviour
 {
     public AudioMixer audioMixer;
     public TMP_Dropdown resolutionDropdown;
+    public TMP_Dropdown graphicQualityDropdown;
     public Toggle isFullscreenToggle;
     public Slider masterVolumeSlider;
     public Slider musicVolumeSlider;
@@ -34,7 +35,11 @@ public class SettingsUI : MonoBehaviour
             musicVolumeSlider.value = musicVolume;
         if(sfxVolumeSlider)
             sfxVolumeSlider.value = sfxVolume;
-
+        if (graphicQualityDropdown)
+        {
+            graphicQualityDropdown.value = QualitySettings.GetQualityLevel();
+            graphicQualityDropdown.RefreshShownValue();
+        }
     }
 
     private void SetupResolutions()
