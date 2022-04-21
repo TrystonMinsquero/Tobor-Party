@@ -8,6 +8,8 @@ public class InputUIFixer : MonoBehaviour
 {
     public InputSystemUIInputModule module;
     InputActionAsset asset;
+
+    private bool _activate = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -19,8 +21,15 @@ public class InputUIFixer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_activate || Arcade.IsRunningInArcadeMode())
+            return;
         asset.devices = null;
         asset.bindingMask = null;
         module.actionsAsset = asset;
+    }
+
+    public void SetActive(bool val)
+    {
+        _activate = val;
     }
 }
