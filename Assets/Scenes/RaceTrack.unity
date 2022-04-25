@@ -1839,7 +1839,6 @@ GameObject:
   - component: {fileID: 695099927}
   - component: {fileID: 695099926}
   - component: {fileID: 695099925}
-  - component: {fileID: 695099928}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1904,19 +1903,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &695099928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 695099924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5463837a35d0f2242a405f914efdc091, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  module: {fileID: 695099925}
 --- !u!4 &732675068 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9114258969592835598, guid: e22cd8166a0cdc04fbbc2809ec282cdb, type: 3}
@@ -7151,7 +7137,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5904e-41, y: 0, z: 0, w: 6e-44}
+  m_BoundingSphereOverride: {x: 9.1835e-41, y: 5.877472e-37, z: 9.688645e-39, w: NaN}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0

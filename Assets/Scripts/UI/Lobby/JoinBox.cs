@@ -18,7 +18,7 @@ public class JoinBox : MonoBehaviour
     public GameObject readyUpText;
     public ToborPreview preview;
 
-    private UIController _controller;
+    private LobbyController _controller;
     private Player _player;
 
     public void AddPlayer(Player player)
@@ -30,16 +30,11 @@ public class JoinBox : MonoBehaviour
         UnReady();
 
         preview.Enable();
-        _controller = player.GetComponent<UIController>();
-        _controller.controls.UI.Ready.Enable();
+        _controller = player.GetComponent<LobbyController>();
+        _controller.SwitchActionMap("Lobby");
         preview.renderer.UpdateSkin(_player.skinIndex);
         
-        if (_controller)
-        {
-            _controller.Ready += ReadyUp;
-            _controller.Leave += BackOut;
-            _controller.ChangeSkin += ChangeSkin;
-        }
+        ConnectController();
     }
 
     private void Update()
@@ -65,12 +60,7 @@ public class JoinBox : MonoBehaviour
 
     public void RemovePlayer(Player player)
     {
-        if (_controller)
-        {
-            _controller.Ready -= ReadyUp;
-            _controller.Leave -= BackOut;
-            _controller.ChangeSkin -= ChangeSkin;
-        }
+        DisconnectController();
         if(joined)
             joined.enabled = false;
         if(empty)
@@ -84,13 +74,7 @@ public class JoinBox : MonoBehaviour
 
     public void EmptySlot()
     {
-        if (_controller)
-        {
-            _controller.Ready -= ReadyUp;
-            _controller.Leave -= BackOut;
-            _controller.ChangeSkin -= ChangeSkin;
-            _controller = null;
-        }
+        DisconnectController();
         if(joined)
             joined.enabled = false;
         if(empty)
@@ -125,5 +109,26 @@ public class JoinBox : MonoBehaviour
             preview.renderer.ChangeSkin(input > 0);
         _player.skinIndex = preview.renderer.skin.Index;
     }
+
+    public void DisconnectController()
+    {
+        if (_controller)
+        {
+            _controller.Ready -= ReadyUp;
+            _controller.Leave -= BackOut;
+            _controller.ChangeSkin -= ChangeSkin;
+            _controller = null;
+        }
+    }
     
+    public void ConnectController()
+    {
+        if (_controller)
+        {
+            _controller.Ready += ReadyUp;
+            _controller.Leave += BackOut;
+            _controller.ChangeSkin += ChangeSkin;
+        }
+    }
+
 }

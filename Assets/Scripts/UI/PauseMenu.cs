@@ -29,7 +29,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0;
         FindObjectOfType<InputUIFixer>()?.SetActive(false);
 
-        RaceManager.instance?.countdownAudio?.Pause();
         AudioListener.pause = true;
         Instance.GetComponent<Canvas>().enabled = true;
         Instance.initialButton.Select();
@@ -49,7 +48,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         FindObjectOfType<InputUIFixer>()?.SetActive(true);
         
-        RaceManager.instance?.countdownAudio?.UnPause();
         AudioListener.pause = false;
         if(Instance)
             Instance.GetComponent<Canvas>().enabled = false;

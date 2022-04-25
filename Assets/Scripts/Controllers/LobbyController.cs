@@ -1,7 +1,7 @@
 using System;
 using UnityEngine.InputSystem;
 
-public class UIController : PlayerController
+public class LobbyController : PlayerController
 {
     public event Action Ready = delegate {  };
     public event Action Leave = delegate {  };

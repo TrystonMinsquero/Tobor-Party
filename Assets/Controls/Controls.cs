@@ -28,51 +28,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             ""id"": ""09a9dd9c-9769-424d-b1dc-4846d55adcfb"",
             ""actions"": [
                 {
-                    ""name"": ""Rotate"",
-                    ""type"": ""Value"",
-                    ""id"": ""4fe816d0-dec8-46e1-9e95-1ff3e2862b53"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Ready"",
-                    ""type"": ""Button"",
-                    ""id"": ""cf44b92f-18a5-4406-84f6-50885ce7162e"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Leave"",
-                    ""type"": ""Button"",
-                    ""id"": ""b233cc39-b7fe-4d35-a998-aa71c2ba9035"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Change Skin"",
-                    ""type"": ""Button"",
-                    ""id"": ""a74fb894-abe1-4a67-9570-f213d8662194"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Pause"",
-                    ""type"": ""Button"",
-                    ""id"": ""bce66838-fd52-43c0-8670-3b302758a969"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""-------------Default Actions--------------"",
                     ""type"": ""Button"",
                     ""id"": ""294b508d-84ba-4da1-85eb-3fa6a9070485"",
@@ -170,141 +125,18 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""bce66838-fd52-43c0-8670-3b302758a969"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": ""QE"",
-                    ""id"": ""34dbf413-8da4-4597-b78d-2be441e935b9"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""a1a48917-ab84-4631-a815-7c4f72e49a73"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""01901d8c-632e-4344-9dfa-77abd71ba446"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Arrow Keys"",
-                    ""id"": ""79365653-028d-4485-b8f1-1e15662ef5ca"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""26a296b3-c150-4960-9cb5-79e2fae40485"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""bfd9ad15-6a9d-4906-af58-aab63ec897f9"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Bumpers"",
-                    ""id"": ""e09e7f2e-77ea-4e28-a632-c94a2c70a932"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""b9b5f951-edfe-46aa-937c-1e293ce7b0cc"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""3e18fac0-970a-4a30-960e-70d8ebb8935b"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Joystick"",
-                    ""id"": ""404498aa-afd9-4640-9cba-8d302b9d0a84"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""2f9e9698-f2ab-4387-a61a-cd40de5ef64d"",
-                    ""path"": ""<Gamepad>/rightStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""9581e637-e680-4974-9e73-05b03a43b893"",
-                    ""path"": ""<Gamepad>/rightStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
                 {
                     ""name"": ""Gamepad"",
                     ""id"": ""96d3e14a-8cba-463a-99c6-a72d60a2fc2d"",
@@ -725,116 +557,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""66213f9a-01e4-4388-ad7a-2485598e7750"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Leave"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""39061cef-af8c-41ce-8dd2-f4f30fe8c00a"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Leave"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5a547ad3-9a39-4867-a959-13604a8d6c5a"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Ready"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5e31d2c7-980c-44e9-b8fd-9629565cb9ca"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Ready"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Triggers"",
-                    ""id"": ""dac9d46f-7f77-4d9e-8236-c37634f1900f"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Change Skin"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""417724c0-6f85-4eee-892b-e5868ce231b7"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Change Skin"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""33bb0b7b-9c98-4254-99d3-0d9f8c2a6e64"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Change Skin"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""AD"",
-                    ""id"": ""012b078d-f38f-4cc9-93fd-994b39dafa6b"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Change Skin"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""58421ec0-471c-434e-b017-ed2f826b25f5"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Change Skin"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""b6352825-797d-4e96-a759-cff5f7c65088"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Change Skin"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
                     ""id"": ""c0ee5bf8-5db2-4c87-b27d-6e9a3ba17604"",
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
@@ -854,39 +576,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Joystick"",
-                    ""id"": ""62a9d672-9bf4-4b76-8a73-574077c05b40"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Change Skin"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""3590ad5e-14b4-49da-b5de-53d9c62cbf5a"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Change Skin"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""b2831517-6059-4804-9787-175309ec5b5d"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Change Skin"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -1305,127 +994,319 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Sumo"",
-            ""id"": ""d1453105-7a7b-4cd8-b436-cee3a5c9c188"",
+            ""name"": ""Lobby"",
+            ""id"": ""222ef849-dc29-40c4-898f-b01c968417d6"",
             ""actions"": [
                 {
-                    ""name"": ""Movement"",
+                    ""name"": ""Rotate"",
                     ""type"": ""Value"",
-                    ""id"": ""d0e78be4-cd7d-4e71-b692-54ba4740db4a"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""id"": ""d40860dd-b97a-4ca1-890a-d2a5a99bd3e0"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Ready"",
+                    ""type"": ""Button"",
+                    ""id"": ""6d5bd006-3594-45ea-8dbe-59b2b0a6cd98"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Leave"",
+                    ""type"": ""Button"",
+                    ""id"": ""2f6c1faa-4615-40d9-b73f-c17cd1aa9381"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Change Skin"",
+                    ""type"": ""Button"",
+                    ""id"": ""0ee148cb-04ba-4fbb-a43c-e8885badeba8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": ""WASD"",
-                    ""id"": ""8ef292e8-54b7-477b-be20-660930569f1c"",
-                    ""path"": ""2DVector(mode=2)"",
+                    ""name"": ""QE"",
+                    ""id"": ""5865caae-217c-47c3-a7d9-665b08b5ebc3"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""e05668bc-45bb-42e5-8d84-8b63e68e8437"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""name"": ""negative"",
+                    ""id"": ""53a8ef07-0fe2-44d8-9124-f3b953a1dad6"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Movement"",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""down"",
-                    ""id"": ""a84b65f5-ffb5-4c29-8e1b-2efebd41ae18"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""name"": ""positive"",
+                    ""id"": ""3cf7603b-ea99-4cd7-9cb1-133a20c818e3"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Movement"",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
-                    ""id"": ""1aab3f09-4cac-45b2-b5b1-c6e26fe4069c"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""6342f4ce-efe1-4620-ba58-056823c3b64c"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Gamepad"",
-                    ""id"": ""468df178-44bb-4217-baeb-41009fef8a8f"",
-                    ""path"": ""2DVector"",
+                    ""name"": ""Arrow Keys"",
+                    ""id"": ""cbf9c6b6-3500-48c8-bd33-bd6c02eaf81b"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""be463318-7700-4526-9444-84cdf23d27fa"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""name"": ""negative"",
+                    ""id"": ""dcd414d7-5313-4aa9-a396-c4906223aed7"",
+                    ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""down"",
-                    ""id"": ""1ba0d627-1208-46a7-b675-47b5d809db2d"",
+                    ""name"": ""positive"",
+                    ""id"": ""3b293ce8-99be-481d-b7a8-28a58e95f242"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Bumpers"",
+                    ""id"": ""4b2c4277-28c1-45b3-bd67-062a54b4bbcb"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""c67f67fd-08d2-4657-bc84-80ff7aea447b"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""8ea4d9da-3e4c-4f06-96ab-71bfa181eb61"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Joystick"",
+                    ""id"": ""1d196e77-d381-437a-a908-021bbd9cbc1c"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""799945c2-27a3-4797-bf0d-02007ef5c878"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""a59fa3dc-e02c-4267-a249-a0158a9a8f8b"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6fb21409-1c8f-49d0-8175-e38de87cb1a5"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Ready"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4b549336-54ea-48c5-be1d-e7e06459402f"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Ready"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fb82c4ca-49b2-4121-b936-df4bdf3e189c"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Leave"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f1d9de33-713a-4436-bee3-a9a66b9bcf2f"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Leave"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Triggers"",
+                    ""id"": ""cf23dd59-1f8c-43df-b16f-170ddfd6c322"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Change Skin"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""65a53160-b52f-4d13-8c43-0b37df2e1c87"",
                     ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Change Skin"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
-                    ""id"": ""5ea87bc4-4c40-47dc-9e85-c7fcf5ddd668"",
+                    ""name"": ""positive"",
+                    ""id"": ""96c870f3-c628-4262-a312-08fd205e0530"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Change Skin"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""AD"",
+                    ""id"": ""feebd687-a4ac-4d2b-ab16-7b9547898075"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Change Skin"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""4d1ba3cc-6dc1-4ae5-baa5-51b1ad75e29d"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Change Skin"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""01fac678-fa78-4269-89c6-4156ee64936a"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Change Skin"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Joystick"",
+                    ""id"": ""664f2f60-ec67-48d7-bec2-1b5173a41603"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Change Skin"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""6e9266d9-3470-4142-a7c7-a87b6bd7f9e6"",
                     ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Change Skin"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
-                    ""id"": ""6113e802-c2be-4012-83c6-15373a7acb6f"",
+                    ""name"": ""positive"",
+                    ""id"": ""96e458f5-fc15-4b5c-8239-ba9a21d64047"",
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Change Skin"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -1464,11 +1345,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
 }");
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_Rotate = m_UI.FindAction("Rotate", throwIfNotFound: true);
-        m_UI_Ready = m_UI.FindAction("Ready", throwIfNotFound: true);
-        m_UI_Leave = m_UI.FindAction("Leave", throwIfNotFound: true);
-        m_UI_ChangeSkin = m_UI.FindAction("Change Skin", throwIfNotFound: true);
-        m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
         m_UI_DefaultActions = m_UI.FindAction("-------------Default Actions--------------", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
         m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
@@ -1480,6 +1356,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
         // Racing
         m_Racing = asset.FindActionMap("Racing", throwIfNotFound: true);
         m_Racing_Steer = m_Racing.FindAction("Steer", throwIfNotFound: true);
@@ -1488,9 +1365,12 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Racing_Look = m_Racing.FindAction("Look", throwIfNotFound: true);
         m_Racing_UseItem = m_Racing.FindAction("UseItem", throwIfNotFound: true);
         m_Racing_Pause = m_Racing.FindAction("Pause", throwIfNotFound: true);
-        // Sumo
-        m_Sumo = asset.FindActionMap("Sumo", throwIfNotFound: true);
-        m_Sumo_Movement = m_Sumo.FindAction("Movement", throwIfNotFound: true);
+        // Lobby
+        m_Lobby = asset.FindActionMap("Lobby", throwIfNotFound: true);
+        m_Lobby_Rotate = m_Lobby.FindAction("Rotate", throwIfNotFound: true);
+        m_Lobby_Ready = m_Lobby.FindAction("Ready", throwIfNotFound: true);
+        m_Lobby_Leave = m_Lobby.FindAction("Leave", throwIfNotFound: true);
+        m_Lobby_ChangeSkin = m_Lobby.FindAction("Change Skin", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1550,11 +1430,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     // UI
     private readonly InputActionMap m_UI;
     private IUIActions m_UIActionsCallbackInterface;
-    private readonly InputAction m_UI_Rotate;
-    private readonly InputAction m_UI_Ready;
-    private readonly InputAction m_UI_Leave;
-    private readonly InputAction m_UI_ChangeSkin;
-    private readonly InputAction m_UI_Pause;
     private readonly InputAction m_UI_DefaultActions;
     private readonly InputAction m_UI_Navigate;
     private readonly InputAction m_UI_Submit;
@@ -1566,15 +1441,11 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_RightClick;
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
+    private readonly InputAction m_UI_Pause;
     public struct UIActions
     {
         private @Controls m_Wrapper;
         public UIActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Rotate => m_Wrapper.m_UI_Rotate;
-        public InputAction @Ready => m_Wrapper.m_UI_Ready;
-        public InputAction @Leave => m_Wrapper.m_UI_Leave;
-        public InputAction @ChangeSkin => m_Wrapper.m_UI_ChangeSkin;
-        public InputAction @Pause => m_Wrapper.m_UI_Pause;
         public InputAction @DefaultActions => m_Wrapper.m_UI_DefaultActions;
         public InputAction @Navigate => m_Wrapper.m_UI_Navigate;
         public InputAction @Submit => m_Wrapper.m_UI_Submit;
@@ -1586,6 +1457,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @RightClick => m_Wrapper.m_UI_RightClick;
         public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
+        public InputAction @Pause => m_Wrapper.m_UI_Pause;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1595,21 +1467,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_UIActionsCallbackInterface != null)
             {
-                @Rotate.started -= m_Wrapper.m_UIActionsCallbackInterface.OnRotate;
-                @Rotate.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnRotate;
-                @Rotate.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnRotate;
-                @Ready.started -= m_Wrapper.m_UIActionsCallbackInterface.OnReady;
-                @Ready.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnReady;
-                @Ready.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnReady;
-                @Leave.started -= m_Wrapper.m_UIActionsCallbackInterface.OnLeave;
-                @Leave.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnLeave;
-                @Leave.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnLeave;
-                @ChangeSkin.started -= m_Wrapper.m_UIActionsCallbackInterface.OnChangeSkin;
-                @ChangeSkin.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnChangeSkin;
-                @ChangeSkin.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnChangeSkin;
-                @Pause.started -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
-                @Pause.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
-                @Pause.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
                 @DefaultActions.started -= m_Wrapper.m_UIActionsCallbackInterface.OnDefaultActions;
                 @DefaultActions.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnDefaultActions;
                 @DefaultActions.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnDefaultActions;
@@ -1643,25 +1500,13 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @TrackedDeviceOrientation.started -= m_Wrapper.m_UIActionsCallbackInterface.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnTrackedDeviceOrientation;
+                @Pause.started -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Rotate.started += instance.OnRotate;
-                @Rotate.performed += instance.OnRotate;
-                @Rotate.canceled += instance.OnRotate;
-                @Ready.started += instance.OnReady;
-                @Ready.performed += instance.OnReady;
-                @Ready.canceled += instance.OnReady;
-                @Leave.started += instance.OnLeave;
-                @Leave.performed += instance.OnLeave;
-                @Leave.canceled += instance.OnLeave;
-                @ChangeSkin.started += instance.OnChangeSkin;
-                @ChangeSkin.performed += instance.OnChangeSkin;
-                @ChangeSkin.canceled += instance.OnChangeSkin;
-                @Pause.started += instance.OnPause;
-                @Pause.performed += instance.OnPause;
-                @Pause.canceled += instance.OnPause;
                 @DefaultActions.started += instance.OnDefaultActions;
                 @DefaultActions.performed += instance.OnDefaultActions;
                 @DefaultActions.canceled += instance.OnDefaultActions;
@@ -1695,6 +1540,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @TrackedDeviceOrientation.started += instance.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.performed += instance.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.canceled += instance.OnTrackedDeviceOrientation;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -1773,38 +1621,62 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     }
     public RacingActions @Racing => new RacingActions(this);
 
-    // Sumo
-    private readonly InputActionMap m_Sumo;
-    private ISumoActions m_SumoActionsCallbackInterface;
-    private readonly InputAction m_Sumo_Movement;
-    public struct SumoActions
+    // Lobby
+    private readonly InputActionMap m_Lobby;
+    private ILobbyActions m_LobbyActionsCallbackInterface;
+    private readonly InputAction m_Lobby_Rotate;
+    private readonly InputAction m_Lobby_Ready;
+    private readonly InputAction m_Lobby_Leave;
+    private readonly InputAction m_Lobby_ChangeSkin;
+    public struct LobbyActions
     {
         private @Controls m_Wrapper;
-        public SumoActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_Sumo_Movement;
-        public InputActionMap Get() { return m_Wrapper.m_Sumo; }
+        public LobbyActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Rotate => m_Wrapper.m_Lobby_Rotate;
+        public InputAction @Ready => m_Wrapper.m_Lobby_Ready;
+        public InputAction @Leave => m_Wrapper.m_Lobby_Leave;
+        public InputAction @ChangeSkin => m_Wrapper.m_Lobby_ChangeSkin;
+        public InputActionMap Get() { return m_Wrapper.m_Lobby; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(SumoActions set) { return set.Get(); }
-        public void SetCallbacks(ISumoActions instance)
+        public static implicit operator InputActionMap(LobbyActions set) { return set.Get(); }
+        public void SetCallbacks(ILobbyActions instance)
         {
-            if (m_Wrapper.m_SumoActionsCallbackInterface != null)
+            if (m_Wrapper.m_LobbyActionsCallbackInterface != null)
             {
-                @Movement.started -= m_Wrapper.m_SumoActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_SumoActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_SumoActionsCallbackInterface.OnMovement;
+                @Rotate.started -= m_Wrapper.m_LobbyActionsCallbackInterface.OnRotate;
+                @Rotate.performed -= m_Wrapper.m_LobbyActionsCallbackInterface.OnRotate;
+                @Rotate.canceled -= m_Wrapper.m_LobbyActionsCallbackInterface.OnRotate;
+                @Ready.started -= m_Wrapper.m_LobbyActionsCallbackInterface.OnReady;
+                @Ready.performed -= m_Wrapper.m_LobbyActionsCallbackInterface.OnReady;
+                @Ready.canceled -= m_Wrapper.m_LobbyActionsCallbackInterface.OnReady;
+                @Leave.started -= m_Wrapper.m_LobbyActionsCallbackInterface.OnLeave;
+                @Leave.performed -= m_Wrapper.m_LobbyActionsCallbackInterface.OnLeave;
+                @Leave.canceled -= m_Wrapper.m_LobbyActionsCallbackInterface.OnLeave;
+                @ChangeSkin.started -= m_Wrapper.m_LobbyActionsCallbackInterface.OnChangeSkin;
+                @ChangeSkin.performed -= m_Wrapper.m_LobbyActionsCallbackInterface.OnChangeSkin;
+                @ChangeSkin.canceled -= m_Wrapper.m_LobbyActionsCallbackInterface.OnChangeSkin;
             }
-            m_Wrapper.m_SumoActionsCallbackInterface = instance;
+            m_Wrapper.m_LobbyActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Movement.started += instance.OnMovement;
-                @Movement.performed += instance.OnMovement;
-                @Movement.canceled += instance.OnMovement;
+                @Rotate.started += instance.OnRotate;
+                @Rotate.performed += instance.OnRotate;
+                @Rotate.canceled += instance.OnRotate;
+                @Ready.started += instance.OnReady;
+                @Ready.performed += instance.OnReady;
+                @Ready.canceled += instance.OnReady;
+                @Leave.started += instance.OnLeave;
+                @Leave.performed += instance.OnLeave;
+                @Leave.canceled += instance.OnLeave;
+                @ChangeSkin.started += instance.OnChangeSkin;
+                @ChangeSkin.performed += instance.OnChangeSkin;
+                @ChangeSkin.canceled += instance.OnChangeSkin;
             }
         }
     }
-    public SumoActions @Sumo => new SumoActions(this);
+    public LobbyActions @Lobby => new LobbyActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1825,11 +1697,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     }
     public interface IUIActions
     {
-        void OnRotate(InputAction.CallbackContext context);
-        void OnReady(InputAction.CallbackContext context);
-        void OnLeave(InputAction.CallbackContext context);
-        void OnChangeSkin(InputAction.CallbackContext context);
-        void OnPause(InputAction.CallbackContext context);
         void OnDefaultActions(InputAction.CallbackContext context);
         void OnNavigate(InputAction.CallbackContext context);
         void OnSubmit(InputAction.CallbackContext context);
@@ -1841,6 +1708,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnRightClick(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IRacingActions
     {
@@ -1851,8 +1719,11 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnUseItem(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
     }
-    public interface ISumoActions
+    public interface ILobbyActions
     {
-        void OnMovement(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
+        void OnReady(InputAction.CallbackContext context);
+        void OnLeave(InputAction.CallbackContext context);
+        void OnChangeSkin(InputAction.CallbackContext context);
     }
 }

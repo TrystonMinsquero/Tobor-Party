@@ -92,6 +92,10 @@ public class LobbyUI : MonoBehaviour
     
     public void StartGame()
     {
+        foreach (var joinBox in joinBoxes)
+        {
+            joinBox.DisconnectController();
+        }
         if (PlayerManager.playerCount > 0)
         {
             SceneManager.LoadScene("RaceTrack");
