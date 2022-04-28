@@ -34,6 +34,7 @@ public class WinMenu : MonoBehaviour
         
         if(PlayerManager.instance)
             PlayerManager.ClearAndDestroy();
-        SceneManager.LoadScene("Lobby");
+
+        SceneManager.LoadScene(Arcade.IsRunningInArcadeMode() ? "2P Lobby" : "Lobby");
     }
 }
