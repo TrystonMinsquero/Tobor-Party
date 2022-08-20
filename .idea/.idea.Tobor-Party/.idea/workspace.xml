@@ -1,7 +1,188 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="51c923a0-25cd-4217-9576-2d457c48d13d" name="Changes" comment="" />
+    <list default="true" id="51c923a0-25cd-4217-9576-2d457c48d13d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Editor/AdvertyDependencies.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Editor/AdvertyDependencies.xml.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Editor/Data.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Editor/Data/SDKContent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Editor/Data/SDKContent.xml.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Editor/Plugins.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Editor/Plugins/AdvertyEditorDirectory.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Editor/Plugins/AdvertyEditorDirectory.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Editor/Plugins/AdvertySDKEditor.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Editor/Plugins/AdvertySDKEditor.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/AdvertyDirectory.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/AdvertyDirectory.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/AdvertySDK.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/AdvertySDK.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/Android.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/Android/AdvertyAndroidPlugin.aar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/Android/AdvertyAndroidPlugin.aar.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/Android/play-services-ads-identifier-17.0.1.aar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/Android/play-services-ads-identifier-17.0.1.aar.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/Android/play-services-basement-17.6.0.aar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/Android/play-services-basement-17.6.0.aar.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/LitJson.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/LitJson.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/iOS.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/iOS/AdvertyIosPlugin.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/iOS/AdvertyIosPlugin.a.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/utils.bundle.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/utils.bundle/Contents.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/utils.bundle/Contents/Info.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/utils.bundle/Contents/Info.plist.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/utils.bundle/Contents/MacOS.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/utils.bundle/Contents/MacOS/utils" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/utils.bundle/Contents/MacOS/utils.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/utils.bundle/Contents/_CodeSignature.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/utils.bundle/Contents/_CodeSignature/CodeResources" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Plugins/utils.bundle/Contents/_CodeSignature/CodeResources.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Prefabs/InMenuUnitBox.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Prefabs/InMenuUnitBox.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Prefabs/InMenuUnitLandscape.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Prefabs/InMenuUnitLandscape.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Prefabs/InMenuUnitPortrait.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Prefabs/InMenuUnitPortrait.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Prefabs/InMenuUnitWideLandscape.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Prefabs/InMenuUnitWideLandscape.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Prefabs/InPlayUnit.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Prefabs/InPlayUnit.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/ReadMe.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/ReadMe.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/ComputeShaders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/ComputeShaders/VisibilityCheckCS.compute" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/ComputeShaders/VisibilityCheckCS.compute.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Data.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Data/AdvertySettings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Data/AdvertySettings.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/Lit.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/Lit/BoxUnitMaterial.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/Lit/BoxUnitMaterial.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/Lit/LandscapeUnitMaterial.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/Lit/LandscapeUnitMaterial.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/Lit/PortraitUnitMaterial.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/Lit/PortraitUnitMaterial.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/Lit/SpriteMaterial.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/Lit/SpriteMaterial.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/Lit/WideLandscapeUnitMaterial.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/Lit/WideLandscapeUnitMaterial.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/UIMaterial.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/UIMaterial.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/Unlit.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/Unlit/BoxUnitMaterial.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/Unlit/BoxUnitMaterial.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/Unlit/LandscapeUnitMaterial.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/Unlit/LandscapeUnitMaterial.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/Unlit/PortraitUnitMaterial.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/Unlit/PortraitUnitMaterial.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/Unlit/SpriteMaterial.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/Unlit/SpriteMaterial.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/Unlit/WideLandscapeUnitMaterial.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Materials/Unlit/WideLandscapeUnitMaterial.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Meshes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Meshes/SimpleUnit.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Meshes/SimpleUnit.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Meshes/SimpleUnitOneSided.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Meshes/SimpleUnitOneSided.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Meshes/UnitMesh.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Meshes/UnitMesh.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders/AdShader.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders/AdShader.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders/AdSpriteLitShader.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders/AdSpriteLitShader.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders/AdSpriteUnlitShader.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders/AdSpriteUnlitShader.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders/AdUIShader.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders/AdUIShader.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders/AdUnlitShader.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders/AdUnlitShader.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders/AdvertyCG.cginc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders/AdvertyCG.cginc.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders/AdvertyURP.hlsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders/AdvertyURP.hlsl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders/AndroidExternalTextureCopy.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders/AndroidExternalTextureCopy.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders/UIDrawOnTop.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders/UIDrawOnTop.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders/VisibilityCheckStencilShader.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders/VisibilityCheckStencilShader.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders/WatermarkShader.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Shaders/WatermarkShader.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Textures/ad_placeholder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Textures/ad_placeholder.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Textures/watermarkMask.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Resources/Textures/watermarkMask.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/AndroidNativeUtils.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/AndroidNativeUtils.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/AndroidRenderingPlugin.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/AndroidRenderingPlugin.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/AndroidWebViewTextureBridge.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/AndroidWebViewTextureBridge.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/BaseWebViewTextureBridge.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/BaseWebViewTextureBridge.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/IOSWebViewTexture.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/IOSWebViewTexture.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/IosNativeUtils.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/IosNativeUtils.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/IosWebViewTextureBridge.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/IosWebViewTextureBridge.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/NativeAssemblyGetter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/NativeAssemblyGetter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/NativeBridge.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/NativeBridge.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/NativeDebug.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/NativeDebug.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/NativeLogger.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/NativeLogger.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/NativeMessageSystem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/NativeMessageSystem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/NativeRedirectionDialogBridge.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/NativeRedirectionDialogBridge.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/OsxNativeUtils.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/OsxNativeUtils.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/SystemVersion.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Scripts/PlatformSpecific/SystemVersion.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Textures/Sprites.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Textures/Sprites/advertyBox.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Textures/Sprites/advertyBox.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Textures/Sprites/advertyLandscape.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Textures/Sprites/advertyLandscape.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Textures/Sprites/advertyPortrait.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Textures/Sprites/advertyPortrait.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Textures/Sprites/advertyWLandscape.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Textures/Sprites/advertyWLandscape.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Textures/advertyBox.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Textures/advertyBox.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Textures/advertyLandscape.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Textures/advertyLandscape.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Textures/advertyLogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Textures/advertyLogo.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Textures/advertyPortrait.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Textures/advertyPortrait.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Textures/advertyWLandscape.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Adverty/Textures/advertyWLandscape.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InitializeAdvertySDK.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InitializeAdvertySDK.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tobor-Party/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tobor-Party/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Lobby.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/RaceTrack.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/RaceTrack.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Car.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Car.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Lobby/JoinBox.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Lobby/JoinBox.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,6 +292,8 @@
       <workItem from="1650458412855" duration="11314000" />
       <workItem from="1650812859513" duration="2047000" />
       <workItem from="1650848027712" duration="1325000" />
+      <workItem from="1651182884770" duration="672000" />
+      <workItem from="1660947541472" duration="11879000" />
     </task>
     <servers />
   </component>

@@ -47,7 +47,23 @@ public class Car : PlayerObject
     [Header("Bot")]
     public bool isBot = false;
     public bool deleteCamera = false;
-    private BotInput botInputs;
+
+    private BotInput botInput;
+
+    private BotInput BotInput
+    {
+        get
+        {
+            if (botInput != null)
+                return botInput;
+            botInput = GetComponent<BotInput>();
+            if (botInput != null)
+                return botInput;
+            botInput = gameObject.AddComponent<BotInput>();
+            return botInput;
+        }
+        set => botInput = value;
+    }
 
     [Header("Objects")]
     public Rigidbody rb;
@@ -156,8 +172,7 @@ public class Car : PlayerObject
     public AnimationCurve katsupCurve; // 0 = 1, 1 = 1 lap behind
 
     [Header("Other")]
-    public Text speedText;
-    public CarController _controller;
+    private CarController controller;
     public Vector3 startRotation;
     public AudioSource whirring;
 
@@ -180,7 +195,7 @@ public class Car : PlayerObject
 
         if (isBot)
         {
-            botInputs = GetComponent<BotInput>();
+            BotInput = GetComponent<BotInput>();
             if (deleteCamera)
             {
                 Destroy(cam.gameObject);
@@ -273,7 +288,7 @@ public class Car : PlayerObject
     {
         isDeactivated = false;
 
-        botInputs = gameObject.AddComponent<BotInput>();
+        BotInput = gameObject.AddComponent<BotInput>();
         isBot = true;
     }
 
@@ -505,17 +520,17 @@ public class Car : PlayerObject
         // User inputs
         if (!isBot)
         {
-            inputs.lookRotation = _controller.LookInput;
+            inputs.lookRotation = controller.LookInput;
 
-            inputs.steerInput = _controller.SteerInput;
-            inputs.gasInput = _controller.GasBreakInput;
-            inputs.drift = _controller.DriftInput;
-            inputs.useItem = _controller.UseItemInput;
+            inputs.steerInput = controller.SteerInput;
+            inputs.gasInput = controller.GasBreakInput;
+            inputs.drift = controller.DriftInput;
+            inputs.useItem = controller.UseItemInput;
 
         }
         else
         {
-            botInputs.UpdateInput(ref inputs, checkpoints);
+            BotInput.UpdateInput(ref inputs, checkpoints);
         }
 
         if (wipeoutTime <= 0 && holder.Items.Count > 0 && inputs.useItem && !lastUseItemInput)
@@ -717,10 +732,11 @@ public class Car : PlayerObject
         if (playerController as CarController == null)
             return false;
         
-        _controller = (CarController) playerController;
+        controller = (CarController) playerController;
         PlayerInput playerInput = playerController.gameObject.GetComponent<PlayerInput>();
         playerInput.camera = cam.camera;
-        
+        // InitializeAdvertySDK.Initialize(cam.camera);
+
         // Only enable correct action Map
         foreach(InputActionMap actionMap in playerInput.actions.actionMaps)
             actionMap.Disable();
@@ -730,6 +746,6 @@ public class Car : PlayerObject
 
     public override bool HasController()
     {
-        return _controller != null || isBot;
+        return controller != null || isBot;
     }
 }

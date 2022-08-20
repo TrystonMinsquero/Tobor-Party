@@ -32,6 +32,7 @@ public class JoinBox : MonoBehaviour
         preview.Enable();
         _controller = player.GetComponent<LobbyController>();
         _controller.SwitchActionMap("Lobby");
+        
         preview.renderer.UpdateSkin(_player.skinIndex);
         
         ConnectController();

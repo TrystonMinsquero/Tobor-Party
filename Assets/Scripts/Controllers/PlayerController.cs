@@ -37,7 +37,7 @@ public abstract class PlayerController : MonoBehaviour
     
     public void OnPause(InputAction.CallbackContext ctx)
     {
-        if(FindObjectOfType<PauseMenu>() == null)
+        if(PauseMenu.Instance == null)
             return;
         if (ctx.started)
         {
