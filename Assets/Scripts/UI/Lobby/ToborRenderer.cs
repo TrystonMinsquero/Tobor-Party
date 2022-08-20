@@ -80,6 +80,8 @@ public class ToborRenderer : MonoBehaviour
 
     public void UpdateSkin(int index)
     {
+        if (skin == null)
+            skin = GetComponent<PlayerSkin>();
         skin.SetIndex(index);
         ResetLayer();
     }
