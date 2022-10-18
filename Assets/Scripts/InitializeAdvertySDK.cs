@@ -12,17 +12,9 @@ public class InitializeAdvertySDK
             AdvertySDK.Init(userData);
             initilized = true;
         }
-
+        
         Adverty.AdvertySettings.SetMainCamera(camera);
         Debug.Log("Adverty Initialized");
     }
-}
-
-public static class DumbExtensions
-{
-    public static bool GetKeyDown(this UnityEngine.Input input)
-    {
-        return false;
-    }
-
+    
 }

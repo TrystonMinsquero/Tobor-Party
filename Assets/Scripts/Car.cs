@@ -735,7 +735,7 @@ public class Car : PlayerObject
         controller = (CarController) playerController;
         PlayerInput playerInput = playerController.gameObject.GetComponent<PlayerInput>();
         playerInput.camera = cam.camera;
-        // InitializeAdvertySDK.Initialize(cam.camera);
+        InitializeAdvertySDK.Initialize(cam.camera);
 
         // Only enable correct action Map
         foreach(InputActionMap actionMap in playerInput.actions.actionMaps)
